@@ -6,8 +6,10 @@ interface JumbotronProps {}
 const Jumbotron: React.FC<JumbotronProps> = () => {
   return (
     <div
-      className="relative flex flex-row w-full p-10 mt-4 bg-blue-50 rounded-xl"
-      style={{ height: "700px" }}
+      className="relative flex flex-row w-full p-10 bg-blue-50 rounded-xl"
+      style={{
+        height: "max(70vh, 768px)",
+      }}
     >
       <div className="flex flex-col w-7/12 px-20 justify-evenly">
         <h1 className="text-6xl font-semibold text-gray-800">
@@ -24,18 +26,18 @@ const Jumbotron: React.FC<JumbotronProps> = () => {
         </p>
 
         <div className="flex space-x-4">
-          <button className="px-10 py-2 text-gray-200 bg-blue-500 rounded">
+          <button className="px-10 py-2 text-gray-200 bg-blue-500 rounded focus:outline-none">
             <p>Chat with Me</p>
           </button>
 
-          <button className="p-2 text-gray-800 bg-green-300 rounded">
+          <button className="p-2 text-gray-800 bg-green-300 rounded focus:outline-none">
             <p>Resume</p>
           </button>
         </div>
       </div>
 
       <div className="absolute bottom-0 right-0 w-1/2 -top-8">
-        <Image objectFit="contain" src="/t1.png" layout="fill" />
+        <Image loading="lazy" objectFit="contain" src="/t1.png" layout="fill" />
       </div>
     </div>
   );
