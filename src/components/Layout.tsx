@@ -33,7 +33,9 @@ const Layout: React.FC<LayoutProps> = ({ children, seo }) => {
           />
         </div>
       )}
+
       <NextSeo {...seo} />
+
       <div className="z-50 w-full h-screen overflow-x-hidden overflow-y-scroll text-gray-300 bg-background lg:bg-transparent scrollbar scrollbar-thin scrollbar-track-background scrollbar-thumb-gray-700">
         <div className="flex flex-col flex-1 w-full max-w-screen-xl px-4 mx-auto">
           <NavBar />

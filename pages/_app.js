@@ -5,7 +5,7 @@ import { ScreenProvider } from "../src/contexts/ScreenContext";
 function MyApp({ Component, pageProps }) {
   return (
     <ScreenProvider>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </ScreenProvider>
   );
 }

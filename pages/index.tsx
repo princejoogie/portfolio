@@ -8,7 +8,7 @@ const index: React.FC = () => {
   return (
     <Layout
       seo={{
-        title: "Portfolio",
+        title: "Prince Carlo Juguilon",
         description:
           "A Software Developer based in the Philippines, React enthusiast, fond of creating interactive and responsive layouts for web and mobile applications.",
         twitter: {
