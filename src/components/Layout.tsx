@@ -15,10 +15,7 @@ const Layout: React.FC<LayoutProps> = ({ children, seo }) => {
   return (
     <>
       {width >= 1024 && (
-        <div
-          className="absolute inset-0 cursor-not-allowed pointer-events-none bg-background"
-          style={{ zIndex: -1 }}
-        >
+        <div className="absolute inset-0 bg-background" style={{ zIndex: -1 }}>
           <Particles
             params={{
               particles: {

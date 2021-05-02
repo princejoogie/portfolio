@@ -1,8 +1,9 @@
 import React from "react";
-import Contact from "src/components/Contact";
-import Jumbotron from "src/components/Jumbotron";
-import Projects from "src/components/Projects";
+import Contact from "src/components/contact/Contact";
+import Jumbotron from "src/components/about/Jumbotron";
+import Projects from "src/components/projects/Projects";
 import Layout from "src/components/Layout";
+import TechStack from "src/components/about/TechStack";
 
 const index: React.FC = () => {
   return (
@@ -20,9 +21,12 @@ const index: React.FC = () => {
     >
       <div id="about" className="pt-8 lg:pt-12" />
       <Jumbotron />
+      <TechStack />
+      <div className="h-24 md:h-32" />
 
       <div id="projects" className="pt-8 lg:pt-12" />
       <Projects />
+      <div className="h-24 md:h-32" />
 
       <div id="contact" className="pt-8 lg:pt-12" />
       <Contact />

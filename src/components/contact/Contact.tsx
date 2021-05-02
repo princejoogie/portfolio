@@ -6,7 +6,7 @@ const Contact: React.FC<ContactProps> = () => {
   return (
     <div className="flex flex-col w-full h-screen">
       <h1 className="text-3xl font-bold tracking-tight text-gray-300 lg:text-6xl">
-        Contact.
+        Let's Work Together.
       </h1>
 
       <div>

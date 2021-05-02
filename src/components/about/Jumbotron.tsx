@@ -9,22 +9,24 @@ const Jumbotron: React.FC<JumbotronProps> = () => {
 
   return (
     <div
-      className="relative flex flex-row w-full p-8 shadow-2xl blur-3xl floatCard rounded-xl bg-gradient-to-br from-startpoint via-midpoint to-startpoint"
+      className="relative flex flex-row w-full p-8 shadow-2xl floatCard rounded-xl"
       style={{
         height: width >= 1024 ? "max(70vh, 768px)" : "auto",
       }}
     >
-      <div className="flex flex-col justify-center w-full lg:px-20 lg:w-7/12">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-200 lg:text-7xl">
+      <div className="absolute inset-0 opacity-70 rounded-xl bg-gradient-to-br from-startpoint via-midpoint to-startpoint" />
+
+      <div className="z-10 flex flex-col justify-center w-full lg:px-20 lg:w-7/12">
+        <h1 className="text-4xl font-bold tracking-tight text-center text-gray-200 lg:text-left md:text-5xl lg:text-7xl">
           Prince Carlo <br /> Juguilon.
         </h1>
 
-        <p className="my-12 font-mono text-base text-gray-400 lg:text-lg">
-          a <span className="font-semibold">Software Developer </span>based in
-          the Philippines, <span className="font-semibold">React </span>
+        <p className="my-12 font-mono text-base text-center text-gray-400 lg:text-left lg:text-lg">
+          a <span className="font-bold">Software Developer </span>based in the
+          Philippines, <span className="font-bold">React </span>
           enthusiast, fond of creating{" "}
-          <span className="font-semibold">interactive </span>and{" "}
-          <span className="font-semibold">responsive </span>layouts for web and
+          <span className="font-bold">interactive </span>and{" "}
+          <span className="font-bold">responsive </span>layouts for web and
           mobile applications.
         </p>
 
