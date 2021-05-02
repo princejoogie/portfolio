@@ -1,12 +1,12 @@
 import React from "react";
 
-interface ProjectsProps {}
+interface ContactProps {}
 
-const Projects: React.FC<ProjectsProps> = () => {
+const Contact: React.FC<ContactProps> = () => {
   return (
     <div className="flex flex-col w-full h-screen">
       <h1 className="text-6xl font-bold tracking-tight text-gray-800">
-        Projects.
+        Contact.
       </h1>
 
       <div>
@@ -16,4 +16,4 @@ const Projects: React.FC<ProjectsProps> = () => {
   );
 };
 
-export default Projects;
+export default Contact;

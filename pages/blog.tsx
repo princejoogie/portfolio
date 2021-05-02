@@ -10,6 +10,7 @@ const blogs: React.FC = () => {
         <NavBar />
 
         <div>BLOGS</div>
+        <p>Coming soon.</p>
       </div>
     </div>
   );

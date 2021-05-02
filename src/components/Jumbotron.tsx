@@ -6,17 +6,17 @@ interface JumbotronProps {}
 const Jumbotron: React.FC<JumbotronProps> = () => {
   return (
     <div
-      className="relative flex flex-row w-full p-10 bg-blue-50 rounded-xl"
+      className="relative flex flex-row w-full p-10 shadow-2xl bg-opacity-30 blur-lg floatCard rounded-xl bg-gradient-to-br from-blue-50 via-green-100 to-blue-50"
       style={{
         height: "max(70vh, 768px)",
       }}
     >
-      <div className="flex flex-col w-7/12 px-20 justify-evenly">
-        <h1 className="text-6xl font-semibold text-gray-800">
-          Prince Carlo <br /> Juguilon,
+      <div className="flex flex-col justify-center w-7/12 px-20">
+        <h1 className="font-bold tracking-tight text-gray-800 text-7xl">
+          Prince Carlo <br /> Juguilon.
         </h1>
 
-        <p className="font-mono text-lg text-gray-600">
+        <p className="my-12 font-mono text-lg text-gray-600">
           a <span className="font-semibold">Software Developer </span>based in
           the Philippines, <span className="font-semibold">React </span>
           enthusiast, fond of creating{" "}
@@ -26,12 +26,26 @@ const Jumbotron: React.FC<JumbotronProps> = () => {
         </p>
 
         <div className="flex space-x-4">
-          <button className="px-10 py-2 text-gray-200 bg-blue-500 rounded focus:outline-none">
+          <button className="px-10 py-2 text-white transition-colors duration-300 ease-out bg-blue-400 rounded hover:bg-blue-500 focus:outline-none">
             <p>Chat with Me</p>
           </button>
 
-          <button className="p-2 text-gray-800 bg-green-300 rounded focus:outline-none">
-            <p>Resume</p>
+          <button className="flex items-center justify-center p-2 space-x-2 text-white transition-colors duration-300 ease-out bg-green-400 rounded hover:bg-green-500 focus:outline-none">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            <p className="text-sm">Resume</p>
           </button>
         </div>
       </div>
