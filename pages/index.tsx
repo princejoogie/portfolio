@@ -18,13 +18,13 @@ const index: React.FC = () => {
         },
       }}
     >
-      <div id="about" className="pt-12" />
+      <div id="about" className="pt-8 lg:pt-12" />
       <Jumbotron />
 
-      <div id="projects" className="pt-12" />
+      <div id="projects" className="pt-8 lg:pt-12" />
       <Projects />
 
-      <div id="contact" className="pt-12" />
+      <div id="contact" className="pt-8 lg:pt-12" />
       <Contact />
     </Layout>
   );

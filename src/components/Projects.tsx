@@ -5,7 +5,7 @@ interface ProjectsProps {}
 const Projects: React.FC<ProjectsProps> = () => {
   return (
     <div className="flex flex-col w-full h-screen">
-      <h1 className="text-6xl font-bold tracking-tight text-gray-300">
+      <h1 className="text-3xl font-bold tracking-tight text-gray-300 lg:text-6xl">
         Projects.
       </h1>
 
