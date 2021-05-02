@@ -10,12 +10,12 @@ const ToggleSwitch: React.FC<SwitchProps> = () => {
     <Switch
       checked={enabled}
       onChange={setEnabled}
-      className={`${enabled ? "bg-gray-700" : "bg-gray-200"}
+      className={`${enabled ? "bg-gray-700" : "bg-gray-700"}
           relative inline-flex flex-shrink-0 h-7 w-14 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
     >
       <div
         className={`${
-          enabled ? "translate-x-7 bg-gray-500" : "translate-x-0 bg-white"
+          enabled ? "translate-x-7 bg-gray-200" : "translate-x-0 bg-gray-500"
         } rounded-full w-6 h-6 flex items-center justify-center pointer-events-none transform transition-all ease-in-out duration-300`}
       >
         {enabled ? (

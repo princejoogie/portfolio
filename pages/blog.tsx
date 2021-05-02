@@ -1,18 +1,20 @@
 import React from "react";
-import NavBar from "src/components/NavBar";
+import Layout from "src/components/Layout";
 
 const blogs: React.FC = () => {
   return (
-    <div className="w-full h-screen overflow-y-scroll">
-      {/* Content */}
-
-      <div className="flex flex-col flex-1 w-full max-w-screen-xl mx-auto">
-        <NavBar />
-
-        <div>BLOGS</div>
+    <Layout
+      seo={{
+        title: "Blog - Prince Carlo",
+        description:
+          "In-depth explanation and technologies used in the projects.",
+      }}
+    >
+      <div className="flex flex-col w-full h-screen">
+        <h1>Blogs</h1>
         <p>Coming soon.</p>
       </div>
-    </div>
+    </Layout>
   );
 };
 
