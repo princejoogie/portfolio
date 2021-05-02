@@ -2,6 +2,7 @@ import { NextSeo, NextSeoProps } from "next-seo";
 import React from "react";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
+import Particles from "react-particles-js";
 
 interface LayoutProps {
   seo?: NextSeoProps;
@@ -10,8 +11,25 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children, seo }) => {
   return (
     <>
+      <div
+        className="absolute inset-0 cursor-not-allowed pointer-events-none bg-background"
+        style={{ zIndex: -1 }}
+      >
+        <Particles
+          params={{
+            particles: {
+              number: {
+                value: 50,
+              },
+              size: {
+                value: 2,
+              },
+            },
+          }}
+        />
+      </div>
       <NextSeo {...seo} />
-      <div className="w-full h-screen overflow-y-scroll text-gray-300 bg-background">
+      <div className="z-50 w-full h-screen overflow-y-scroll text-gray-300 scrollbar scrollbar-thin scrollbar-track-background scrollbar-thumb-gray-700">
         <div className="flex flex-col flex-1 w-full max-w-screen-xl mx-auto">
           <NavBar />
           {children}
