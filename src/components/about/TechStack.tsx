@@ -1,12 +1,12 @@
 import React from "react";
-import FirebaseIcon from "../../assets/tech-stack/firebase.svg";
-import GraphqlIcon from "../../assets/tech-stack/graphql.svg";
-import NodejsIcon from "../../assets/tech-stack/node-js.svg";
-import ReactIcon from "../../assets/tech-stack/react.svg";
+import FirebaseIcon from "../../assets/svgs/tech-stack/firebase.svg";
+import GraphqlIcon from "../../assets/svgs/tech-stack/graphql.svg";
+import NodejsIcon from "../../assets/svgs/tech-stack/node-js.svg";
+import ReactIcon from "../../assets/svgs/tech-stack/react.svg";
 
-import DockerIcon from "../../assets/tech-stack/docker.svg";
-import GcpIcon from "../../assets/tech-stack/gcp.svg";
-import AwsIcon from "../../assets/tech-stack/aws.svg";
+import DockerIcon from "../../assets/svgs/tech-stack/docker.svg";
+import GcpIcon from "../../assets/svgs/tech-stack/gcp.svg";
+import AwsIcon from "../../assets/svgs/tech-stack/aws.svg";
 
 interface TechItemProps {
   title: string;

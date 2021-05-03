@@ -1,7 +1,7 @@
 import { NextSeo, NextSeoProps } from "next-seo";
 import React, { useContext } from "react";
-import Footer from "./Footer";
-import NavBar from "./NavBar";
+import Footer from "../Footer";
+import NavBar from "../NavBar";
 import Particles from "react-particles-js";
 import { ScreenContext } from "src/contexts/ScreenContext";
 

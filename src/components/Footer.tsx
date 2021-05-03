@@ -11,28 +11,28 @@ const Footer: React.FC<FooterProps> = () => {
       <div className="flex flex-col space-y-4 lg:space-y-0 lg:space-x-20 lg:flex-row">
         <button
           onClick={() => router.replace("/#about")}
-          className="focus:outline-none"
+          className="focus:outline-none focus:bg-gray-800"
         >
           <p className="text-gray-400 uppercase">About</p>
         </button>
 
         <button
           onClick={() => router.replace("/#projects")}
-          className="focus:outline-none"
+          className="focus:outline-none focus:bg-gray-800"
         >
           <p className="text-gray-400 uppercase">Projects</p>
         </button>
 
         <button
           onClick={() => router.replace("/#contact")}
-          className="focus:outline-none"
+          className="focus:outline-none focus:bg-gray-800"
         >
           <p className="text-gray-400 uppercase">Contact</p>
         </button>
 
         <button
           onClick={() => router.replace("/blog")}
-          className="focus:outline-none"
+          className="focus:outline-none focus:bg-gray-800"
         >
           <p className="text-gray-400 uppercase">Blogs</p>
         </button>

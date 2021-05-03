@@ -15,7 +15,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      skew: ["active", "group-hover"],
+    },
   },
-  plugins: [require("tailwind-scrollbar")],
+  plugins: [require("tailwind-scrollbar"), require("@tailwindcss/line-clamp")],
 };

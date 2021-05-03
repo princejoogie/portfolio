@@ -2,7 +2,7 @@ import React from "react";
 import Contact from "src/components/contact/Contact";
 import Jumbotron from "src/components/about/Jumbotron";
 import Projects from "src/components/projects/Projects";
-import Layout from "src/components/Layout";
+import Layout from "src/components/layouts/Layout";
 import TechStack from "src/components/about/TechStack";
 
 const index: React.FC = () => {
@@ -29,6 +29,7 @@ const index: React.FC = () => {
       <div className="h-24 md:h-32" />
 
       <div id="contact" className="pt-8 lg:pt-12" />
+      <div className="h-24 md:h-32" />
       <Contact />
     </Layout>
   );
