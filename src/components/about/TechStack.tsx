@@ -10,7 +10,7 @@ import AwsIcon from "../../assets/svgs/tech-stack/aws.svg";
 
 interface TechItemProps {
   title: string;
-  icon: React.FC;
+  icon: any;
 }
 
 const TechItem: React.FC<TechItemProps> = ({ title, icon: Icon }) => {

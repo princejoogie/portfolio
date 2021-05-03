@@ -13,7 +13,7 @@ interface LinkProps {
 }
 
 interface SocialProps {
-  icon: React.FC;
+  icon: any;
   href: string;
 }
 
