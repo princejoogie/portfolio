@@ -6,10 +6,10 @@ import dp from "../../src/assets/blog/dp.jpg";
 const Post: React.FC = () => {
   return (
     <BlogLayout seo={{ title: "A little more - Prince Carlo Juguilon" }}>
-      <div className="flex flex-col w-full pt-16 md:w-2/3">
+      <div className="flex flex-col w-full pt-16 lg:w-2/3">
         <p className="text-sm text-gray-400">May 3, 2021 4:24pm PST</p>
 
-        <h1 className="mt-4 text-3xl font-bold">
+        <h1 className="mt-4 text-2xl font-bold md:text-3xl">
           A little bit more of who I am. My hobbies, education, sports, etc.
         </h1>
 
@@ -48,7 +48,7 @@ const Post: React.FC = () => {
         </article>
       </div>
 
-      <div className="flex flex-col w-full pt-16 md:w-1/3">
+      <div className="flex flex-col w-full pt-16 lg:w-1/3">
         <div className="flex items-center justify-center">
           <p className="font-semibold uppercase">Read Next</p>
         </div>

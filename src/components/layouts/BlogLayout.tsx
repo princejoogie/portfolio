@@ -32,7 +32,7 @@ const BlogLayout: React.FC<BlogLayoutProps> = ({ seo, children }) => {
       <NextSeo {...seo} />
 
       <div className="z-50 w-full h-screen overflow-x-hidden overflow-y-scroll text-gray-300 bg-background lg:bg-transparent scrollbar scrollbar-thin scrollbar-track-background scrollbar-thumb-gray-700">
-        <div className="flex flex-col flex-1 w-full max-w-screen-xl px-4 mx-auto space-x-0 md:flex-row md:space-x-4">
+        <div className="flex flex-col flex-1 w-full max-w-screen-xl px-4 mx-auto space-x-0 lg:flex-row lg:space-x-4">
           {children}
         </div>
         <div className="h-24 md:h-32" />
