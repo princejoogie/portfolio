@@ -1,6 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import dp from "../../assets/blog/dp.jpg";
 import Tag, { TagProps } from "./Tag";
 
 interface BlogItemProps {
