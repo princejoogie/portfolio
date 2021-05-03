@@ -10,7 +10,7 @@ const Projects: React.FC<ProjectsProps> = () => {
       </h1>
 
       <div>
-        <h2 className="text-gray-400">Coming soon.</h2>
+        <h2 className="text-gray-400">under development</h2>
       </div>
     </div>
   );

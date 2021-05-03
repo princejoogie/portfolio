@@ -29,8 +29,8 @@ const index: React.FC = () => {
       <div className="h-24 md:h-32" />
 
       <div id="contact" className="pt-8 lg:pt-12" />
-      <div className="h-24 md:h-32" />
       <Contact />
+      <div className="h-24 md:h-32" />
     </Layout>
   );
 };
