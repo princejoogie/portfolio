@@ -1,5 +1,5 @@
 import React from "react";
-import BlogItem from "src/components/blogs/BlogItem";
+import BlogCard from "src/components/blogs/BlogCard";
 import Layout from "src/components/layouts/Layout";
 import aLittleMoreThumbnail from "../../src/assets/blog/a-little-more/thumbnail.jpg";
 
@@ -18,7 +18,7 @@ const blogs: React.FC = () => {
         </h1>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          <BlogItem
+          <BlogCard
             image={aLittleMoreThumbnail}
             date="May 3, 2021"
             link="a-little-more"
