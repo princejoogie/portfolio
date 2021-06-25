@@ -22,6 +22,21 @@
   animation: float 5s ease-in-out infinite;
 }
 
+.image-container {
+  width: 100%;
+}
+
+.image-container div {
+  position: unset !important;
+}
+
+.image-container img {
+  object-fit: cover;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}
+
 @keyframes float {
   0% {
     transform: translatey(0px);

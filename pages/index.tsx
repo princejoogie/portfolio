@@ -9,9 +9,9 @@ const index: React.FC = () => {
   return (
     <Layout
       seo={{
-        title: "Prince Carlo Juguilon",
+        title: "Prince Juguilon | Software Engineer",
         description:
-          "A Software Developer based in the Philippines, React enthusiast, fond of creating interactive and responsive layouts for web and mobile applications.",
+          "A Software Engineer based in the Philippines, React enthusiast, fond of creating interactive and responsive layouts for web and mobile applications.",
         twitter: {
           site: "https://princecaarlo.tech/",
           cardType: "summary_large_image",
@@ -22,13 +22,13 @@ const index: React.FC = () => {
       <div id="about" className="pt-8 lg:pt-12" />
       <Jumbotron />
       <TechStack />
-      <div className="h-24 md:h-32" />
+      <div className="h-24" />
 
-      <div id="projects" className="pt-8 lg:pt-12" />
+      <div id="projects" className="pt-4 lg:pt-12" />
       <Projects />
-      <div className="h-24 md:h-32" />
+      <div className="h-24" />
 
-      <div id="contact" className="pt-8 lg:pt-12" />
+      <div id="contact" className="pt-4 lg:pt-12" />
       <Contact />
       <div className="h-24 md:h-32" />
     </Layout>

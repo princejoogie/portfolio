@@ -22,7 +22,7 @@ const Jumbotron: React.FC<JumbotronProps> = () => {
         </h1>
 
         <p className="my-12 font-mono text-base text-center text-gray-400 lg:text-left lg:text-lg">
-          a <span className="font-bold">Software Developer </span>based in the
+          a <span className="font-bold">Software Engineer </span>based in the
           Philippines, <span className="font-bold">React </span>
           enthusiast, fond of creating{" "}
           <span className="font-bold">interactive </span>and{" "}
