@@ -1,5 +1,6 @@
 export { default as jsIcon } from "./javascript.svg";
 export { default as tsIcon } from "./typescript.svg";
+export { default as javaIcon } from "./java.svg";
 export { default as linkedInIcon } from "./linkedin.svg";
 export { default as instagramIcon } from "./instagram.svg";
 export { default as githubIcon } from "./github.svg";
