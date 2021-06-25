@@ -19,7 +19,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ setModalShown, src }) => {
       <div className="absolute inset-0 z-0 bg-black opacity-80" />
 
       <button
-        className="absolute z-50 top-10 right-10 focus:outline-none group"
+        className="absolute z-50 top-4 right-4 xl:top-10 xl:right-10 focus:outline-none group"
         onClick={() => setModalShown(false)}
       >
         <div>

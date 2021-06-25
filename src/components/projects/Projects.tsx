@@ -16,6 +16,7 @@ interface ItemProps {
   src: string;
   title: string;
   subtitle: string;
+  description?: string;
   date: string;
   github?: string;
   href?: string;
@@ -26,6 +27,7 @@ const ProjectItem: React.FC<ItemProps> = ({
   src,
   title,
   subtitle,
+  description,
   date,
   href,
   github,
@@ -38,17 +40,17 @@ const ProjectItem: React.FC<ItemProps> = ({
         {modalShown && <ImageModal {...{ setModalShown, src }} />}
       </AnimatePresence>
       <div className="relative flex items-center justify-center overflow-hidden rounded-xl group">
-        <div className="absolute z-20 w-10/12 p-4 transition-all duration-500 bg-black opacity-0 rounded-xl h-5/6 group-hover:opacity-70 group-hover:w-full group-hover:h-full">
-          <div className="flex items-center">
-            <div>
-              <h1>{title}</h1>
-            </div>
+        <div className="absolute z-20 w-10/12 p-4 transition-all duration-500 bg-black opacity-0 rounded-xl h-5/6 group-hover:opacity-80 group-hover:w-full group-hover:h-full">
+          <div className="flex flex-col items-start justify-end h-full">
+            <h1 className="font-bold">{title}</h1>
+
+            <p className="text-xs text-gray-400 md:text-sm">{description}</p>
 
             <button
-              className="absolute top-4 right-4 group focus:outline-none"
+              className="absolute w-6 h-6 text-gray-400 transition-all focus:outline-none top-4 right-4 group focus:text-white active:w-5 active:h-5"
               onClick={() => setModalShown(!modalShown)}
             >
-              <ExpandIcon className="w-6 h-6 text-gray-400 transition-all group-focus:text-white group-active:w-5 group-active:h-5" />
+              <ExpandIcon className="w-full h-full" />
             </button>
           </div>
         </div>
@@ -132,6 +134,7 @@ const Projects: React.FC = () => {
           src="/projects/pythagoras.png"
           title="Pythagoras"
           subtitle="Web Application"
+          description="a commisioned build for Pythagoras Coffee & Tea, an Ecommerce website that aims to provide their products online created with NextJS."
           href="https://pythagoras.netlify.app/"
           github="https://github.com/princejoogie/pythagoras"
           date="Oct 11, 2020"
@@ -141,6 +144,7 @@ const Projects: React.FC = () => {
           src="/projects/chamaeleon.png"
           title="Chamaeleon"
           subtitle="Web Application"
+          description="a commisioned build for a Startup IT Company, Chamaeleon Software, as their companies' website landing page and showcase of their products."
           href="https://chamaeleon.io/"
           github="https://github.com/princejoogie/chamaeleon"
           date="Sep 07, 2020"
