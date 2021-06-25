@@ -4,25 +4,30 @@ import ImageModal from "../ImageModal";
 import {
   jsIcon,
   tsIcon,
+  javaIcon,
   githubIcon as GHicon,
   expandIcon as ExpandIcon,
-  javaIcon,
+  openIcon as OpenIcon,
 } from "src/assets/svgs";
 import { AnimatePresence } from "framer-motion";
 
 interface ItemProps {
   Icon: any;
   src: string;
-  github?: string;
   title: string;
+  subtitle: string;
   date: string;
+  github?: string;
+  href?: string;
 }
 
 const ProjectItem: React.FC<ItemProps> = ({
   Icon,
   src,
   title,
+  subtitle,
   date,
+  href,
   github,
 }) => {
   const [modalShown, setModalShown] = useState(false);
@@ -33,10 +38,10 @@ const ProjectItem: React.FC<ItemProps> = ({
         {modalShown && <ImageModal {...{ setModalShown, src }} />}
       </AnimatePresence>
       <div className="relative flex items-center justify-center overflow-hidden rounded-xl group">
-        <div className="absolute z-20 w-10/12 p-4 transition-all duration-500 bg-black opacity-0 rounded-xl h-5/6 group-hover:opacity-60 group-hover:w-full group-hover:h-full">
+        <div className="absolute z-20 w-10/12 p-4 transition-all duration-500 bg-black opacity-0 rounded-xl h-5/6 group-hover:opacity-70 group-hover:w-full group-hover:h-full">
           <div className="flex items-center">
-            <div className="flex-1">
-              <h1>Chamaeleon</h1>
+            <div>
+              <h1>{title}</h1>
             </div>
 
             <button
@@ -58,20 +63,32 @@ const ProjectItem: React.FC<ItemProps> = ({
             <Icon />
           </div>
 
-          <p className="text-sm">{title}</p>
+          <div>
+            <p className="text-sm font-bold">{title}</p>
+            <p className="text-xs text-gray-400">{subtitle}</p>
+          </div>
         </div>
 
         <div className="flex items-center">
+          {!!href && (
+            <a
+              className="w-6 h-6 mr-4 overflow-hidden text-gray-300 rounded-md focus:outline-none"
+              href={href}
+              target="_blank"
+            >
+              <OpenIcon />
+            </a>
+          )}
           {!!github && (
             <a
               className="w-6 h-6 mr-4 overflow-hidden rounded-md focus:outline-none"
-              href="https://github.com/princejoogie/chamaeleon"
+              href={github}
               target="_blank"
             >
               <GHicon />
             </a>
           )}
-          <p className="text-xs text-gray-300">{date}</p>
+          <p className="text-xs text-gray-400">{date}</p>
         </div>
       </div>
     </div>
@@ -90,6 +107,7 @@ const Projects: React.FC = () => {
           Icon={tsIcon}
           src="/projects/pythagoras.png"
           title="Jookey"
+          subtitle="Web & Mobile Application"
           github="https://github.com/princejoogie/jookey"
           date="Apr 25, 2020"
         />
@@ -97,6 +115,7 @@ const Projects: React.FC = () => {
           Icon={tsIcon}
           src="/projects/chamaeleon.png"
           title="Genesis"
+          subtitle="Mobile Application"
           github="https://github.com/apc-genesis"
           date="Apr 16, 2020"
         />
@@ -104,6 +123,7 @@ const Projects: React.FC = () => {
           Icon={jsIcon}
           src="/projects/chamaeleon.png"
           title="Joog Uno"
+          subtitle="Web Application"
           github="https://github.com/princejoogie/hiwam0"
           date="Mar 29, 2020"
         />
@@ -111,6 +131,8 @@ const Projects: React.FC = () => {
           Icon={jsIcon}
           src="/projects/pythagoras.png"
           title="Pythagoras"
+          subtitle="Web Application"
+          href="https://pythagoras.netlify.app/"
           github="https://github.com/princejoogie/pythagoras"
           date="Oct 11, 2020"
         />
@@ -118,13 +140,16 @@ const Projects: React.FC = () => {
           Icon={jsIcon}
           src="/projects/chamaeleon.png"
           title="Chamaeleon"
+          subtitle="Web Application"
+          href="https://chamaeleon.io/"
           github="https://github.com/princejoogie/chamaeleon"
           date="Sep 07, 2020"
         />
         <ProjectItem
           Icon={javaIcon}
-          src="/projects/pythagoras.png"
+          src="/projects/uApp.png"
           title="uApp"
+          subtitle="Mobile Application"
           github="https://github.com/princejoogie/uaap_app"
           date="Oct 7, 2019"
         />
