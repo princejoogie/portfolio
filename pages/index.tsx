@@ -9,9 +9,9 @@ const index: React.FC = () => {
   return (
     <Layout
       seo={{
-        title: "Prince Carlo Juguilon",
+        title: "Prince Juguilon | Software Engineer",
         description:
-          "A Software Developer based in the Philippines, React enthusiast, fond of creating interactive and responsive layouts for web and mobile applications.",
+          "A Software Engineer based in the Philippines, React enthusiast, fond of creating interactive and responsive layouts for web and mobile applications.",
         twitter: {
           site: "https://princecaarlo.tech/",
           cardType: "summary_large_image",

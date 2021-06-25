@@ -1,13 +1,13 @@
 import React from "react";
-import FirebaseIcon from "../../assets/svgs/tech-stack/firebase.svg";
-import GraphqlIcon from "../../assets/svgs/tech-stack/graphql.svg";
-import NodejsIcon from "../../assets/svgs/tech-stack/node-js.svg";
-import ReactIcon from "../../assets/svgs/tech-stack/react.svg";
-
-import DockerIcon from "../../assets/svgs/tech-stack/docker.svg";
-import GcpIcon from "../../assets/svgs/tech-stack/gcp.svg";
-import AwsIcon from "../../assets/svgs/tech-stack/aws.svg";
-
+import {
+  awsIcon,
+  dockerIcon,
+  firebaseIcon,
+  gcpIcon,
+  graphqlIcon,
+  nodejsIcon,
+  reactIcon,
+} from "src/assets/svgs";
 interface TechItemProps {
   title: string;
   icon: any;
@@ -42,13 +42,13 @@ const TechStack: React.FC = () => {
 
         <div className="flex flex-col items-center justify-center w-full mt-6 md:space-x-4 md:flex-row">
           <div className="flex space-x-4">
-            <TechItem title="React and React Native" icon={ReactIcon} />
-            <TechItem title="Node.js" icon={NodejsIcon} />
+            <TechItem title="React and React Native" icon={reactIcon} />
+            <TechItem title="Node.js" icon={nodejsIcon} />
           </div>
 
           <div className="flex mt-4 space-x-4 md:mt-0">
-            <TechItem title="Firebase" icon={FirebaseIcon} />
-            <TechItem title="GraphQL" icon={GraphqlIcon} />
+            <TechItem title="Firebase" icon={firebaseIcon} />
+            <TechItem title="GraphQL" icon={graphqlIcon} />
           </div>
         </div>
       </div>
@@ -59,9 +59,9 @@ const TechStack: React.FC = () => {
         </h3>
 
         <div className="flex items-center justify-center w-full mt-6 space-x-4">
-          <TechItem title="Amazon Web Services" icon={AwsIcon} />
-          <TechItem title="Google Cloud Platform" icon={GcpIcon} />
-          <TechItem title="Docker" icon={DockerIcon} />
+          <TechItem title="Amazon Web Services" icon={awsIcon} />
+          <TechItem title="Google Cloud Platform" icon={gcpIcon} />
+          <TechItem title="Docker" icon={dockerIcon} />
         </div>
       </div>
     </div>
