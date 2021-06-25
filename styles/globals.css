@@ -31,7 +31,7 @@
 }
 
 .image-container img {
-  object-fit: contain;
+  object-fit: cover;
   width: 100% !important;
   position: relative !important;
   height: unset !important;

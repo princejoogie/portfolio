@@ -11,3 +11,6 @@ export { default as gcpIcon } from "./tech-stack/gcp.svg";
 export { default as graphqlIcon } from "./tech-stack/graphql.svg";
 export { default as nodejsIcon } from "./tech-stack/node-js.svg";
 export { default as reactIcon } from "./tech-stack/react.svg";
+export { default as closeIcon } from "./close.svg";
+export { default as expandIcon } from "./expand.svg";
+export { default as expandIcon2 } from "./expand2.svg";

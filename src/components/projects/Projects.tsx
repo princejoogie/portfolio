@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { jsIcon, tsIcon, githubIcon as GHicon } from "src/assets/svgs";
+import ImageModal from "../ImageModal";
+import {
+  jsIcon,
+  tsIcon,
+  githubIcon as GHicon,
+  expandIcon2 as ExpandIcon,
+} from "src/assets/svgs";
+import { AnimatePresence } from "framer-motion";
 
 interface ItemProps {
   Icon: any;
@@ -8,14 +15,29 @@ interface ItemProps {
   github?: string;
 }
 
-const ProjectItem: React.FC<ItemProps> = ({ Icon, src, github }) => {
+const ProjectItem: React.FC<ItemProps> = ({ Icon, src }) => {
+  const [modalShown, setModalShown] = useState(false);
+
   return (
     <div>
-      <div className="relative flex items-center justify-center overflow-hidden bg-gray-300 rounded-xl group">
-        <div className="absolute z-40 w-2/3 p-4 transition-all duration-500 bg-black opacity-0 rounded-xl h-2/3 group-hover:opacity-60 group-hover:w-full group-hover:h-full">
-          <div className="flex-1">
-            <h1>Chamaeleon</h1>
+      <AnimatePresence>
+        {modalShown && <ImageModal {...{ setModalShown, src }} />}
+      </AnimatePresence>
+      <div className="relative flex items-center justify-center overflow-hidden rounded-xl group">
+        <div className="absolute z-20 w-2/3 p-4 transition-all duration-500 bg-black opacity-0 rounded-xl h-2/3 group-hover:opacity-60 group-hover:w-full group-hover:h-full">
+          <div className="flex items-center">
+            <div className="flex-1">
+              <h1>Chamaeleon</h1>
+            </div>
+
+            <button
+              className="absolute top-4 right-4 group focus:outline-none"
+              onClick={() => setModalShown(!modalShown)}
+            >
+              <ExpandIcon className="w-6 h-6 text-gray-400 transition-all group-focus:text-white group-active:w-5 group-active:h-5" />
+            </button>
           </div>
+
           <a href="https://github.com/princejoogie/chamaeleon" target="_blank">
             Github
           </a>
@@ -31,7 +53,7 @@ const ProjectItem: React.FC<ItemProps> = ({ Icon, src, github }) => {
             <Icon />
           </div>
 
-          <p>Typescript</p>
+          <p className="text-sm">Typescript</p>
         </div>
 
         <div className="w-6 h-6 overflow-hidden rounded-md">
