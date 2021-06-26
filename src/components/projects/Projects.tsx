@@ -115,7 +115,7 @@ const Projects: React.FC = () => {
         />
         <ProjectItem
           Icon={tsIcon}
-          src="/projects/chamaeleon.png"
+          src="/projects/genesis.png"
           title="Genesis"
           subtitle="Mobile Application"
           github="https://github.com/apc-genesis"
