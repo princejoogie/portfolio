@@ -16,3 +16,4 @@ export { default as closeIcon } from "./close.svg";
 export { default as expandIcon } from "./expand.svg";
 export { default as expandIcon2 } from "./expand2.svg";
 export { default as openIcon } from "./open.svg";
+export { default as contactIcon } from "./contact.svg";

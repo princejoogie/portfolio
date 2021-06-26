@@ -31,9 +31,12 @@ const Jumbotron: React.FC<JumbotronProps> = () => {
         </p>
 
         <div className="flex items-center justify-center space-x-4 lg:items-start lg:justify-start">
-          <button className="px-4 py-2 text-xs text-white transition-colors duration-300 ease-out bg-gray-600 rounded lg:px-10 lg:text-base hover:bg-gray-700 focus:outline-none">
+          <a
+            href="/#contact"
+            className="px-4 py-2 text-xs text-white transition-colors duration-300 ease-out bg-gray-600 rounded cursor-pointer lg:px-10 lg:text-base hover:bg-gray-700 focus:outline-none"
+          >
             <p>Chat with Me</p>
-          </button>
+          </a>
 
           <button className="flex items-center justify-center px-4 py-2 space-x-2 text-white transition-colors duration-300 ease-out bg-green-600 rounded hover:bg-green-700 focus:outline-none">
             <svg
