@@ -107,7 +107,7 @@ const Projects: React.FC = () => {
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
         <ProjectItem
           Icon={tsIcon}
-          src="/projects/pythagoras.png"
+          src="/projects/jookey.png"
           title="Jookey"
           subtitle="Web & Mobile Application"
           github="https://github.com/princejoogie/jookey"
