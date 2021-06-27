@@ -110,6 +110,7 @@ const Projects: React.FC = () => {
           src="/projects/jookey.png"
           title="Jookey"
           subtitle="Web & Mobile Application"
+          description="A Fully encrypted Password Keeper app designed in React Native to keep track of your account passwords."
           github="https://github.com/princejoogie/jookey"
           date="Apr 25, 2020"
         />
@@ -118,6 +119,7 @@ const Projects: React.FC = () => {
           src="/projects/genesis.png"
           title="Genesis"
           subtitle="Mobile Application"
+          description="A Mobile application that can detect different types of Dog ticks and provide vivid descriptions about them. This is created with react-native and python and applies transfer & continuous learning to further improve the accuracy."
           github="https://github.com/apc-genesis"
           date="Apr 16, 2020"
         />
@@ -126,6 +128,8 @@ const Projects: React.FC = () => {
           src="/projects/chamaeleon.png"
           title="Joog Uno"
           subtitle="Web Application"
+          description="A free, fast, and customizable URL shortener created with React JS and tailwindcss."
+          href="https://joog.uno/"
           github="https://github.com/princejoogie/hiwam0"
           date="Mar 29, 2020"
         />
@@ -134,7 +138,7 @@ const Projects: React.FC = () => {
           src="/projects/pythagoras.png"
           title="Pythagoras"
           subtitle="Web Application"
-          description="a commisioned build for Pythagoras Coffee & Tea, an Ecommerce website that aims to provide their products online created with NextJS."
+          description="A commisioned build for Pythagoras Coffee & Tea, an Ecommerce website that aims to provide their products online created with NextJS."
           href="https://pythagoras.netlify.app/"
           github="https://github.com/princejoogie/pythagoras"
           date="Oct 11, 2020"
@@ -144,7 +148,7 @@ const Projects: React.FC = () => {
           src="/projects/chamaeleon.png"
           title="Chamaeleon"
           subtitle="Web Application"
-          description="a commisioned build for a Startup IT Company, Chamaeleon Software, as their companies' website landing page and showcase of their products."
+          description="A commisioned build for a Startup IT Company, Chamaeleon Software, as their companies' website landing page and showcase of their products."
           href="https://chamaeleon.io/"
           github="https://github.com/princejoogie/chamaeleon"
           date="Sep 07, 2020"
@@ -154,6 +158,7 @@ const Projects: React.FC = () => {
           src="/projects/uApp.png"
           title="uApp"
           subtitle="Mobile Application"
+          description="Provides an interface that eases the process of recording fouls, violations, referees that called them and all other basketball related topics. It also provides excel data of the summary of reports"
           github="https://github.com/princejoogie/uaap_app"
           date="Oct 7, 2019"
         />
