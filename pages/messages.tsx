@@ -24,7 +24,7 @@ const messages: React.FC = () => {
       if (user) {
         msgListener = db
           .collection("messages")
-          .orderBy("timestamp")
+          .orderBy("timestamp", "desc")
           .onSnapshot((snapshot) => {
             setMessages(
               snapshot.docs.map(

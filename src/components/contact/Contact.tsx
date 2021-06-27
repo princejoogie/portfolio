@@ -7,12 +7,15 @@ import {
   githubIcon as GHicon,
   instagramIcon as IGicon,
 } from "../../assets/svgs";
+import Confetti from "react-confetti";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Contact: React.FC = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showConf, setShowConf] = useState(false);
 
   const isValid = () => {
     if (!!email.trim() && !!message.trim()) return true;
@@ -31,7 +34,14 @@ const Contact: React.FC = () => {
         timestamp: timestamp(),
       } as Message);
 
+      setShowConf(() => true);
+      setTimeout(() => {
+        setShowConf(() => false);
+      }, 3500);
       setLoading(() => false);
+      setName("");
+      setEmail("");
+      setMessage("");
     } else {
       setLoading(() => false);
     }
@@ -44,6 +54,18 @@ const Contact: React.FC = () => {
       </h1>
 
       <div className="relative flex flex-col w-full px-4 py-4 mt-8 md:flex-row md:px-6 md:py-16 xl:px-10 xl:py-24">
+        <AnimatePresence>
+          {showConf && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <Confetti className="w-full h-full" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+
         <div className="absolute inset-0 flex justify-end opacity-50 rounded-xl bg-gradient-to-br from-startpoint via-midpoint to-startpoint">
           <ContactIcon className="self-end hidden object-contain h-full md:block xl:w-2/3" />
         </div>
