@@ -77,7 +77,7 @@ const NavBar: React.FC<NavBarProps> = () => {
       <div className="flex flex-row items-center space-x-2 lg:space-x-6">
         <Social href="https://github.com/princejoogie/" icon={GHicon} />
         <Social
-          href="https://www.linkedin.com/in/prince-carlo-juguilon-966623211/"
+          href="https://www.linkedin.com/in/princejoogie/"
           icon={LinkedinIcon}
         />
         <Social href="https://www.instagram.com/princecaarlo/" icon={IGicon} />

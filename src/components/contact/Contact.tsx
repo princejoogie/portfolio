@@ -130,10 +130,7 @@ const Contact: React.FC = () => {
               <GHicon className="w-6 h-6 text-white" />
             </a>
 
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/prince-carlo-juguilon-966623211/"
-            >
+            <a target="_blank" href="https://www.linkedin.com/in/princejoogie/">
               <LIicon className="w-6 h-6 text-white" />
             </a>
 
