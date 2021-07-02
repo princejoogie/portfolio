@@ -33,5 +33,11 @@
     "jest",
     "src/setupTests.ts"
   ],
-  "include": ["next-env.d.ts", "src/custom.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": [
+    "next-env.d.ts",
+    "src/custom.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/_app.js"
+  ]
 }

@@ -1,3 +1,4 @@
+import "aos/dist/aos.css";
 import React from "react";
 import Contact from "src/components/contact/Contact";
 import Jumbotron from "src/components/about/Jumbotron";

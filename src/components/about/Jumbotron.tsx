@@ -9,6 +9,8 @@ const Jumbotron: React.FC<JumbotronProps> = () => {
 
   return (
     <div
+      data-aos="zoom-out"
+      data-aos-delay={`${7 * 100}`}
       className="relative flex flex-row w-full p-8 shadow-2xl floatCard rounded-xl"
       style={{
         height: width >= 1024 ? "max(70vh, 768px)" : "auto",
@@ -17,11 +19,19 @@ const Jumbotron: React.FC<JumbotronProps> = () => {
       <div className="absolute inset-0 opacity-70 rounded-xl bg-gradient-to-br from-startpoint via-midpoint to-startpoint" />
 
       <div className="z-10 flex flex-col justify-center w-full lg:px-20 lg:w-7/12">
-        <h1 className="text-4xl font-bold tracking-tight text-center text-gray-200 lg:text-left md:text-5xl lg:text-7xl">
+        <h1
+          data-aos="fade-right"
+          data-aos-delay={`${8 * 100}`}
+          className="text-4xl font-bold tracking-tight text-center text-gray-200 lg:text-left md:text-5xl lg:text-7xl"
+        >
           Prince Carlo <br /> Juguilon.
         </h1>
 
-        <p className="my-12 font-mono text-base text-center text-gray-400 lg:text-left lg:text-lg">
+        <p
+          data-aos="fade-right"
+          data-aos-delay={`${9 * 100}`}
+          className="my-12 font-mono text-base text-center text-gray-400 lg:text-left lg:text-lg"
+        >
           a <span className="font-bold">Software Engineer </span>based in the
           Philippines, <span className="font-bold">React </span>
           enthusiast, fond of creating{" "}
@@ -32,13 +42,19 @@ const Jumbotron: React.FC<JumbotronProps> = () => {
 
         <div className="flex items-center justify-center space-x-4 lg:items-start lg:justify-start">
           <a
+            data-aos="zoom-in-up"
+            data-aos-delay={`${10 * 100}`}
             href="/#contact"
             className="px-4 py-2 text-xs text-white transition-colors duration-300 ease-out bg-gray-600 rounded cursor-pointer lg:px-10 lg:text-base hover:bg-gray-700 focus:outline-none"
           >
             <p>Chat with Me</p>
           </a>
 
-          <button className="flex items-center justify-center px-4 py-2 space-x-2 text-white transition-colors duration-300 ease-out bg-green-600 rounded hover:bg-green-700 focus:outline-none">
+          <button
+            data-aos="zoom-in-up"
+            data-aos-delay={`${11 * 100}`}
+            className="flex items-center justify-center px-4 py-2 space-x-2 text-white transition-colors duration-300 ease-out bg-green-600 rounded hover:bg-green-700 focus:outline-none"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
@@ -59,7 +75,11 @@ const Jumbotron: React.FC<JumbotronProps> = () => {
       </div>
 
       {width >= 1024 && (
-        <div className="absolute bottom-0 right-0 w-1/2 -top-8">
+        <div
+          data-aos="fade-left"
+          data-aos-delay={`${8 * 100}`}
+          className="absolute bottom-0 right-0 w-1/2 -top-8"
+        >
           <Image objectFit="contain" src="/t1.png" layout="fill" />
         </div>
       )}

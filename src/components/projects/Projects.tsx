@@ -20,6 +20,7 @@ interface ItemProps {
   date: string;
   github?: string;
   href?: string;
+  i: number;
 }
 
 const ProjectItem: React.FC<ItemProps> = ({
@@ -31,11 +32,12 @@ const ProjectItem: React.FC<ItemProps> = ({
   date,
   href,
   github,
+  i,
 }) => {
   const [modalShown, setModalShown] = useState(false);
 
   return (
-    <div>
+    <div data-aos="zoom-in-up" data-aos-delay={`${i * 100}`}>
       <AnimatePresence>
         {modalShown && <ImageModal {...{ setModalShown, src }} />}
       </AnimatePresence>
@@ -100,12 +102,16 @@ const ProjectItem: React.FC<ItemProps> = ({
 const Projects: React.FC = () => {
   return (
     <div className="flex flex-col w-full">
-      <h1 className="mb-8 text-3xl font-bold tracking-tight text-gray-300 lg:text-6xl">
+      <h1
+        data-aos="fade-right"
+        className="mb-8 text-3xl font-bold tracking-tight text-gray-300 lg:text-6xl"
+      >
         Projects.
       </h1>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
         <ProjectItem
+          i={1}
           Icon={tsIcon}
           src="/projects/jookey.png"
           title="Jookey"
@@ -115,6 +121,7 @@ const Projects: React.FC = () => {
           date="Apr 25, 2020"
         />
         <ProjectItem
+          i={2}
           Icon={tsIcon}
           src="/projects/genesis.png"
           title="Genesis"
@@ -124,6 +131,7 @@ const Projects: React.FC = () => {
           date="Apr 16, 2020"
         />
         <ProjectItem
+          i={3}
           Icon={jsIcon}
           src="/projects/chamaeleon.png"
           title="Joog Uno"
@@ -134,6 +142,7 @@ const Projects: React.FC = () => {
           date="Mar 29, 2020"
         />
         <ProjectItem
+          i={1}
           Icon={jsIcon}
           src="/projects/pythagoras.png"
           title="Pythagoras"
@@ -144,6 +153,7 @@ const Projects: React.FC = () => {
           date="Oct 11, 2020"
         />
         <ProjectItem
+          i={2}
           Icon={jsIcon}
           src="/projects/chamaeleon.png"
           title="Chamaeleon"
@@ -154,6 +164,7 @@ const Projects: React.FC = () => {
           date="Sep 07, 2020"
         />
         <ProjectItem
+          i={3}
           Icon={javaIcon}
           src="/projects/uApp.png"
           title="uApp"

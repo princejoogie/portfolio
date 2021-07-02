@@ -10,6 +10,7 @@
   "dependencies": {
     "@headlessui/react": "^1.1.1",
     "@tailwindcss/line-clamp": "^0.2.0",
+    "aos": "^3.0.0-beta.6",
     "firebase": "^8.6.8",
     "framer-motion": "^4.1.17",
     "next": "10.2.0",
@@ -18,10 +19,12 @@
     "react": "17.0.2",
     "react-confetti": "^6.0.1",
     "react-dom": "17.0.2",
+    "react-icons": "^4.2.0",
     "react-particles-js": "^3.4.1"
   },
   "devDependencies": {
     "@svgr/webpack": "^5.5.0",
+    "@types/aos": "^3.0.3",
     "@types/node": "^15.0.1",
     "@types/react": "^17.0.4",
     "autoprefixer": "^10.2.5",
