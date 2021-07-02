@@ -15,7 +15,7 @@ const Layout: React.FC<LayoutProps> = ({ children, seo }) => {
   return (
     <>
       {width >= 1024 && (
-        <div className="absolute inset-0 bg-background" style={{ zIndex: -1 }}>
+        <div className="fixed inset-0 bg-background" style={{ zIndex: -1 }}>
           <Particles
             params={{
               particles: {
@@ -33,7 +33,7 @@ const Layout: React.FC<LayoutProps> = ({ children, seo }) => {
 
       <NextSeo {...seo} />
 
-      <div className="z-50 w-full h-screen overflow-x-hidden overflow-y-scroll text-gray-300 bg-background lg:bg-transparent scrollbar scrollbar-thin scrollbar-track-background scrollbar-thumb-gray-700">
+      <div className="z-50 w-full overflow-x-hidden overflow-y-scroll text-gray-300 bg-background lg:bg-transparent scrollbar scrollbar-thin scrollbar-track-background scrollbar-thumb-gray-700">
         <div className="flex flex-col flex-1 w-full max-w-screen-xl px-4 mx-auto">
           <NavBar />
           {children}
