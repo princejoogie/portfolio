@@ -32,11 +32,19 @@ const TechItem: React.FC<TechItemProps> = ({ title, icon: Icon, i }) => {
 const TechStack: React.FC = () => {
   return (
     <div className="flex flex-col w-full pt-8">
-      <h1 className="text-2xl font-bold tracking-widest text-center text-gray-300 uppercase md:text-3xl lg:text-4xl">
+      <h1
+        data-aos="fade-right"
+        data-aos-delay={`${2 * 50}`}
+        className="text-2xl font-bold tracking-widest text-center text-gray-300 uppercase md:text-3xl lg:text-4xl"
+      >
         Tech Stacks
       </h1>
 
-      <p className="w-full mx-auto mt-4 text-center text-gray-400 md:w-2/3 lg:w-1/2">
+      <p
+        data-aos="zoom-in-up"
+        data-aos-delay={`${1 * 50}`}
+        className="w-full mx-auto mt-4 text-center text-gray-400 md:w-2/3 lg:w-1/2"
+      >
         These are the technologies I am comfortable with and often use for my
         projects. I continually learn and explore different technologies and
         tech stacks.

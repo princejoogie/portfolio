@@ -9,7 +9,8 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     Aos.init({
       easing: "ease-out-cubic",
-      offset: 50,
+      offset: 0,
+      once: true,
     });
   }, []);
 
