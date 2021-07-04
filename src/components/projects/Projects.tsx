@@ -37,62 +37,64 @@ const ProjectItem: React.FC<ItemProps> = ({
   const [modalShown, setModalShown] = useState(false);
 
   return (
-    <div data-aos="zoom-in-up" data-aos-delay={`${i * 100}`}>
+    <div>
       <AnimatePresence>
         {modalShown && <ImageModal {...{ setModalShown, src }} />}
       </AnimatePresence>
-      <div className="relative flex items-center justify-center overflow-hidden rounded-xl group">
-        <div className="absolute z-20 w-10/12 p-4 transition-all duration-500 bg-black opacity-0 rounded-xl h-5/6 group-hover:opacity-80 group-hover:w-full group-hover:h-full">
-          <div className="flex flex-col items-start justify-end h-full">
-            <h1 className="font-bold">{title}</h1>
+      <div data-aos="zoom-in-up" data-aos-delay={`${i * 100}`}>
+        <div className="relative flex items-center justify-center overflow-hidden rounded-xl group">
+          <div className="absolute z-20 w-10/12 p-4 transition-all duration-500 bg-black opacity-0 rounded-xl h-5/6 group-hover:opacity-80 group-hover:w-full group-hover:h-full">
+            <div className="flex flex-col items-start justify-end h-full">
+              <h1 className="font-bold">{title}</h1>
 
-            <p className="text-xs text-gray-400 md:text-sm">{description}</p>
+              <p className="text-xs text-gray-400 md:text-sm">{description}</p>
 
-            <button
-              className="absolute w-6 h-6 text-gray-400 transition-all focus:outline-none top-4 right-4 group focus:text-white active:w-5 active:h-5"
-              onClick={() => setModalShown(!modalShown)}
-            >
-              <ExpandIcon className="w-full h-full" />
-            </button>
+              <button
+                className="absolute w-6 h-6 text-gray-400 transition-all focus:outline-none top-4 right-4 group focus:text-white active:w-5 active:h-5"
+                onClick={() => setModalShown(!modalShown)}
+              >
+                <ExpandIcon className="w-full h-full" />
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="relative image-container">
-          <Image src={src} alt={src} layout="fill" />
-        </div>
-      </div>
-
-      <div className="flex items-center justify-between mt-2">
-        <div className="flex items-center space-x-2">
-          <div className="w-8 h-8 overflow-hidden rounded-md">
-            <Icon />
-          </div>
-
-          <div>
-            <p className="text-sm font-bold">{title}</p>
-            <p className="text-xs text-gray-400">{subtitle}</p>
+          <div className="relative image-container">
+            <Image src={src} alt={src} layout="fill" />
           </div>
         </div>
 
-        <div className="flex items-center">
-          {!!href && (
-            <a
-              className="w-6 h-6 mr-4 overflow-hidden text-gray-300 rounded-md focus:outline-none"
-              href={href}
-              target="_blank"
-            >
-              <OpenIcon />
-            </a>
-          )}
-          {!!github && (
-            <a
-              className="w-6 h-6 mr-4 overflow-hidden rounded-md focus:outline-none"
-              href={github}
-              target="_blank"
-            >
-              <GHicon />
-            </a>
-          )}
-          <p className="text-xs text-gray-400">{date}</p>
+        <div className="flex items-center justify-between mt-2">
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 overflow-hidden rounded-md">
+              <Icon />
+            </div>
+
+            <div>
+              <p className="text-sm font-bold">{title}</p>
+              <p className="text-xs text-gray-400">{subtitle}</p>
+            </div>
+          </div>
+
+          <div className="flex items-center">
+            {!!href && (
+              <a
+                className="w-6 h-6 mr-4 overflow-hidden text-gray-300 rounded-md focus:outline-none"
+                href={href}
+                target="_blank"
+              >
+                <OpenIcon />
+              </a>
+            )}
+            {!!github && (
+              <a
+                className="w-6 h-6 mr-4 overflow-hidden rounded-md focus:outline-none"
+                href={github}
+                target="_blank"
+              >
+                <GHicon />
+              </a>
+            )}
+            <p className="text-xs text-gray-400">{date}</p>
+          </div>
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ setModalShown, src }) => {
       animate={{ marginTop: 0, opacity: 1 }}
       exit={{ marginTop: "100vh", opacity: 0 }}
       transition={{ type: "spring", duration: 0.7 }}
-      className="fixed inset-0 z-50 flex flex-col opacity-70"
+      className="fixed inset-0 z-50 flex flex-col w-full opacity-70"
     >
       <div className="absolute inset-0 z-0 bg-black opacity-80" />
 
