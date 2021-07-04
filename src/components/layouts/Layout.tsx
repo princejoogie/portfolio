@@ -13,7 +13,7 @@ const Layout: React.FC<LayoutProps> = ({ children, seo }) => {
   const { width } = useContext(ScreenContext);
 
   return (
-    <div className="z-50 w-full overflow-hidden text-gray-300 bg-background lg:bg-transparent scrollbar scrollbar-thin scrollbar-track-background scrollbar-thumb-gray-700">
+    <div className="z-[1] w-full text-gray-300 bg-background lg:bg-transparent">
       <NextSeo {...seo} />
 
       {width >= 1024 && (
@@ -40,6 +40,7 @@ const Layout: React.FC<LayoutProps> = ({ children, seo }) => {
 
       <Footer />
     </div>
+    // </div>
   );
 };
 

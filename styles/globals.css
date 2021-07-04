@@ -13,6 +13,11 @@
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
 }
 
+body,
+html {
+  overflow-x: hidden;
+}
+
 #hover_container {
   perspective: 40px;
 }
