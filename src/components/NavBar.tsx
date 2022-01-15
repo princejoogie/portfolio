@@ -61,7 +61,11 @@ const NavBar: React.FC<NavBarProps> = () => {
           <LinkItem i={0} title="< About />" path="/#about" />
           <LinkItem i={1} title="< Projects />" path="/#projects" />
           <LinkItem i={2} title="< Contact />" path="/#contact" />
-          <LinkItem i={3} title="< Blog />" path="/blog" />
+          <LinkItem
+            i={3}
+            title="< Blog />"
+            path="https://blog.princecaarlo.tech/"
+          />
         </div>
       ) : (
         <button className="flex flex-row items-center justify-center space-x-2 text-gray-400 focus:outline-none hover:text-blue-300">
