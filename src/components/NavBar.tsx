@@ -64,7 +64,7 @@ const NavBar: React.FC<NavBarProps> = () => {
           <LinkItem
             i={3}
             title="< Blog />"
-            path="https://blog.princecaarlo.tech/"
+            path="https://blog.princecaarlo.tech"
           />
         </div>
       ) : (
