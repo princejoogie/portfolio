@@ -1,13 +1,4 @@
 import React from "react";
-import {
-  awsIcon,
-  dockerIcon,
-  firebaseIcon,
-  gcpIcon,
-  graphqlIcon,
-  nodejsIcon,
-  reactIcon,
-} from "src/assets/svgs";
 interface TechItemProps {
   title: string;
   icon: any;
