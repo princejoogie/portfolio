@@ -115,6 +115,16 @@ const Projects: React.FC = () => {
         <ProjectItem
           i={1}
           icon="/assets/logos/typescript.svg"
+          src="/assets/projects/paymongo.png"
+          title="Paymongo.js"
+          subtitle="Javascript Library"
+          description="A lightweight, fully-featured, modular, typescript-compatible javascript library for PayMongo."
+          github="https://github.com/princejoogie/paymongo.js"
+          date="Jan 11, 2022"
+        />
+        <ProjectItem
+          i={1}
+          icon="/assets/logos/typescript.svg"
           src="/assets/projects/jookey.png"
           title="Jookey"
           subtitle="Web & Mobile Application"
@@ -129,7 +139,7 @@ const Projects: React.FC = () => {
           title="Genesis"
           subtitle="Mobile Application"
           description="A Mobile application that can detect different types of Dog ticks and provide vivid descriptions about them. This is created with react-native and python and applies transfer & continuous learning to further improve the accuracy."
-          github="https://github.com/apc-genesis"
+          github="https://github.com/princejoogie/genesis-rn"
           date="Apr 16, 2020"
         />
         <ProjectItem
@@ -140,9 +150,10 @@ const Projects: React.FC = () => {
           subtitle="Web Application"
           description="A free, fast, and customizable URL shortener created with React JS and tailwindcss."
           href="https://joog.uno/"
-          github="https://github.com/princejoogie/hiwam0"
+          github="https://github.com/princejoogie/joog-uno"
           date="Mar 29, 2020"
         />
+        {/**
         <ProjectItem
           i={1}
           icon="/assets/logos/javascript.svg"
@@ -154,6 +165,7 @@ const Projects: React.FC = () => {
           github="https://github.com/princejoogie/pythagoras"
           date="Oct 11, 2020"
         />
+				 */}
         <ProjectItem
           i={2}
           icon="/assets/logos/javascript.svg"

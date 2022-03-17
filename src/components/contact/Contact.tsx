@@ -4,6 +4,7 @@ import { db, timestamp } from "src/utils/firebase";
 import { AiFillGithub, AiFillLinkedin, AiFillInstagram } from "react-icons/ai";
 import Confetti from "react-confetti";
 import { AnimatePresence, motion } from "framer-motion";
+import { socials } from "../../utils/constants";
 
 const Contact: React.FC = () => {
   const [name, setName] = useState("");
@@ -184,27 +185,15 @@ const Contact: React.FC = () => {
             data-aos-delay={`${5 * 50}`}
             className="mt-4 flex space-x-3"
           >
-            <a
-              target="_blank"
-              href="https://github.com/princejoogie/"
-              rel="noreferrer"
-            >
+            <a target="_blank" href={socials.github} rel="noreferrer">
               <AiFillGithub className="h-6 w-6 text-white" />
             </a>
 
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/princejoogie/"
-              rel="noreferrer"
-            >
+            <a target="_blank" href={socials.linkedin} rel="noreferrer">
               <AiFillLinkedin className="h-6 w-6 text-white" />
             </a>
 
-            <a
-              target="_blank"
-              href="https://www.instagram.com/princecaarlo/"
-              rel="noreferrer"
-            >
+            <a target="_blank" href={socials.instagram} rel="noreferrer">
               <AiFillInstagram className="h-6 w-6 text-white" />
             </a>
           </div>

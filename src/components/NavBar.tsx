@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { AiFillGithub, AiFillLinkedin, AiFillInstagram } from "react-icons/ai";
 import { IconType } from "react-icons";
+import { socials } from "../utils/constants";
 
 interface NavBarProps {}
 
@@ -56,11 +57,7 @@ const NavBar: React.FC<NavBarProps> = () => {
           <LinkItem i={0} title="< About />" path="/#about" />
           <LinkItem i={1} title="< Projects />" path="/#projects" />
           <LinkItem i={2} title="< Contact />" path="/#contact" />
-          <LinkItem
-            i={3}
-            title="< Blog />"
-            path="https://blog.princecaarlo.tech"
-          />
+          <LinkItem i={3} title="< Blog />" path={socials.blog} />
         </div>
       </div>
 
@@ -87,21 +84,9 @@ const NavBar: React.FC<NavBarProps> = () => {
       </div>
 
       <div className="flex flex-row items-center space-x-2 lg:space-x-6">
-        <Social
-          i={4}
-          href="https://github.com/princejoogie/"
-          Icon={AiFillGithub}
-        />
-        <Social
-          i={5}
-          href="https://www.linkedin.com/in/princejoogie/"
-          Icon={AiFillLinkedin}
-        />
-        <Social
-          i={6}
-          href="https://www.instagram.com/princecaarlo/"
-          Icon={AiFillInstagram}
-        />
+        <Social i={4} href={socials.github} Icon={AiFillGithub} />
+        <Social i={5} href={socials.linkedin} Icon={AiFillLinkedin} />
+        <Social i={6} href={socials.instagram} Icon={AiFillInstagram} />
       </div>
     </div>
   );

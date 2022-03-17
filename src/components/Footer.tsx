@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { socials } from "../utils/constants";
 
 interface FooterProps {}
 
@@ -34,7 +35,7 @@ const Footer: React.FC<FooterProps> = () => {
           <p className="uppercase text-gray-400">Contact</p>
         </button>
 
-        <Link href="https://blog.princecaarlo.tech">
+        <Link href={socials.blog}>
           <p className="cursor-pointer text-center uppercase text-gray-400">
             Blogs
           </p>
