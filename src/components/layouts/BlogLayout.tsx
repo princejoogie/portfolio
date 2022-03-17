@@ -1,7 +1,6 @@
 import { NextSeo, NextSeoProps } from "next-seo";
-import React, { useContext } from "react";
+import React from "react";
 import Particles from "react-particles-js";
-import { ScreenContext } from "src/contexts/ScreenContext";
 import Footer from "../Footer";
 
 interface BlogLayoutProps {
@@ -9,25 +8,25 @@ interface BlogLayoutProps {
 }
 
 const BlogLayout: React.FC<BlogLayoutProps> = ({ seo, children }) => {
-  const { width } = useContext(ScreenContext);
   return (
     <>
-      {width >= 1024 && (
-        <div className="absolute inset-0 bg-background" style={{ zIndex: -1 }}>
-          <Particles
-            params={{
-              particles: {
-                number: {
-                  value: 50,
-                },
-                size: {
-                  value: 2,
-                },
+      <div
+        className="hidden lg:block absolute inset-0 bg-background"
+        style={{ zIndex: -1 }}
+      >
+        <Particles
+          params={{
+            particles: {
+              number: {
+                value: 50,
               },
-            }}
-          />
-        </div>
-      )}
+              size: {
+                value: 2,
+              },
+            },
+          }}
+        />
+      </div>
 
       <NextSeo {...seo} />
 

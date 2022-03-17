@@ -1,9 +1,7 @@
-import React, { useContext } from "react";
-import LinkedinIcon from "../assets/svgs/linkedin.svg";
-import GHicon from "../assets/svgs/github.svg";
-import IGicon from "../assets/svgs/instagram.svg";
+import React from "react";
 import Link from "next/link";
-import { ScreenContext } from "src/contexts/ScreenContext";
+import { AiFillGithub, AiFillLinkedin, AiFillInstagram } from "react-icons/ai";
+import { IconType } from "react-icons";
 
 interface NavBarProps {}
 
@@ -14,7 +12,7 @@ interface LinkProps {
 }
 
 interface SocialProps {
-  icon: any;
+  Icon: IconType;
   href: string;
   i: number;
 }
@@ -35,28 +33,24 @@ const LinkItem: React.FC<LinkProps> = ({ title, path, i }) => {
   );
 };
 
-const Social: React.FC<SocialProps> = ({ href, icon: Icon, i }) => {
+const Social: React.FC<SocialProps> = ({ href, i, Icon }) => {
   return (
     <a
       data-aos="zoom-in-down"
       data-aos-delay={`${i * 100}`}
       target="_blank"
       href={href}
-      className="block w-12 h-12 p-3 transition-colors duration-300 ease-out rounded-full focus:outline-none group focus:bg-gray-800 hover:bg-gray-800"
+      className="block p-3 transition-colors duration-300 ease-out rounded-full focus:outline-none group focus:bg-gray-800 hover:bg-gray-800"
     >
-      <p className="text-gray-500 group-hover:text-blue-300">
-        <Icon />
-      </p>
+      <Icon className="w-6 h-6 text-gray-500 group-hover:text-blue-300" />
     </a>
   );
 };
 
 const NavBar: React.FC<NavBarProps> = () => {
-  const { width } = useContext(ScreenContext);
-
   return (
     <div className="z-10 flex flex-row justify-between w-full px-2 py-12">
-      {width > 1024 ? (
+      <div className="hidden lg:block">
         <div className="flex flex-row items-center justify-center space-x-2">
           <LinkItem i={0} title="< About />" path="/#about" />
           <LinkItem i={1} title="< Projects />" path="/#projects" />
@@ -67,7 +61,9 @@ const NavBar: React.FC<NavBarProps> = () => {
             path="https://blog.princecaarlo.tech"
           />
         </div>
-      ) : (
+      </div>
+
+      <div className="block lg:hidden">
         <button className="flex flex-row items-center justify-center space-x-2 text-gray-400 focus:outline-none hover:text-blue-300">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -84,19 +80,23 @@ const NavBar: React.FC<NavBarProps> = () => {
             />
           </svg>
         </button>
-      )}
+      </div>
 
       <div className="flex flex-row items-center space-x-2 lg:space-x-6">
-        <Social i={4} href="https://github.com/princejoogie/" icon={GHicon} />
+        <Social
+          i={4}
+          href="https://github.com/princejoogie/"
+          Icon={AiFillGithub}
+        />
         <Social
           i={5}
           href="https://www.linkedin.com/in/princejoogie/"
-          icon={LinkedinIcon}
+          Icon={AiFillLinkedin}
         />
         <Social
           i={6}
           href="https://www.instagram.com/princecaarlo/"
-          icon={IGicon}
+          Icon={AiFillInstagram}
         />
       </div>
     </div>

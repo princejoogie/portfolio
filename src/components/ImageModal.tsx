@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
 import React from "react";
-import { closeIcon as CloseIcon } from "src/assets/svgs";
+import { motion } from "framer-motion";
+import { IoClose } from "react-icons/io5";
 
 interface ImageModalProps {
   setModalShown: React.Dispatch<React.SetStateAction<boolean>>;
@@ -22,9 +22,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ setModalShown, src }) => {
         className="absolute z-50 top-4 right-4 xl:top-10 xl:right-10 focus:outline-none group"
         onClick={() => setModalShown(false)}
       >
-        <div>
-          <CloseIcon className="w-6 h-6 text-gray-400 group-focus:text-white" />
-        </div>
+        <IoClose className="w-10 h-10 text-white" />
       </button>
 
       <div className="absolute inset-0 z-20 flex items-center justify-center px-4 py-20">

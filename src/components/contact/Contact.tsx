@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import { Message } from "src/types";
 import { db, timestamp } from "src/utils/firebase";
-import {
-  contactIcon as ContactIcon,
-  linkedInIcon as LIicon,
-  githubIcon as GHicon,
-  instagramIcon as IGicon,
-} from "../../assets/svgs";
+import { AiFillGithub, AiFillLinkedin, AiFillInstagram } from "react-icons/ai";
 import Confetti from "react-confetti";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -74,7 +69,10 @@ const Contact: React.FC = () => {
         </AnimatePresence>
 
         <div className="absolute inset-0 flex justify-end opacity-50 rounded-xl bg-gradient-to-br from-startpoint via-midpoint to-startpoint">
-          <ContactIcon className="self-end hidden object-contain h-full md:block xl:w-2/3" />
+          <img
+            src="/assets/logos/contact.svg"
+            className="self-end hidden object-contain h-full md:block xl:w-2/3"
+          />
         </div>
 
         <form
@@ -186,15 +184,15 @@ const Contact: React.FC = () => {
             className="flex mt-4 space-x-3"
           >
             <a target="_blank" href="https://github.com/princejoogie/">
-              <GHicon className="w-6 h-6 text-white" />
+              <AiFillGithub className="w-6 h-6 text-white" />
             </a>
 
             <a target="_blank" href="https://www.linkedin.com/in/princejoogie/">
-              <LIicon className="w-6 h-6 text-white" />
+              <AiFillLinkedin className="w-6 h-6 text-white" />
             </a>
 
             <a target="_blank" href="https://www.instagram.com/princecaarlo/">
-              <IGicon className="w-6 h-6 text-white" />
+              <AiFillInstagram className="w-6 h-6 text-white" />
             </a>
           </div>
         </div>

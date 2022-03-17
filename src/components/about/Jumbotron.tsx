@@ -1,20 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
 import Image from "next/image";
-import { ScreenContext } from "src/contexts/ScreenContext";
 
 interface JumbotronProps {}
 
 const Jumbotron: React.FC<JumbotronProps> = () => {
-  const { width } = useContext(ScreenContext);
-
   return (
     <div
       data-aos="zoom-out"
       data-aos-delay={`${7 * 100}`}
-      className="relative flex flex-row w-full p-8 shadow-2xl floatCard rounded-xl"
-      style={{
-        height: width >= 1024 ? "max(70vh, 768px)" : "auto",
-      }}
+      className="relative flex flex-row w-full p-8 shadow-2xl floatCard rounded-xl h-auto lg:h-[calc(max(70vh,678px))]"
     >
       <div className="absolute inset-0 opacity-70 rounded-xl bg-gradient-to-br from-startpoint via-midpoint to-startpoint" />
 
@@ -81,15 +75,13 @@ const Jumbotron: React.FC<JumbotronProps> = () => {
         </div>
       </div>
 
-      {width >= 1024 && (
-        <div
-          data-aos="fade-left"
-          data-aos-delay={`${8 * 100}`}
-          className="absolute bottom-0 right-0 w-1/2 -top-8"
-        >
-          <Image objectFit="contain" src="/t1.png" layout="fill" />
-        </div>
-      )}
+      <div
+        data-aos="fade-left"
+        data-aos-delay={`${8 * 100}`}
+        className="absolute bottom-0 right-0 w-1/2 -top-8 lg:block hidden"
+      >
+        <Image objectFit="contain" src="/t1.png" layout="fill" />
+      </div>
     </div>
   );
 };

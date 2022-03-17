@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
-import { closeIcon as CloseIcon } from "src/assets/svgs";
+import { IoClose } from "react-icons/io5";
 import Layout from "src/components/layouts/Layout";
 import { Message } from "src/types";
 import { auth, db, firebase } from "src/utils/firebase";
@@ -143,7 +143,7 @@ const MessageItem: React.FC<MsgProps> = ({ msg }) => {
             onClick={() => deleteMsg(msg.id!)}
             className="absolute top-2 right-2 focus:outline-none"
           >
-            <CloseIcon className="w-3 h-3 active:opacity-50" />
+            <IoClose className="w-3 h-3 active:opacity-50" />
           </motion.button>
         )}
       </AnimatePresence>

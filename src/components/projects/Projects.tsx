@@ -1,18 +1,13 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import ImageModal from "../ImageModal";
-import {
-  jsIcon,
-  tsIcon,
-  javaIcon,
-  githubIcon as GHicon,
-  expandIcon as ExpandIcon,
-  openIcon as OpenIcon,
-} from "src/assets/svgs";
 import { AnimatePresence } from "framer-motion";
+import { AiFillGithub } from "react-icons/ai";
+import { FiExternalLink } from "react-icons/fi";
+import { BiExpand } from "react-icons/bi";
 
 interface ItemProps {
-  Icon: any;
+  icon: string;
   src: string;
   title: string;
   subtitle: string;
@@ -24,7 +19,7 @@ interface ItemProps {
 }
 
 const ProjectItem: React.FC<ItemProps> = ({
-  Icon,
+  icon,
   src,
   title,
   subtitle,
@@ -53,20 +48,18 @@ const ProjectItem: React.FC<ItemProps> = ({
                 className="absolute w-6 h-6 text-gray-400 transition-all focus:outline-none top-4 right-4 group focus:text-white active:w-5 active:h-5"
                 onClick={() => setModalShown(!modalShown)}
               >
-                <ExpandIcon className="w-full h-full" />
+                <BiExpand className="w-full h-full" />
               </button>
             </div>
           </div>
-          <div className="relative image-container">
-            <Image src={src} alt={src} layout="fill" />
+          <div className="relative min-h-[300px] image-container">
+            <Image src={src} alt={src} layout="fill" objectFit="cover" />
           </div>
         </div>
 
         <div className="flex items-center justify-between mt-2">
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 overflow-hidden rounded-md">
-              <Icon />
-            </div>
+            <img src={icon} className="w-8 h-8 overflow-hidden rounded-md" />
 
             <div>
               <p className="text-sm font-bold">{title}</p>
@@ -77,20 +70,20 @@ const ProjectItem: React.FC<ItemProps> = ({
           <div className="flex items-center">
             {!!href && (
               <a
-                className="w-6 h-6 mr-4 overflow-hidden text-gray-300 rounded-md focus:outline-none"
+                className="mr-4 overflow-hidden text-gray-300 rounded-md focus:outline-none"
                 href={href}
                 target="_blank"
               >
-                <OpenIcon />
+                <FiExternalLink className="w-6 h-6" />
               </a>
             )}
             {!!github && (
               <a
-                className="w-6 h-6 mr-4 overflow-hidden rounded-md focus:outline-none"
+                className="mr-4 overflow-hidden rounded-md focus:outline-none"
                 href={github}
                 target="_blank"
               >
-                <GHicon />
+                <AiFillGithub className="w-6 h-6" />
               </a>
             )}
             <p className="text-xs text-gray-400">{date}</p>
@@ -114,8 +107,8 @@ const Projects: React.FC = () => {
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
         <ProjectItem
           i={1}
-          Icon={tsIcon}
-          src="/projects/jookey.png"
+          icon="/assets/logos/typescript.svg"
+          src="/assets/projects/jookey.png"
           title="Jookey"
           subtitle="Web & Mobile Application"
           description="A Fully encrypted Password Keeper app designed in React Native to keep track of your account passwords."
@@ -124,8 +117,8 @@ const Projects: React.FC = () => {
         />
         <ProjectItem
           i={2}
-          Icon={tsIcon}
-          src="/projects/genesis.png"
+          icon="/assets/logos/typescript.svg"
+          src="/assets/projects/genesis.png"
           title="Genesis"
           subtitle="Mobile Application"
           description="A Mobile application that can detect different types of Dog ticks and provide vivid descriptions about them. This is created with react-native and python and applies transfer & continuous learning to further improve the accuracy."
@@ -134,8 +127,8 @@ const Projects: React.FC = () => {
         />
         <ProjectItem
           i={3}
-          Icon={jsIcon}
-          src="/projects/chamaeleon.png"
+          icon="/assets/logos/javascript.svg"
+          src="/assets/projects/chamaeleon.png"
           title="Joog Uno"
           subtitle="Web Application"
           description="A free, fast, and customizable URL shortener created with React JS and tailwindcss."
@@ -145,8 +138,8 @@ const Projects: React.FC = () => {
         />
         <ProjectItem
           i={1}
-          Icon={jsIcon}
-          src="/projects/pythagoras.png"
+          icon="/assets/logos/javascript.svg"
+          src="/assets/projects/pythagoras.png"
           title="Pythagoras"
           subtitle="Web Application"
           description="A commisioned build for Pythagoras Coffee & Tea, an Ecommerce website that aims to provide their products online created with NextJS."
@@ -156,8 +149,8 @@ const Projects: React.FC = () => {
         />
         <ProjectItem
           i={2}
-          Icon={jsIcon}
-          src="/projects/chamaeleon.png"
+          icon="/assets/logos/javascript.svg"
+          src="/assets/projects/chamaeleon.png"
           title="Chamaeleon"
           subtitle="Web Application"
           description="A commisioned build for a Startup IT Company, Chamaeleon Software, as their companies' website landing page and showcase of their products."
@@ -167,8 +160,8 @@ const Projects: React.FC = () => {
         />
         <ProjectItem
           i={3}
-          Icon={javaIcon}
-          src="/projects/uApp.png"
+          icon="/assets/logos/java.svg"
+          src="/assets/projects/uApp.png"
           title="uApp"
           subtitle="Mobile Application"
           description="Provides an interface that eases the process of recording fouls, violations, referees that called them and all other basketball related topics. It also provides excel data of the summary of reports"

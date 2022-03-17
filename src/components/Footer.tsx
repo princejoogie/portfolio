@@ -32,7 +32,9 @@ const Footer: React.FC<FooterProps> = () => {
         </button>
 
         <Link href="https://blog.princecaarlo.tech">
-          <p className="text-gray-400 uppercase cursor-pointer">Blogs</p>
+          <p className="text-gray-400 text-center uppercase cursor-pointer">
+            Blogs
+          </p>
         </Link>
       </div>
       <p className="font-semibold text-center">
