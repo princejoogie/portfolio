@@ -1,0 +1,12 @@
+node_modules/
+.git/
+.next/
+public/
+
+tailwind.config.js
+postcss.config.js
+jest.config.js
+jest.setup.js
+next-env.d.ts
+yarn.lock
+package-lock.json

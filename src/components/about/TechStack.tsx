@@ -1,4 +1,5 @@
 import React from "react";
+
 interface TechItemProps {
   title: string;
   icon: any;
@@ -10,25 +11,25 @@ const TechItem: React.FC<TechItemProps> = ({ title, icon, i }) => {
     <div
       data-aos="zoom-in-up"
       data-aos-delay={`${i * 50}`}
-      className="flex flex-col items-center w-32 h-32"
+      className="flex h-32 w-32 flex-col items-center"
     >
       <img
-        className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20"
+        className="flex h-16 w-16 items-center justify-center md:h-20 md:w-20"
         src={icon}
         alt={title}
       />
-      <p className="mt-2 text-sm text-center text-gray-400">{title}</p>
+      <p className="mt-2 text-center text-sm text-gray-400">{title}</p>
     </div>
   );
 };
 
 const TechStack: React.FC = () => {
   return (
-    <div className="flex flex-col w-full pt-8">
+    <div className="flex w-full flex-col pt-8">
       <h1
         data-aos="fade-right"
         data-aos-delay={`${2 * 50}`}
-        className="text-2xl font-bold tracking-widest text-center text-gray-300 uppercase md:text-3xl lg:text-4xl"
+        className="text-center text-2xl font-bold uppercase tracking-widest text-gray-300 md:text-3xl lg:text-4xl"
       >
         Tech Stacks
       </h1>
@@ -36,7 +37,7 @@ const TechStack: React.FC = () => {
       <p
         data-aos="zoom-in-up"
         data-aos-delay={`${1 * 50}`}
-        className="w-full mx-auto mt-4 text-center text-gray-400 md:w-2/3 lg:w-1/2"
+        className="mx-auto mt-4 w-full text-center text-gray-400 md:w-2/3 lg:w-1/2"
       >
         These are the technologies I am comfortable with and often use for my
         projects. I continually learn and explore different technologies and
@@ -44,11 +45,11 @@ const TechStack: React.FC = () => {
       </p>
 
       <div className="mt-8">
-        <h3 data-aos="fade-right" className="text-lg font-bold text-center">
+        <h3 data-aos="fade-right" className="text-center text-lg font-bold">
           Full-Stack Javascript
         </h3>
 
-        <div className="flex flex-col items-center justify-center w-full mt-6 md:space-x-4 md:flex-row">
+        <div className="mt-6 flex w-full flex-col items-center justify-center md:flex-row md:space-x-4">
           <div className="flex space-x-4">
             <TechItem
               i={3}
@@ -58,7 +59,7 @@ const TechStack: React.FC = () => {
             <TechItem i={4} title="Node.js" icon="/assets/nodejs-icon.svg" />
           </div>
 
-          <div className="flex mt-4 space-x-4 md:mt-0">
+          <div className="mt-4 flex space-x-4 md:mt-0">
             <TechItem i={5} title="PostgreSQL" icon="/assets/postgresql.svg" />
             <TechItem i={6} title="GraphQL" icon="/assets/graphql.svg" />
           </div>
@@ -66,11 +67,11 @@ const TechStack: React.FC = () => {
       </div>
 
       <div className="mt-6">
-        <h3 data-aos="fade-right" className="text-lg font-bold text-center">
+        <h3 data-aos="fade-right" className="text-center text-lg font-bold">
           Micro-Services Architechture
         </h3>
 
-        <div className="flex items-center justify-center w-full mt-6 space-x-4">
+        <div className="mt-6 flex w-full items-center justify-center space-x-4">
           <TechItem i={3} title="Amazon Web Services" icon="/assets/aws.svg" />
           <TechItem
             i={4}

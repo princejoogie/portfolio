@@ -23,7 +23,7 @@ const LinkItem: React.FC<LinkProps> = ({ title, path, i }) => {
       <a
         data-aos="zoom-in-down"
         data-aos-delay={`${i * 100}`}
-        className="px-6 py-4 transition-colors duration-300 ease-out group hover:bg-gray-800 focus:bg-gray-800 rounded-xl focus:outline-none"
+        className="group rounded-xl px-6 py-4 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none"
       >
         <p className="font-mono text-sm text-gray-400 group-hover:text-blue-300">
           {title}
@@ -40,16 +40,17 @@ const Social: React.FC<SocialProps> = ({ href, i, Icon }) => {
       data-aos-delay={`${i * 100}`}
       target="_blank"
       href={href}
-      className="block p-3 transition-colors duration-300 ease-out rounded-full focus:outline-none group focus:bg-gray-800 hover:bg-gray-800"
+      className="group block rounded-full p-3 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none"
+      rel="noreferrer"
     >
-      <Icon className="w-6 h-6 text-gray-500 group-hover:text-blue-300" />
+      <Icon className="h-6 w-6 text-gray-500 group-hover:text-blue-300" />
     </a>
   );
 };
 
 const NavBar: React.FC<NavBarProps> = () => {
   return (
-    <div className="z-10 flex flex-row justify-between w-full px-2 py-12">
+    <div className="z-10 flex w-full flex-row justify-between px-2 py-12">
       <div className="hidden lg:block">
         <div className="flex flex-row items-center justify-center space-x-2">
           <LinkItem i={0} title="< About />" path="/#about" />
@@ -64,10 +65,13 @@ const NavBar: React.FC<NavBarProps> = () => {
       </div>
 
       <div className="block lg:hidden">
-        <button className="flex flex-row items-center justify-center space-x-2 text-gray-400 focus:outline-none hover:text-blue-300">
+        <button
+          type="button"
+          className="flex flex-row items-center justify-center space-x-2 text-gray-400 hover:text-blue-300 focus:outline-none"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6"
+            className="h-6 w-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

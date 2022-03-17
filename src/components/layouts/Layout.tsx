@@ -1,8 +1,8 @@
 import { NextSeo, NextSeoProps } from "next-seo";
 import React from "react";
+import Particles from "react-tsparticles";
 import Footer from "../Footer";
 import NavBar from "../NavBar";
-import Particles from "react-particles-js";
 
 interface LayoutProps {
   seo?: NextSeoProps;
@@ -10,28 +10,54 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children, seo }) => {
   return (
-    <div className="z-[1] w-full text-gray-300 bg-background lg:bg-transparent">
+    <div className="z-[1] w-full bg-background text-gray-300 lg:bg-transparent">
       <NextSeo {...seo} />
 
       <div
-        className="fixed hidden lg:block inset-0 bg-background"
+        className="fixed inset-0 hidden bg-background lg:block"
         style={{ zIndex: -1 }}
       >
         <Particles
-          params={{
+          options={{
             particles: {
-              number: {
-                value: 50,
+              color: {
+                value: "#ffffff",
+              },
+              lineLinked: {
+                enable: false,
+              },
+              move: {
+                bounce: false,
+                direction: "none",
+                enable: true,
+                outMode: "out",
+                random: true,
+                speed: 0.1,
+                straight: false,
+              },
+              opacity: {
+                animation: {
+                  enable: true,
+                  minimumValue: 0,
+                  speed: 1,
+                  sync: false,
+                },
+                random: true,
+                value: 1,
+              },
+              shape: {
+                type: "circle",
               },
               size: {
-                value: 2,
+                random: true,
+                value: 3,
               },
             },
           }}
         />
       </div>
 
-      <div className="flex flex-col flex-1 w-full max-w-screen-xl px-4 mx-auto">
+      <div className="mx-auto flex w-full max-w-screen-xl flex-1 flex-col px-4">
         <NavBar />
         {children}
       </div>

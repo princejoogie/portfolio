@@ -11,17 +11,17 @@ const ToggleSwitch: React.FC<SwitchProps> = () => {
       checked={enabled}
       onChange={setEnabled}
       className={`${enabled ? "bg-gray-700" : "bg-gray-700"}
-          relative inline-flex flex-shrink-0 h-7 w-14 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
+          relative inline-flex h-7 w-14 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-300 ease-in-out focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75`}
     >
       <div
         className={`${
           enabled ? "translate-x-7 bg-gray-200" : "translate-x-0 bg-gray-500"
-        } rounded-full w-6 h-6 flex items-center justify-center pointer-events-none transform transition-all ease-in-out duration-300`}
+        } pointer-events-none flex h-6 w-6 transform items-center justify-center rounded-full transition-all duration-300 ease-in-out`}
       >
         {enabled ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-5 h-5 text-white"
+            className="h-5 w-5 text-white"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -36,7 +36,7 @@ const ToggleSwitch: React.FC<SwitchProps> = () => {
         ) : (
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-5 h-5 text-gray-700"
+            className="h-5 w-5 text-gray-700"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

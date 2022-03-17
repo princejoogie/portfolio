@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import ImageModal from "../ImageModal";
 import { AnimatePresence } from "framer-motion";
 import { AiFillGithub } from "react-icons/ai";
 import { FiExternalLink } from "react-icons/fi";
 import { BiExpand } from "react-icons/bi";
+import ImageModal from "../ImageModal";
 
 interface ItemProps {
   icon: string;
@@ -37,29 +37,34 @@ const ProjectItem: React.FC<ItemProps> = ({
         {modalShown && <ImageModal {...{ setModalShown, src }} />}
       </AnimatePresence>
       <div data-aos="zoom-in-up" data-aos-delay={`${i * 100}`}>
-        <div className="relative flex items-center justify-center overflow-hidden rounded-xl group">
-          <div className="absolute z-20 w-10/12 p-4 transition-all duration-500 bg-black opacity-0 rounded-xl h-5/6 group-hover:opacity-80 group-hover:w-full group-hover:h-full">
-            <div className="flex flex-col items-start justify-end h-full">
+        <div className="group relative flex items-center justify-center overflow-hidden rounded-xl">
+          <div className="absolute z-20 h-5/6 w-10/12 rounded-xl bg-black p-4 opacity-0 transition-all duration-500 group-hover:h-full group-hover:w-full group-hover:opacity-80">
+            <div className="flex h-full flex-col items-start justify-end">
               <h1 className="font-bold">{title}</h1>
 
               <p className="text-xs text-gray-400 md:text-sm">{description}</p>
 
               <button
-                className="absolute w-6 h-6 text-gray-400 transition-all focus:outline-none top-4 right-4 group focus:text-white active:w-5 active:h-5"
+                type="button"
+                className="group absolute top-4 right-4 h-6 w-6 text-gray-400 transition-all focus:text-white focus:outline-none active:h-5 active:w-5"
                 onClick={() => setModalShown(!modalShown)}
               >
-                <BiExpand className="w-full h-full" />
+                <BiExpand className="h-full w-full" />
               </button>
             </div>
           </div>
-          <div className="relative min-h-[300px] image-container">
+          <div className="image-container relative min-h-[300px]">
             <Image src={src} alt={src} layout="fill" objectFit="cover" />
           </div>
         </div>
 
-        <div className="flex items-center justify-between mt-2">
+        <div className="mt-2 flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <img src={icon} className="w-8 h-8 overflow-hidden rounded-md" />
+            <img
+              src={icon}
+              className="h-8 w-8 overflow-hidden rounded-md"
+              alt={icon}
+            />
 
             <div>
               <p className="text-sm font-bold">{title}</p>
@@ -70,11 +75,12 @@ const ProjectItem: React.FC<ItemProps> = ({
           <div className="flex items-center">
             {!!href && (
               <a
-                className="mr-4 overflow-hidden text-gray-300 rounded-md focus:outline-none"
+                className="mr-4 overflow-hidden rounded-md text-gray-300 focus:outline-none"
                 href={href}
                 target="_blank"
+                rel="noreferrer"
               >
-                <FiExternalLink className="w-6 h-6" />
+                <FiExternalLink className="h-6 w-6" />
               </a>
             )}
             {!!github && (
@@ -82,8 +88,9 @@ const ProjectItem: React.FC<ItemProps> = ({
                 className="mr-4 overflow-hidden rounded-md focus:outline-none"
                 href={github}
                 target="_blank"
+                rel="noreferrer"
               >
-                <AiFillGithub className="w-6 h-6" />
+                <AiFillGithub className="h-6 w-6" />
               </a>
             )}
             <p className="text-xs text-gray-400">{date}</p>
@@ -96,7 +103,7 @@ const ProjectItem: React.FC<ItemProps> = ({
 
 const Projects: React.FC = () => {
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex w-full flex-col">
       <h1
         data-aos="fade-right"
         className="mb-8 text-3xl font-bold tracking-tight text-gray-300 lg:text-6xl"

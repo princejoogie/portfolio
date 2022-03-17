@@ -1,8 +1,8 @@
+import React, { useEffect } from "react";
 import "../../styles/globals.css";
 import "aos/dist/aos.css";
 import "tailwindcss/tailwind.css";
 import Aos from "aos";
-import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
