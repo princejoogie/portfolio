@@ -17,6 +17,7 @@
 
 # misc
 .DS_Store
+.eslintcache
 *.pem
 
 # debug
@@ -32,3 +33,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# typescript
+*.tsbuildinfo
