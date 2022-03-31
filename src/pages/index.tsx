@@ -1,10 +1,10 @@
 import "aos/dist/aos.css";
 import React from "react";
-import Contact from "src/components/contact/Contact";
-import Jumbotron from "src/components/about/Jumbotron";
-import Projects from "src/components/projects/Projects";
-import Layout from "src/components/layouts/Layout";
-import TechStack from "src/components/about/TechStack";
+import Contact from "src/components/contact/contact";
+import Jumbotron from "src/components/about/jumbotron";
+import Layout from "src/components/layouts/layout";
+import Projects from "src/components/projects/projects";
+import TechStack from "src/components/about/tech-stack";
 
 const index: React.FC = () => {
   return (

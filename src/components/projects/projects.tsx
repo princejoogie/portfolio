@@ -4,7 +4,8 @@ import { AnimatePresence } from "framer-motion";
 import { AiFillGithub } from "react-icons/ai";
 import { FiExternalLink } from "react-icons/fi";
 import { BiExpand } from "react-icons/bi";
-import ImageModal from "../ImageModal";
+import ImageModal from "../image-modal";
+import { socials } from "../../utils/constants";
 
 interface ItemProps {
   icon: string;
@@ -104,12 +105,25 @@ const ProjectItem: React.FC<ItemProps> = ({
 const Projects: React.FC = () => {
   return (
     <div className="flex w-full flex-col">
-      <h1
-        data-aos="fade-right"
-        className="mb-8 text-3xl font-bold tracking-tight text-gray-300 lg:text-6xl"
-      >
-        Projects.
-      </h1>
+      <div className="flex w-full items-center justify-between">
+        <h1
+          data-aos="fade-right"
+          className="mb-8 text-3xl font-bold tracking-tight text-gray-300 lg:text-6xl"
+        >
+          Projects.
+        </h1>
+
+        <span data-aos="fade-left">
+          <a
+            href={socials.github}
+            className="text-sm text-blue-500 transition-opacity hover:opacity-70"
+            target="_blank"
+            rel="noreferrer"
+          >
+            See more
+          </a>
+        </span>
+      </div>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
         <ProjectItem
@@ -123,7 +137,7 @@ const Projects: React.FC = () => {
           date="Jan 11, 2022"
         />
         <ProjectItem
-          i={1}
+          i={2}
           icon="/assets/logos/typescript.svg"
           src="/assets/projects/jookey.png"
           title="Jookey"
@@ -133,7 +147,7 @@ const Projects: React.FC = () => {
           date="Apr 25, 2020"
         />
         <ProjectItem
-          i={2}
+          i={3}
           icon="/assets/logos/typescript.svg"
           src="/assets/projects/genesis.png"
           title="Genesis"
@@ -143,7 +157,7 @@ const Projects: React.FC = () => {
           date="Apr 16, 2020"
         />
         <ProjectItem
-          i={3}
+          i={1}
           icon="/assets/logos/javascript.svg"
           src="/assets/projects/chamaeleon.png"
           title="Joog Uno"
@@ -155,24 +169,24 @@ const Projects: React.FC = () => {
         />
         {/**
         <ProjectItem
-          i={1}
-          icon="/assets/logos/javascript.svg"
-          src="/assets/projects/pythagoras.png"
-          title="Pythagoras"
-          subtitle="Web Application"
-          description="A commisioned build for Pythagoras Coffee & Tea, an Ecommerce website that aims to provide their products online created with NextJS."
-          href="https://pythagoras.netlify.app/"
-          github="https://github.com/princejoogie/pythagoras"
-          date="Oct 11, 2020"
+        i={1}
+        icon="/assets/logos/javascript.svg"
+        src="/assets/projects/pythagoras.png"
+        title="Pythagoras"
+        subtitle="Web Application"
+        description="A commissioned build for Pythagoras Coffee & Tea, an Ecommerce website that aims to provide their products online created with NextJS."
+        href="https://pythagoras.netlify.app/"
+        github="https://github.com/princejoogie/pythagoras"
+        date="Oct 11, 2020"
         />
-				 */}
+      */}
         <ProjectItem
           i={2}
           icon="/assets/logos/javascript.svg"
           src="/assets/projects/chamaeleon.png"
           title="Chamaeleon"
           subtitle="Web Application"
-          description="A commisioned build for a Startup IT Company, Chamaeleon Software, as their companies' website landing page and showcase of their products."
+          description="A commissioned build for a Startup IT Company, Chamaeleon Software, as their companies' website landing page and showcase of their products."
           href="https://chamaeleon.io/"
           github="https://github.com/princejoogie/chamaeleon"
           date="Sep 07, 2020"

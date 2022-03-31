@@ -2,7 +2,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
-import Layout from "src/components/layouts/Layout";
+import Layout from "src/components/layouts/layout";
 import { Message } from "src/types";
 import { auth, db, firebase } from "src/utils/firebase";
 

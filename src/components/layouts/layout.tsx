@@ -1,8 +1,8 @@
 import { NextSeo, NextSeoProps } from "next-seo";
 import React from "react";
 import Particles from "react-tsparticles";
-import Footer from "../Footer";
-import NavBar from "../NavBar";
+import Footer from "../footer";
+import NavBar from "../navbar";
 
 interface LayoutProps {
   seo?: NextSeoProps;
