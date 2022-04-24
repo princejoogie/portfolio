@@ -158,7 +158,7 @@ const MessageItem: React.FC<MsgProps> = ({ msg }) => {
         </button>
       </div>
       <div className="my-2 h-px w-full bg-gray-800" />
-      <h4 className="text-white line-clamp-4">{msg.message}</h4>
+      <h4 className="text-white line-clamp-2">{msg.message}</h4>
     </motion.div>
   );
 };

@@ -4,44 +4,52 @@ import { db, timestamp } from "src/utils/firebase";
 import { AiFillGithub, AiFillLinkedin, AiFillInstagram } from "react-icons/ai";
 import Confetti from "react-confetti";
 import { AnimatePresence, motion } from "framer-motion";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
 import { socials } from "../../utils/constants";
 
+const trimString = (u: unknown) => (typeof u === "string" ? u.trim() : u);
+
+const schema = z.object({
+  name: z.preprocess(trimString, z.string()),
+  email: z.preprocess(trimString, z.string().min(3).email()),
+  message: z.preprocess(trimString, z.string().min(3)),
+});
+
+type FormData = z.infer<typeof schema>;
+
 const Contact: React.FC = () => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const {
+    reset,
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm<FormData>({
+    mode: "onChange",
+    resolver: zodResolver(schema),
+    defaultValues: { name: "", email: "", message: "" },
+  });
   const [loading, setLoading] = useState(false);
   const [showConf, setShowConf] = useState(false);
 
-  const isValid = () => {
-    if (!!email.trim() && !!message.trim()) return true;
-    return false;
-  };
-
-  const onSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
-    e.preventDefault();
+  const onSubmit = handleSubmit(async ({ message, email, name }) => {
     setLoading(() => true);
-    if (!!email.trim() && !!message.trim()) {
-      await db.collection("messages").add({
-        name: name || "Anonymous",
-        email,
-        message,
-        opened: false,
-        timestamp: timestamp(),
-      } as Message);
+    await db.collection("messages").add({
+      name: name ?? "Anonymous",
+      email,
+      message,
+      opened: false,
+      timestamp: timestamp(),
+    } as Message);
 
-      setShowConf(() => true);
-      setTimeout(() => {
-        setShowConf(() => false);
-      }, 3500);
-      setLoading(() => false);
-      setName("");
-      setEmail("");
-      setMessage("");
-    } else {
-      setLoading(() => false);
-    }
-  };
+    setShowConf(() => true);
+    setTimeout(() => {
+      setShowConf(() => false);
+    }, 3500);
+    setLoading(() => false);
+    reset();
+  });
 
   return (
     <div className="flex w-full flex-col">
@@ -88,12 +96,15 @@ const Contact: React.FC = () => {
           >
             <p className="w-full max-w-md text-sm text-gray-400 ">Your Name</p>
             <input
-              type="text"
+              {...register("name")}
               placeholder="John Doe"
               className="mt-1 w-full max-w-md rounded border border-gray-900 bg-gray-900 px-4 py-2 text-white placeholder-gray-600 focus:border-blue-600"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
             />
+            {errors.name && (
+              <p className="mt-1 text-xs italic text-red-600">
+                {errors.name.message}
+              </p>
+            )}
           </div>
 
           <div
@@ -105,12 +116,15 @@ const Contact: React.FC = () => {
               Email Address *
             </p>
             <input
-              type="email"
+              {...register("email")}
               placeholder="john@email.com"
               className="mt-1 w-full max-w-md rounded border border-gray-900 bg-gray-900 px-4 py-2 text-white placeholder-gray-600 focus:border-blue-600"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
             />
+            {errors.email && (
+              <p className="mt-1 text-xs italic text-red-600">
+                {errors.email.message}
+              </p>
+            )}
           </div>
 
           <div
@@ -122,12 +136,16 @@ const Contact: React.FC = () => {
               Your Message *
             </p>
             <textarea
+              {...register("message")}
               rows={5}
               placeholder="Hi There!"
               className="mt-1 w-full max-w-md resize-none rounded border border-gray-900 bg-gray-900 px-4 py-2 text-white placeholder-gray-600 focus:border-blue-600"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
             />
+            {errors.message && (
+              <p className="mt-1 text-xs italic text-red-600">
+                {errors.message.message}
+              </p>
+            )}
           </div>
 
           <div
@@ -136,10 +154,10 @@ const Contact: React.FC = () => {
             className="flex w-full flex-col items-start md:items-end"
           >
             <button
-              disabled={!isValid() || loading}
+              disabled={!isValid || loading}
               type="submit"
               className={`duration-400 mt-6 w-full max-w-md rounded bg-blue-600 px-4 py-2 transition-all focus:outline-none ${
-                !isValid() || loading
+                !isValid || loading
                   ? "cursor-not-allowed opacity-40"
                   : "opacity-100 hover:bg-blue-500 active:bg-blue-600"
               }`}
