@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "../../styles/globals.css";
 import "aos/dist/aos.css";
 import "tailwindcss/tailwind.css";
+import { Toaster } from "react-hot-toast";
 import Aos from "aos";
 
 function MyApp({ Component, pageProps }) {
@@ -13,7 +14,12 @@ function MyApp({ Component, pageProps }) {
     });
   }, []);
 
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Component {...pageProps} />;
+      <Toaster position="bottom-center" />
+    </>
+  );
 }
 
 export default MyApp;

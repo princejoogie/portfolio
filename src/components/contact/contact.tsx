@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import toast from "react-hot-toast";
 import { socials } from "../../utils/constants";
 
 const trimString = (u: unknown) => (typeof u === "string" ? u.trim() : u);
@@ -26,7 +27,7 @@ const Contact: React.FC = () => {
     handleSubmit,
     formState: { errors, isValid },
   } = useForm<FormData>({
-    mode: "onChange",
+    mode: "all",
     resolver: zodResolver(schema),
     defaultValues: { name: "", email: "", message: "" },
   });
@@ -35,20 +36,27 @@ const Contact: React.FC = () => {
 
   const onSubmit = handleSubmit(async ({ message, email, name }) => {
     setLoading(() => true);
-    await db.collection("messages").add({
-      name: name ?? "Anonymous",
-      email,
-      message,
-      opened: false,
-      timestamp: timestamp(),
-    } as Message);
+    try {
+      await db.collection("messages").add({
+        name: name ?? "Anonymous",
+        email,
+        message,
+        opened: false,
+        timestamp: timestamp(),
+      } as Message);
+      toast.success("Message sent successfully!");
 
-    setShowConf(() => true);
-    setTimeout(() => {
-      setShowConf(() => false);
-    }, 3500);
+      setShowConf(() => true);
+      setTimeout(() => {
+        setShowConf(() => false);
+      }, 3500);
+      reset();
+    } catch (e) {
+      // eslint-disable-next-line no-console
+      console.error(e);
+      toast.error("Something went wrong.");
+    }
     setLoading(() => false);
-    reset();
   });
 
   return (

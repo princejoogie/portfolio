@@ -82,7 +82,7 @@ const MessagesPage: React.FC = () => {
 
           <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
             {messages.map((msg) => (
-              <MessageItem msg={msg} />
+              <MessageItem msg={msg} key={msg.id} />
             ))}
           </div>
         </div>
