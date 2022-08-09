@@ -67,7 +67,7 @@ const Jumbotron: React.FC<JumbotronProps> = () => {
             <a
               target="_blank"
               download
-              href="/assets/JUGUILON_RESUME.pdf"
+              href="/assets/JUGUILON_PRINCE_RESUME.pdf"
               className="text-xs lg:text-base"
             >
               Resume
