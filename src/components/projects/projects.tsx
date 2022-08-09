@@ -37,8 +37,9 @@ const ProjectItem: React.FC<ItemProps> = ({
       <AnimatePresence>
         {modalShown && <ImageModal {...{ setModalShown, src }} />}
       </AnimatePresence>
+
       <div data-aos="zoom-in-up" data-aos-delay={`${i * 100}`}>
-        <div className="group relative flex items-center justify-center overflow-hidden rounded-xl">
+        <div className="group relative flex items-center justify-center overflow-hidden rounded-xl border-2 border-gray-800">
           <div className="absolute z-20 h-5/6 w-10/12 rounded-xl bg-black p-4 opacity-0 transition-all duration-500 group-hover:h-full group-hover:w-full group-hover:opacity-80">
             <div className="flex h-full flex-col items-start justify-end">
               <h1 className="font-bold">{title}</h1>
@@ -129,6 +130,17 @@ const Projects: React.FC = () => {
         <ProjectItem
           i={1}
           icon="/assets/logos/typescript.svg"
+          src="/assets/projects/umamin.png"
+          title="Umamin"
+          subtitle="Web Application"
+          description="An open-source platform for sending and receiving anonymous messages."
+          href="https://umamin.link/"
+          github="https://github.com/joshxfi/umamin"
+          date="Jan 11, 2022"
+        />
+        <ProjectItem
+          i={1}
+          icon="/assets/logos/typescript.svg"
           src="/assets/projects/paymongo.png"
           title="Paymongo.js"
           subtitle="Javascript Library"
@@ -158,8 +170,8 @@ const Projects: React.FC = () => {
         />
         <ProjectItem
           i={1}
-          icon="/assets/logos/javascript.svg"
-          src="/assets/projects/chamaeleon.png"
+          icon="/assets/logos/typescript.svg"
+          src="/assets/projects/joog_uno.png"
           title="Joog Uno"
           subtitle="Web Application"
           description="A free, fast, and customizable URL shortener created with React JS and tailwindcss."
@@ -191,7 +203,7 @@ const Projects: React.FC = () => {
           github="https://github.com/princejoogie/chamaeleon"
           date="Sep 07, 2020"
         />
-        <ProjectItem
+        {/* <ProjectItem
           i={3}
           icon="/assets/logos/java.svg"
           src="/assets/projects/uApp.png"
@@ -200,7 +212,7 @@ const Projects: React.FC = () => {
           description="Provides an interface that eases the process of recording fouls, violations, referees that called them and all other basketball related topics. It also provides excel data of the summary of reports"
           github="https://github.com/princejoogie/uaap_app"
           date="Oct 7, 2019"
-        />
+        /> */}
       </div>
     </div>
   );
