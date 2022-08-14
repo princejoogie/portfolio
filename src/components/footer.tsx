@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { socials } from "../utils/constants";
@@ -6,6 +6,7 @@ import { socials } from "../utils/constants";
 interface FooterProps {}
 
 const Footer: React.FC<FooterProps> = () => {
+  const date = useMemo(() => new Date(), []);
   const router = useRouter();
 
   return (
@@ -42,7 +43,7 @@ const Footer: React.FC<FooterProps> = () => {
         </Link>
       </div>
       <p className="text-center font-semibold">
-        Prince Carlo Juguilon © 2021 All Right Reserved
+        Prince Carlo Juguilon © {date.getFullYear()} All Right Reserved
       </p>
     </div>
   );

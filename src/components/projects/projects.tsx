@@ -6,6 +6,7 @@ import { FiExternalLink } from "react-icons/fi";
 import { BiExpand } from "react-icons/bi";
 import ImageModal from "../image-modal";
 import { socials } from "../../utils/constants";
+import projects from "./info.json";
 
 interface ItemProps {
   icon: string;
@@ -127,92 +128,22 @@ const Projects: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
-        <ProjectItem
-          i={1}
-          icon="/assets/logos/typescript.svg"
-          src="/assets/projects/umamin.png"
-          title="Umamin"
-          subtitle="Web Application"
-          description="An open-source platform for sending and receiving anonymous messages."
-          href="https://umamin.link/"
-          github="https://github.com/joshxfi/umamin"
-          date="Jan 11, 2022"
-        />
-        <ProjectItem
-          i={1}
-          icon="/assets/logos/typescript.svg"
-          src="/assets/projects/paymongo.png"
-          title="Paymongo.js"
-          subtitle="Javascript Library"
-          description="A lightweight, fully-featured, modular, typescript-compatible javascript library for PayMongo."
-          github="https://github.com/princejoogie/paymongo.js"
-          date="Jan 11, 2022"
-        />
-        <ProjectItem
-          i={2}
-          icon="/assets/logos/typescript.svg"
-          src="/assets/projects/jookey.png"
-          title="Jookey"
-          subtitle="Web & Mobile Application"
-          description="A Fully encrypted Password Keeper app designed in React Native to keep track of your account passwords."
-          github="https://github.com/princejoogie/jookey"
-          date="Apr 25, 2020"
-        />
-        <ProjectItem
-          i={3}
-          icon="/assets/logos/typescript.svg"
-          src="/assets/projects/genesis.png"
-          title="Genesis"
-          subtitle="Mobile Application"
-          description="A Mobile application that can detect different types of Dog ticks and provide vivid descriptions about them. This is created with react-native and python and applies transfer & continuous learning to further improve the accuracy."
-          github="https://github.com/princejoogie/genesis-rn"
-          date="Apr 16, 2020"
-        />
-        <ProjectItem
-          i={1}
-          icon="/assets/logos/typescript.svg"
-          src="/assets/projects/joog_uno.png"
-          title="Joog Uno"
-          subtitle="Web Application"
-          description="A free, fast, and customizable URL shortener created with React JS and tailwindcss."
-          href="https://joog.uno/"
-          github="https://github.com/princejoogie/joog-uno"
-          date="Mar 29, 2020"
-        />
-        {/**
-        <ProjectItem
-        i={1}
-        icon="/assets/logos/javascript.svg"
-        src="/assets/projects/pythagoras.png"
-        title="Pythagoras"
-        subtitle="Web Application"
-        description="A commissioned build for Pythagoras Coffee & Tea, an Ecommerce website that aims to provide their products online created with NextJS."
-        href="https://pythagoras.netlify.app/"
-        github="https://github.com/princejoogie/pythagoras"
-        date="Oct 11, 2020"
-        />
-      */}
-        <ProjectItem
-          i={2}
-          icon="/assets/logos/javascript.svg"
-          src="/assets/projects/chamaeleon.png"
-          title="Chamaeleon"
-          subtitle="Web Application"
-          description="A commissioned build for a Startup IT Company, Chamaeleon Software, as their companies' website landing page and showcase of their products."
-          href="https://chamaeleon.io/"
-          github="https://github.com/princejoogie/chamaeleon"
-          date="Sep 07, 2020"
-        />
-        {/* <ProjectItem
-          i={3}
-          icon="/assets/logos/java.svg"
-          src="/assets/projects/uApp.png"
-          title="uApp"
-          subtitle="Mobile Application"
-          description="Provides an interface that eases the process of recording fouls, violations, referees that called them and all other basketball related topics. It also provides excel data of the summary of reports"
-          github="https://github.com/princejoogie/uaap_app"
-          date="Oct 7, 2019"
-        /> */}
+        {projects
+          .filter((e) => e.enabled)
+          .map((p, i) => (
+            <ProjectItem
+              i={i}
+              key={p.title}
+              src={p.src}
+              date={p.date}
+              icon={p.icon}
+              title={p.title}
+              subtitle={p.subtitle}
+              href={p.href || undefined}
+              github={p.github || undefined}
+              description={p.description}
+            />
+          ))}
       </div>
     </div>
   );
