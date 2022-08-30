@@ -1,11 +1,12 @@
 import { NextSeo, NextSeoProps } from "next-seo";
-import React from "react";
+import React, { ReactNode } from "react";
 import Particles from "react-tsparticles";
 import Footer from "../footer";
 import NavBar from "../navbar";
 
 interface LayoutProps {
   seo?: NextSeoProps;
+  children: ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children, seo }) => {

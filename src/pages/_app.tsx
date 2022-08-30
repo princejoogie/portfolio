@@ -17,7 +17,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
       <Toaster position="bottom-center" />
     </>
   );
