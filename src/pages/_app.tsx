@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { AppProps } from "next/app";
-import "../../styles/globals.css";
+import "../styles/globals.css";
 import "aos/dist/aos.css";
 import "tailwindcss/tailwind.css";
 import { Toaster } from "react-hot-toast";

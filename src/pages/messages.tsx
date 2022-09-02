@@ -20,7 +20,7 @@ const MessagesPage: React.FC = () => {
       false
     );
 
-    let msgListener: firebase.Unsubscribe;
+    let msgListener: firebase.Unsubscribe | null = null;
     const authListener = auth.onAuthStateChanged((_user) => {
       if (_user) {
         msgListener = db
@@ -44,7 +44,7 @@ const MessagesPage: React.FC = () => {
 
     return () => {
       authListener();
-      msgListener();
+      msgListener?.();
     };
   }, []);
 

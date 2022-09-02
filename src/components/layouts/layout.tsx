@@ -58,14 +58,13 @@ const Layout: React.FC<LayoutProps> = ({ children, seo }) => {
         />
       </div>
 
-      <div className="mx-auto flex w-full max-w-screen-xl flex-1 flex-col px-4">
+      <div className="mx-auto min-h-screen w-full max-w-screen-xl px-4">
         <NavBar />
         {children}
       </div>
 
       <Footer />
     </div>
-    // </div>
   );
 };
 

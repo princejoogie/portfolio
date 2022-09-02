@@ -1,7 +1,5 @@
 import React, { useMemo } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
-import { socials } from "../utils/constants";
 
 interface FooterProps {}
 
@@ -14,7 +12,7 @@ const Footer: React.FC<FooterProps> = () => {
       <div className="flex flex-col space-y-4 lg:flex-row lg:space-y-0 lg:space-x-20">
         <button
           type="button"
-          onClick={() => router.replace("/#about")}
+          onClick={() => router.replace("/")}
           className="focus:bg-gray-800 focus:outline-none"
         >
           <p className="uppercase text-gray-400">About</p>
@@ -36,11 +34,13 @@ const Footer: React.FC<FooterProps> = () => {
           <p className="uppercase text-gray-400">Contact</p>
         </button>
 
-        <Link href={socials.blog}>
-          <p className="cursor-pointer text-center uppercase text-gray-400">
-            Blogs
-          </p>
-        </Link>
+        <button
+          type="button"
+          onClick={() => router.replace("/blogs")}
+          className="focus:bg-gray-800 focus:outline-none"
+        >
+          <p className="uppercase text-gray-400">Blogs</p>
+        </button>
       </div>
       <p className="text-center font-semibold">
         Prince Carlo Juguilon © {date.getFullYear()} All Right Reserved

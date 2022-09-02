@@ -54,10 +54,10 @@ const NavBar: React.FC<NavBarProps> = () => {
     <div className="z-10 flex w-full flex-row justify-between px-2 py-12">
       <div className="hidden lg:block">
         <div className="flex flex-row items-center justify-center space-x-2">
-          <LinkItem i={0} title="< About />" path="/#about" />
+          <LinkItem i={0} title="< About />" path="/" />
           <LinkItem i={1} title="< Projects />" path="/#projects" />
           <LinkItem i={2} title="< Contact />" path="/#contact" />
-          <LinkItem i={3} title="< Blog />" path={socials.blog} />
+          <LinkItem i={3} title="< Blog />" path="/blogs" />
         </div>
       </div>
 
