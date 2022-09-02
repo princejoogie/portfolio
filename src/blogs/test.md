@@ -5,7 +5,9 @@ description: "How to use Zustand with TypeScript and React from installation, ba
 
 ---
 
-### Zustand Practices
+## Zustand Practices
+
+click [here](https://github.com/princejoogie/)
 
 - Separating concerns through slices
 

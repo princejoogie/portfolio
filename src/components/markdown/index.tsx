@@ -7,7 +7,7 @@ interface MarkdownProps {
 
 const Markdown = ({ content }: MarkdownProps) => {
   return (
-    <article className="prose">
+    <article className="prose prose-invert">
       <ReactMarkdown>{content}</ReactMarkdown>
     </article>
   );

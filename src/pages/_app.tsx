@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { AppProps } from "next/app";
 import "../styles/globals.css";
 import "aos/dist/aos.css";
 import "tailwindcss/tailwind.css";
-import { Toaster } from "react-hot-toast";
 import Aos from "aos";
+import NextNProgress from "nextjs-progressbar";
+import { AppProps } from "next/app";
+import { Toaster } from "react-hot-toast";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   useEffect(() => {
@@ -17,6 +18,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
+      <NextNProgress color="#2563eb" height={1} />
       <Component {...pageProps} />
       <Toaster position="bottom-center" />
     </>

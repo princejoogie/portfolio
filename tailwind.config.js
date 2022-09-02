@@ -12,6 +12,17 @@ module.exports = {
         gray: colors.neutral,
         red: colors.rose,
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: "#fdfdfd",
+            pre: {
+              color: "#fdfdfd",
+              "background-color": "#000",
+            },
+          },
+        },
+      }),
     },
   },
   variants: {},
