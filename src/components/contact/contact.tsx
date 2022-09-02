@@ -61,18 +61,11 @@ const Contact: React.FC = () => {
 
   return (
     <div className="flex w-full flex-col">
-      <h1
-        data-aos="fade-right"
-        className="text-3xl font-bold tracking-tight text-gray-300 lg:text-6xl"
-      >
+      <h2 className="text-3xl font-bold tracking-tight text-gray-300 lg:text-6xl">
         Let&apos;s Keep in Touch.
-      </h1>
+      </h2>
 
-      <div
-        data-aos="zoom-out"
-        data-aos-delay={`${1 * 100}`}
-        className="relative mt-8 flex w-full flex-col px-4 py-4 md:flex-row md:px-6 md:py-16 xl:px-10 xl:py-24"
-      >
+      <div className="relative mt-8 flex w-full flex-col px-4 py-4 md:flex-row md:px-6 md:py-16 xl:px-10 xl:py-24">
         <AnimatePresence>
           {showConf && (
             <motion.div
@@ -97,11 +90,7 @@ const Contact: React.FC = () => {
           onSubmit={onSubmit}
           className="z-10 mb-3 mr-0 flex h-full flex-1 flex-col justify-center md:mr-6 md:mb-0"
         >
-          <div
-            data-aos="fade-right"
-            data-aos-delay={`${2 * 50}`}
-            className="flex w-full flex-col items-start md:items-end"
-          >
+          <div className="flex w-full flex-col items-start md:items-end">
             <p className="w-full max-w-md text-sm text-gray-400 ">Your Name</p>
             <input
               {...register("name")}
@@ -115,11 +104,7 @@ const Contact: React.FC = () => {
             )}
           </div>
 
-          <div
-            data-aos="fade-right"
-            data-aos-delay={`${3 * 50}`}
-            className="flex w-full flex-col items-start md:items-end"
-          >
+          <div className="flex w-full flex-col items-start md:items-end">
             <p className="mt-4 w-full max-w-md text-sm text-gray-400">
               Email Address *
             </p>
@@ -135,11 +120,7 @@ const Contact: React.FC = () => {
             )}
           </div>
 
-          <div
-            data-aos="fade-right"
-            data-aos-delay={`${4 * 50}`}
-            className="flex w-full flex-col items-start md:items-end"
-          >
+          <div className="flex w-full flex-col items-start md:items-end">
             <p className="mt-4 w-full max-w-md text-sm text-gray-400">
               Your Message *
             </p>
@@ -156,11 +137,7 @@ const Contact: React.FC = () => {
             )}
           </div>
 
-          <div
-            data-aos="fade-right"
-            data-aos-delay={`${5 * 50}`}
-            className="flex w-full flex-col items-start md:items-end"
-          >
+          <div className="flex w-full flex-col items-start md:items-end">
             <button
               disabled={!isValid || loading}
               type="submit"
@@ -176,41 +153,13 @@ const Contact: React.FC = () => {
         </form>
 
         <div className="z-10 mt-3 ml-0 flex flex-1 flex-col items-center justify-center md:ml-6 md:mt-0 md:items-start">
-          <h3
-            data-aos="fade-left"
-            data-aos-delay={`${2 * 50}`}
-            className="text-xl md:text-2xl"
-          >
-            Interested in working
-          </h3>
-          <h3
-            data-aos="fade-left"
-            data-aos-delay={`${2 * 50}`}
-            className="text-xl md:text-2xl"
-          >
-            together?
-          </h3>
+          <h3 className="text-xl md:text-2xl">Interested in working</h3>
+          <h3 className="text-xl md:text-2xl">together?</h3>
 
-          <p
-            data-aos="fade-left"
-            data-aos-delay={`${3 * 50}`}
-            className="mt-4 text-gray-400"
-          >
-            (+63) 945-798-5711
-          </p>
-          <p
-            data-aos="fade-left"
-            data-aos-delay={`${4 * 50}`}
-            className="text-gray-400"
-          >
-            princejoogie@gmail.com
-          </p>
+          <p className="mt-4 text-gray-400">(+63) 945-798-5711</p>
+          <p className="text-gray-400">princejoogie@gmail.com</p>
 
-          <div
-            data-aos="fade-left"
-            data-aos-delay={`${5 * 50}`}
-            className="mt-4 flex space-x-3"
-          >
+          <div className="mt-4 flex space-x-3">
             <a target="_blank" href={socials.github} rel="noreferrer">
               <AiFillGithub className="h-6 w-6 text-white" />
             </a>

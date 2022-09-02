@@ -13,9 +13,8 @@
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
 }
 
-body,
-html {
-  overflow-x: hidden;
+body {
+  @apply bg-background text-gray-300;
 }
 
 #hover_container {

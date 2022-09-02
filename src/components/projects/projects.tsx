@@ -17,7 +17,6 @@ interface ItemProps {
   date: string;
   github?: string;
   href?: string;
-  i: number;
 }
 
 const ProjectItem: React.FC<ItemProps> = ({
@@ -29,7 +28,6 @@ const ProjectItem: React.FC<ItemProps> = ({
   date,
   href,
   github,
-  i,
 }) => {
   const [modalShown, setModalShown] = useState(false);
 
@@ -39,7 +37,7 @@ const ProjectItem: React.FC<ItemProps> = ({
         {modalShown && <ImageModal {...{ setModalShown, src }} />}
       </AnimatePresence>
 
-      <div data-aos="zoom-in-up" data-aos-delay={`${i * 100}`}>
+      <div>
         <div className="group relative flex items-center justify-center overflow-hidden rounded-xl border-2 border-gray-800">
           <div className="absolute z-20 h-5/6 w-10/12 rounded-xl bg-black p-4 opacity-0 transition-all duration-500 group-hover:h-full group-hover:w-full group-hover:opacity-80">
             <div className="flex h-full flex-col items-start justify-end">
@@ -108,14 +106,11 @@ const Projects: React.FC = () => {
   return (
     <div className="flex w-full flex-col">
       <div className="flex w-full items-center justify-between">
-        <h1
-          data-aos="fade-right"
-          className="mb-8 text-3xl font-bold tracking-tight text-gray-300 lg:text-6xl"
-        >
+        <h2 className="mb-8 text-3xl font-bold tracking-tight text-gray-300 lg:text-6xl">
           Projects.
-        </h1>
+        </h2>
 
-        <span data-aos="fade-left">
+        <span>
           <a
             href={socials.github}
             className="text-sm text-blue-500 transition-opacity hover:opacity-70"
@@ -130,9 +125,8 @@ const Projects: React.FC = () => {
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
         {projects
           .filter((e) => e.enabled)
-          .map((p, i) => (
+          .map((p) => (
             <ProjectItem
-              i={i}
               key={p.title}
               src={p.src}
               date={p.date}

@@ -9,23 +9,17 @@ interface NavBarProps {}
 interface LinkProps {
   title: string;
   path: string;
-  i: number;
 }
 
 interface SocialProps {
   Icon: IconType;
   href: string;
-  i: number;
 }
 
-const LinkItem: React.FC<LinkProps> = ({ title, path, i }) => {
+const LinkItem: React.FC<LinkProps> = ({ title, path }) => {
   return (
     <Link href={path}>
-      <a
-        data-aos="zoom-in-down"
-        data-aos-delay={`${i * 100}`}
-        className="group rounded-xl px-6 py-4 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none"
-      >
+      <a className="group rounded-xl px-6 py-4 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none">
         <p className="font-mono text-sm text-gray-400 group-hover:text-blue-300">
           {title}
         </p>
@@ -34,11 +28,9 @@ const LinkItem: React.FC<LinkProps> = ({ title, path, i }) => {
   );
 };
 
-const Social: React.FC<SocialProps> = ({ href, i, Icon }) => {
+const Social: React.FC<SocialProps> = ({ href, Icon }) => {
   return (
     <a
-      data-aos="zoom-in-down"
-      data-aos-delay={`${i * 100}`}
       target="_blank"
       href={href}
       className="group block rounded-full p-3 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none"
@@ -51,13 +43,13 @@ const Social: React.FC<SocialProps> = ({ href, i, Icon }) => {
 
 const NavBar: React.FC<NavBarProps> = () => {
   return (
-    <div className="z-10 flex w-full flex-row justify-between px-2 py-12">
+    <div className="z-10 flex w-full flex-row justify-between py-12">
       <div className="hidden lg:block">
         <div className="flex flex-row items-center justify-center space-x-2">
-          <LinkItem i={0} title="< About />" path="/" />
-          <LinkItem i={1} title="< Projects />" path="/#projects" />
-          <LinkItem i={2} title="< Contact />" path="/#contact" />
-          <LinkItem i={3} title="< Blog />" path="/blogs" />
+          <LinkItem title="< About />" path="/" />
+          <LinkItem title="< Projects />" path="/#projects" />
+          <LinkItem title="< Contact />" path="/#contact" />
+          <LinkItem title="< Blog />" path="/blogs" />
         </div>
       </div>
 
@@ -84,9 +76,9 @@ const NavBar: React.FC<NavBarProps> = () => {
       </div>
 
       <div className="flex flex-row items-center space-x-2 lg:space-x-6">
-        <Social i={4} href={socials.github} Icon={AiFillGithub} />
-        <Social i={5} href={socials.linkedin} Icon={AiFillLinkedin} />
-        <Social i={6} href={socials.instagram} Icon={AiFillInstagram} />
+        <Social href={socials.github} Icon={AiFillGithub} />
+        <Social href={socials.linkedin} Icon={AiFillLinkedin} />
+        <Social href={socials.instagram} Icon={AiFillInstagram} />
       </div>
     </div>
   );
