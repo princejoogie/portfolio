@@ -28,14 +28,6 @@ const Footer: React.FC<FooterProps> = () => {
 
         <button
           type="button"
-          onClick={() => router.replace("/#contact")}
-          className="focus:bg-gray-800 focus:outline-none"
-        >
-          <p className="uppercase text-gray-400">Contact</p>
-        </button>
-
-        <button
-          type="button"
           onClick={() => router.replace("/blogs")}
           className="focus:bg-gray-800 focus:outline-none"
         >

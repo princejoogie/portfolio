@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { AnimatePresence } from "framer-motion";
 import { AiFillGithub } from "react-icons/ai";
 import { FiExternalLink } from "react-icons/fi";
 import { BiExpand } from "react-icons/bi";
@@ -33,9 +32,7 @@ const ProjectItem: React.FC<ItemProps> = ({
 
   return (
     <div>
-      <AnimatePresence>
-        {modalShown && <ImageModal {...{ setModalShown, src }} />}
-      </AnimatePresence>
+      {modalShown && <ImageModal {...{ setModalShown, src }} />}
 
       <div>
         <div className="group relative flex items-center justify-center overflow-hidden rounded-xl border-2 border-gray-800">

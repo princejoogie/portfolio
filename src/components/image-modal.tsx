@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { IoClose } from "react-icons/io5";
 
 interface ImageModalProps {
@@ -9,13 +8,7 @@ interface ImageModalProps {
 
 const ImageModal: React.FC<ImageModalProps> = ({ setModalShown, src }) => {
   return (
-    <motion.div
-      initial={{ marginTop: "100vh", opacity: 0 }}
-      animate={{ marginTop: 0, opacity: 1 }}
-      exit={{ marginTop: "100vh", opacity: 0 }}
-      transition={{ type: "spring", duration: 0.7 }}
-      className="fixed inset-0 z-50 flex w-full flex-col opacity-70"
-    >
+    <div className="fixed inset-0 z-50 flex w-full flex-col">
       <div className="absolute inset-0 z-0 bg-black opacity-80" />
 
       <button
@@ -31,7 +24,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ setModalShown, src }) => {
           <img src={src} alt={src} className="h-full w-full object-contain" />
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

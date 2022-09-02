@@ -48,7 +48,6 @@ const NavBar: React.FC<NavBarProps> = () => {
         <div className="flex flex-row items-center justify-center space-x-2">
           <LinkItem title="< About />" path="/" />
           <LinkItem title="< Projects />" path="/#projects" />
-          <LinkItem title="< Contact />" path="/#contact" />
           <LinkItem title="< Blog />" path="/blogs" />
         </div>
       </div>
