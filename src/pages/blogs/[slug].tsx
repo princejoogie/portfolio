@@ -5,7 +5,7 @@ import path from "path";
 import matter from "gray-matter";
 
 import Markdown from "../../components/markdown";
-import Layout from "../../components/layouts/layout";
+import Layout from "../../components/layout";
 
 interface GSP {
   frontMatter: {

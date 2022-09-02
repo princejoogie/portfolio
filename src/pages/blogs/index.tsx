@@ -5,7 +5,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-import Layout from "../../components/layouts/layout";
+import Layout from "../../components/layout";
 
 interface GSP {
   blogs: {

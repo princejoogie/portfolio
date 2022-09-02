@@ -1,8 +1,8 @@
 import React from "react";
-import Jumbotron from "src/components/about/jumbotron";
-import Layout from "src/components/layouts/layout";
-import Projects from "src/components/projects/projects";
-import TechStack from "src/components/about/tech-stack";
+import Jumbotron from "../components/home/jumbotron";
+import Projects from "../components/home/projects";
+import TechStack from "../components/home/tech-stack";
+import Layout from "../components/layout";
 
 const index: React.FC = () => {
   return (
