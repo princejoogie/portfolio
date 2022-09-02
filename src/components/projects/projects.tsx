@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { AiFillGithub } from "react-icons/ai";
 import { FiExternalLink } from "react-icons/fi";
-import { BiExpand } from "react-icons/bi";
-import ImageModal from "../image-modal";
 import { socials } from "../../utils/constants";
 import projects from "./info.json";
 
@@ -28,27 +26,14 @@ const ProjectItem: React.FC<ItemProps> = ({
   href,
   github,
 }) => {
-  const [modalShown, setModalShown] = useState(false);
-
   return (
     <div>
-      {modalShown && <ImageModal {...{ setModalShown, src }} />}
-
       <div>
         <div className="group relative flex items-center justify-center overflow-hidden rounded-xl border-2 border-gray-800">
-          <div className="absolute z-20 h-5/6 w-10/12 rounded-xl bg-black p-4 opacity-0 transition-all duration-500 group-hover:h-full group-hover:w-full group-hover:opacity-80">
+          <div className="absolute z-20 h-5/6 w-10/12 rounded-md bg-black p-4 opacity-0 transition-all duration-500 group-hover:h-full group-hover:w-full group-hover:opacity-80">
             <div className="flex h-full flex-col items-start justify-end">
               <h1 className="font-bold">{title}</h1>
-
               <p className="text-xs text-gray-400 md:text-sm">{description}</p>
-
-              <button
-                type="button"
-                className="group absolute top-4 right-4 h-6 w-6 text-gray-400 transition-all focus:text-white focus:outline-none active:h-5 active:w-5"
-                onClick={() => setModalShown(!modalShown)}
-              >
-                <BiExpand className="h-full w-full" />
-              </button>
             </div>
           </div>
           <div className="image-container relative min-h-[300px]">
@@ -58,6 +43,7 @@ const ProjectItem: React.FC<ItemProps> = ({
 
         <div className="mt-2 flex items-center justify-between">
           <div className="flex items-center space-x-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={icon}
               className="h-8 w-8 overflow-hidden rounded-md"

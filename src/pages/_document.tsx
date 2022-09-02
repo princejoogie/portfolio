@@ -20,8 +20,9 @@ class MyDocument extends Document {
   render() {
     return (
       <Html>
+        <title>Prince Juguilon | Software Engineer</title>
+
         <Head>
-          <title>Prince Juguilon | Software Engineer</title>
           <meta
             name="description"
             content="A Software Engineer based in the Philippines, React enthusiast, fond of creating interactive and responsive layouts for web and mobile applications."

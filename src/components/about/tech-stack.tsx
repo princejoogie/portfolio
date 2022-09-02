@@ -10,6 +10,7 @@ interface TechItemProps {
 const TechItem: React.FC<TechItemProps> = ({ title, icon }) => {
   return (
     <Tippy content={title} placement="bottom">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         className="mr-6 flex h-16 w-16 items-center justify-center px-2 md:h-20 md:w-20"
         src={icon}
