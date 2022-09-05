@@ -1,7 +1,7 @@
 import Link from "next/link";
-import Contact from "./contact";
+import { Contact } from "./contact";
 
-const NewJumbotron = () => {
+export const Jumbotron = () => {
   return (
     <div>
       <div className="flex flex-col items-start">
@@ -53,5 +53,3 @@ const NewJumbotron = () => {
     </div>
   );
 };
-
-export default NewJumbotron;

@@ -20,7 +20,6 @@ class MyDocument extends Document {
     return (
       <Html>
         <title>Prince Juguilon | Software Engineer</title>
-
         <Head>
           <meta
             name="description"
@@ -45,6 +44,7 @@ class MyDocument extends Document {
           <meta property="og:type" content="website" />
           <meta property="og:site_name" content="Prince Juguilon" />
         </Head>
+
         <body>
           <Main />
           <NextScript />

@@ -4,12 +4,10 @@ interface MarkdownProps {
   content: string;
 }
 
-const Markdown = ({ content }: MarkdownProps) => {
+export const Markdown = ({ content }: MarkdownProps) => {
   return (
     <article className="prose prose-invert">
       <ReactMarkdown>{content}</ReactMarkdown>
     </article>
   );
 };
-
-export default Markdown;

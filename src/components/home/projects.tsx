@@ -1,8 +1,7 @@
 import Image from "next/image";
 import { AiFillGithub } from "react-icons/ai";
 import { FiExternalLink } from "react-icons/fi";
-import { socials } from "../../utils/constants";
-import projects from "./info.json";
+import { projects, socials } from "@/utils/constants";
 
 interface ItemProps {
   icon: string;
@@ -84,7 +83,7 @@ const ProjectItem = ({
   );
 };
 
-const Projects: React.FC = () => {
+export const Projects = () => {
   return (
     <div className="flex w-full flex-col">
       <div className="flex w-full items-center justify-between">
@@ -124,5 +123,3 @@ const Projects: React.FC = () => {
     </div>
   );
 };
-
-export default Projects;

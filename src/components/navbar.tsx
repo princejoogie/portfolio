@@ -42,7 +42,7 @@ const Social = ({ href, Icon }: SocialProps) => {
   );
 };
 
-const NavBar: React.FC = () => {
+export const NavBar = () => {
   return (
     <div className="z-10 flex w-full flex-row justify-between py-12">
       <div className="hidden lg:block">
@@ -83,5 +83,3 @@ const NavBar: React.FC = () => {
     </div>
   );
 };
-
-export default NavBar;

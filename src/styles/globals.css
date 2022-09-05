@@ -17,15 +17,6 @@ body {
   @apply bg-background text-gray-300;
 }
 
-#hover_container {
-  perspective: 40px;
-}
-
-.floatCard {
-  transform: translateY(0px);
-  animation: float 5s ease-in-out infinite;
-}
-
 .image-container {
   width: 100%;
 }
@@ -39,16 +30,4 @@ body {
   width: 100% !important;
   position: relative !important;
   height: unset !important;
-}
-
-@keyframes float {
-  0% {
-    transform: translatey(0px);
-  }
-  50% {
-    transform: translatey(-10px);
-  }
-  100% {
-    transform: translatey(0px);
-  }
 }

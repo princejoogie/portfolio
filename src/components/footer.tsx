@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { useRouter } from "next/router";
 
-const Footer = () => {
+export const Footer = () => {
   const date = useMemo(() => new Date(), []);
   const router = useRouter();
 
@@ -38,5 +38,3 @@ const Footer = () => {
     </div>
   );
 };
-
-export default Footer;

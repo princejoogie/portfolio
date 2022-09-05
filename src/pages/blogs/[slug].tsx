@@ -3,8 +3,8 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-import Markdown from "../../components/markdown";
-import Layout from "../../components/layout";
+import { Markdown } from "@/components/markdown";
+import { Layout } from "@/components/layout";
 
 interface GSP {
   frontMatter: {

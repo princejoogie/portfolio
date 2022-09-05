@@ -1,12 +1,12 @@
 import { ReactNode } from "react";
-import Footer from "./footer";
-import NavBar from "./navbar";
+import { Footer } from "./footer";
+import { NavBar } from "./navbar";
 
 interface LayoutProps {
   children: ReactNode;
 }
 
-const Layout = ({ children }: LayoutProps) => {
+export const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <div className="mx-auto mb-10 min-h-screen w-full max-w-screen-xl px-4">
@@ -18,5 +18,3 @@ const Layout = ({ children }: LayoutProps) => {
     </>
   );
 };
-
-export default Layout;

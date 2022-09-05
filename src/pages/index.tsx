@@ -1,7 +1,5 @@
-import Jumbotron from "../components/home/jumbotron";
-import Projects from "../components/home/projects";
-import TechStack from "../components/home/tech-stack";
-import Layout from "../components/layout";
+import { Layout } from "@/components/layout";
+import { Projects, TechStack, Jumbotron } from "@/components/home";
 
 const Index = () => {
   return (

@@ -1,4 +1,4 @@
-const Contact = () => {
+export const Contact = () => {
   return (
     <div className="flex items-center space-x-2">
       <button
@@ -61,5 +61,3 @@ const Contact = () => {
     </div>
   );
 };
-
-export default Contact;
