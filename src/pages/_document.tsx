@@ -39,7 +39,7 @@ class MyDocument extends Document {
             content="A Software Engineer based in the Philippines, React enthusiast, fond of creating interactive and responsive layouts for web and mobile applications."
           />
           <meta property="og:url" content="https://princecaarlo.tech/" />
-          <meta property="og:image" content="/profile.jpg" />
+          <meta property="og:image" content="/profile.png" />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />
           <meta property="og:type" content="website" />
