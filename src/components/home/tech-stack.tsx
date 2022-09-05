@@ -1,4 +1,3 @@
-import React from "react";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 
@@ -7,7 +6,7 @@ interface TechItemProps {
   icon: any;
 }
 
-const TechItem: React.FC<TechItemProps> = ({ title, icon }) => {
+const TechItem = ({ title, icon }: TechItemProps) => {
   return (
     <Tippy content={title} placement="bottom">
       {/* eslint-disable-next-line @next/next/no-img-element */}

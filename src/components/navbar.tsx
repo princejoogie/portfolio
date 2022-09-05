@@ -1,4 +1,3 @@
-import React from "react";
 import Link from "next/link";
 import { AiFillGithub, AiFillLinkedin, AiFillInstagram } from "react-icons/ai";
 import { IconType } from "react-icons";
@@ -14,7 +13,7 @@ interface SocialProps {
   href: string;
 }
 
-const LinkItem: React.FC<LinkProps> = ({ title, path }) => {
+const LinkItem = ({ title, path }: LinkProps) => {
   return (
     <Link href={path}>
       <a className="group rounded-xl px-6 py-4 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none">
@@ -26,7 +25,7 @@ const LinkItem: React.FC<LinkProps> = ({ title, path }) => {
   );
 };
 
-const Social: React.FC<SocialProps> = ({ href, Icon }) => {
+const Social = ({ href, Icon }: SocialProps) => {
   return (
     <a
       target="_blank"

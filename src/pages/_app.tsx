@@ -1,5 +1,4 @@
 import "../styles/globals.css";
-import React from "react";
 import NextNProgress from "nextjs-progressbar";
 import type { AppProps } from "next/app";
 

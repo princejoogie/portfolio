@@ -1,10 +1,9 @@
-import React from "react";
 import Jumbotron from "../components/home/jumbotron";
 import Projects from "../components/home/projects";
 import TechStack from "../components/home/tech-stack";
 import Layout from "../components/layout";
 
-const index: React.FC = () => {
+const Index = () => {
   return (
     <Layout>
       <div id="about" className="pt-8 lg:pt-12" />
@@ -21,4 +20,4 @@ const index: React.FC = () => {
   );
 };
 
-export default index;
+export default Index;

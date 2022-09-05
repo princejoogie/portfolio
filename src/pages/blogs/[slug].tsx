@@ -1,4 +1,3 @@
-import React from "react";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import fs from "fs";
 import path from "path";

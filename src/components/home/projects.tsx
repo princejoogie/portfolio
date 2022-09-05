@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import { AiFillGithub } from "react-icons/ai";
 import { FiExternalLink } from "react-icons/fi";
@@ -16,7 +15,7 @@ interface ItemProps {
   href?: string;
 }
 
-const ProjectItem: React.FC<ItemProps> = ({
+const ProjectItem = ({
   icon,
   src,
   title,
@@ -25,7 +24,7 @@ const ProjectItem: React.FC<ItemProps> = ({
   date,
   href,
   github,
-}) => {
+}: ItemProps) => {
   return (
     <div>
       <div>
