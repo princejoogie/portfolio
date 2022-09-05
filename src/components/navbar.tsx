@@ -2,9 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { AiFillGithub, AiFillLinkedin, AiFillInstagram } from "react-icons/ai";
 import { IconType } from "react-icons";
-import { socials } from "../utils/constants";
-
-interface NavBarProps {}
+import { socials } from "@/utils/constants";
 
 interface LinkProps {
   title: string;
@@ -41,7 +39,7 @@ const Social: React.FC<SocialProps> = ({ href, Icon }) => {
   );
 };
 
-const NavBar: React.FC<NavBarProps> = () => {
+const NavBar: React.FC = () => {
   return (
     <div className="z-10 flex w-full flex-row justify-between py-12">
       <div className="hidden lg:block">

@@ -116,8 +116,8 @@ const Projects: React.FC = () => {
               icon={p.icon}
               title={p.title}
               subtitle={p.subtitle}
-              href={p.href || undefined}
-              github={p.github || undefined}
+              href={p.href ?? undefined}
+              github={p.github ?? undefined}
               description={p.description}
             />
           ))}

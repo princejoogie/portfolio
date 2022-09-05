@@ -8,13 +8,13 @@ import matter from "gray-matter";
 import Layout from "../../components/layout";
 
 interface GSP {
-  blogs: {
+  blogs: Array<{
     frontMatter: {
       title: string;
       description: string;
     };
     slug: string;
-  }[];
+  }>;
 }
 
 const Blogs = ({ blogs }: GSP) => {
