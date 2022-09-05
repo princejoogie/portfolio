@@ -22,7 +22,7 @@ const TechItem = ({ title, icon }: TechItemProps) => {
 const TechStack: React.FC = () => {
   return (
     <div className="flex w-full flex-col">
-      <h2 className="text-3xl font-bold tracking-tight text-gray-300 lg:text-6xl">
+      <h2 className="text-3xl font-bold tracking-tight text-gray-700 lg:text-6xl">
         Technologies.
       </h2>
 

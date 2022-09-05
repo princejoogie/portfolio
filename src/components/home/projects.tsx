@@ -88,7 +88,7 @@ const Projects: React.FC = () => {
   return (
     <div className="flex w-full flex-col">
       <div className="flex w-full items-center justify-between">
-        <h2 className="mb-8 text-3xl font-bold tracking-tight text-gray-300 lg:text-6xl">
+        <h2 className="mb-8 text-3xl font-bold tracking-tight text-gray-700 lg:text-6xl">
           Projects.
         </h2>
 
@@ -99,7 +99,7 @@ const Projects: React.FC = () => {
             target="_blank"
             rel="noreferrer"
           >
-            See more
+            See more →
           </a>
         </span>
       </div>
