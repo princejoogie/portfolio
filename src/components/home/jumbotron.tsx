@@ -1,15 +1,17 @@
 import Link from "next/link";
+import Contact from "./contact";
 
 const NewJumbotron = () => {
   return (
     <div>
-      <div className="flex flex-col">
-        <h1 className="text-4xl font-extrabold tracking-tight text-blue-300 lg:text-7xl">
-          Prince Carlo
-          <span className="block">Juguilon</span>
+      <div className="flex flex-col items-start">
+        <h1 className="pb-8 text-4xl font-extrabold lg:text-7xl">
+          Prince Carlo <br />
+          <span>Juguilon</span>
         </h1>
 
-        <p className="mt-8 text-2xl font-bold">Developer × Neovim</p>
+        <Contact />
+        {/* <p className="text-2xl font-bold">Developer × Neovim</p> */}
       </div>
 
       <div className="mt-12 flex w-full items-center justify-between">

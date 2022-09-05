@@ -1,5 +1,9 @@
 import Link from "next/link";
-import { AiFillGithub, AiFillLinkedin, AiFillInstagram } from "react-icons/ai";
+import {
+  AiFillGithub,
+  AiFillLinkedin,
+  AiFillTwitterCircle,
+} from "react-icons/ai";
 import { IconType } from "react-icons";
 import { socials } from "@/utils/constants";
 
@@ -74,7 +78,7 @@ const NavBar: React.FC = () => {
       <div className="flex flex-row items-center space-x-2 lg:space-x-6">
         <Social href={socials.github} Icon={AiFillGithub} />
         <Social href={socials.linkedin} Icon={AiFillLinkedin} />
-        <Social href={socials.instagram} Icon={AiFillInstagram} />
+        <Social href={socials.twitter} Icon={AiFillTwitterCircle} />
       </div>
     </div>
   );
