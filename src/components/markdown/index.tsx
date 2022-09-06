@@ -22,7 +22,6 @@ export const Markdown = ({ content }: MarkdownProps) => {
         entries.forEach((entry) => {
           const id = entry.target.id;
           if (entry.isIntersecting) {
-            console.log(id);
             setActiveId(id);
           }
         });
