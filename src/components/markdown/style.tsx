@@ -29,14 +29,19 @@ export const components: Partial<
   h6: ({ ...rest }) => (
     <h6 {...rest} className="my-4 text-lg font-semibold lg:text-xl" />
   ),
-  p: ({ ...rest }) => (
-    <p {...rest} className="my-0 text-justify text-gray-300" />
-  ),
+  p: ({ ...rest }) => <p {...rest} className="my-0 text-justify" />,
   ul: ({ ordered, ...rest }) => <ul {...rest} className="my-0 list-disc" />,
   li: ({ ordered, ...rest }) => <li {...rest} className="my-0" />,
+  ol: ({ ordered, ...rest }) => <ol {...rest} className="my-0 !list-decimal" />,
   img: ({ src, alt, ...rest }) => (
     // eslint-disable-next-line @next/next/no-img-element
     <img {...rest} src={src} alt={alt} className="my-0 inline" />
+  ),
+  blockquote: ({ ...rest }) => (
+    <blockquote
+      {...rest}
+      className="my-2 border-l-4 border-gray-700 pl-4 text-justify text-gray-500"
+    />
   ),
   code: ({ node, inline, className, children, ...props }) => {
     const language = /language-(\w+)/.exec(className ?? "")?.[1];
@@ -44,8 +49,8 @@ export const components: Partial<
     if (inline) {
       return (
         <code
-          className="inline rounded border border-gray-700 bg-gray-800 px-2 py-1 text-green-500"
           {...props}
+          className="inline rounded border border-gray-700 bg-gray-800 px-2 py-1 text-green-500"
         >
           {children}
         </code>
