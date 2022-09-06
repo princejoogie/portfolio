@@ -14,26 +14,20 @@ type TOC = Array<{ id: string; text: string | null; level: number }>;
 export const Markdown = ({ content }: MarkdownProps) => {
   const mdRef = useRef<HTMLElement>(null);
   const [toc, setToc] = useState<TOC>([]);
+  const [activeId, setActiveId] = useState<string>("");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const id = entry.target.getAttribute("id");
-          if (id) {
-            const tocItem = document.querySelector(`#toc-${id}`);
-            if (tocItem) {
-              console.log({ entry, id });
-              if (entry.isIntersecting) {
-                tocItem.classList.add("observer-active");
-              } else {
-                tocItem.classList.remove("observer-active");
-              }
-            }
+          const id = entry.target.id;
+          if (entry.isIntersecting) {
+            console.log(id);
+            setActiveId(id);
           }
         });
       },
-      { threshold: 1 }
+      { rootMargin: "-10% 0px 0px 0px" }
     );
 
     const headers = mdRef.current?.querySelectorAll("h2, h3");
@@ -81,8 +75,10 @@ export const Markdown = ({ content }: MarkdownProps) => {
               <li
                 key={item.id}
                 id={`toc-${item.id}`}
-                className={`mt-2 text-gray-400 hover:text-gray-100 ${
-                  item.level === 0 ? "ml-0" : "ml-4"
+                className={`mt-2 ${item.level === 0 ? "ml-0" : "ml-4"} ${
+                  activeId === item.id
+                    ? "text-blue-500 underline"
+                    : "text-gray-400 hover:text-gray-100 "
                 }`}
               >
                 <a href={`#${item.id}`}>

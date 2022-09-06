@@ -1,12 +1,18 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 
 import { Markdown } from "@/components/markdown";
 import { Layout } from "@/components/layout";
 import { type TBlog, getBlogBySlug, getBlogPaths } from "@/utils/helpers";
 
-const Blog = ({ content }: TBlog) => {
+const Blog = ({ content, frontMatter }: TBlog) => {
   return (
     <Layout>
+      <Head>
+        <title>{frontMatter.title}</title>
+        <meta name="description" content={frontMatter.description} />
+      </Head>
+
       <Markdown content={content} />
     </Layout>
   );

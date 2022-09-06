@@ -314,6 +314,4 @@ The appropriate paths are configured in `package.json` and `dist/index.js` accor
 
 We recommend using [np](https://github.com/sindresorhus/np).
 
----
-
 Made by [**Prince Carlo Juguilon**](https://princecaarlo.tech/) together with these awesome [**Contributors**](https://github.com/princejoogie/paymongo.js/graphs/contributors).
