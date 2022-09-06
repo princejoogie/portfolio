@@ -1,5 +1,6 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import remarkToc from "remark-toc";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import { CodeBlock } from "./code-block";
@@ -12,7 +13,7 @@ export const Markdown = ({ content }: MarkdownProps) => {
   return (
     <article className="prose-prose-pre:p-0 prose-lg prose-invert prose-pre:m-0 prose-pre:my-4 prose-pre:rounded-md prose-pre:p-0">
       <ReactMarkdown
-        remarkPlugins={[remarkGfm]}
+        remarkPlugins={[remarkGfm, remarkToc]}
         rehypePlugins={[
           rehypeSlug,
           [rehypeAutolinkHeadings, { behavior: "wrap" }],
@@ -42,10 +43,13 @@ export const Markdown = ({ content }: MarkdownProps) => {
           h6: ({ ...rest }) => (
             <h6 {...rest} className="my-4 text-lg font-semibold lg:text-xl" />
           ),
-          p: ({ className, ...rest }) => (
-            <p {...rest} className="my-3 text-justify text-gray-300" />
+          p: ({ ...rest }) => (
+            <p {...rest} className="my-0 text-justify text-gray-300" />
           ),
-          ul: ({ ordered, ...rest }) => <ul {...rest} className="list-disc" />,
+          ul: ({ ordered, ...rest }) => (
+            <ul {...rest} className="my-0 list-disc" />
+          ),
+          li: ({ ordered, ...rest }) => <li {...rest} className="my-0" />,
           img: ({ src, alt, ...rest }) => (
             // eslint-disable-next-line @next/next/no-img-element
             <img {...rest} src={src} alt={alt} className="my-0 inline" />
