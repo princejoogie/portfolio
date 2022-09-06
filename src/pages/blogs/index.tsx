@@ -1,55 +1,32 @@
-import Link from "next/link";
 import type { GetStaticProps } from "next";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-
 import { Layout } from "@/components/layout";
+import { type TBlogs, getBlogs } from "@/utils/helpers";
+import { BlogItem } from "@/components/blogs";
 
-interface GSP {
-  blogs: Array<{
-    frontMatter: {
-      title: string;
-      description: string;
-    };
-    slug: string;
-  }>;
-}
-
-const Blogs = ({ blogs }: GSP) => {
+const Blogs = ({ blogs }: TBlogs) => {
   return (
     <Layout>
-      <h1>Blogs</h1>
+      <h2 className="text-3xl font-bold tracking-tight text-gray-700 lg:text-6xl">
+        Blogs.
+      </h2>
 
-      <div className="mt-4 grid grid-cols-3 gap-4">
-        {blogs.map((blog) => (
-          <Link href={`/blogs/${blog.slug}`} key={blog.slug}>
-            <a className="flex flex-col rounded-md border-2 border-gray-800 bg-black p-4">
-              <h2>{blog.frontMatter.title}</h2>
-              <p>{blog.frontMatter.description}</p>
-            </a>
-          </Link>
+      <div className="mt-4 grid grid-cols-2 gap-4">
+        {blogs.map(({ frontMatter, slug }) => (
+          <BlogItem
+            key={slug}
+            description={frontMatter.description}
+            title={frontMatter.title}
+            date={frontMatter.date}
+            href={`/blogs/${slug}`}
+          />
         ))}
       </div>
     </Layout>
   );
 };
 
-export const getStaticProps: GetStaticProps = async () => {
-  const blogPath = "src/blogs";
-  let files = fs.readdirSync(path.join(blogPath));
-  files = files.filter((e) => e.endsWith(".md"));
-
-  const blogs = files.map((file) => {
-    const mdData = fs.readFileSync(path.join(blogPath, file), "utf8");
-    const { data } = matter(mdData);
-    return {
-      frontMatter: data,
-      slug: file.replace(".md", ""),
-    };
-  });
-
-  return { props: { blogs } };
+export const getStaticProps: GetStaticProps<TBlogs> = async () => {
+  return { props: { blogs: getBlogs() } };
 };
 
 export default Blogs;

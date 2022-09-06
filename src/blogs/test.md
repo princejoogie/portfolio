@@ -1,7 +1,7 @@
 ---
 title: "remark-gfm test"
-description: "How to use Zustand with TypeScript and React from installation, basic usage, advanced usage, to best practices."
-date: September 5, 2022
+description: "Testing remark-gfm plugin in Next.JS"
+date: September 6, 2022
 ---
 
 # remark-gfm test

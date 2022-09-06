@@ -1,7 +1,7 @@
 ---
 title: "paymongo.js"
-description: "How to use Zustand with TypeScript and React from installation, basic usage, advanced usage, to best practices."
-date: September 5, 2022
+description: "A lightweight, fully-featured, modular, typescript-compatible javascript library for Paymongo."
+date: January 30, 2022
 ---
 
 # paymongo.js

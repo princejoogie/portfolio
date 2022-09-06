@@ -1,21 +1,10 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
 
 import { Markdown } from "@/components/markdown";
 import { Layout } from "@/components/layout";
+import { type TBlog, getBlogBySlug, getBlogPaths } from "@/utils/helpers";
 
-interface GSP {
-  frontMatter: {
-    title: string;
-    description: string;
-  };
-  content: string;
-  /* slug: string; */
-}
-
-const Blog = ({ content }: GSP) => {
+const Blog = ({ content }: TBlog) => {
   return (
     <Layout>
       <Markdown content={content} />
@@ -24,38 +13,21 @@ const Blog = ({ content }: GSP) => {
 };
 
 export const getStaticPaths: GetStaticPaths = () => {
-  const blogPath = "src/blogs";
-  let files = fs.readdirSync(path.join(blogPath));
-  files = files.filter((e) => e.endsWith(".md"));
-
-  const blogs = files.map((file) => {
-    return {
-      params: {
-        slug: file.replace(".md", ""),
-      },
-    };
-  });
-
-  return { paths: blogs, fallback: false };
+  return {
+    paths: getBlogPaths(),
+    fallback: false,
+  };
 };
 
-export const getStaticProps: GetStaticProps = ({ params }) => {
-  const blogPath = "src/blogs";
+export const getStaticProps: GetStaticProps<TBlog> = ({ params }) => {
   const slug = params?.slug;
 
   if (!slug || typeof slug !== "string") {
     return { notFound: true };
   }
 
-  const mdData = fs.readFileSync(path.join(blogPath, `${slug}.md`), "utf8");
-  const { data, content } = matter(mdData);
-
   return {
-    props: {
-      frontMatter: data,
-      content,
-      slug,
-    },
+    props: getBlogBySlug(slug),
   };
 };
 

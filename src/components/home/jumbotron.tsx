@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { Contact } from "./contact";
+import { BlogItem } from "@/components/blogs";
 
-export const Jumbotron = () => {
+import { type TBlogs } from "@/utils/helpers";
+
+export const Jumbotron = ({ blogs }: TBlogs) => {
   return (
     <div>
       <div className="flex flex-col items-start">
@@ -29,26 +32,15 @@ export const Jumbotron = () => {
       </div>
 
       <div className="mt-4 grid grid-cols-2 gap-2">
-        {Array(6)
-          .fill(0)
-          .map((_, i) => (
-            <Link key={i} href="">
-              <a className="rounded-xl border-gray-800 p-6 hover:bg-gray-800 hover:bg-opacity-50">
-                <span className="text-xs text-gray-500">September 5, 2022</span>
-
-                <h4 className="my-2 text-2xl font-bold line-clamp-2">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quisquam
-                </h4>
-
-                <p className="text-sm text-gray-300 line-clamp-3">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quisquam voluptas, quod, quia, voluptates quae voluptatibus
-                  doloremque quos quibusdam quas nesciunt voluptatum. Quisquam
-                </p>
-              </a>
-            </Link>
-          ))}
+        {blogs.slice(0, 6).map(({ frontMatter, slug }, i) => (
+          <BlogItem
+            key={slug}
+            description={frontMatter.description}
+            title={frontMatter.title}
+            date={frontMatter.date}
+            href={`/blogs/${slug}`}
+          />
+        ))}
       </div>
     </div>
   );

@@ -1,11 +1,18 @@
 import { Layout } from "@/components/layout";
-import { Projects, TechStack, Jumbotron } from "@/components/home";
+import type { GetStaticProps } from "next";
 
-const Index = () => {
+import { Projects, TechStack, Jumbotron } from "@/components/home";
+import { getBlogs } from "@/utils/helpers";
+
+interface GSP {
+  blogs: ReturnType<typeof getBlogs>;
+}
+
+const Index = ({ blogs }: GSP) => {
   return (
     <Layout>
       <div id="about" className="pt-8 lg:pt-12" />
-      <Jumbotron />
+      <Jumbotron blogs={blogs} />
       <div className="h-14" />
 
       <TechStack />
@@ -16,6 +23,10 @@ const Index = () => {
       <div className="h-14" />
     </Layout>
   );
+};
+
+export const getStaticProps: GetStaticProps<GSP> = async () => {
+  return { props: { blogs: getBlogs() } };
 };
 
 export default Index;
