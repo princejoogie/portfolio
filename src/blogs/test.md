@@ -1,94 +1,31 @@
 ---
-title: "Zustand with TypeScript and React"
+title: "remark-gfm test"
 description: "How to use Zustand with TypeScript and React from installation, basic usage, advanced usage, to best practices."
 date: September 5, 2022
 ---
 
-# Zustand Practices
+# remark-gfm test
 
-click [here](https://github.com/princejoogie/)
+## Autolink literals
 
-- Separating concerns through slices
+www.example.com, https://example.com, and contact@example.com.
 
-```js
-// createBearSlice.ts
-import { GetState, SetState } from "zustand";
-import { MyState } from "./useStore";
+## Footnote
 
-export interface BearSlice {
-  eatFish: () => void;
-}
+A note[^1]
 
-const createBearSlice = (set: SetState<MyState>, get: GetState<MyState>) => ({
-  eatFish: () => {
-    set((prev) => ({ fishes: prev.fishes > 1 ? prev.fishes - 1 : 0 }));
-  },
-});
+[^1]: Big note.
 
-export default createBearSlice;
-```
+## Strikethrough
 
-```js
-// createFishSlice.ts
-import { GetState, SetState } from "zustand";
-import { MyState } from "./useStore";
+~one~ or ~~two~~ tildes.
 
-export interface FishSlice {
-  fishes: number;
-  repopulate: () => void;
-}
+## Table
 
-const maxFishes = 10;
+| a   | b   |   c |  d  |
+| --- | :-- | --: | :-: |
 
-const createFishSlice = (set: SetState<MyState>, get: GetState<MyState>) => ({
-  fishes: maxFishes,
-  repopulate: () => {
-    set((prev) => ({ fishes: maxFishes }));
-  },
-});
+## Tasklist
 
-export default createFishSlice;
-```
-
-- Consume those slices in a `useStore` hook
-
-```js
-// useStore.ts
-import create from "zustand";
-
-import createBearSlice, { BearSlice } from "./createBearSlice";
-import createFishSlice, { FishSlice } from "./createFishSlice";
-
-export type MyState = BearSlice & FishSlice;
-
-const useStore =
-  create <
-  MyState >
-  ((set, get) => ({
-    ...createBearSlice(set, get),
-    ...createFishSlice(set, get),
-  }));
-
-export default useStore;
-```
-
-- Sample usage in a component
-
-```js
-// App.js
-import useStore from "./store/useStore";
-
-export default function Mountain() {
-  const fishes = useStore((state) => state.fishes);
-  const eatFish = useStore((state) => state.eatFish);
-  const repopulate = useStore((state) => state.repopulate);
-
-  return (
-    <div>
-      <p>Fishes: {fishes}</p>
-      <button onClick={eatFish}>Eat</button>
-      <button onClick={repopulate}>Repopulate</button>
-    </div>
-  );
-}
-```
+- [ ] to do
+- [x] done

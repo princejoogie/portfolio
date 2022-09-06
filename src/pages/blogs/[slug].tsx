@@ -15,12 +15,9 @@ interface GSP {
   /* slug: string; */
 }
 
-const Blog = ({ frontMatter, content }: GSP) => {
+const Blog = ({ content }: GSP) => {
   return (
     <Layout>
-      <h1>{frontMatter.title}</h1>
-      <p>{frontMatter.description}</p>
-
       <Markdown content={content} />
     </Layout>
   );

@@ -1,4 +1,7 @@
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeSlug from "rehype-slug";
 import { CodeBlock } from "./code-block";
 
 interface MarkdownProps {
@@ -9,6 +12,11 @@ export const Markdown = ({ content }: MarkdownProps) => {
   return (
     <article className="prose-prose-pre:p-0 prose-lg prose-invert prose-pre:m-0 prose-pre:my-4 prose-pre:rounded-md prose-pre:p-0">
       <ReactMarkdown
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[
+          rehypeSlug,
+          [rehypeAutolinkHeadings, { behavior: "wrap" }],
+        ]}
         components={{
           h1: ({ ...rest }) => (
             <h1
