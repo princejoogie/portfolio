@@ -4,9 +4,7 @@ description: "How to use Zustand with TypeScript and React from installation, ba
 date: September 5, 2022
 ---
 
----
-
-## Zustand Practices
+# Zustand Practices
 
 click [here](https://github.com/princejoogie/)
 
