@@ -14,8 +14,6 @@ date: January 30, 2022
 
 A lightweight, fully-featured, modular, typescript-compatible javascript library for [PayMongo.](https://www.paymongo.com/)
 
-## Table of contents
-
 ## Installation
 
 [![NPM](https://nodei.co/npm/paymongo.js.png)](https://npmjs.org/package/paymongo.js)

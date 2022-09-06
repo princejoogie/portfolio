@@ -19,7 +19,7 @@ export const getStaticPaths: GetStaticPaths = () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<TBlog> = ({ params }) => {
+export const getStaticProps: GetStaticProps<TBlog> = async ({ params }) => {
   const slug = params?.slug;
 
   if (!slug || typeof slug !== "string") {
