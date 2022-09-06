@@ -7,7 +7,7 @@ interface MarkdownProps {
 
 export const Markdown = ({ content }: MarkdownProps) => {
   return (
-    <article className="prose-prose-pre:p-0 prose-lg prose-invert prose-pre:m-0 prose-pre:my-4 prose-pre:rounded-md prose-pre:p-0 prose-pre:font-mono">
+    <article className="prose-prose-pre:p-0 prose-lg prose-invert prose-pre:m-0 prose-pre:my-4 prose-pre:rounded-md prose-pre:p-0">
       <ReactMarkdown
         components={{
           img: ({ src, alt, ...rest }) => (

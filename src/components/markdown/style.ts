@@ -7,7 +7,6 @@ export const highlighterStyle: Style = {
     color: "#d4d4d4",
     fontSize: "1rem",
     textShadow: "none",
-    fontFamily: "monospace",
     direction: "ltr",
     textAlign: "left",
     whiteSpace: "pre",
@@ -30,7 +29,6 @@ export const highlighterStyle: Style = {
   'code[class*="language-"]': {
     color: "#d4d4d4",
     textShadow: "none",
-    fontFamily: "monospace",
     direction: "ltr",
     textAlign: "left",
     whiteSpace: "pre",
