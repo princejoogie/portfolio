@@ -5,6 +5,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .observer-active {
+    @apply !text-blue-500;
+  }
+}
+
 * {
   scroll-behavior: smooth;
   padding: 0;
@@ -36,10 +42,4 @@ code {
   width: 100% !important;
   position: relative !important;
   height: unset !important;
-}
-
-.observer-active {
-  opacity: 1;
-  text-decoration: underline;
-  color: white;
 }

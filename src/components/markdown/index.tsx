@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
-import { CodeBlock } from "./code-block";
+import { components } from "./style";
 
 interface MarkdownProps {
   content: string;
@@ -16,32 +16,17 @@ export const Markdown = ({ content }: MarkdownProps) => {
   const [toc, setToc] = useState<TOC>([]);
 
   useEffect(() => {
-    const headers = mdRef.current?.querySelectorAll("h2, h3");
-    const toc: TOC = [];
-
-    headers?.forEach((h) => {
-      const id = h.id;
-      const text = h.textContent;
-      const level = parseInt(h.tagName.toLowerCase().replace("h", "")) - 2;
-      toc.push({ id, text, level });
-    });
-
-    setToc(toc);
-
     const observer = new IntersectionObserver(
       (entries) => {
-        console.log({ entries });
         entries.forEach((entry) => {
           const id = entry.target.getAttribute("id");
           if (id) {
             const tocItem = document.querySelector(`#toc-${id}`);
-            console.log({ tocItem });
             if (tocItem) {
+              console.log({ entry, id });
               if (entry.isIntersecting) {
-                console.log("intersecting", id);
                 tocItem.classList.add("observer-active");
               } else {
-                console.log("not intersecting", id);
                 tocItem.classList.remove("observer-active");
               }
             }
@@ -51,7 +36,18 @@ export const Markdown = ({ content }: MarkdownProps) => {
       { threshold: 1 }
     );
 
-    headers?.forEach((h) => observer.observe(h));
+    const headers = mdRef.current?.querySelectorAll("h2, h3");
+    const toc: TOC = [];
+
+    headers?.forEach((h) => {
+      observer.observe(h);
+      const id = h.id;
+      const text = h.textContent;
+      const level = parseInt(h.tagName.toLowerCase().replace("h", "")) - 2;
+      toc.push({ id, text, level });
+    });
+
+    setToc(toc);
 
     return () => {
       headers?.forEach((h) => observer.unobserve(h));
@@ -71,72 +67,7 @@ export const Markdown = ({ content }: MarkdownProps) => {
             rehypeSlug,
             [rehypeAutolinkHeadings, { behavior: "wrap" }],
           ]}
-          components={{
-            h1: ({ ...rest }) => (
-              <h1
-                {...rest}
-                className="my-4 border-b-2 border-gray-800 pb-3 text-3xl font-semibold lg:text-4xl"
-              />
-            ),
-            h2: ({ ...rest }) => (
-              <h2
-                {...rest}
-                className="my-4 border-b border-gray-800 pb-2 text-2xl font-semibold lg:text-3xl"
-              />
-            ),
-            h3: ({ ...rest }) => (
-              <h3
-                {...rest}
-                className="my-4 text-xl font-semibold lg:text-2xl"
-              />
-            ),
-            h4: ({ ...rest }) => (
-              <h4 {...rest} className="my-4 text-lg font-semibold lg:text-xl" />
-            ),
-            h5: ({ ...rest }) => (
-              <h5 {...rest} className="my-4 text-lg font-semibold lg:text-xl" />
-            ),
-            h6: ({ ...rest }) => (
-              <h6 {...rest} className="my-4 text-lg font-semibold lg:text-xl" />
-            ),
-            p: ({ ...rest }) => (
-              <p {...rest} className="my-0 text-justify text-gray-300" />
-            ),
-            ul: ({ ordered, ...rest }) => (
-              <ul {...rest} className="my-0 list-disc" />
-            ),
-            li: ({ ordered, ...rest }) => <li {...rest} className="my-0" />,
-            img: ({ src, alt, ...rest }) => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img {...rest} src={src} alt={alt} className="my-0 inline" />
-            ),
-            code: ({ node, inline, className, children, ...props }) => {
-              const language = /language-(\w+)/.exec(className ?? "")?.[1];
-
-              if (inline) {
-                return (
-                  <code
-                    className="inline rounded border border-gray-700 bg-gray-800 px-2 py-1 text-green-500"
-                    {...props}
-                  >
-                    {children}
-                  </code>
-                );
-              }
-
-              if (language) {
-                return (
-                  <CodeBlock
-                    {...props}
-                    content={children.toString().replace(/\n$/, "")}
-                    language={language}
-                  />
-                );
-              }
-
-              return <>{children}</>;
-            },
-          }}
+          components={components}
         >
           {content}
         </ReactMarkdown>
