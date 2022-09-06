@@ -47,7 +47,10 @@ export const Markdown = ({ content }: MarkdownProps) => {
 
             if (inline) {
               return (
-                <code className="inline bg-gray-800 px-2 py-1" {...props}>
+                <code
+                  className="inline rounded border border-gray-700 bg-gray-800 px-2 py-1 text-green-500"
+                  {...props}
+                >
                   {children}
                 </code>
               );
