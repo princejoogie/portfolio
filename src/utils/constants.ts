@@ -5,3 +5,125 @@ export const socials = {
   twitter: "https://twitter.com/princecaarlo/",
   blog: "https://blog.princecaarlo.tech/",
 };
+
+export const projects = [
+  {
+    enabled: true,
+    icon: "/assets/logos/typescript.svg",
+    src: "/assets/projects/umamin.png",
+    title: "Umamin",
+    subtitle: "Web Application",
+    description:
+      "An open-source platform for sending and receiving anonymous messages.",
+    href: "https://umamin.link/",
+    github: "https://github.com/joshxfi/umamin",
+    date: "2022 - Present",
+  },
+  {
+    enabled: true,
+    icon: "/assets/logos/typescript.svg",
+    src: "/assets/projects/quickie-washie.png",
+    title: "Quickie Washie",
+    subtitle: "Mobile Application",
+    description:
+      "A Cross-Platform Mobile Application for an all-in-one booking and management for Car Services.",
+    github: "https://github.com/qwashie/quickie-washie-v2",
+    date: "2022 - 2022",
+  },
+  {
+    enabled: true,
+    icon: "/assets/logos/typescript.svg",
+    src: "/assets/projects/paymongo.png",
+    title: "Paymongo.js",
+    subtitle: "Javascript Library",
+    description:
+      "A lightweight, fully-featured, modular, typescript-compatible javascript library for PayMongo.",
+    href: null,
+    github: "https://github.com/princejoogie/paymongo.js",
+    date: "2021 - 2022",
+  },
+  {
+    enabled: true,
+    icon: "/assets/logos/typescript.svg",
+    src: "/assets/projects/groundwork.png",
+    title: "GroundWork PH",
+    subtitle: "Web Application",
+    description:
+      "An online B2B platform designed to create and gather networks for business establishments in the Philippines!",
+    href: "https://shop.groundworkph.com/",
+    github: null,
+    date: "2021 - 2021",
+  },
+  {
+    enabled: true,
+    icon: "/assets/logos/typescript.svg",
+    src: "/assets/projects/genesis.png",
+    title: "Genesis",
+    subtitle: "Mobile Application",
+    description:
+      "A Mobile application that can detect different types of Dog ticks and provide vivid descriptions about them. This is created with react-native and python and applies transfer & continuous learning to further improve the accuracy.",
+    href: null,
+    github: "https://github.com/princejoogie/genesis-rn",
+    date: "2020 - 2021",
+  },
+  {
+    enabled: true,
+    icon: "/assets/logos/typescript.svg",
+    src: "/assets/projects/jookey.png",
+    title: "Jookey",
+    subtitle: "Web & Mobile Application",
+    description:
+      "A Fully encrypted Password Keeper app designed in React Native to keep track of your account passwords.",
+    href: null,
+    github: "https://github.com/princejoogie/jookey",
+    date: "2020 - 2021",
+  },
+  {
+    enabled: false,
+    icon: "/assets/logos/typescript.svg",
+    src: "/assets/projects/joog_uno.png",
+    title: "Joog Uno",
+    subtitle: "Web Application",
+    description:
+      "A free, fast, and customizable URL shortener created with React JS and tailwindcss.",
+    href: "https://joog.uno/",
+    github: "https://github.com/princejoogie/joog-uno",
+    date: "2020 - 2021",
+  },
+  {
+    enabled: false,
+    icon: "/assets/logos/javascript.svg",
+    src: "/assets/projects/pythagoras.png",
+    title: "Pythagoras",
+    subtitle: "Web Application",
+    description:
+      "A commissioned build for Pythagoras Coffee & Tea, an Ecommerce website that aims to provide their products online created with NextJS.",
+    href: "https://pythagoras.netlify.app/",
+    github: "https://github.com/princejoogie/pythagoras",
+    date: "Oct 11, 2020",
+  },
+  {
+    enabled: false,
+    icon: "/assets/logos/javascript.svg",
+    src: "/assets/projects/chamaeleon.png",
+    title: "Chamaeleon",
+    subtitle: "Web Application",
+    description:
+      "A commissioned build for a Startup IT Company, Chamaeleon Software, as their companies' website landing page and showcase of their products.",
+    href: "https://chamaeleon.io/",
+    github: "https://github.com/princejoogie/chamaeleon",
+    date: "Sep 07, 2020",
+  },
+  {
+    enabled: false,
+    icon: "/assets/logos/java.svg",
+    src: "/assets/projects/uApp.png",
+    title: "uApp",
+    subtitle: "Mobile Application",
+    description:
+      "Provides an interface that eases the process of recording fouls, violations, referees that called them and all other basketball related topics. It also provides excel data of the summary of reports",
+    href: null,
+    github: "https://github.com/princejoogie/uaap_app",
+    date: "Oct 7, 2019",
+  },
+];

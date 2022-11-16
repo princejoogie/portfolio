@@ -7,7 +7,7 @@
     "lib": ["esnext", "dom", "esnext.asynciterable"],
     "sourceMap": true,
     "strict": true,
-    "allowJs": true,
+    "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
     "moduleResolution": "node",
@@ -23,22 +23,11 @@
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "incremental": true
+    "incremental": true,
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
-  "exclude": [
-    "node_modules",
-    "build",
-    "scripts",
-    "acceptance-tests",
-    "webpack",
-    "jest",
-    "src/setupTests.ts"
-  ],
-  "include": [
-    "next-env.d.ts",
-    "src/custom.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "pages/_app.js"
-  ]
+  "exclude": ["node_modules"],
+  "include": ["next-env.d.ts", "src/", ".eslintrc.js"]
 }

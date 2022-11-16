@@ -1,11 +1,7 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
 import { useRouter } from "next/router";
-import Link from "next/link";
-import { socials } from "../utils/constants";
 
-interface FooterProps {}
-
-const Footer: React.FC<FooterProps> = () => {
+export const Footer = () => {
   const date = useMemo(() => new Date(), []);
   const router = useRouter();
 
@@ -14,7 +10,7 @@ const Footer: React.FC<FooterProps> = () => {
       <div className="flex flex-col space-y-4 lg:flex-row lg:space-y-0 lg:space-x-20">
         <button
           type="button"
-          onClick={() => router.replace("/#about")}
+          onClick={async () => await router.replace("/")}
           className="focus:bg-gray-800 focus:outline-none"
         >
           <p className="uppercase text-gray-400">About</p>
@@ -22,7 +18,7 @@ const Footer: React.FC<FooterProps> = () => {
 
         <button
           type="button"
-          onClick={() => router.replace("/#projects")}
+          onClick={async () => await router.replace("/#projects")}
           className="focus:bg-gray-800 focus:outline-none"
         >
           <p className="uppercase text-gray-400">Projects</p>
@@ -30,17 +26,11 @@ const Footer: React.FC<FooterProps> = () => {
 
         <button
           type="button"
-          onClick={() => router.replace("/#contact")}
+          onClick={async () => await router.replace("/blogs")}
           className="focus:bg-gray-800 focus:outline-none"
         >
-          <p className="uppercase text-gray-400">Contact</p>
+          <p className="uppercase text-gray-400">Blogs</p>
         </button>
-
-        <Link href={socials.blog}>
-          <p className="cursor-pointer text-center uppercase text-gray-400">
-            Blogs
-          </p>
-        </Link>
       </div>
       <p className="text-center font-semibold">
         Prince Carlo Juguilon © {date.getFullYear()} All Right Reserved
@@ -48,5 +38,3 @@ const Footer: React.FC<FooterProps> = () => {
     </div>
   );
 };
-
-export default Footer;

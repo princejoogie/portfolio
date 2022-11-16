@@ -1,12 +1,7 @@
-import React, { useState } from "react";
 import Image from "next/image";
-import { AnimatePresence } from "framer-motion";
 import { AiFillGithub } from "react-icons/ai";
 import { FiExternalLink } from "react-icons/fi";
-import { BiExpand } from "react-icons/bi";
-import ImageModal from "../image-modal";
-import { socials } from "../../utils/constants";
-import projects from "./info.json";
+import { projects, socials } from "@/utils/constants";
 
 interface ItemProps {
   icon: string;
@@ -17,10 +12,9 @@ interface ItemProps {
   date: string;
   github?: string;
   href?: string;
-  i: number;
 }
 
-const ProjectItem: React.FC<ItemProps> = ({
+const ProjectItem = ({
   icon,
   src,
   title,
@@ -29,31 +23,15 @@ const ProjectItem: React.FC<ItemProps> = ({
   date,
   href,
   github,
-  i,
-}) => {
-  const [modalShown, setModalShown] = useState(false);
-
+}: ItemProps) => {
   return (
     <div>
-      <AnimatePresence>
-        {modalShown && <ImageModal {...{ setModalShown, src }} />}
-      </AnimatePresence>
-
-      <div data-aos="zoom-in-up" data-aos-delay={`${i * 100}`}>
+      <div>
         <div className="group relative flex items-center justify-center overflow-hidden rounded-xl border-2 border-gray-800">
-          <div className="absolute z-20 h-5/6 w-10/12 rounded-xl bg-black p-4 opacity-0 transition-all duration-500 group-hover:h-full group-hover:w-full group-hover:opacity-80">
+          <div className="absolute z-20 h-5/6 w-10/12 rounded-md bg-black p-4 opacity-0 transition-all duration-500 group-hover:h-full group-hover:w-full group-hover:opacity-80">
             <div className="flex h-full flex-col items-start justify-end">
               <h1 className="font-bold">{title}</h1>
-
               <p className="text-xs text-gray-400 md:text-sm">{description}</p>
-
-              <button
-                type="button"
-                className="group absolute top-4 right-4 h-6 w-6 text-gray-400 transition-all focus:text-white focus:outline-none active:h-5 active:w-5"
-                onClick={() => setModalShown(!modalShown)}
-              >
-                <BiExpand className="h-full w-full" />
-              </button>
             </div>
           </div>
           <div className="image-container relative min-h-[300px]">
@@ -63,6 +41,7 @@ const ProjectItem: React.FC<ItemProps> = ({
 
         <div className="mt-2 flex items-center justify-between">
           <div className="flex items-center space-x-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={icon}
               className="h-8 w-8 overflow-hidden rounded-md"
@@ -104,25 +83,22 @@ const ProjectItem: React.FC<ItemProps> = ({
   );
 };
 
-const Projects: React.FC = () => {
+export const Projects = () => {
   return (
     <div className="flex w-full flex-col">
       <div className="flex w-full items-center justify-between">
-        <h1
-          data-aos="fade-right"
-          className="mb-8 text-3xl font-bold tracking-tight text-gray-300 lg:text-6xl"
-        >
+        <h2 className="mb-8 text-3xl font-bold tracking-tight text-gray-700 lg:text-6xl">
           Projects.
-        </h1>
+        </h2>
 
-        <span data-aos="fade-left">
+        <span>
           <a
             href={socials.github}
             className="text-sm text-blue-500 transition-opacity hover:opacity-70"
             target="_blank"
             rel="noreferrer"
           >
-            See more
+            See more →
           </a>
         </span>
       </div>
@@ -130,17 +106,16 @@ const Projects: React.FC = () => {
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
         {projects
           .filter((e) => e.enabled)
-          .map((p, i) => (
+          .map((p) => (
             <ProjectItem
-              i={i}
               key={p.title}
               src={p.src}
               date={p.date}
               icon={p.icon}
               title={p.title}
               subtitle={p.subtitle}
-              href={p.href || undefined}
-              github={p.github || undefined}
+              href={p.href ?? undefined}
+              github={p.github ?? undefined}
               description={p.description}
             />
           ))}
@@ -148,5 +123,3 @@ const Projects: React.FC = () => {
     </div>
   );
 };
-
-export default Projects;
