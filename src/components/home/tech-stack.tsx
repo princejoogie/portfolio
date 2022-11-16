@@ -37,6 +37,11 @@ export const TechStack = () => {
           icon="/assets/google-cloud.svg"
         />
         <TechItem title="Docker" icon="/assets/docker-icon.svg" />
+        <TechItem title="Terraform" icon="/assets/terraform-icon.svg" />
+        <TechItem title="Buildkite" icon="/assets/buildkite-icon.svg" />
+        <TechItem title="Jira" icon="/assets/jira.svg" />
+        <TechItem title="Neovim" icon="/assets/neovim.svg" />
+        <TechItem title="Lua" icon="/assets/lua.svg" />
       </div>
     </div>
   );

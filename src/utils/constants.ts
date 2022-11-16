@@ -22,6 +22,17 @@ export const projects = [
   {
     enabled: true,
     icon: "/assets/logos/typescript.svg",
+    src: "/assets/projects/quickie-washie.png",
+    title: "Quickie Washie",
+    subtitle: "Mobile Application",
+    description:
+      "A Cross-Platform Mobile Application for an all-in-one booking and management for Car Services.",
+    github: "https://github.com/qwashie/quickie-washie-v2",
+    date: "2022 - 2022",
+  },
+  {
+    enabled: true,
+    icon: "/assets/logos/typescript.svg",
     src: "/assets/projects/paymongo.png",
     title: "Paymongo.js",
     subtitle: "Javascript Library",
@@ -68,7 +79,7 @@ export const projects = [
     date: "2020 - 2021",
   },
   {
-    enabled: true,
+    enabled: false,
     icon: "/assets/logos/typescript.svg",
     src: "/assets/projects/joog_uno.png",
     title: "Joog Uno",
