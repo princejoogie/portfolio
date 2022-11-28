@@ -20,6 +20,7 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
     project: "./tsconfig.json",
+    tsconfigRootDir: __dirname,
   },
   plugins: ["react", "react-hooks", "prettier"],
   rules: {
