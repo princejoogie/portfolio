@@ -32,15 +32,12 @@ export const TechStack = () => {
         <TechItem title="PostgreSQL" icon="/assets/postgresql.svg" />
         <TechItem title="GraphQL" icon="/assets/graphql.svg" />
         <TechItem title="Amazon Web Services" icon="/assets/aws.svg" />
-        <TechItem
-          title="Google Cloud Platform"
-          icon="/assets/google-cloud.svg"
-        />
         <TechItem title="Docker" icon="/assets/docker-icon.svg" />
         <TechItem title="Terraform" icon="/assets/terraform-icon.svg" />
         <TechItem title="Buildkite" icon="/assets/buildkite-icon.svg" />
         <TechItem title="Jira" icon="/assets/jira.svg" />
-        <TechItem title="Neovim" icon="/assets/neovim.svg" />
+        <TechItem title="Figma" icon="/assets/figma.svg" />
+        <TechItem title="Neovim" icon="/assets/neovim-icon.svg" />
         <TechItem title="Lua" icon="/assets/lua.svg" />
       </div>
     </div>
