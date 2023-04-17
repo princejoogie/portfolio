@@ -14,9 +14,22 @@ export const generateMetadata = async ({
   params,
 }: PageProps): Promise<Metadata> => {
   const { meta } = await getBlogBySlug(params.slug);
+  const url = `/api/og?title=${meta.title ?? ""}&description=${
+    meta.description ?? ""
+  }`;
+
   return {
     title: meta.title,
     description: meta.description,
+    openGraph: {
+      images: [
+        {
+          url,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
   };
 };
 

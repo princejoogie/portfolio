@@ -6,6 +6,12 @@ export const socials = {
   blog: "https://blog.princecaarlo.tech/",
 };
 
+export const defaultSeo = {
+  title: "Prince Carlo Juguilon",
+  description:
+    "A Software Engineer based in the Philippines, React enthusiast, type-safety advocate, and a passionate learner.",
+};
+
 export const projects = [
   {
     enabled: true,

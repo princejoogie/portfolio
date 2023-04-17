@@ -3,11 +3,13 @@ import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { NavBar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { defaultSeo } from "@/utils/constants";
 
 export const metadata: Metadata = {
-  title: "Prince Juguilon | Software Engineer",
-  description:
-    "A Software Engineer based in the Philippines, React enthusiast, fond of creating interactive and responsive layouts for web and mobile applications.",
+  ...defaultSeo,
+  openGraph: {
+    images: [{ url: "/api/og" }],
+  },
 };
 
 interface RootLayoutProps {
