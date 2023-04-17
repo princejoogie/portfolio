@@ -16,7 +16,7 @@ const BlogPage = async () => {
         Blogs.
       </h2>
 
-      <div className="mt-4 grid grid-cols-2 gap-4">
+      <div className="mt-4 grid gap-4 grid-cols-1 md:grid-cols-2">
         {blogs.map(({ slug, description, title, date }) => (
           <BlogItem
             key={slug}
