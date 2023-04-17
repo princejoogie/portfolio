@@ -18,6 +18,10 @@ body {
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
 }
 
+video {
+  @apply border-2 border-gray-800 rounded-xl;
+}
+
 pre,
 code {
   font-family: "Source Code Pro", Consolas, monospace;
