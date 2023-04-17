@@ -24,9 +24,9 @@ export const Jumbotron = ({ blogs }: TBlogs) => {
 
         <span>
           <Link href="/blogs">
-            <a className="text-sm text-blue-500 transition-opacity hover:opacity-70">
+            <p className="text-sm text-blue-500 transition-opacity hover:opacity-70">
               See more →
-            </a>
+            </p>
           </Link>
         </span>
       </div>
