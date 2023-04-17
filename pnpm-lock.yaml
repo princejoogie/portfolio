@@ -13,9 +13,6 @@ dependencies:
   next:
     specifier: ^13.3.0
     version: 13.3.0(react-dom@18.2.0)(react@18.2.0)
-  nextjs-progressbar:
-    specifier: ^0.0.16
-    version: 0.0.16(next@13.3.0)(react@18.2.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -40,9 +37,6 @@ dependencies:
   remark-gfm:
     specifier: ^3.0.1
     version: 3.0.1
-  remark-toc:
-    specifier: ^8.0.1
-    version: 8.0.1
   sharp:
     specifier: ^0.32.0
     version: 0.32.0
@@ -370,10 +364,6 @@ packages:
       '@types/ms': 0.7.31
     dev: false
 
-  /@types/extend@3.0.1:
-    resolution: {integrity: sha512-R1g/VyKFFI2HLC1QGAeTtCBWCo6n75l41OnsVYNbmKG+kempOESaodf6BeJyUM3Q0rKa/NQcTHbB2+66lNnxLw==}
-    dev: false
-
   /@types/hast@2.3.4:
     resolution: {integrity: sha512-wLEm0QvaoawEDoTRwzTXp4b4jpwiJDvR5KMnFnVodm3scufTlBOWRD6N1OBf9TZMhjlNsSfcO5V+7AF4+Vy+9g==}
     dependencies:
@@ -401,10 +391,6 @@ packages:
   /@types/node@18.15.11:
     resolution: {integrity: sha512-E5Kwq2n4SbMzQOn6wnmBjuK9ouqlURrcZDVfbo9ftDDTFt3nk7ZKK4GMOzoYgnpQJKcxwQw+lGaBvvlMo0qN/Q==}
     dev: true
-
-  /@types/nprogress@0.2.0:
-    resolution: {integrity: sha512-1cYJrqq9GezNFPsWTZpFut/d4CjpZqA0vhqDUPFWYKF1oIyBz5qnoYMzR+0C/T96t3ebLAC1SSnwrVOm5/j74A==}
-    dev: false
 
   /@types/prop-types@15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
@@ -2226,18 +2212,6 @@ packages:
       '@types/mdast': 3.0.11
     dev: false
 
-  /mdast-util-toc@6.1.1:
-    resolution: {integrity: sha512-Er21728Kow8hehecK2GZtb7Ny3omcoPUVrmObiSUwmoRYVZaXLR751QROEFjR8W/vAQdHMLj49Lz20J55XaNpw==}
-    dependencies:
-      '@types/extend': 3.0.1
-      '@types/mdast': 3.0.11
-      extend: 3.0.2
-      github-slugger: 2.0.0
-      mdast-util-to-string: 3.2.0
-      unist-util-is: 5.2.1
-      unist-util-visit: 4.1.2
-    dev: false
-
   /merge2@1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
     engines: {node: '>= 8'}
@@ -2600,19 +2574,6 @@ packages:
       - babel-plugin-macros
     dev: false
 
-  /nextjs-progressbar@0.0.16(next@13.3.0)(react@18.2.0):
-    resolution: {integrity: sha512-GV0fD38EMD3vSDCmkq+tObmoup6QA91a6a9MxGuhJZuRk/9TNsrHGnIQQQ/sggkMkXuT4fBgF6jRjFwScDT3zA==}
-    peerDependencies:
-      next: '>= 6.0.0'
-      react: '>= 16.0.0'
-    dependencies:
-      '@types/nprogress': 0.2.0
-      next: 13.3.0(react-dom@18.2.0)(react@18.2.0)
-      nprogress: 0.2.0
-      prop-types: 15.8.1
-      react: 18.2.0
-    dev: false
-
   /node-abi@3.35.0:
     resolution: {integrity: sha512-jAlSOFR1Bls963NmFwxeQkNTzqjUF0NThm8Le7eRIRGzFUVJuMOFZDLv5Y30W/Oaw+KEebEJLAigwO9gQHoEmw==}
     engines: {node: '>=10'}
@@ -2636,10 +2597,6 @@ packages:
     resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
     engines: {node: '>=0.10.0'}
     dev: true
-
-  /nprogress@0.2.0:
-    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
-    dev: false
 
   /object-assign@4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
@@ -3190,14 +3147,6 @@ packages:
       '@types/hast': 2.3.4
       '@types/mdast': 3.0.11
       mdast-util-to-hast: 12.3.0
-      unified: 10.1.2
-    dev: false
-
-  /remark-toc@8.0.1:
-    resolution: {integrity: sha512-7he2VOm/cy13zilnOTZcyAoyoolV26ULlon6XyCFU+vG54Z/LWJnwphj/xKIDLOt66QmJUgTyUvLVHi2aAElyg==}
-    dependencies:
-      '@types/mdast': 3.0.11
-      mdast-util-toc: 6.1.1
       unified: 10.1.2
     dev: false
 

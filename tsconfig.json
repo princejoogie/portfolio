@@ -1,10 +1,13 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "outDir": "build/dist",
     "module": "esnext",
     "target": "ESNext",
-    "lib": ["esnext", "dom", "esnext.asynciterable"],
+    "lib": [
+      "esnext",
+      "dom",
+      "esnext.asynciterable"
+    ],
     "sourceMap": true,
     "strict": true,
     "allowJs": false,
@@ -23,10 +26,26 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "incremental": true,
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
-    }
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "exclude": ["node_modules", ".next"],
-  "include": ["next-env.d.ts", "src/", ".eslintrc.js"]
+  "exclude": [
+    "node_modules",
+    ".next"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "src/",
+    ".eslintrc.js",
+    ".next/types/**/*.ts"
+  ]
 }

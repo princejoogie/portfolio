@@ -32,6 +32,17 @@ export const getBlogPaths = () => {
   let files = fs.readdirSync(path.join(blogPath));
   files = files.filter((e) => e.endsWith(".md"));
 
+  const blogs = files.map((file) => ({
+    slug: file.replace(".md", ""),
+  }));
+
+  return blogs;
+};
+
+export const oldGetBlogPaths = () => {
+  let files = fs.readdirSync(path.join(blogPath));
+  files = files.filter((e) => e.endsWith(".md"));
+
   const blogs = files.map((file) => {
     return {
       params: {

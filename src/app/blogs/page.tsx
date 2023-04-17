@@ -1,11 +1,10 @@
-import type { GetStaticProps } from "next";
-import { Layout } from "@/components/layout";
-import { type TBlogs, getBlogs } from "@/utils/helpers";
 import { BlogItem } from "@/components/blogs";
+import { getBlogs } from "@/utils/helpers";
 
-const Blogs = ({ blogs }: TBlogs) => {
+const BlogPage = () => {
+  const blogs = getBlogs();
   return (
-    <Layout>
+    <>
       <h2 className="text-3xl font-bold tracking-tight text-gray-700 lg:text-6xl">
         Blogs.
       </h2>
@@ -21,12 +20,8 @@ const Blogs = ({ blogs }: TBlogs) => {
           />
         ))}
       </div>
-    </Layout>
+    </>
   );
 };
 
-export const getStaticProps: GetStaticProps<TBlogs> = async () => {
-  return { props: { blogs: getBlogs() } };
-};
-
-export default Blogs;
+export default BlogPage;
