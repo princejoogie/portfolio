@@ -13,6 +13,7 @@
     "@next/bundle-analyzer": "^13.3.0",
     "@next/mdx": "^13.3.0",
     "@tippyjs/react": "^4.2.6",
+    "@vercel/og": "^0.5.3",
     "next": "^13.3.0",
     "next-mdx-remote": "^4.4.1",
     "react": "^18.2.0",
