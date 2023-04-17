@@ -15,7 +15,7 @@ export const projects = [
     subtitle: "Web Application",
     description:
       "An AI-powered video summary platform for YouTube which generates conclusions per 5-minute chunk",
-    href: "https://umamin.link/",
+    href: "https://chunktube.tech/",
     github: "https://github.com/princejoogie/chunktube",
     date: "2023 - Present",
   },
