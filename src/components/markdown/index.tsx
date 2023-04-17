@@ -43,7 +43,9 @@ export const Markdown = ({ content }: MarkdownProps) => {
     setToc(toc);
 
     return () => {
-      headers?.forEach((h) => observer.unobserve(h));
+      headers?.forEach((h) => {
+        observer.unobserve(h);
+      });
       observer.disconnect();
     };
   }, []);

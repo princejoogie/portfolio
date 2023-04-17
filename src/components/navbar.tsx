@@ -4,7 +4,7 @@ import {
   AiFillLinkedin,
   AiFillTwitterCircle,
 } from "react-icons/ai";
-import { IconType } from "react-icons";
+import type { IconType } from "react-icons";
 import { socials } from "@/utils/constants";
 
 interface LinkProps {
@@ -20,11 +20,11 @@ interface SocialProps {
 const LinkItem = ({ title, path }: LinkProps) => {
   return (
     <Link href={path}>
-      <a className="group rounded-xl px-6 py-4 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none">
+      <div className="group rounded-xl px-6 py-4 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none">
         <p className="font-mono text-sm text-gray-400 group-hover:text-blue-300">
           {title}
         </p>
-      </a>
+      </div>
     </Link>
   );
 };

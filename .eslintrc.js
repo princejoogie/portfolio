@@ -1,13 +1,6 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-  },
-  settings: {
-    react: {
-      version: "detect",
-    },
-  },
+  env: { browser: true, es2021: true },
+  settings: { react: { version: "detect" } },
   extends: [
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
@@ -15,11 +8,11 @@ module.exports = {
     "standard-with-typescript",
     "prettier",
   ],
-  overrides: [],
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
     project: "./tsconfig.json",
+    tsconfigRootDir: __dirname,
   },
   plugins: ["react", "react-hooks", "prettier"],
   rules: {
