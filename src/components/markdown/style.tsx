@@ -71,9 +71,7 @@ export const components: Partial<
   },
 };
 
-interface Style {
-  [key: string]: React.CSSProperties;
-}
+type Style = Record<string, React.CSSProperties>;
 
 export const highlighterStyle: Style = {
   'pre[class*="language-"]': {

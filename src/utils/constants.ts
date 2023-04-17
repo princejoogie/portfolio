@@ -10,13 +10,25 @@ export const projects = [
   {
     enabled: true,
     icon: "/assets/logos/typescript.svg",
+    src: "/assets/projects/chunktube.png",
+    title: "ChunkTube",
+    subtitle: "Web Application",
+    description:
+      "An AI-powered video summary platform for YouTube which generates conclusions per 5-minute chunk",
+    href: "https://umamin.link/",
+    github: "https://github.com/princejoogie/chunktube",
+    date: "2023 - Present",
+  },
+  {
+    enabled: true,
+    icon: "/assets/logos/typescript.svg",
     src: "/assets/projects/umamin.png",
     title: "Umamin",
     subtitle: "Web Application",
     description:
       "An open-source platform for sending and receiving anonymous messages.",
     href: "https://umamin.link/",
-    github: "https://github.com/joshxfi/umamin",
+    github: "https://github.com/omsimos/umamin",
     date: "2022 - Present",
   },
   {
@@ -67,7 +79,7 @@ export const projects = [
     date: "2020 - 2021",
   },
   {
-    enabled: true,
+    enabled: false,
     icon: "/assets/logos/typescript.svg",
     src: "/assets/projects/jookey.png",
     title: "Jookey",

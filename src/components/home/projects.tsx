@@ -1,5 +1,6 @@
+import Link from "next/link";
 import Image from "next/image";
-import { AiFillGithub } from "react-icons/ai";
+import { AiFillGithub, AiOutlineExpandAlt } from "react-icons/ai";
 import { FiExternalLink } from "react-icons/fi";
 import { projects, socials } from "@/utils/constants";
 
@@ -28,14 +29,22 @@ const ProjectItem = ({
     <div>
       <div>
         <div className="group relative flex items-center justify-center overflow-hidden rounded-xl border-2 border-gray-800">
-          <div className="absolute z-20 h-5/6 w-10/12 rounded-md bg-black p-4 opacity-0 transition-all duration-500 group-hover:h-full group-hover:w-full group-hover:opacity-80">
-            <div className="flex h-full flex-col items-start justify-end">
+          <div className="absolute z-20 h-5/6 w-10/12 rounded-md bg-black p-4 opacity-0 transition-all duration-500 group-hover:h-full group-hover:w-full group-hover:opacity-90">
+            <div className="relative flex h-full flex-col items-start justify-end">
+              <Link
+                href={src}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute top-1 right-1"
+              >
+                <AiOutlineExpandAlt className="h-6 w-6" />
+              </Link>
               <h1 className="font-bold">{title}</h1>
               <p className="text-xs text-gray-400 md:text-sm">{description}</p>
             </div>
           </div>
           <div className="image-container relative min-h-[300px]">
-            <Image src={src} alt={src} layout="fill" objectFit="cover" />
+            <Image src={src} alt={src} width={1920} height={1440} />
           </div>
         </div>
 

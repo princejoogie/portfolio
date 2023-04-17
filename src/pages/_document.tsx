@@ -1,6 +1,6 @@
 import Document, {
-  DocumentContext,
-  DocumentInitialProps,
+  type DocumentContext,
+  type DocumentInitialProps,
   Html,
   Head,
   Main,
