@@ -4,9 +4,9 @@ import { ImageResponse } from "@vercel/og";
 export const runtime = "edge";
 
 export const GET = async (req: Request) => {
-  const params = new URLSearchParams(req.url);
-  const title = params.get("title") ?? defaultSeo.title;
-  const description = params.get("description") ?? defaultSeo.description;
+  const { searchParams } = new URL(req.url);
+  const title = searchParams.get("title") ?? defaultSeo.title;
+  const description = searchParams.get("description") ?? defaultSeo.description;
 
   return new ImageResponse(
     (

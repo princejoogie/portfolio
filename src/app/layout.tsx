@@ -8,7 +8,7 @@ import { defaultSeo } from "@/utils/constants";
 export const metadata: Metadata = {
   ...defaultSeo,
   openGraph: {
-    images: [{ url: "/api/og" }],
+    images: [{ url: "/api/og", width: 1200, height: 630 }],
   },
 };
 
