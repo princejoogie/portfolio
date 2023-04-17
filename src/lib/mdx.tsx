@@ -37,7 +37,7 @@ const components: MDXComponents = {
     const isExternal = Boolean(href?.startsWith("http"));
     return (
       <a
-        className={`inline-flex items-center space-x-1 ${
+        className={`inline-flex items-center space-x-1 m-0 ${
           isExternal ? "text-blue-400" : "text-white"
         }`}
         target={isExternal ? "_blank" : undefined}
@@ -92,6 +92,9 @@ const components: MDXComponents = {
       <span>{children}</span>
     </h5>
   ),
+  ul: (props) => <ul className="list-disc text-base" {...props} />,
+  ol: (props) => <ol className="list-decimal text-base" {...props} />,
+  span: (props) => <span className="break-all" {...props} />,
 };
 
 const theme: Theme = "material-theme-palenight";
@@ -143,7 +146,11 @@ export const getAllBlogsMeta = async () => {
     const { meta } = await getBlogBySlug(file);
     posts.push(meta);
   }
-  return posts;
+  const sorted = posts.sort((a, b) => {
+    if (new Date(a.date ?? "") < new Date(b.date ?? "")) return 1;
+    else return -1;
+  });
+  return sorted;
 };
 
 export type AllBlogsMeta = Awaited<ReturnType<typeof getAllBlogsMeta>>;

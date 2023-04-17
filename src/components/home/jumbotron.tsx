@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Contact } from "./contact";
-import { BlogItem } from "@/components/blogs";
+import { BlogItem } from "@/components/blog-item";
 import { type AllBlogsMeta } from "@/lib/mdx";
 
 export interface JumbotronProps {

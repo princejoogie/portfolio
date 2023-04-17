@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BlogItem } from "@/components/blogs";
+import { BlogItem } from "@/components/blog-item";
 import { getAllBlogsMeta } from "@/lib/mdx";
 
 export const metadata: Metadata = {

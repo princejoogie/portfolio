@@ -1,0 +1,169 @@
+---
+title: "How I made an AI YouTube summarizer"
+description: "A deep dive on how I created ChunkTube"
+date: "April 18, 2023"
+---
+
+# How I Made an AI YouTube Summarizer
+
+Have you ever wanted to watch a long video but just didn't have the time to sit through it all? That's where my AI YouTube summarizer comes in! Here's how I built it:
+
+## Built With
+- [Next.js](https://nextjs.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [tRPC](https://trpc.io/)
+- [PlanetScale](https://planetscale.com/)
+
+## Steps
+
+Here are the steps I took to build this app:
+
+### 1. Aquire video subtitles
+    - #### Fetch the html page of the YouTube video
+        ```ts
+        const { data } = await axios.get("https://youtube.com/watch?v=qA65QjWCl60");
+        ````
+
+    - #### Some regex magic to extract `captionTracks` from the html
+        ```ts
+        ...
+        import { find } from "lodash";
+
+        // * ensure we have access to captions data
+        if (!data.includes("captionTracks")) {
+          throw new Error(`Could not find captions for video: ${videoId}`);
+        }
+
+        const regex = /({"captionTracks":.*isTranslatable":(true|false)}])/;
+        const [match] = regex.exec(data);
+        const result = JSON.parse(`${match}}`);
+        const subtitle =
+          find(result.captionTracks, { vssId: ".en", }) ||
+          find(result.captionTracks, { vssId: "a.en", }) ||
+          find(result.captionTracks, ({ vssId }) => vssId?.match(".en"));
+        ```
+        ```json {6}
+        // `result` will have a shape like this:
+        {
+          "captionTracks": [
+            {
+              // visit this link to see xml file
+              "baseUrl": "https://www.youtube.com/api/timedtext?v=qA65QjWCl60&caps=asr&xoaf=5&hl=en&ip=0.0.0.0&ipbits=0&expire=1681770882&sparams=ip,ipbits,expire,v,caps,xoaf&signature=A3D29080D26C4831063A7E234BEF80BD4502E32E.64AA1E31F02A6827B31FFF9911D2A05DCDE3E0B7&key=yt8&kind=asr&lang=en",
+              "name": {
+                "simpleText": "English (auto-generated)"
+              },
+              "vssId": "a.en",
+              "languageCode": "en",
+              "kind": "asr",
+              "isTranslatable": true
+            }
+          ]
+        }
+        ```
+    - #### Now let's fetch the `xml` transcript and transform it into a shape that we can work with.
+        ```ts {10,11,17}
+        const { data: transcript } = await axios.get(subtitle.baseUrl);
+        const lines: Array<{ start: number; dur: number; text: string }> = transcript
+          .replace('<?xml version="1.0" encoding="utf-8" ?><transcript>', "")
+          .replace("</transcript>", "")
+          .split("</text>")
+          .filter((line: string) => line?.trim())
+          .map((line: string) => {
+            const startRegex = /start="([\d.]+)"/;
+            const durRegex = /dur="([\d.]+)"/;
+            const [, start] = startRegex.exec(line);
+            const [, dur] = durRegex.exec(line);
+            const htmlText = line
+              .replace(/<text.+>/, "")
+              .replace(/&amp;/gi, "&")
+              .replace(/<\/?[^>]+(>|$)/g, "");
+            const decodedText = he.decode(htmlText);
+            const text = striptags(decodedText);
+
+            return {
+              start: +start,
+              dur: +dur,
+              text,
+            };
+          });
+        ```
+    - #### Time to combine all lines that belong to each 5-minute chunk
+        ```ts
+        const lastEl = lines[lines.length - 1];
+        // create an array to combine each line into its corresponding chunk (per 5-minute)
+        const captionsPer5Minutes: Array<{
+          content: string;
+          time: string;
+          order: number;
+        }> = Array(Math.ceil((lastEl.start + lastEl.dur) / 300));
+
+        lines.forEach((line) => {
+          const index = Math.floor(line.start / 300);
+
+          if (!captionsPer5Minutes[index]) {
+            captionsPer5Minutes[index] = {
+              content: "",
+              time: "",
+              order: 0,
+            };
+          }
+
+          captionsPer5Minutes[index]!.content += ` ${line.text}`;
+          captionsPer5Minutes[index]!.time =
+            index === captionsPer5Minutes.length - 1
+              ? secToHMS(line.start + line.dur)
+              : secToHMS(300 * (index + 1));
+          captionsPer5Minutes[index]!.order = index;
+        });
+
+        return captionsPer5Minutes;
+        ```
+
+        `There you have it! now we have an array containing the subtitles per 5-minutes!`
+
+
+### 3. Feed each subtitle chunk to OpenAI's GPT-3-Turbo model for summarization
+    - #### Generate summary with `gpt-3-turbo` model
+        ```ts {22}
+        const getConclusion = async (content: string) => {
+          const response = await openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages: [
+              { role: "system", content: "Summarize the following text as best you can, keep it short and straight to the point. Maximum of 5 sentences. Begin your summary with 'For this segment, ...' or 'This segment talks about' or something similar that fits the current context.", },
+              { role: "user", content, },
+            ],
+          });
+
+          if (response.data.choices.length <= 0) {
+            throw new Error("ERROR: No choices returned");
+          }
+
+          if (!response.data.choices[0]?.message?.content) {
+            throw new Error("ERROR: No output returned");
+          }
+
+          return content: response.data.choices[0].message.content;
+        };
+
+        // This is all the conclusions
+        const conclusions = await Promise.all(captions.map(getConclusion));
+        ```
+
+        `There you have it! now we have an array containing the summary per 5-minutes!`
+
+### 4. Integrate with tRPC and Next.js
+
+- Now this step is up to you as this is just a matter of designing how your application looks like. To see how I implemented all these together, checkout the [`Github repo`](https://github.com/princejoogie/chunktube/)
+
+## Conclusion
+
+This AI YouTube summarizer is a game-changer for anyone who wants to save time and avoid watching long videos. By utilizing Next.js, TailwindCSS, tRPC, and PlanetScale, we were able to build an app that fetches and extracts subtitles from YouTube videos and summarizes them into smaller, manageable chunks. With the help of OpenAI's GPT-3-Turbo model, we were able to generate concise and accurate summaries for each chunk. 
+
+If you're interested in building your own AI YouTube summarizer, feel free to use the tools and steps I used to create mine!
+
+Overall, I'm proud of how this project turned out, and I'm excited to continue improving it in the future. With the power of GPT-3 and the efficiency of serverless architecture, the possibilities are endless
+
+## Links
+
+- [Github repo](https://github.com/princejoogie/chunktube/)
+- [Deployed application](https://chunktube.tech/)
