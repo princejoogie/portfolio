@@ -17,3 +17,12 @@ body {
   font-family: Inter, sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI,
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
 }
+
+highlight {
+  @apply !bg-gray-700;
+}
+
+pre,
+code {
+  font-family: "Source Code Pro", Consolas, monospace;
+}

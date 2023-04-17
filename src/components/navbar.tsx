@@ -20,7 +20,7 @@ interface SocialProps {
 const LinkItem = ({ title, path }: LinkProps) => {
   return (
     <Link href={path}>
-      <div className="group rounded-xl px-6 py-4 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none">
+      <div className="group rounded-xl p-1 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none">
         <p className="font-mono text-sm text-gray-400 group-hover:text-blue-300">
           {title}
         </p>
@@ -34,7 +34,7 @@ const Social = ({ href, Icon }: SocialProps) => {
     <a
       target="_blank"
       href={href}
-      className="group block rounded-full p-3 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none"
+      className="group block rounded-full p-1 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none"
       rel="noreferrer"
     >
       <Icon className="h-6 w-6 text-gray-500 group-hover:text-blue-300" />
@@ -44,9 +44,9 @@ const Social = ({ href, Icon }: SocialProps) => {
 
 export const NavBar = () => {
   return (
-    <div className="z-10 flex w-full flex-row justify-between py-12">
+    <div className="z-10 flex w-full flex-row justify-between pt-12 pb-6">
       <div className="hidden lg:block">
-        <div className="flex flex-row items-center justify-center space-x-2">
+        <div className="flex flex-row items-center justify-center space-x-6">
           <LinkItem title="< About />" path="/" />
           <LinkItem title="< Projects />" path="/#projects" />
           <LinkItem title="< Blog />" path="/blogs" />
@@ -75,7 +75,7 @@ export const NavBar = () => {
         </button>
       </div>
 
-      <div className="flex flex-row items-center space-x-2 lg:space-x-6">
+      <div className="flex flex-row items-center space-x-2 lg:space-x-4">
         <Social href={socials.github} Icon={AiFillGithub} />
         <Social href={socials.linkedin} Icon={AiFillLinkedin} />
         <Social href={socials.twitter} Icon={AiFillTwitterCircle} />

@@ -1,11 +1,10 @@
 import { Jumbotron, Projects, TechStack } from "@/components/home";
-import { getBlogs } from "@/utils/helpers";
+import { getAllBlogsMeta } from "@/lib/mdx";
 
-const HomePage = () => {
-  const blogs = getBlogs();
+const HomePage = async () => {
+  const blogs = await getAllBlogsMeta();
   return (
     <>
-      <p>Home Page</p>
       <div id="about" className="pt-8 lg:pt-12" />
       <Jumbotron blogs={blogs} />
       <div className="h-14" />

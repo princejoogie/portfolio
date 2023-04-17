@@ -1,10 +1,13 @@
 import Link from "next/link";
 import { Contact } from "./contact";
 import { BlogItem } from "@/components/blogs";
+import { type AllBlogsMeta } from "@/lib/mdx";
 
-import { type TBlogs } from "@/utils/helpers";
+export interface JumbotronProps {
+  blogs: AllBlogsMeta;
+}
 
-export const Jumbotron = ({ blogs }: TBlogs) => {
+export const Jumbotron = ({ blogs }: JumbotronProps) => {
   return (
     <div>
       <div className="flex flex-col items-start">
@@ -32,12 +35,12 @@ export const Jumbotron = ({ blogs }: TBlogs) => {
       </div>
 
       <div className="mt-4 grid grid-cols-2 gap-2">
-        {blogs.slice(0, 6).map(({ frontMatter, slug }, i) => (
+        {blogs.slice(0, 6).map(({ slug, description, title, date }, i) => (
           <BlogItem
             key={slug}
-            description={frontMatter.description}
-            title={frontMatter.title}
-            date={frontMatter.date}
+            description={description ?? ""}
+            title={title ?? ""}
+            date={date ?? ""}
             href={`/blogs/${slug}`}
           />
         ))}
