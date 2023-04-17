@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import fs from "fs";
 import path from "path";
+import type { Theme } from "shiki";
+import type { MDXComponents } from "mdx/types";
 import { BiLink } from "react-icons/bi";
 import { FiExternalLink } from "react-icons/fi";
 import { compileMDX } from "next-mdx-remote/rsc";
-import type { MDXComponents } from "mdx/types";
 import rehypePrettyCode, { type Options } from "rehype-pretty-code";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
@@ -93,8 +94,10 @@ const components: MDXComponents = {
   ),
 };
 
+const theme: Theme = "material-theme-palenight";
+
 const prettyCodeOptions: Partial<Options> = {
-  theme: "one-dark-pro",
+  theme,
   keepBackground: false,
   onVisitLine(node) {
     if (node.children.length === 0) {
