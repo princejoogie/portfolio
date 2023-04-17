@@ -20,7 +20,7 @@ interface SocialProps {
 const LinkItem = ({ title, path }: LinkProps) => {
   return (
     <Link href={path}>
-      <div className="group rounded-xl p-1 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none">
+      <div className="group rounded p-1 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none">
         <p className="font-mono text-sm text-gray-400 group-hover:text-blue-300">
           {title}
         </p>

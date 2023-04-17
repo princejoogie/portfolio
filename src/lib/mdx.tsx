@@ -1,12 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import fs from "fs";
 import path from "path";
+import { BiLink } from "react-icons/bi";
+import { FiExternalLink } from "react-icons/fi";
 import { compileMDX } from "next-mdx-remote/rsc";
 import type { MDXComponents } from "mdx/types";
 import rehypePrettyCode, { type Options } from "rehype-pretty-code";
-import remarkGfm from "remark-gfm";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
 
 const rootDirectory = path.join(process.cwd(), "src", "blogs");
 
@@ -30,13 +32,65 @@ const components: MDXComponents = {
       {...props}
     />
   ),
+  a: ({ children, href, ...props }) => {
+    const isExternal = Boolean(href?.startsWith("http"));
+    return (
+      <a
+        className={`inline-flex items-center space-x-1 ${
+          isExternal ? "text-blue-400" : "text-white"
+        }`}
+        target={isExternal ? "_blank" : undefined}
+        rel={isExternal ? "noopener noreferrer" : undefined}
+        href={href}
+        {...props}
+      >
+        <span>{children}</span>
+        {isExternal && <FiExternalLink className="h-3 w-3" />}
+      </a>
+    );
+  },
   img: (props) => <img className="inline m-0 mt-1" {...props} />,
-  p: (props) => <p className="text-base my-2" {...props} />,
-  h1: (props) => <h1 className="font-semibold my-4" {...props} />,
-  h2: (props) => <h2 className="font-semibold my-4" {...props} />,
-  h3: (props) => <h3 className="font-semibold my-4" {...props} />,
-  h4: (props) => <h4 className="font-semibold my-4" {...props} />,
-  h5: (props) => <h5 className="font-semibold my-4" {...props} />,
+  p: (props) => <p className="text-base my-2 text-gray-300" {...props} />,
+  h1: ({ children, ...props }) => (
+    <h1 className="font-semibold my-4 relative group" {...props}>
+      <div className="invisible xl:visible absolute top-1 bottom-0 -left-6 grid place-items-center">
+        <BiLink className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+      </div>
+      <span>{children}</span>
+    </h1>
+  ),
+  h2: ({ children, ...props }) => (
+    <h2 className="font-semibold mt-6 mb-2 relative group" {...props}>
+      <div className="invisible xl:visible absolute top-0 bottom-0 -left-6 grid place-items-center">
+        <BiLink className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+      </div>
+      <span>{children}</span>
+    </h2>
+  ),
+  h3: ({ children, ...props }) => (
+    <h3 className="font-semibold mt-6 mb-2 relative group" {...props}>
+      <div className="invisible xl:visible absolute top-0 bottom-0 -left-6 grid place-items-center">
+        <BiLink className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+      </div>
+      <span>{children}</span>
+    </h3>
+  ),
+  h4: ({ children, ...props }) => (
+    <h4 className="font-semibold mt-6 mb-2 relative group" {...props}>
+      <div className="invisible xl:visible absolute top-0 bottom-0 -left-6 grid place-items-center">
+        <BiLink className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+      </div>
+      <span>{children}</span>
+    </h4>
+  ),
+  h5: ({ children, ...props }) => (
+    <h5 className="font-semibold mt-6 mb-2 relative group" {...props}>
+      <div className="invisible xl:visible absolute top-0 bottom-0 -left-6 grid place-items-center">
+        <BiLink className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+      </div>
+      <span>{children}</span>
+    </h5>
+  ),
 };
 
 const prettyCodeOptions: Partial<Options> = {
