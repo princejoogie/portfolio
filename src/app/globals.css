@@ -5,12 +5,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .observer-active {
-    @apply !text-blue-500;
-  }
-}
-
 * {
   scroll-behavior: smooth;
   padding: 0;
@@ -27,19 +21,4 @@ body {
 pre,
 code {
   font-family: "Source Code Pro", Consolas, monospace;
-}
-
-.image-container {
-  width: 100%;
-}
-
-.image-container div {
-  position: unset !important;
-}
-
-.image-container img {
-  object-fit: cover;
-  width: 100% !important;
-  position: relative !important;
-  height: unset !important;
 }
