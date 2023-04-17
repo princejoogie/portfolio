@@ -26,12 +26,12 @@ const components: MDXComponents = {
   },
   pre: (props) => (
     <pre
-      className="p-2 bg-gray-800/30 text-base border-2 border-gray-800 my-2"
+      className="p-2 bg-gray-800/30 text-base border-2 border-gray-800 my-2 whitespace-pre-wrap"
       {...props}
     />
   ),
-  img: (props) => <img className="inline m-0" {...props} />,
-  p: (props) => <p className="text-base my-2 text-justify" {...props} />,
+  img: (props) => <img className="inline m-0 mt-1" {...props} />,
+  p: (props) => <p className="text-base my-2" {...props} />,
   h1: (props) => <h1 className="font-semibold my-4" {...props} />,
   h2: (props) => <h2 className="font-semibold my-4" {...props} />,
   h3: (props) => <h3 className="font-semibold my-4" {...props} />,

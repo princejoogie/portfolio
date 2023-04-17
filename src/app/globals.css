@@ -18,10 +18,6 @@ body {
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue;
 }
 
-highlight {
-  @apply !bg-gray-700;
-}
-
 pre,
 code {
   font-family: "Source Code Pro", Consolas, monospace;
