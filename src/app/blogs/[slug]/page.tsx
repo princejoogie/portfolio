@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { getBlogBySlug, getAllBlogsMeta } from "@/lib/mdx";
+import { createSearchParams } from "@/utils/helpers";
 
 export const generateStaticParams = async () => {
   return await getAllBlogsMeta();
@@ -14,9 +15,10 @@ export const generateMetadata = async ({
   params,
 }: PageProps): Promise<Metadata> => {
   const { meta } = await getBlogBySlug(params.slug);
-  const url = `/api/og?title=${encodeURIComponent(
-    meta.title ?? ""
-  )}&description=${encodeURIComponent(meta.description ?? "")}`;
+  const url = createSearchParams("/api/og", {
+    title: meta.title ?? "",
+    description: meta.description,
+  });
 
   return {
     title: meta.title,
