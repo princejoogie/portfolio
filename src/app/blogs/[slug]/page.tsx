@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BsArrowLeftShort } from "react-icons/bs";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 import { getBlogBySlug, getAllBlogsMeta } from "@/lib/mdx";
@@ -52,7 +52,7 @@ const BlogItemPage = async ({ params }: PageProps) => {
             replace
             className="flex items-center space-x-1 hover:text-blue-600 transition-colors active:opacity-60"
           >
-            <BsArrowLeftShort className="h-6 w-6" />
+            <ArrowLeft className="h-4 w-4" />
             <p>Back</p>
           </Link>
 

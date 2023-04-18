@@ -1,6 +1,5 @@
 import Image from "next/image";
-import { AiFillGithub, AiOutlineExpandAlt } from "react-icons/ai";
-import { FiExternalLink } from "react-icons/fi";
+import { Github, Maximize2, ExternalLink } from "lucide-react";
 import { projects, socials } from "@/utils/constants";
 
 interface ItemProps {
@@ -36,7 +35,7 @@ const ProjectItem = ({
                 rel="noopener noreferrer"
                 className="absolute top-1 right-1"
               >
-                <AiOutlineExpandAlt className="h-6 w-6" />
+                <Maximize2 className="h-6 w-6" />
               </a>
               <h1 className="font-bold">{title}</h1>
               <p className="text-xs text-gray-400 md:text-sm">{description}</p>
@@ -70,7 +69,7 @@ const ProjectItem = ({
                 target="_blank"
                 rel="noreferrer"
               >
-                <FiExternalLink className="h-6 w-6" />
+                <ExternalLink className="h-6 w-6" />
               </a>
             )}
             {!!github && (
@@ -80,7 +79,7 @@ const ProjectItem = ({
                 target="_blank"
                 rel="noreferrer"
               >
-                <AiFillGithub className="h-6 w-6" />
+                <Github className="h-6 w-6" />
               </a>
             )}
             <p className="text-xs text-gray-400">{date}</p>

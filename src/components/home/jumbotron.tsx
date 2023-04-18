@@ -11,13 +11,14 @@ export const Jumbotron = ({ blogs }: JumbotronProps) => {
   return (
     <div>
       <div className="flex flex-col items-start">
-        <h1 className="pb-8 text-4xl font-extrabold lg:text-7xl">
-          Prince Carlo <br />
-          <span>Juguilon</span>
+        <h1 className="text-4xl md:text-5xl font-extrabold xl:text-7xl">
+          Prince Carlo Juguilon
         </h1>
+        <p className="text-xl mb-6 mt-1 text-gray-300 font-mono">
+          Software Engineer
+        </p>
 
         <Contact />
-        {/* <p className="text-2xl font-bold">Developer × Neovim</p> */}
       </div>
 
       <div className="mt-12 flex w-full items-center justify-between">
