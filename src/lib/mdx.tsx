@@ -3,8 +3,7 @@ import fs from "fs";
 import path from "path";
 import type { Theme } from "shiki";
 import type { MDXComponents } from "mdx/types";
-import { BiLink } from "react-icons/bi";
-import { FiExternalLink } from "react-icons/fi";
+import { Link, ExternalLink } from "lucide-react";
 import { compileMDX } from "next-mdx-remote/rsc";
 import rehypePrettyCode, { type Options } from "rehype-pretty-code";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
@@ -46,7 +45,7 @@ const components: MDXComponents = {
         {...props}
       >
         <span>{children}</span>
-        {isExternal && <FiExternalLink className="h-3 w-3" />}
+        {isExternal && <ExternalLink className="h-3 w-3" />}
       </a>
     );
   },
@@ -54,8 +53,8 @@ const components: MDXComponents = {
   p: (props) => <p className="text-base my-2 text-gray-300" {...props} />,
   h1: ({ children, ...props }) => (
     <h1 className="font-semibold my-4 relative group" {...props}>
-      <div className="invisible xl:visible absolute top-1 bottom-0 -left-6 grid place-items-center">
-        <BiLink className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+      <div className="invisible xl:visible absolute top-0 bottom-0 -left-6 grid place-items-center">
+        <Link className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
       </div>
       <span>{children}</span>
     </h1>
@@ -63,7 +62,7 @@ const components: MDXComponents = {
   h2: ({ children, ...props }) => (
     <h2 className="font-semibold mt-6 mb-2 relative group" {...props}>
       <div className="invisible xl:visible absolute top-0 bottom-0 -left-6 grid place-items-center">
-        <BiLink className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+        <Link className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
       </div>
       <span>{children}</span>
     </h2>
@@ -71,7 +70,7 @@ const components: MDXComponents = {
   h3: ({ children, ...props }) => (
     <h3 className="font-semibold mt-6 mb-2 relative group" {...props}>
       <div className="invisible xl:visible absolute top-0 bottom-0 -left-6 grid place-items-center">
-        <BiLink className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+        <Link className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
       </div>
       <span>{children}</span>
     </h3>
@@ -79,7 +78,7 @@ const components: MDXComponents = {
   h4: ({ children, ...props }) => (
     <h4 className="font-semibold mt-6 mb-2 relative group" {...props}>
       <div className="invisible xl:visible absolute top-0 bottom-0 -left-6 grid place-items-center">
-        <BiLink className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+        <Link className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
       </div>
       <span>{children}</span>
     </h4>
@@ -87,7 +86,7 @@ const components: MDXComponents = {
   h5: ({ children, ...props }) => (
     <h5 className="font-semibold mt-6 mb-2 relative group" {...props}>
       <div className="invisible xl:visible absolute top-0 bottom-0 -left-6 grid place-items-center">
-        <BiLink className="h-5 w-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+        <Link className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
       </div>
       <span>{children}</span>
     </h5>
