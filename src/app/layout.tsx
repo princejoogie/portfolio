@@ -20,7 +20,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html>
       <body>
-        <div className="mx-auto mb-10 min-h-screen w-full max-w-screen-xl px-4">
+        <div className="mx-auto mb-10 min-h-screen w-full container px-4">
           <NavBar />
           {children}
         </div>
