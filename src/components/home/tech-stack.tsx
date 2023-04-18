@@ -1,7 +1,11 @@
-"use client";
-import Tippy from "@tippyjs/react";
-import "tippy.js/dist/tippy.css";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "../ui/tooltip";
 
+/* eslint-disable @next/next/no-img-element */
 interface TechItemProps {
   title: string;
   icon: any;
@@ -9,14 +13,18 @@ interface TechItemProps {
 
 const TechItem = ({ title, icon }: TechItemProps) => {
   return (
-    <Tippy content={title} placement="bottom">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        className="mr-6 flex h-16 w-16 items-center justify-center px-2 md:h-20 md:w-20"
-        src={icon}
-        alt={title}
-      />
-    </Tippy>
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger>
+          <img
+            className="mr-6 flex h-16 w-16 items-center justify-center px-2 md:h-20 md:w-20"
+            src={icon}
+            alt={title}
+          />
+        </TooltipTrigger>
+        <TooltipContent>{title}</TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   );
 };
 

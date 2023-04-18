@@ -3,10 +3,10 @@ import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { NavBar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { defaultSeo } from "@/utils/constants";
+import { constants } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  ...defaultSeo,
+  ...constants.defaultSeo,
   openGraph: {
     images: [{ url: "/api/og", width: 1200, height: 630 }],
   },

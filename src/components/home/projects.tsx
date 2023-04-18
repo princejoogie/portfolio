@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Github, Maximize2, ExternalLink } from "lucide-react";
-import { projects, socials } from "@/utils/constants";
+import { constants } from "@/lib/utils";
+
+const { projects, socials } = constants;
 
 interface ItemProps {
   icon: string;

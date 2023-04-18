@@ -3,7 +3,7 @@ import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 import { getBlogBySlug, getAllBlogsMeta } from "@/lib/mdx";
-import { createSearchParams } from "@/utils/helpers";
+import { createSearchParams } from "@/lib/utils";
 
 export const generateStaticParams = async () => {
   return await getAllBlogsMeta();
