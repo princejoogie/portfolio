@@ -1,13 +1,19 @@
+import type { Route } from "next";
 import Link from "next/link";
 
-interface BlogItemProps {
+interface BlogItemProps<T extends string> {
   description: string;
   date: string;
-  href: string;
+  href: Route<T>;
   title: string;
 }
 
-export const BlogItem = ({ href, title, description, date }: BlogItemProps) => {
+export const BlogItem = <T extends string>({
+  href,
+  title,
+  description,
+  date,
+}: BlogItemProps<T>) => {
   return (
     <Link href={href}>
       <div className="rounded-xl border-2 border-gray-800 p-6 hover:bg-gray-800 hover:bg-opacity-50 h-full">

@@ -1,3 +1,4 @@
+import type { Route } from "next";
 import Link from "next/link";
 import {
   AiFillGithub,
@@ -7,9 +8,9 @@ import {
 import type { IconType } from "react-icons";
 import { socials } from "@/utils/constants";
 
-interface LinkProps {
+interface LinkProps<T extends string> {
   title: string;
-  path: string;
+  path: Route<T>;
 }
 
 interface SocialProps {
@@ -17,7 +18,7 @@ interface SocialProps {
   href: string;
 }
 
-const LinkItem = ({ title, path }: LinkProps) => {
+const LinkItem = <T extends string>({ title, path }: LinkProps<T>) => {
   return (
     <Link href={path}>
       <div className="group rounded p-1 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none">
