@@ -28,7 +28,7 @@ const ProjectItem = ({
   return (
     <div>
       <div>
-        <div className="group relative flex items-center justify-center overflow-hidden rounded-xl border-2 border-gray-800">
+        <div className="group relative flex items-center justify-center overflow-hidden rounded-xl border-2 border-border">
           <div className="absolute z-20 h-5/6 w-10/12 rounded-md bg-black p-4 opacity-0 transition-all duration-500 group-hover:h-full group-hover:w-full group-hover:opacity-90">
             <div className="relative flex h-full flex-col items-start justify-end">
               <a

@@ -29,7 +29,7 @@ export const BlogItem = <T extends string>({
   return (
     <Link href={href}>
       <div
-        className="group relative rounded-xl border border-white/10 bg-gray-900 p-4 md:p-10 shadow-2xl active:opacity-60 transition-all"
+        className="group relative rounded-xl border-2 border-border bg-background p-4 md:p-10 active:opacity-60 transition-all"
         onMouseMove={handleMouseMove}
       >
         <motion.div
@@ -38,7 +38,7 @@ export const BlogItem = <T extends string>({
             background: useMotionTemplate`
             radial-gradient(
               650px circle at ${mouseX}px ${mouseY}px,
-              rgba(14, 165, 233, 0.15),
+              rgba(115, 115, 115, 0.15),
               transparent 80%
             )
           `,

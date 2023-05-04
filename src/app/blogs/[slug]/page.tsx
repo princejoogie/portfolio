@@ -63,7 +63,7 @@ const BlogItemPage = async ({ params }: PageProps) => {
         <article className="prose-sm prose-invert">{content}</article>
       </div>
 
-      <hr className="border-gray-700 my-2" />
+      <hr className="border-border my-2" />
 
       <div className="w-full xl:w-1/5">
         <h2 className="text-lg text-gray-400 ml-2">Read next</h2>
