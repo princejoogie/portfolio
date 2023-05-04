@@ -51,6 +51,7 @@ const BlogItemPage = async ({ params }: PageProps) => {
             href="/blogs"
             replace
             className="flex items-center space-x-1 hover:text-blue-600 transition-colors active:opacity-60"
+            aria-label="Blogs page"
           >
             <ArrowLeft className="h-4 w-4" />
             <p>Back</p>

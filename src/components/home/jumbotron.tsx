@@ -27,7 +27,7 @@ export const Jumbotron = ({ blogs }: JumbotronProps) => {
         </h2>
 
         <span>
-          <Link href="/blogs">
+          <Link href="/blogs" aria-label="Blogs page">
             <p className="text-sm text-blue-500 transition-opacity hover:opacity-70">
               See more →
             </p>
