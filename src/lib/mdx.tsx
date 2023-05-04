@@ -54,7 +54,10 @@ const components: MDXComponents = {
   h1: ({ children, ...props }) => (
     <h1 className="font-semibold my-4 relative group" {...props}>
       <div className="invisible xl:visible absolute top-0 bottom-0 -left-6 grid place-items-center">
-        <Link className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+        <Link
+          className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity"
+          aria-label={String(children)}
+        />
       </div>
       <span>{children}</span>
     </h1>
@@ -62,7 +65,10 @@ const components: MDXComponents = {
   h2: ({ children, ...props }) => (
     <h2 className="font-semibold mt-6 mb-2 relative group" {...props}>
       <div className="invisible xl:visible absolute top-0 bottom-0 -left-6 grid place-items-center">
-        <Link className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+        <Link
+          className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity"
+          aria-label={String(children)}
+        />
       </div>
       <span>{children}</span>
     </h2>
@@ -70,7 +76,10 @@ const components: MDXComponents = {
   h3: ({ children, ...props }) => (
     <h3 className="font-semibold mt-6 mb-2 relative group" {...props}>
       <div className="invisible xl:visible absolute top-0 bottom-0 -left-6 grid place-items-center">
-        <Link className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+        <Link
+          className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity"
+          aria-label={String(children)}
+        />
       </div>
       <span>{children}</span>
     </h3>
@@ -78,7 +87,10 @@ const components: MDXComponents = {
   h4: ({ children, ...props }) => (
     <h4 className="font-semibold mt-6 mb-2 relative group" {...props}>
       <div className="invisible xl:visible absolute top-0 bottom-0 -left-6 grid place-items-center">
-        <Link className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+        <Link
+          className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity"
+          aria-label={String(children)}
+        />
       </div>
       <span>{children}</span>
     </h4>
@@ -86,7 +98,10 @@ const components: MDXComponents = {
   h5: ({ children, ...props }) => (
     <h5 className="font-semibold mt-6 mb-2 relative group" {...props}>
       <div className="invisible xl:visible absolute top-0 bottom-0 -left-6 grid place-items-center">
-        <Link className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+        <Link
+          className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity"
+          aria-label={String(children)}
+        />
       </div>
       <span>{children}</span>
     </h5>

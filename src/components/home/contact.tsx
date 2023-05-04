@@ -1,8 +1,10 @@
 export const Contact = () => {
   return (
     <div className="flex items-center space-x-2">
-      <button
-        type="button"
+      <a
+        rel="noreferrer"
+        target="_blank"
+        href="mailto:princejoogie@gmail.com?subject=Hey%20There!&body=Hi%20Prince%2C%20I'm%20interested%20in%20working%20with%20you."
         className="flex items-center justify-center space-x-2 rounded bg-green-600 px-6 py-2 text-white transition-colors duration-300 ease-out hover:bg-green-700 focus:outline-none"
       >
         <svg
@@ -20,18 +22,13 @@ export const Contact = () => {
           />
         </svg>
 
-        <a
-          rel="noreferrer"
-          target="_blank"
-          href="mailto:princejoogie@gmail.com?subject=Hey%20There!&body=Hi%20Prince%2C%20I'm%20interested%20in%20working%20with%20you."
-          className="text-xs lg:text-base"
-        >
-          Contact
-        </a>
-      </button>
+        <p className="text-xs lg:text-base">Contact</p>
+      </a>
 
-      <button
-        type="button"
+      <a
+        rel="noreferrer"
+        target="_blank"
+        href="/assets/JUGUILON_PRINCE_RESUME.pdf"
         className="flex items-center justify-center space-x-2 rounded px-6 py-2 text-white transition-colors duration-300 ease-out hover:bg-gray-800 focus:outline-none"
       >
         <svg
@@ -49,15 +46,8 @@ export const Contact = () => {
           />
         </svg>
 
-        <a
-          rel="noreferrer"
-          target="_blank"
-          href="/assets/JUGUILON_PRINCE_RESUME.pdf"
-          className="text-xs lg:text-base"
-        >
-          Resume
-        </a>
-      </button>
+        <p className="text-xs lg:text-base">Resume</p>
+      </a>
     </div>
   );
 };

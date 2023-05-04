@@ -22,7 +22,7 @@ interface SocialProps {
 
 const LinkItem = <T extends string>({ title, path }: LinkProps<T>) => {
   return (
-    <Link href={path}>
+    <Link href={path} aria-label={title}>
       <div className="group rounded p-2 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none">
         <p className="font-mono text-sm text-gray-400 group-hover:text-blue-300">
           {title}
