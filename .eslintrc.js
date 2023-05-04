@@ -22,5 +22,7 @@ module.exports = {
     "@typescript-eslint/strict-boolean-expressions": "off",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
+    "react/display-name": "off",
+    "@typescript-eslint/no-confusing-void-expression": "off",
   },
 };
