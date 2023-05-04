@@ -28,7 +28,7 @@ const components: MDXComponents = {
   },
   pre: (props) => (
     <pre
-      className="p-2 bg-gray-800/30 text-base border-2 border-gray-800 my-2 whitespace-pre-wrap"
+      className="p-2 bg-background text-base border-2 border-border my-2 whitespace-pre-wrap"
       {...props}
     />
   ),

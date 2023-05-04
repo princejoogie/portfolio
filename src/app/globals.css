@@ -42,13 +42,13 @@
     --muted: 223 47% 11%;
     --muted-foreground: 215.4 16.3% 56.9%;
 
-    --popover: 224 71% 4%;
+    --popover: 0 0% 6.7%;
     --popover-foreground: 215 20.2% 65.1%;
 
     --card: 224 71% 4%;
     --card-foreground: 213 31% 91%;
 
-    --border: 216 34% 17%;
+    --border: 0 0% 14.9%;
     --input: 216 34% 17%;
 
     --primary: 210 40% 98%;
@@ -74,7 +74,7 @@
   }
 
   video {
-    @apply border-2 border-gray-800 rounded-xl;
+    @apply border-2 border-border rounded-xl;
   }
 
   body {
