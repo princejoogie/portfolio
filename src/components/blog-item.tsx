@@ -46,7 +46,7 @@ export const BlogItem = <T extends string>({
         />
 
         <div>
-          <span className="text-xs text-gray-500">{date}</span>
+          <span className="text-xs text-gray-400">{date}</span>
           <p className="my-2 text-xl md:text-2xl font-bold line-clamp-2">
             {title}
           </p>

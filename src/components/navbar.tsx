@@ -61,7 +61,7 @@ export const NavBar = () => {
       </div>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogTrigger>
+        <DialogTrigger aria-label="Hamburger menu">
           <div className="block lg:hidden">
             <div className="flex flex-row items-center justify-center space-x-2 text-gray-400 hover:text-blue-300 focus:outline-none">
               <svg
