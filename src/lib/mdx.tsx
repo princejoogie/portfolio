@@ -42,6 +42,7 @@ const components: MDXComponents = {
         target={isExternal ? "_blank" : undefined}
         rel={isExternal ? "noopener noreferrer" : undefined}
         href={href}
+        aria-label={String(children)}
         {...props}
       >
         <span>{children}</span>

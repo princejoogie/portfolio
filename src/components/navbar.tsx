@@ -18,6 +18,7 @@ interface LinkProps<T extends string> {
 interface SocialProps {
   Icon: typeof TypeIcon;
   href: string;
+  label?: string;
 }
 
 const LinkItem = <T extends string>({ title, path }: LinkProps<T>) => {
@@ -32,11 +33,12 @@ const LinkItem = <T extends string>({ title, path }: LinkProps<T>) => {
   );
 };
 
-const Social = ({ href, Icon }: SocialProps) => {
+const Social = ({ href, label, Icon }: SocialProps) => {
   return (
     <a
       target="_blank"
       href={href}
+      aria-label={label}
       className="group block rounded-full p-2 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none group"
       rel="noreferrer"
     >
@@ -59,7 +61,7 @@ export const NavBar = () => {
       </div>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogTrigger>
+        <DialogTrigger aria-label="Hamburger menu">
           <div className="block lg:hidden">
             <div className="flex flex-row items-center justify-center space-x-2 text-gray-400 hover:text-blue-300 focus:outline-none">
               <svg
@@ -89,9 +91,9 @@ export const NavBar = () => {
       </Dialog>
 
       <div className="flex flex-row items-center space-x-2">
-        <Social href={socials.github} Icon={Github} />
-        <Social href={socials.linkedin} Icon={Linkedin} />
-        <Social href={socials.twitter} Icon={Twitter} />
+        <Social href={socials.github} Icon={Github} label="Github link" />
+        <Social href={socials.linkedin} Icon={Linkedin} label="Linkedin link" />
+        <Social href={socials.twitter} Icon={Twitter} label="Twitter link" />
       </div>
     </div>
   );

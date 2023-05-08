@@ -22,13 +22,13 @@ export const Jumbotron = ({ blogs }: JumbotronProps) => {
       </div>
 
       <div className="mt-12 flex w-full items-center justify-between">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-700 lg:text-6xl">
+        <h2 className="text-3xl font-bold tracking-tight text-gray-500 lg:text-6xl">
           Latest blog posts.
         </h2>
 
         <span>
           <Link href="/blogs" aria-label="Blogs page">
-            <p className="text-sm text-blue-500 transition-opacity hover:opacity-70">
+            <p className="text-sm text-blue-400 transition-opacity hover:opacity-70">
               See more →
             </p>
           </Link>

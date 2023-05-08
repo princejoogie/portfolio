@@ -5,7 +5,8 @@ export const Contact = () => {
         rel="noreferrer"
         target="_blank"
         href="mailto:princejoogie@gmail.com?subject=Hey%20There!&body=Hi%20Prince%2C%20I'm%20interested%20in%20working%20with%20you."
-        className="flex items-center justify-center space-x-2 rounded bg-green-600 px-6 py-2 text-white transition-colors duration-300 ease-out hover:bg-green-700 focus:outline-none"
+        className="flex items-center justify-center space-x-2 rounded bg-green-700 px-6 py-2 text-white transition-colors duration-300 ease-out hover:bg-green-700 focus:outline-none"
+        aria-label="Email me"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -30,6 +31,7 @@ export const Contact = () => {
         target="_blank"
         href="/assets/JUGUILON_PRINCE_RESUME.pdf"
         className="flex items-center justify-center space-x-2 rounded px-6 py-2 text-white transition-colors duration-300 ease-out hover:bg-gray-800 focus:outline-none"
+        aria-label="View my resume"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

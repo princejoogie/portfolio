@@ -36,6 +36,7 @@ const ProjectItem = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute top-1 right-1"
+                aria-label={title}
               >
                 <Maximize2 className="h-6 w-6" />
               </a>
@@ -70,6 +71,7 @@ const ProjectItem = ({
                 href={href}
                 target="_blank"
                 rel="noreferrer"
+                aria-label={`Visit ${title}`}
               >
                 <ExternalLink className="h-6 w-6" />
               </a>
@@ -80,6 +82,7 @@ const ProjectItem = ({
                 href={github}
                 target="_blank"
                 rel="noreferrer"
+                aria-label={`Github page for ${title}`}
               >
                 <Github className="h-6 w-6" />
               </a>
@@ -96,14 +99,14 @@ export const Projects = () => {
   return (
     <div className="flex w-full flex-col">
       <div className="flex w-full items-center justify-between">
-        <h2 className="mb-8 text-3xl font-bold tracking-tight text-gray-700 lg:text-6xl">
+        <h2 className="mb-8 text-3xl font-bold tracking-tight text-gray-500 lg:text-6xl">
           Projects.
         </h2>
 
         <span>
           <a
             href={socials.github}
-            className="text-sm text-blue-500 transition-opacity hover:opacity-70"
+            className="text-sm text-blue-400 transition-opacity hover:opacity-70"
             target="_blank"
             rel="noreferrer"
           >
