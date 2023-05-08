@@ -36,6 +36,7 @@ const ProjectItem = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute top-1 right-1"
+                aria-label={title}
               >
                 <Maximize2 className="h-6 w-6" />
               </a>
@@ -70,6 +71,7 @@ const ProjectItem = ({
                 href={href}
                 target="_blank"
                 rel="noreferrer"
+                aria-label={`Visit ${title}`}
               >
                 <ExternalLink className="h-6 w-6" />
               </a>
@@ -80,6 +82,7 @@ const ProjectItem = ({
                 href={github}
                 target="_blank"
                 rel="noreferrer"
+                aria-label={`Github page for ${title}`}
               >
                 <Github className="h-6 w-6" />
               </a>
