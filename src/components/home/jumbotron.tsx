@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Contact } from "./contact";
 import { BlogItem } from "@/components/blog-item";
 import { type AllBlogsMeta } from "@/lib/mdx";
+import BlurIn from "../magicui/blur-in";
 
 export interface JumbotronProps {
   blogs: AllBlogsMeta;
@@ -11,9 +12,24 @@ export const Jumbotron = ({ blogs }: JumbotronProps) => {
   return (
     <div>
       <div className="flex flex-col items-start">
-        <h1 className="text-4xl font-extrabold md:text-5xl xl:text-7xl">
-          Prince Carlo Juguilon
-        </h1>
+        <div className="flex items-center gap-2">
+          <BlurIn
+            word="Prince"
+            className="text-4xl font-extrabold md:text-5xl xl:text-7xl"
+            delay={0}
+          />
+          <BlurIn
+            word="Carlo"
+            className="text-4xl font-extrabold md:text-5xl xl:text-7xl"
+            delay={0.1}
+          />
+          <BlurIn
+            word="Juguilon"
+            className="text-4xl font-extrabold md:text-5xl xl:text-7xl"
+            delay={0.2}
+          />
+        </div>
+
         <p className="mb-6 mt-1 font-mono text-xl text-gray-300">
           Software Engineer
         </p>
