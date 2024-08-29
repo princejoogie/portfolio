@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import fs from "fs";
 import path from "path";
-import type { Theme } from "shiki";
+import type { BuiltinTheme } from "shiki";
 import type { MDXComponents } from "mdx/types";
 import { Link, ExternalLink } from "lucide-react";
 import { compileMDX } from "next-mdx-remote/rsc";
@@ -112,7 +112,7 @@ const components: MDXComponents = {
   span: (props) => <span className="break-all" {...props} />,
 };
 
-const theme: Theme = "material-theme-palenight";
+const theme: BuiltinTheme = "material-theme-palenight";
 
 const prettyCodeOptions: Partial<Options> = {
   theme,
@@ -123,9 +123,9 @@ const prettyCodeOptions: Partial<Options> = {
     }
   },
   onVisitHighlightedLine(node) {
-    node.properties.className.push("bg-gray-700");
+    node.properties.className?.push("bg-gray-700");
   },
-  onVisitHighlightedWord(node) {
+  onVisitHighlightedChars(node) {
     node.properties.className = ["bg-gray-700"];
   },
 };

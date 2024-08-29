@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { NavBar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-import { constants } from "@/lib/utils";
+import { constants, getBaseUrl } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [{ url: "/api/og", width: 1200, height: 630 }],
   },
+  metadataBase: new URL(getBaseUrl()),
 };
 
 interface RootLayoutProps {

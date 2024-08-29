@@ -1,7 +1,6 @@
 import { constants } from "@/lib/utils";
 import { ImageResponse } from "@vercel/og";
 
-export const runtime = "edge";
 const { defaultSeo } = constants;
 
 export const GET = async (req: Request) => {
