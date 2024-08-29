@@ -47,7 +47,7 @@ export const constants = {
       title: "ChunkTube",
       subtitle: "Web Application",
       description:
-        "An AI-powered video summary platform for YouTube which generates conclusions per 5-minute chunk",
+        "An AI-driven platform that summarizes YouTube videos in 5-minute segments.",
       href: "https://chunktube.tech/",
       github: "https://github.com/princejoogie/chunktube",
       date: "2023 - Present",
@@ -71,12 +71,12 @@ export const constants = {
       title: "Quickie Washie",
       subtitle: "Mobile Application",
       description:
-        "A Cross-Platform Mobile Application for an all-in-one booking and management for Car Services.",
+        "A cross-platform mobile app for all-in-one car service booking and management.",
       github: "https://github.com/qwashie/quickie-washie-v2",
       date: "2022 - 2022",
     },
     {
-      enabled: true,
+      enabled: false,
       icon: "/assets/logos/typescript.svg",
       src: "/assets/projects/paymongo.png",
       title: "Paymongo.js",
@@ -88,7 +88,7 @@ export const constants = {
       date: "2021 - 2022",
     },
     {
-      enabled: true,
+      enabled: false,
       icon: "/assets/logos/typescript.svg",
       src: "/assets/projects/groundwork.png",
       title: "GroundWork PH",
@@ -100,7 +100,7 @@ export const constants = {
       date: "2021 - 2021",
     },
     {
-      enabled: true,
+      enabled: false,
       icon: "/assets/logos/typescript.svg",
       src: "/assets/projects/genesis.png",
       title: "Genesis",
