@@ -1,6 +1,6 @@
 # portfolio
 
-Repository of my personal portfolio at https://princecaarlo.tech/
+Repository of my personal portfolio at https://joogie.link
 
 ## Tech Used
 
@@ -10,4 +10,4 @@ Repository of my personal portfolio at https://princecaarlo.tech/
 
 ---
 
-Made with ☕ by [**Prince Carlo Juguilon**](https://princecaarlo.tech/)
+Made with ☕ by [**Prince Carlo Juguilon**](https://joogie.link)
