@@ -55,7 +55,6 @@ export const GET = async (req: Request) => {
           }}
         >
           <div style={{ display: "flex", alignItems: "center" }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               alt="avatar"
               width="48"

@@ -36,7 +36,7 @@ export const Jumbotron = ({ blogs }: JumbotronProps) => {
       </div>
 
       <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
-        {blogs.slice(0, 6).map(({ slug, description, title, date }, i) => (
+        {blogs.slice(0, 6).map(({ slug, description, title, date }) => (
           <BlogItem
             key={slug}
             description={description ?? ""}

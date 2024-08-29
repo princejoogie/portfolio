@@ -5,10 +5,9 @@ import {
   TooltipTrigger,
 } from "../ui/tooltip";
 
-/* eslint-disable @next/next/no-img-element */
 interface TechItemProps {
   title: string;
-  icon: any;
+  icon: string;
 }
 
 const TechItem = ({ title, icon }: TechItemProps) => {

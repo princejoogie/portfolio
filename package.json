@@ -3,16 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "lint": "next lint",
-    "build": "next build",
     "dev": "next dev",
-    "format": "prettier --write 'src/**/*.{ts,tsx,json,md,mdx}'",
-    "start": "next start"
+    "build": "next build",
+    "start": "next start",
+    "format": "prettier --write ./src",
+    "lint": "eslint --fix ./src"
   },
   "dependencies": {
     "@next/bundle-analyzer": "^14.2.7",
     "@next/mdx": "^14.2.7",
-    "@radix-ui/react-dialog": "^1.0.3",
+    "@radix-ui/react-dialog": "^1.1.1",
     "@radix-ui/react-tooltip": "^1.0.5",
     "@vercel/og": "^0.6.2",
     "class-variance-authority": "^0.7.0",
@@ -34,15 +34,22 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@eslint/js": "^9.9.1",
     "@tailwindcss/typography": "^0.5.15",
     "@types/mdx": "^2.0.13",
     "@types/node": "^22.5.1",
     "@types/react": "^18.3.4",
     "autoprefixer": "^10.4.20",
+    "eslint": "^9.9.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.35.0",
+    "globals": "^15.9.0",
     "postcss": "^8.4.22",
-    "prettier": "^2.8.7",
-    "prettier-plugin-tailwindcss": "^0.2.7",
-    "typescript": "^5.5.0"
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.6",
+    "typescript": "^5.5.0",
+    "typescript-eslint": "^8.3.0"
   },
   "packageManager": "pnpm@9.6.0"
 }

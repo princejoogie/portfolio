@@ -51,7 +51,6 @@ const ProjectItem = ({
 
         <div className="mt-2 flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={icon}
               className="h-8 w-8 overflow-hidden rounded-md"

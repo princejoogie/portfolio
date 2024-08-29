@@ -39,7 +39,7 @@ const Social = ({ href, label, Icon }: SocialProps) => {
       target="_blank"
       href={href}
       aria-label={label}
-      className="group group block rounded-full p-2 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none"
+      className="group block rounded-full p-2 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none"
       rel="noreferrer"
     >
       <Icon className="h-6 w-6 text-gray-500 transition-colors group-hover:fill-gray-400 group-hover:text-blue-300" />
