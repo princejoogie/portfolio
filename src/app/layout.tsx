@@ -24,7 +24,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html className="dark" lang="en">
       <body className={inter.className}>
-        <div className="mx-auto mb-10 min-h-screen w-full container px-4">
+        <div className="container mx-auto mb-10 min-h-screen w-full px-4">
           <NavBar />
           {children}
         </div>

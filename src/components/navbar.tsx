@@ -39,10 +39,10 @@ const Social = ({ href, label, Icon }: SocialProps) => {
       target="_blank"
       href={href}
       aria-label={label}
-      className="group block rounded-full p-2 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none group"
+      className="group group block rounded-full p-2 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none"
       rel="noreferrer"
     >
-      <Icon className="h-6 w-6 text-gray-500 group-hover:text-blue-300 group-hover:fill-gray-400 transition-colors" />
+      <Icon className="h-6 w-6 text-gray-500 transition-colors group-hover:fill-gray-400 group-hover:text-blue-300" />
     </a>
   );
 };
@@ -51,7 +51,7 @@ export const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="z-10 flex w-full flex-row justify-between pt-12 pb-6">
+    <div className="z-10 flex w-full flex-row justify-between pb-6 pt-12">
       <div className="hidden lg:block">
         <div className="flex flex-row items-center justify-center space-x-2">
           <LinkItem title="< About />" path="/" />

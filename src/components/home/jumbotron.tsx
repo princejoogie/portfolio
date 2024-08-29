@@ -11,10 +11,10 @@ export const Jumbotron = ({ blogs }: JumbotronProps) => {
   return (
     <div>
       <div className="flex flex-col items-start">
-        <h1 className="text-4xl md:text-5xl font-extrabold xl:text-7xl">
+        <h1 className="text-4xl font-extrabold md:text-5xl xl:text-7xl">
           Prince Carlo Juguilon
         </h1>
-        <p className="text-xl mb-6 mt-1 text-gray-300 font-mono">
+        <p className="mb-6 mt-1 font-mono text-xl text-gray-300">
           Software Engineer
         </p>
 
@@ -35,7 +35,7 @@ export const Jumbotron = ({ blogs }: JumbotronProps) => {
         </span>
       </div>
 
-      <div className="mt-4 grid gap-4 grid-cols-1 md:grid-cols-2">
+      <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
         {blogs.slice(0, 6).map(({ slug, description, title, date }, i) => (
           <BlogItem
             key={slug}

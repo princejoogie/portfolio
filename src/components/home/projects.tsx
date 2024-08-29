@@ -35,7 +35,7 @@ const ProjectItem = ({
                 href={src}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="absolute top-1 right-1"
+                className="absolute right-1 top-1"
                 aria-label={title}
               >
                 <Maximize2 className="h-6 w-6" />

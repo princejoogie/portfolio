@@ -29,7 +29,7 @@ export const BlogItem = <T extends string>({
   return (
     <Link href={href} aria-label={title}>
       <div
-        className="group relative rounded-xl border-2 border-border bg-background p-4 md:p-10 active:opacity-60 transition-all"
+        className="group relative rounded-xl border-2 border-border bg-background p-4 transition-all active:opacity-60 md:p-10"
         onMouseMove={handleMouseMove}
       >
         <motion.div
@@ -47,10 +47,10 @@ export const BlogItem = <T extends string>({
 
         <div>
           <span className="text-xs text-gray-400">{date}</span>
-          <p className="my-2 text-xl md:text-2xl font-bold line-clamp-2">
+          <p className="my-2 line-clamp-2 text-xl font-bold md:text-2xl">
             {title}
           </p>
-          <p className="text-sm text-gray-300 line-clamp-2">{description}</p>
+          <p className="line-clamp-2 text-sm text-gray-300">{description}</p>
         </div>
       </div>
     </Link>
