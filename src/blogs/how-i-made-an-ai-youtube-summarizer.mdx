@@ -9,20 +9,26 @@ date: "April 18, 2023"
 Have you ever wanted to watch a long video but just didn't have the time to sit through it all? That's where my AI YouTube summarizer comes in! Here's how I built it:
 
 <video width="1920" heigth="1080" autoPlay muted controls>
-    <source src="https://user-images.githubusercontent.com/47204120/232245592-4aaabebe-cac8-4e3c-bfd9-195dbac45025.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
+  <source
+    src="https://user-images.githubusercontent.com/47204120/232245592-4aaabebe-cac8-4e3c-bfd9-195dbac45025.mp4"
+    type="video/mp4"
+  />
+  Your browser does not support the video tag.
 </video>
 
 ## Built With
+
 - [Next.js](https://nextjs.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [tRPC](https://trpc.io/)
 - [PlanetScale](https://planetscale.com/)
+
 ## Steps
 
 Here are the steps I took to build this app:
 
 ### 1. Aquire video subtitles
+
     - #### Fetch the html page of the YouTube video
         ```ts
         const { data } = await axios.get("https://youtube.com/watch?v=qA65QjWCl60");
@@ -125,8 +131,8 @@ Here are the steps I took to build this app:
 
         `There you have it! now we have an array containing the subtitles per 5-minutes!`
 
-
 ### 3. Feed each subtitle chunk to OpenAI's GPT-3-Turbo model for summarization
+
     - #### Generate summary with `gpt-3-turbo` model
         ```ts {22}
         const getConclusion = async (content: string) => {
@@ -161,7 +167,7 @@ Here are the steps I took to build this app:
 
 ## Conclusion
 
-This AI YouTube summarizer is a game-changer for anyone who wants to save time and avoid watching long videos. By utilizing Next.js, TailwindCSS, tRPC, and PlanetScale, we were able to build an app that fetches and extracts subtitles from YouTube videos and summarizes them into smaller, manageable chunks. With the help of OpenAI's GPT-3-Turbo model, we were able to generate concise and accurate summaries for each chunk. 
+This AI YouTube summarizer is a game-changer for anyone who wants to save time and avoid watching long videos. By utilizing Next.js, TailwindCSS, tRPC, and PlanetScale, we were able to build an app that fetches and extracts subtitles from YouTube videos and summarizes them into smaller, manageable chunks. With the help of OpenAI's GPT-3-Turbo model, we were able to generate concise and accurate summaries for each chunk.
 
 If you're interested in building your own AI YouTube summarizer, feel free to use the tools and steps I used to create mine!
 

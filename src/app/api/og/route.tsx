@@ -1,7 +1,6 @@
 import { constants } from "@/lib/utils";
 import { ImageResponse } from "@vercel/og";
 
-export const runtime = "edge";
 const { defaultSeo } = constants;
 
 export const GET = async (req: Request) => {
@@ -56,7 +55,6 @@ export const GET = async (req: Request) => {
           }}
         >
           <div style={{ display: "flex", alignItems: "center" }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               alt="avatar"
               width="48"

@@ -44,13 +44,13 @@ const BlogItemPage = async ({ params }: PageProps) => {
   );
 
   return (
-    <div className="flex flex-col xl:flex-row gap-4">
+    <div className="flex flex-col gap-4 xl:flex-row">
       <div className="w-full xl:w-4/5">
         <div className="flex items-center justify-between text-sm text-gray-500">
           <Link
             href="/blogs"
             replace
-            className="flex items-center space-x-1 hover:text-blue-600 transition-colors active:opacity-60"
+            className="flex items-center space-x-1 transition-colors hover:text-blue-600 active:opacity-60"
             aria-label="Blogs page"
           >
             <ArrowLeft className="h-4 w-4" />
@@ -64,15 +64,15 @@ const BlogItemPage = async ({ params }: PageProps) => {
         <article className="prose-sm prose-invert">{content}</article>
       </div>
 
-      <hr className="border-border my-2" />
+      <hr className="my-2 border-border" />
 
       <div className="w-full xl:w-1/5">
-        <h2 className="text-lg text-gray-400 ml-2">Read next</h2>
+        <h2 className="ml-2 text-lg text-gray-400">Read next</h2>
 
         <div className="flex flex-col space-y-2">
           {allBlogs.map(({ slug, description, title, date }) => (
             <Link key={`read-next-${slug}`} href={`/blogs/${slug}`}>
-              <div className="hover:bg-gray-800 rounded p-2 flex flex-col space-y-1 transition-colors active:opacity-60">
+              <div className="flex flex-col space-y-1 rounded p-2 transition-colors hover:bg-gray-800 active:opacity-60">
                 <h3 className="text-lg text-white">{title}</h3>
                 <p className="text-sm text-gray-400">{description}</p>
                 <p className="text-xs text-gray-500">{date}</p>
