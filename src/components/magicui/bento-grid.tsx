@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ComponentProps, ReactNode } from "react";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 import { cn } from "@/lib/utils";
@@ -30,6 +30,7 @@ const BentoCard = ({
   icon,
   description,
   href,
+  hrefProps,
   cta,
 }: {
   name: string;
@@ -39,6 +40,7 @@ const BentoCard = ({
   description: string;
   href: string;
   cta: string;
+  hrefProps?: Omit<ComponentProps<"a">, "href">;
 }) => (
   <div
     key={name}
@@ -66,7 +68,7 @@ const BentoCard = ({
       )}
     >
       <Button variant="ghost" asChild size="sm" className="pointer-events-auto">
-        <a href={href}>
+        <a {...hrefProps} href={href}>
           {cta}
           <ArrowRightIcon className="ml-2 h-4 w-4" />
         </a>

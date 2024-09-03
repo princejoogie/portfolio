@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Github, Maximize2, ExternalLink, HomeIcon } from "lucide-react";
 import { constants } from "@/lib/utils";
 import { BentoCard, BentoGrid } from "../magicui/bento-grid";
 
@@ -40,7 +39,8 @@ export const Projects = () => {
               key={p.title}
               name={p.title}
               description={p.description}
-              href={p.href ?? "#"}
+              href={p.github ?? "#"}
+              hrefProps={{ target: "_blank", rel: "noreferrer" }}
               cta="Learn More"
               className="col-span-1"
               background={
