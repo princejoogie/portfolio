@@ -29,7 +29,7 @@ export const BlogItem = <T extends string>({
   return (
     <Link href={href} aria-label={title}>
       <div
-        className="group relative rounded-xl border-2 border-border bg-background p-4 transition-all active:opacity-60 md:p-10"
+        className="group relative h-full rounded-xl border-2 border-border bg-background p-4 transition-all active:opacity-60 md:p-10"
         onMouseMove={handleMouseMove}
       >
         <motion.div

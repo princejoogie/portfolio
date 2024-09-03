@@ -12,7 +12,7 @@ export interface JumbotronProps {
 export const Jumbotron = ({ blogs }: JumbotronProps) => {
   return (
     <div>
-      <div className="flex min-h-[35dvh] flex-col items-start">
+      <div className="flex flex-col items-start">
         <div className="flex items-center gap-2">
           <BlurIn
             word="Prince"
@@ -33,14 +33,19 @@ export const Jumbotron = ({ blogs }: JumbotronProps) => {
 
         <div className="mb-6 ml-2 mt-1 flex items-center gap-2">
           <BlurIn
+            word="Senior"
+            className="!font-mono !text-xl !font-normal text-gray-300"
+            delay={0.6}
+          />
+          <BlurIn
             word="Software"
             className="!font-mono !text-xl !font-normal text-gray-300"
-            delay={0.5}
+            delay={0.7}
           />
           <BlurIn
             word="Engineer."
             className="!font-mono !text-xl !font-normal text-gray-300"
-            delay={0.6}
+            delay={0.8}
           />
           <BlurIn
             word="neovim"
@@ -59,7 +64,7 @@ export const Jumbotron = ({ blogs }: JumbotronProps) => {
 
       <div className="mt-12 flex w-full items-center justify-between">
         <BlurIn
-          word="Latest blog posts."
+          word="Blogs."
           className="text-3xl font-bold tracking-tight text-gray-500 lg:text-6xl"
         />
 
@@ -74,7 +79,7 @@ export const Jumbotron = ({ blogs }: JumbotronProps) => {
         </FadeComponent>
       </div>
 
-      <div className="mt-4 grid min-h-[35dvh] grid-cols-1 gap-4 md:grid-cols-2">
+      <div className="mt-4 grid grid-cols-1 gap-4 md:grid-cols-2">
         {blogs.slice(0, 6).map(({ slug, description, title, date }, i) => (
           <FadeComponent
             key={slug}
