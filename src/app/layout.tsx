@@ -5,6 +5,7 @@ import { Instrument_Sans } from "next/font/google";
 import { Footer } from "@/components/footer";
 import { cn, constants, getBaseUrl } from "@/lib/utils";
 import DotPattern from "@/components/magicui/dot-pattern";
+import { GoogleAnalytics } from "@/components/gtag";
 
 const instrumentSans = Instrument_Sans({ subsets: ["latin"] });
 
@@ -23,6 +24,10 @@ interface RootLayoutProps {
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html className="dark" lang="en">
+      <head>
+        <GoogleAnalytics />
+      </head>
+
       <body className={instrumentSans.className}>
         <DotPattern
           width={20}
