@@ -26,11 +26,11 @@ export const createSearchParams = (
 
 export const constants = {
   socials: {
-    github: "https://github.com/princejoogie/",
-    linkedin: "https://www.linkedin.com/in/princejoogie/",
-    instagram: "https://www.instagram.com/princecaarlo/",
-    twitter: "https://twitter.com/princecaarlo/",
-    blog: "https://blog.princecaarlo.tech/",
+    github: "https://github.com/princejoogie",
+    linkedin: "https://www.linkedin.com/in/princejoogie",
+    instagram: "https://www.instagram.com/princecaarlo",
+    twitter: "https://twitter.com/princecaarlo",
+    blog: "https://blog.princecaarlo.tech",
   },
 
   defaultSeo: {
