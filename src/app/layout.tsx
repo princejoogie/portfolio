@@ -31,7 +31,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
             "fixed inset-0 [mask-image:radial-gradient(50vw_circle_at_center,red,transparent)]"
           )}
         />
-        <div className="container mx-auto flex min-h-screen w-full max-w-5xl flex-col px-4">
+        <div className="container mx-auto flex min-h-screen w-full max-w-3xl flex-col px-4">
           <main className="flex-1">{children}</main>
           <Footer />
         </div>

@@ -1,8 +1,8 @@
 "use client";
 
 import { useQueryParams } from "@/hooks/use-query-params";
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { AnimatePresence, motion, MotionConfig, Variants } from "framer-motion";
+import { ReactNode, useState } from "react";
 
 type TabItemProps<T extends string> = {
   text: T;
@@ -43,34 +43,83 @@ type TabsProps<T extends string[]> = {
   defaultTab: T[number];
 };
 
+const MULTIPLIER = 300;
+
+const variants: Variants = {
+  initial: (dir: number) => ({
+    width: "100%",
+    position: "absolute",
+    x: MULTIPLIER * dir,
+    opacity: 0,
+    filter: "blur(4px)",
+  }),
+  active: {
+    width: "100%",
+    position: "relative",
+    x: 0,
+    opacity: 1,
+    filter: "blur(0px)",
+  },
+  exit: (dir: number) => ({
+    width: "100%",
+    position: "absolute",
+    x: -MULTIPLIER * dir,
+    opacity: 0,
+    filter: "blur(4px)",
+  }),
+};
+
 export const Tabs = <T extends string[]>({
   tabs,
   defaultTab,
   tabContent,
 }: TabsProps<T>) => {
-  const [currentTab, setCurrentTab] = useQueryParams("tab", defaultTab);
+  const [currentTab, setCurrentTab] = useQueryParams("tab", defaultTab, {
+    scroll: false,
+  });
+  const [direction, setDirection] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const tabIndex = tabs.indexOf(currentTab as string);
 
   return (
-    <>
+    <MotionConfig transition={{ duration: 0.4, type: "spring", bounce: 0.2 }}>
       <div className="mb-8 flex flex-wrap items-center gap-2">
         {tabs.map((tab) => (
           <TabItem
             text={tab}
             selected={currentTab === tab}
-            onSelect={setCurrentTab}
+            onSelect={(tab) => {
+              if (isAnimating) return;
+              const newTabIndex = tabs.indexOf(tab);
+              setDirection(newTabIndex > tabIndex ? 1 : -1);
+              setCurrentTab(tab);
+            }}
             key={tab}
           />
         ))}
       </div>
 
-      <motion.div
-        key={currentTab}
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="w-full rounded-lg"
-      >
-        {tabContent[currentTab]}
-      </motion.div>
-    </>
+      <div className="relative overflow-x-clip">
+        <AnimatePresence
+          custom={direction}
+          initial={false}
+          onExitComplete={() => setIsAnimating(false)}
+        >
+          <motion.div
+            custom={direction}
+            key={currentTab}
+            variants={variants}
+            initial="initial"
+            animate="active"
+            exit="exit"
+            className="w-full rounded-lg"
+            onAnimationStart={() => setIsAnimating(true)}
+            onAnimationComplete={() => setIsAnimating(false)}
+          >
+            {tabContent[currentTab]}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </MotionConfig>
   );
 };
