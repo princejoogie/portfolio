@@ -6,6 +6,7 @@ import { Footer } from "@/components/footer";
 import { cn, constants, getBaseUrl } from "@/lib/utils";
 import DotPattern from "@/components/magicui/dot-pattern";
 import { GoogleAnalytics } from "@/components/gtag";
+import { Header } from "@/components/home/header";
 
 const instrumentSans = Instrument_Sans({ subsets: ["latin"] });
 
@@ -33,11 +34,15 @@ const RootLayout = ({ children }: RootLayoutProps) => {
           width={20}
           height={20}
           className={cn(
-            "fixed inset-0 [mask-image:radial-gradient(50vw_circle_at_center,red,transparent)]"
+            "fixed inset-0 z-[-1] [mask-image:radial-gradient(50vw_circle_at_center,red,transparent)]"
           )}
         />
         <div className="container mx-auto flex min-h-screen w-full max-w-3xl flex-col px-4">
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 pt-8">
+            <Header />
+            <hr className="my-8" />
+            {children}
+          </main>
           <Footer />
         </div>
       </body>

@@ -1,6 +1,7 @@
 import { AllBlogsMeta, formatBlogDate } from "@/lib/mdx";
 import Link from "next/link";
 import { Timeline } from "@/components/timeline";
+import WordRotate from "../magicui/word-rotate";
 
 type AboutProps = {
   blogs: AllBlogsMeta;
@@ -9,15 +10,30 @@ type AboutProps = {
 export const About = ({ blogs }: AboutProps) => {
   return (
     <div>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+      <div className="flex items-center gap-2 text-2xl">
+        <span>👋</span>
+        <WordRotate
+          words={[
+            "Hi!",
+            "Kamusta!",
+            'console.log("Hello")',
+            'echo "Hello"',
+            'print("Hello")',
+          ]}
+        />
+      </div>
+      <p className="mt-2">
+        I’m Prince, a passionate Senior Software Engineer with a knack for
+        crafting innovative solutions and a love for clean, efficient code. My
+        journey in software development has been fueled by a curiosity for
+        technology and a desire to create impactful applications that enhance
+        user experiences.
       </p>
+
+      <div className="mt-12">
+        <h3 className="text-lg">Projects</h3>
+        <p className="mt-2">Working on it!</p>
+      </div>
 
       <div className="mt-12">
         <h3 className="text-lg">Experience</h3>

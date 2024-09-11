@@ -23,7 +23,7 @@ const components: MDXComponents = {
     if (props["data-language"]) {
       return <code {...props} />;
     }
-    return <code className="rounded bg-gray-700/60 p-1" {...props} />;
+    return <code className="rounded bg-gray-700 p-1" {...props} />;
   },
   pre: (props) => (
     <pre
