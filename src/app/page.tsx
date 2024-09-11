@@ -20,7 +20,6 @@ export default async function Home() {
           tabs={["About", "Blogs", "Setup", "Contact", "Newsletter"] as const}
           defaultTab="About"
           tabContent={{
-            /* for about, only include 3 blogs */
             About: <About blogs={blogs.slice(0, 2)} />,
             Blogs: <Blogs blogs={blogs} />,
             Setup: <div>Setup.</div>,
