@@ -1,21 +1,26 @@
+import Link from "next/link";
+
 export const Timeline = () => {
   const experiences = [
     {
       title: "Senior Software Engineer",
       date: "2023-Present",
       company: "Focus Global Inc.",
+      companyLink: "https://focusglobalinc.com",
       current: true,
     },
     {
       title: "Software Engineer",
       date: "2022-2022",
       company: "Whispir",
+      companyLink: "https://whispir.com",
       current: false,
     },
     {
       title: "Frontend Software Engineer",
       date: "2021-2022",
       company: "Etica Digital",
+      companyLink: "https://www.ideascience.com",
       current: false,
     },
     {
@@ -39,7 +44,17 @@ export const Timeline = () => {
           <div className="content -ml-2">
             <h3 className="title flex items-center">{exp.title} </h3>
             <div className="flex items-center text-sm text-gray-500">
-              <p>{exp.company}</p>
+              {exp.companyLink ? (
+                <Link
+                  href={exp.companyLink}
+                  className="hover:underline"
+                  target="_blank"
+                >
+                  <p>{exp.company}</p>
+                </Link>
+              ) : (
+                <p>{exp.company}</p>
+              )}
               <p>&nbsp;-&nbsp;{exp.date}</p>
             </div>
           </div>

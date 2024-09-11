@@ -1,18 +1,9 @@
-import { AllBlogsMeta } from "@/lib/mdx";
+import { AllBlogsMeta, formatBlogDate } from "@/lib/mdx";
 import Link from "next/link";
 import { Timeline } from "@/components/timeline";
 
 type AboutProps = {
   blogs: AllBlogsMeta;
-};
-
-const formatDate = (date: string) => {
-  const dateArray = date.split(" ");
-  const month = dateArray[0];
-  const day = dateArray[1];
-  const year = dateArray[2];
-
-  return `${month.slice(0, 3)} ${day} ${year}`;
 };
 
 export const About = ({ blogs }: AboutProps) => {
@@ -43,7 +34,7 @@ export const About = ({ blogs }: AboutProps) => {
               key={blog.slug}
             >
               <span className="w-20 flex-shrink-0 text-xs leading-7 text-gray-500">
-                {formatDate(blog.date ?? "")}
+                {formatBlogDate(blog.date ?? "")}
               </span>
               <span className="text-lg group-hover:underline">
                 {blog.title}

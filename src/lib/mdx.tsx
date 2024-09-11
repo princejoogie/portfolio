@@ -167,4 +167,13 @@ export const getAllBlogsMeta = async () => {
   return sorted;
 };
 
+export const formatBlogDate = (date: string) => {
+  const dateArray = date.split(" ");
+  const month = dateArray[0];
+  const day = dateArray[1];
+  const year = dateArray[2];
+
+  return `${month.slice(0, 3)} ${day} ${year}`;
+};
+
 export type AllBlogsMeta = Awaited<ReturnType<typeof getAllBlogsMeta>>;
