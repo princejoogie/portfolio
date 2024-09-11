@@ -61,9 +61,6 @@
 
 @layer base {
   * {
-    font-family: "Instrument Sans", sans-serif;
-    font-optical-sizing: auto;
-
     @apply border-border;
   }
   body {

@@ -1,5 +1,6 @@
 import { AllBlogsMeta } from "@/lib/mdx";
 import Link from "next/link";
+import { Timeline } from "@/components/timeline";
 
 type AboutProps = {
   blogs: AllBlogsMeta;
@@ -27,20 +28,24 @@ export const About = ({ blogs }: AboutProps) => {
         mollit anim id est laborum.
       </p>
 
-      <div className="mt-8">
-        <h3 className="text-lg">Latest Blogs</h3>
+      <div className="mt-12">
+        <h3 className="text-lg">Experience</h3>
+        <Timeline />
+      </div>
 
+      <div className="mt-12">
+        <h3 className="text-lg">Latest Blogs</h3>
         <div className="py-2">
           {blogs.map((blog) => (
             <Link
-              className="group flex w-min items-center justify-start gap-2 px-2 py-1"
+              className="group flex items-start justify-start gap-2 px-2 py-1"
               href={`/blog/${blog.slug}`}
               key={blog.slug}
             >
-              <span className="w-24 whitespace-nowrap text-sm text-gray-500">
+              <span className="w-20 flex-shrink-0 text-xs leading-7 text-gray-500">
                 {formatDate(blog.date ?? "")}
               </span>
-              <span className="whitespace-nowrap text-lg group-hover:underline">
+              <span className="text-lg group-hover:underline">
                 {blog.title}
               </span>
             </Link>
