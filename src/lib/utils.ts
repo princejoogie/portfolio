@@ -36,7 +36,7 @@ export const constants = {
   defaultSeo: {
     title: "Prince Carlo Juguilon",
     description:
-      "A Software Engineer based in the Philippines, React enthusiast, type-safety advocate, and a passionate learner.",
+      "A passionate Senior Software Engineer with a knack for crafting innovative solutions and a love for clean, efficient code. My journey in software development has been fueled by a curiosity for technology and a desire to create impactful applications that enhance user experiences.",
   },
 
   projects: [
