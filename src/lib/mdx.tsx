@@ -23,7 +23,7 @@ const components: MDXComponents = {
     if (props["data-language"]) {
       return <code {...props} />;
     }
-    return <code className="rounded bg-gray-700/60 p-1" {...props} />;
+    return <code className="rounded bg-gray-700 p-1" {...props} />;
   },
   pre: (props) => (
     <pre
@@ -165,6 +165,15 @@ export const getAllBlogsMeta = async () => {
     else return -1;
   });
   return sorted;
+};
+
+export const formatBlogDate = (date: string) => {
+  const dateArray = date.split(" ");
+  const month = dateArray[0];
+  const day = dateArray[1];
+  const year = dateArray[2];
+
+  return `${month.slice(0, 3)} ${day} ${year}`;
 };
 
 export type AllBlogsMeta = Awaited<ReturnType<typeof getAllBlogsMeta>>;

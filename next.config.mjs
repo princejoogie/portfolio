@@ -15,7 +15,15 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: {
     mdxRs: true,
-    typedRoutes: true,
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "github.com",
+        port: "",
+      },
+    ],
   },
 };
 
