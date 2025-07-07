@@ -34,7 +34,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
           width={20}
           height={20}
           className={cn(
-            "fixed inset-0 z-[-1] [mask-image:radial-gradient(50vw_circle_at_center,red,transparent)]",
+            "fixed inset-0 z-[-1] opacity-30 [mask-image:radial-gradient(50vw_circle_at_center,red,transparent)]",
           )}
         />
         <div className="container mx-auto flex min-h-screen w-full max-w-3xl flex-col px-4">

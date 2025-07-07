@@ -18,16 +18,17 @@ export const About = ({ blogs }: AboutProps) => {
             "Kamusta!",
             'console.log("Hello")',
             'echo "Hello"',
+            ':echo "Hello"',
             'print("Hello")',
           ]}
         />
       </div>
       <p className="mt-2">
-        I’m Prince, a passionate Senior Software Engineer with a knack for
-        crafting innovative solutions and a love for clean, efficient code. My
-        journey in software development has been fueled by a curiosity for
-        technology and a desire to create impactful applications that enhance
-        user experiences.
+        I'm Prince, a Senior Software Engineer who loves building with modern
+        web technologies. When I'm not crafting applications, you'll find me
+        tweaking my Arch Linux setup, optimizing Neovim configs, or exploring
+        the latest in containerization and cloud infrastructure. I believe in
+        clean code, efficient workflows, and the power of open-source tools.
       </p>
 
       <div className="mt-12">
