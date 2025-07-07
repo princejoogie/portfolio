@@ -1,8 +1,13 @@
 "use client";
 
+import {
+  AnimatePresence,
+  MotionConfig,
+  motion,
+  type Variants,
+} from "framer-motion";
+import { type ReactNode, useState } from "react";
 import { useQueryParams } from "@/hooks/use-query-params";
-import { AnimatePresence, motion, MotionConfig, Variants } from "framer-motion";
-import { ReactNode, useState } from "react";
 
 type TabItemProps<T extends string> = {
   text: T;
@@ -18,6 +23,7 @@ const TabItem = <T extends string>({
 }: TabItemProps<T>) => {
   return (
     <button
+      type="button"
       onClick={() => onSelect(text)}
       className={`${
         selected

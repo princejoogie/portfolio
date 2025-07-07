@@ -1,14 +1,14 @@
 "use client";
 
 import { getCalApi } from "@calcom/embed-react";
-import { useEffect } from "react";
-import { Button } from "../ui/button";
 import Link from "next/link";
+import { useEffect } from "react";
 import { constants } from "@/lib/utils";
+import { Button } from "../ui/button";
 
 export const Contact = () => {
   useEffect(() => {
-    (async function () {
+    (async () => {
       const cal = await getCalApi({ namespace: "30min" });
       cal("ui", {
         styles: { branding: { brandColor: "#000000" } },

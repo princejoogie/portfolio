@@ -1,15 +1,15 @@
 "use client";
-import type { Route } from "next";
-import type { MouseEvent } from "react";
-import Link from "next/link";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
+import type { Route } from "next";
+import Link from "next/link";
+import type { MouseEvent } from "react";
 
-interface BlogItemProps<T extends string> {
+type BlogItemProps<T extends string> = {
   description: string;
   date: string;
   href: Route<T>;
   title: string;
-}
+};
 
 export const BlogItem = <T extends string>({
   href,
@@ -28,12 +28,13 @@ export const BlogItem = <T extends string>({
 
   return (
     <Link href={href} aria-label={title}>
+      {/* biome-ignore lint/a11y/noStaticElementInteractions: okay */}
       <div
         className="group relative h-full rounded-xl border-2 border-border bg-background p-4 transition-all active:opacity-60 md:p-10"
         onMouseMove={handleMouseMove}
       >
         <motion.div
-          className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
+          className="-inset-px pointer-events-none absolute rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
           style={{
             background: useMotionTemplate`
             radial-gradient(
@@ -46,11 +47,11 @@ export const BlogItem = <T extends string>({
         />
 
         <div>
-          <span className="text-xs text-gray-400">{date}</span>
-          <p className="my-2 line-clamp-2 text-xl font-bold md:text-2xl">
+          <span className="text-gray-400 text-xs">{date}</span>
+          <p className="my-2 line-clamp-2 font-bold text-xl md:text-2xl">
             {title}
           </p>
-          <p className="line-clamp-2 text-sm text-gray-300">{description}</p>
+          <p className="line-clamp-2 text-gray-300 text-sm">{description}</p>
         </div>
       </div>
     </Link>

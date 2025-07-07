@@ -14,7 +14,7 @@ export const getBaseUrl = () => {
 
 export const createSearchParams = (
   baseUrl: string,
-  params: Record<string, string | undefined | null>
+  params: Record<string, string | undefined | null>,
 ) => {
   const searchParams = new URLSearchParams();
   Object.entries(params).forEach(([key, value]) => {

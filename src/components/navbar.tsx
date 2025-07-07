@@ -1,33 +1,33 @@
 "use client";
 
-import type { TypeIcon } from "lucide-react";
+import { SiGithub, SiX } from "@icons-pack/react-simple-icons";
+import { Slot } from "@radix-ui/react-slot";
 import type { Route } from "next";
 import Link from "next/link";
 import { useState } from "react";
-import { Github, Linkedin, Twitter } from "lucide-react";
 import { constants } from "@/lib/utils";
-import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 import { FadeComponent, FadeText } from "./magicui/fade-text";
+import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 
 const { socials } = constants;
 
-interface LinkProps<T extends string> {
+type LinkProps<T extends string> = {
   title: string;
   path: Route<T>;
-}
+};
 
-interface SocialProps {
-  Icon: typeof TypeIcon;
+type SocialProps = {
+  icon: React.ReactNode;
   href: string;
   label?: string;
-}
+};
 
 const LinkItem = <T extends string>({ title, path }: LinkProps<T>) => {
   return (
     <Link href={path} aria-label={title}>
       <div className="group rounded p-2 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none">
         <FadeText
-          className="!group-hover:text-blue-300 !font-mono !text-sm !text-gray-400"
+          className="!font-mono !text-sm !text-gray-400 !group-hover:text-blue-300"
           direction="down"
           text={title}
         />
@@ -36,7 +36,7 @@ const LinkItem = <T extends string>({ title, path }: LinkProps<T>) => {
   );
 };
 
-const Social = ({ href, label, Icon }: SocialProps) => {
+const Social = ({ href, label, icon }: SocialProps) => {
   return (
     <FadeComponent direction="down">
       <a
@@ -46,7 +46,9 @@ const Social = ({ href, label, Icon }: SocialProps) => {
         className="group block rounded-full p-2 transition-colors duration-300 ease-out hover:bg-gray-800 focus:bg-gray-800 focus:outline-none"
         rel="noreferrer"
       >
-        <Icon className="h-6 w-6 text-gray-500 transition-colors group-hover:fill-gray-400 group-hover:text-blue-300" />
+        <Slot className="h-6 w-6 text-gray-500 transition-colors group-hover:fill-gray-400 group-hover:text-blue-300">
+          {icon}
+        </Slot>
       </a>
     </FadeComponent>
   );
@@ -57,7 +59,7 @@ export const NavBar = () => {
 
   return (
     <div>
-      <div className="z-10 flex w-full flex-row justify-between pb-6 pt-12">
+      <div className="z-10 flex w-full flex-row justify-between pt-12 pb-6">
         <div className="hidden lg:block">
           <div className="flex flex-row items-center justify-center space-x-2">
             <LinkItem title="< About />" path="/" />
@@ -68,7 +70,7 @@ export const NavBar = () => {
 
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
           <DialogTrigger asChild aria-label="Hamburger menu">
-            <button className="block lg:hidden">
+            <button type="button" className="block lg:hidden">
               <FadeComponent direction="down">
                 <div className="flex flex-row items-center justify-center space-x-2 text-gray-400 hover:text-blue-300 focus:outline-none">
                   <svg
@@ -78,6 +80,7 @@ export const NavBar = () => {
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                   >
+                    <title>Menu</title>
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -99,13 +102,17 @@ export const NavBar = () => {
         </Dialog>
 
         <div className="flex flex-row items-center space-x-2">
-          <Social href={socials.github} Icon={Github} label="Github link" />
+          <Social
+            href={socials.github}
+            icon={<SiGithub />}
+            label="Github link"
+          />
           <Social
             href={socials.linkedin}
-            Icon={Linkedin}
+            icon={<SiGithub />}
             label="Linkedin link"
           />
-          <Social href={socials.twitter} Icon={Twitter} label="Twitter link" />
+          <Social href={socials.twitter} icon={<SiX />} label="X link" />
         </div>
       </div>
     </div>

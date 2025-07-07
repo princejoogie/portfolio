@@ -28,7 +28,7 @@ export const TechStack = () => {
     <div className="flex w-full flex-col">
       <BlurIn
         word="Technologies."
-        className="!text-left text-3xl font-bold tracking-tight text-gray-500 lg:text-6xl"
+        className="!text-left font-bold text-3xl text-gray-500 tracking-tight lg:text-6xl"
       />
       <div className="relative mx-auto flex h-full w-full max-w-[32rem] items-center justify-center overflow-hidden">
         <IconCloud iconSlugs={slugs} />

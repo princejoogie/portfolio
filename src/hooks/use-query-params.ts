@@ -6,7 +6,7 @@ type ValidValues = string | string[];
 export const useQueryParams = <T extends ValidValues>(
   name: string,
   defaultValue?: T,
-  options?: { scroll?: boolean }
+  options?: { scroll?: boolean },
   // eslint-disable-next-line no-unused-vars
 ): [T | null, (newValue: T | null) => void] => {
   const searchParams = useSearchParams();
@@ -22,7 +22,7 @@ export const useQueryParams = <T extends ValidValues>(
       return raw.split(",") as T;
     }
     return raw as T;
-  }, [searchParams]);
+  }, [searchParams, defaultValue, name]);
 
   function setValue(newValue: T | null) {
     const _searchParams = new URLSearchParams(searchParams);

@@ -1,21 +1,20 @@
-import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
+import type { Metadata } from "next";
 import Link from "next/link";
-
-import { getBlogBySlug, getAllBlogsMeta } from "@/lib/mdx";
+import type { AllBlogsMeta } from "@/lib/mdx";
+import { getAllBlogsMeta, getBlogBySlug } from "@/lib/mdx";
 import { createSearchParams } from "@/lib/utils";
 
 export const generateStaticParams = async () => {
   return await getAllBlogsMeta();
 };
 
-interface PageProps {
-  params: Awaited<ReturnType<typeof generateStaticParams>>[number];
-}
+type PageProps = {
+  params: Promise<AllBlogsMeta[number]>;
+};
 
-export const generateMetadata = async ({
-  params,
-}: PageProps): Promise<Metadata> => {
+export const generateMetadata = async (props: PageProps): Promise<Metadata> => {
+  const params = await props.params;
   const { meta } = await getBlogBySlug(params.slug);
   const url = createSearchParams("/api/og", {
     title: meta.title ?? "",
@@ -37,13 +36,14 @@ export const generateMetadata = async ({
   };
 };
 
-const BlogItemPage = async ({ params }: PageProps) => {
+const BlogItemPage = async (props: PageProps) => {
+  const params = await props.params;
   const { content, meta } = await getBlogBySlug(params.slug);
 
   return (
     <div className="flex flex-col gap-4 xl:flex-row">
       <div className="w-full">
-        <div className="flex items-center justify-between text-sm text-gray-500">
+        <div className="flex items-center justify-between text-gray-500 text-sm">
           <Link
             href="/blog"
             replace

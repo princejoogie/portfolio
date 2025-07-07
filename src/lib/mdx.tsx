@@ -1,25 +1,24 @@
-import fs from "fs";
-import path from "path";
-import type { BuiltinTheme } from "shiki";
+import fs from "node:fs";
+import path from "node:path";
+import { ExternalLink, Link } from "lucide-react";
 import type { MDXComponents } from "mdx/types";
-import { Link, ExternalLink } from "lucide-react";
 import { compileMDX } from "next-mdx-remote/rsc";
-import rehypePrettyCode, { type Options } from "rehype-pretty-code";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypePrettyCode, { type Options } from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
+import type { BuiltinTheme } from "shiki";
 
 const rootDirectory = path.join(process.cwd(), "src", "blogs");
 
-export interface MDXMeta {
+export type MDXMeta = {
   title?: string;
   description?: string;
   date?: string;
-}
+};
 
 const components: MDXComponents = {
   code: (props) => {
-    // @ts-expect-error - types
     if (props["data-language"]) {
       return <code {...props} />;
     }
@@ -49,11 +48,13 @@ const components: MDXComponents = {
       </a>
     );
   },
+  // biome-ignore lint/performance/noImgElement: okay
+  // biome-ignore lint/a11y/useAltText: okay
   img: (props) => <img className="m-0 mt-1 inline" {...props} />,
   p: (props) => <p className="my-2 text-base text-gray-300" {...props} />,
   h1: ({ children, ...props }) => (
     <h1 className="group relative my-4 font-semibold" {...props}>
-      <div className="invisible absolute -left-6 bottom-0 top-0 grid place-items-center xl:visible">
+      <div className="-left-6 invisible absolute top-0 bottom-0 grid place-items-center xl:visible">
         <Link
           className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100"
           aria-label={String(children)}
@@ -63,8 +64,8 @@ const components: MDXComponents = {
     </h1>
   ),
   h2: ({ children, ...props }) => (
-    <h2 className="group relative mb-2 mt-6 font-semibold" {...props}>
-      <div className="invisible absolute -left-6 bottom-0 top-0 grid place-items-center xl:visible">
+    <h2 className="group relative mt-6 mb-2 font-semibold" {...props}>
+      <div className="-left-6 invisible absolute top-0 bottom-0 grid place-items-center xl:visible">
         <Link
           className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100"
           aria-label={String(children)}
@@ -74,8 +75,8 @@ const components: MDXComponents = {
     </h2>
   ),
   h3: ({ children, ...props }) => (
-    <h3 className="group relative mb-2 mt-6 font-semibold" {...props}>
-      <div className="invisible absolute -left-6 bottom-0 top-0 grid place-items-center xl:visible">
+    <h3 className="group relative mt-6 mb-2 font-semibold" {...props}>
+      <div className="-left-6 invisible absolute top-0 bottom-0 grid place-items-center xl:visible">
         <Link
           className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100"
           aria-label={String(children)}
@@ -85,8 +86,8 @@ const components: MDXComponents = {
     </h3>
   ),
   h4: ({ children, ...props }) => (
-    <h4 className="group relative mb-2 mt-6 font-semibold" {...props}>
-      <div className="invisible absolute -left-6 bottom-0 top-0 grid place-items-center xl:visible">
+    <h4 className="group relative mt-6 mb-2 font-semibold" {...props}>
+      <div className="-left-6 invisible absolute top-0 bottom-0 grid place-items-center xl:visible">
         <Link
           className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100"
           aria-label={String(children)}
@@ -96,8 +97,8 @@ const components: MDXComponents = {
     </h4>
   ),
   h5: ({ children, ...props }) => (
-    <h5 className="group relative mb-2 mt-6 font-semibold" {...props}>
-      <div className="invisible absolute -left-6 bottom-0 top-0 grid place-items-center xl:visible">
+    <h5 className="group relative mt-6 mb-2 font-semibold" {...props}>
+      <div className="-left-6 invisible absolute top-0 bottom-0 grid place-items-center xl:visible">
         <Link
           className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100"
           aria-label={String(children)}

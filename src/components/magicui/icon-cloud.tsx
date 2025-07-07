@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
 import { useTheme } from "next-themes";
+import { useEffect, useMemo, useState } from "react";
 import {
   Cloud,
   fetchSimpleIcons,
-  ICloud,
+  type ICloud,
   renderSimpleIcon,
-  SimpleIcon,
+  type SimpleIcon,
 } from "react-icon-cloud";
 
 export const cloudProps: Omit<ICloud, "children"> = {
@@ -52,7 +52,7 @@ export const renderCustomIcon = (icon: SimpleIcon, theme: string) => {
       href: undefined,
       target: undefined,
       rel: undefined,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // biome-ignore lint/suspicious/noExplicitAny: okay
       onClick: (e: any) => e.preventDefault(),
     },
   });
@@ -76,14 +76,9 @@ export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
     if (!data) return null;
 
     return Object.values(data.simpleIcons).map((icon) =>
-      renderCustomIcon(icon, theme || "light")
+      renderCustomIcon(icon, theme || "light"),
     );
   }, [data, theme]);
 
-  return (
-    // @ts-expect-error - Cloud component is not typed
-    <Cloud {...cloudProps}>
-      <>{renderedIcons}</>
-    </Cloud>
-  );
+  return <Cloud {...cloudProps}>{renderedIcons}</Cloud>;
 }

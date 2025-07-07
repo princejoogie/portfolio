@@ -13,9 +13,9 @@ const withMDX = nextMDX({
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    mdxRs: true,
-  },
+  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
+  eslint: { ignoreDuringBuilds: true },
+  experimental: { mdxRs: true },
   images: {
     remotePatterns: [
       {

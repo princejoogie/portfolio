@@ -1,12 +1,12 @@
 import "./globals.css";
-import type { ReactNode } from "react";
 import type { Metadata } from "next";
 import { Instrument_Sans } from "next/font/google";
+import type { ReactNode } from "react";
 import { Footer } from "@/components/footer";
-import { cn, constants, getBaseUrl } from "@/lib/utils";
-import DotPattern from "@/components/magicui/dot-pattern";
 import { GoogleAnalytics } from "@/components/gtag";
 import { Header } from "@/components/home/header";
+import DotPattern from "@/components/magicui/dot-pattern";
+import { cn, constants, getBaseUrl } from "@/lib/utils";
 
 const instrumentSans = Instrument_Sans({ subsets: ["latin"] });
 
@@ -18,9 +18,9 @@ export const metadata: Metadata = {
   metadataBase: new URL(getBaseUrl()),
 };
 
-interface RootLayoutProps {
+type RootLayoutProps = {
   children: ReactNode;
-}
+};
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
@@ -34,7 +34,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
           width={20}
           height={20}
           className={cn(
-            "fixed inset-0 z-[-1] [mask-image:radial-gradient(50vw_circle_at_center,red,transparent)]"
+            "fixed inset-0 z-[-1] [mask-image:radial-gradient(50vw_circle_at_center,red,transparent)]",
           )}
         />
         <div className="container mx-auto flex min-h-screen w-full max-w-3xl flex-col px-4">

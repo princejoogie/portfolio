@@ -1,10 +1,10 @@
+import { Suspense } from "react";
+import { Contact } from "@/components/home";
 import { About } from "@/components/home/about";
 import { Blogs } from "@/components/home/blogs";
-import { Contact } from "@/components/home";
 import { Setup } from "@/components/home/setup";
 import { Tabs } from "@/components/tabs";
 import { getAllBlogsMeta } from "@/lib/mdx";
-import { Suspense } from "react";
 
 export default async function Home() {
   const blogs = await getAllBlogsMeta();
