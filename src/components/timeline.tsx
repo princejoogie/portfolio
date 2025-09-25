@@ -4,14 +4,22 @@ export const Timeline = () => {
   const experiences = [
     {
       id: "1",
-      title: "Senior Software Engineer",
-      date: "2023-Present",
-      company: "Focus Global Inc.",
-      companyLink: "https://focusglobalinc.com",
+      title: "AI Engineer",
+      date: "2025-Present",
+      company: "Vervio Digital",
+      companyLink: "https://www.vervio.com.au",
       current: true,
     },
     {
       id: "2",
+      title: "Senior Software Engineer",
+      date: "2023-2025",
+      company: "Focus Global Inc.",
+      companyLink: "https://focusglobalinc.com",
+      current: false,
+    },
+    {
+      id: "3",
       title: "Software Engineer",
       date: "2022-2022",
       company: "Whispir",
@@ -19,7 +27,7 @@ export const Timeline = () => {
       current: false,
     },
     {
-      id: "3",
+      id: "4",
       title: "Frontend Software Engineer",
       date: "2021-2022",
       company: "Etica Digital",
@@ -27,7 +35,7 @@ export const Timeline = () => {
       current: false,
     },
     {
-      id: "4",
+      id: "5",
       title: "Software Engineer",
       date: "2018-2021",
       company: "Freelance",
