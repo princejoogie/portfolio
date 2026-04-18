@@ -3,13 +3,97 @@ import path from "node:path";
 import { ExternalLink, Link } from "lucide-react";
 import type { MDXComponents } from "mdx/types";
 import { compileMDX } from "next-mdx-remote/rsc";
+import { isValidElement, type ReactNode } from "react";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode, { type Options } from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import type { BuiltinTheme } from "shiki";
+import { BlogCodeBlock } from "@/components/blog-code-block";
+import { cn } from "@/lib/utils";
 
 const rootDirectory = path.join(process.cwd(), "src", "blogs");
+
+const extractTextContent = (node: ReactNode): string => {
+  if (typeof node === "string" || typeof node === "number") {
+    return String(node);
+  }
+
+  if (Array.isArray(node)) {
+    return node.map(extractTextContent).join("");
+  }
+
+  if (!isValidElement(node)) {
+    return "";
+  }
+
+  const props = node.props as {
+    children?: ReactNode;
+    [key: string]: unknown;
+  };
+
+  const text = extractTextContent(props.children);
+
+  if (props["data-line"] !== undefined) {
+    return `${text}\n`;
+  }
+
+  return text;
+};
+
+const getCodeLanguage = (node: ReactNode): string => {
+  if (!isValidElement(node)) {
+    return "text";
+  }
+
+  const props = node.props as {
+    className?: string;
+    [key: string]: unknown;
+  };
+
+  const language =
+    typeof props["data-language"] === "string"
+      ? props["data-language"]
+      : props.className?.match(/language-([\w-]+)/)?.[1];
+
+  return language ?? "text";
+};
+
+const normalizeCopiedCode = (code: string): string => {
+  const lines = code.split("\n");
+  const normalizedLines: string[] = [];
+
+  for (let index = 0; index < lines.length; index++) {
+    const line = lines[index];
+
+    if (line.trim() !== "") {
+      normalizedLines.push(line);
+      continue;
+    }
+
+    let emptyLineCount = 1;
+
+    while (index + emptyLineCount < lines.length) {
+      if (lines[index + emptyLineCount]?.trim() !== "") {
+        break;
+      }
+      emptyLineCount++;
+    }
+
+    if (emptyLineCount === 1) {
+      index += emptyLineCount - 1;
+      continue;
+    }
+
+    const preservedEmptyLines = Math.max(1, Math.ceil(emptyLineCount / 2));
+    normalizedLines.push(
+      ...Array.from({ length: preservedEmptyLines }, () => ""),
+    );
+    index += emptyLineCount - 1;
+  }
+
+  return normalizedLines.join("\n").trim();
+};
 
 export type MDXMeta = {
   title?: string;
@@ -24,12 +108,24 @@ const components: MDXComponents = {
     }
     return <code className="rounded bg-gray-700 p-1" {...props} />;
   },
-  pre: (props) => (
-    <pre
-      className="my-2 whitespace-pre-wrap border-2 border-border bg-background p-2 text-base"
-      {...props}
-    />
-  ),
+  pre: ({ children, className, ...props }) => {
+    const language = getCodeLanguage(children);
+    const code = normalizeCopiedCode(extractTextContent(children));
+
+    return (
+      <BlogCodeBlock language={language} code={code}>
+        <pre
+          className={cn(
+            "overflow-x-auto whitespace-pre-wrap break-words bg-transparent p-2 text-sm shadow-none outline-none",
+            className,
+          )}
+          {...props}
+        >
+          {children}
+        </pre>
+      </BlogCodeBlock>
+    );
+  },
   a: ({ children, href, ...props }) => {
     const isExternal = Boolean(href?.startsWith("http"));
     return (
