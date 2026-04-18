@@ -20,15 +20,12 @@ export const About = () => {
         />
       </div>
       <p className="mt-2">
-        I&apos;m Prince, a Senior Software Engineer building{" "}
-        <strong>AI-powered product experiences</strong> and{" "}
-        <strong>modern web applications</strong>. I work across frontend
-        systems, developer tooling, and <strong>LLM-driven workflows</strong>,
-        with recent experience building retail assistants, e-commerce platforms,
-        and support automation tools. When I&apos;m not shipping products,
-        you&apos;ll find me tweaking my Arch Linux setup, refining Neovim
-        configs, or exploring better ways to build with open-source tools. Check
-        out my{" "}
+        I&apos;m Prince, a Senior Software Engineer working across AI,
+        engineering, and automation, with recent experience building LLM-powered
+        products, internal tools, and e-commerce platforms. Outside of work, I
+        spend a lot of time refining my setup, improving my workflow, and
+        exploring tools that make building feel faster and more intentional.
+        Check out my{" "}
         <Link
           href={constants.socials.resume}
           target="_blank"

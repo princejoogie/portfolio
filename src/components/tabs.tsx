@@ -35,7 +35,7 @@ const TabItem = <T extends string>({
       {selected && (
         <motion.span
           layoutId="tab"
-          transition={{ type: "spring", duration: 0.4 }}
+          transition={{ type: "spring", duration: 0.25, bounce: 0.12 }}
           className="absolute inset-0 z-0 rounded-md bg-secondary"
         ></motion.span>
       )}
@@ -49,7 +49,7 @@ type TabsProps<T extends string[]> = {
   defaultTab: T[number];
 };
 
-const MULTIPLIER = 300;
+const MULTIPLIER = 32;
 
 const variants: Variants = {
   initial: (dir: number) => ({
@@ -57,21 +57,20 @@ const variants: Variants = {
     position: "absolute",
     x: MULTIPLIER * dir,
     opacity: 0,
-    filter: "blur(4px)",
   }),
   active: {
     width: "100%",
     position: "relative",
     x: 0,
     opacity: 1,
-    filter: "blur(0px)",
+    transition: { duration: 0.2, ease: "easeInOut" },
   },
   exit: (dir: number) => ({
     width: "100%",
     position: "absolute",
     x: -MULTIPLIER * dir,
     opacity: 0,
-    filter: "blur(4px)",
+    transition: { duration: 0.16, ease: "easeInOut" },
   }),
 };
 
@@ -88,7 +87,7 @@ export const Tabs = <T extends string[]>({
   const tabIndex = tabs.indexOf(currentTab as string);
 
   return (
-    <MotionConfig transition={{ duration: 0.4, type: "spring", bounce: 0.2 }}>
+    <MotionConfig transition={{ duration: 0.2, ease: "easeInOut" }}>
       <div className="mb-8 flex flex-wrap items-center gap-2">
         {tabs.map((tab) => (
           <TabItem

@@ -8,8 +8,8 @@ type BlurIntProps = {
   word: string;
   className?: string;
   variant?: {
-    hidden: { filter: string; opacity: number };
-    visible: { filter: string; opacity: number };
+    hidden: { opacity: number; y?: number; scale?: number };
+    visible: { opacity: number; y?: number; scale?: number };
   };
   duration?: number;
   delay?: number;
@@ -18,12 +18,12 @@ const BlurIn = ({
   word,
   className,
   variant,
-  duration = 1,
+  duration = 0.45,
   delay = 0,
 }: BlurIntProps) => {
   const defaultVariants = {
-    hidden: { filter: "blur(10px)", opacity: 0 },
-    visible: { filter: "blur(0px)", opacity: 1 },
+    hidden: { opacity: 0, y: 12, scale: 0.98 },
+    visible: { opacity: 1, y: 0, scale: 1 },
   };
   const combinedVariants = variant || defaultVariants;
 
@@ -31,7 +31,7 @@ const BlurIn = ({
     <motion.h1
       initial="hidden"
       animate="visible"
-      transition={{ duration, delay }}
+      transition={{ duration, delay, ease: "easeOut" }}
       variants={combinedVariants}
       className={cn(
         className,

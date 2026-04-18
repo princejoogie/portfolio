@@ -30,11 +30,11 @@ export const BlogItem = <T extends string>({
     <Link href={href} aria-label={title}>
       {/* biome-ignore lint/a11y/noStaticElementInteractions: okay */}
       <div
-        className="group relative h-full rounded-xl border-2 border-border bg-background p-4 transition-all active:opacity-60 md:p-10"
+        className="group relative h-full rounded-xl border-2 border-border bg-background p-4 transition-opacity active:opacity-60 md:p-10"
         onMouseMove={handleMouseMove}
       >
         <motion.div
-          className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
+          className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-200 group-hover:opacity-100"
           style={{
             background: useMotionTemplate`
             radial-gradient(

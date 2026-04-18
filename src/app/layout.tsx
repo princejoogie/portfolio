@@ -2,7 +2,6 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Instrument_Sans } from "next/font/google";
 import type { ReactNode } from "react";
-import { Footer } from "@/components/footer";
 import { GoogleAnalytics } from "@/components/gtag";
 import { Header } from "@/components/home/header";
 import DotPattern from "@/components/magicui/dot-pattern";
@@ -43,7 +42,6 @@ const RootLayout = ({ children }: RootLayoutProps) => {
             <hr className="my-8" />
             {children}
           </main>
-          <Footer />
         </div>
       </body>
     </html>

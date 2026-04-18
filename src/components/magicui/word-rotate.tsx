@@ -23,10 +23,10 @@ export default function WordRotate({
   words,
   duration = 2500,
   framerProps = {
-    initial: { opacity: 0, y: -50 },
+    initial: { opacity: 0, y: -12 },
     animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: 50 },
-    transition: { duration: 0.25, ease: "easeOut" },
+    exit: { opacity: 0, y: 12 },
+    transition: { duration: 0.18, ease: "easeOut" },
   },
   className,
   leading,
