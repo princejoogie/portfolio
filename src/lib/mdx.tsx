@@ -54,7 +54,7 @@ const components: MDXComponents = {
   p: (props) => <p className="my-2 text-base text-gray-300" {...props} />,
   h1: ({ children, ...props }) => (
     <h1 className="group relative my-4 font-semibold" {...props}>
-      <div className="-left-6 invisible absolute top-0 bottom-0 grid place-items-center xl:visible">
+      <div className="invisible absolute top-0 bottom-0 -left-6 grid place-items-center xl:visible">
         <Link
           className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100"
           aria-label={String(children)}
@@ -65,7 +65,7 @@ const components: MDXComponents = {
   ),
   h2: ({ children, ...props }) => (
     <h2 className="group relative mt-6 mb-2 font-semibold" {...props}>
-      <div className="-left-6 invisible absolute top-0 bottom-0 grid place-items-center xl:visible">
+      <div className="invisible absolute top-0 bottom-0 -left-6 grid place-items-center xl:visible">
         <Link
           className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100"
           aria-label={String(children)}
@@ -76,7 +76,7 @@ const components: MDXComponents = {
   ),
   h3: ({ children, ...props }) => (
     <h3 className="group relative mt-6 mb-2 font-semibold" {...props}>
-      <div className="-left-6 invisible absolute top-0 bottom-0 grid place-items-center xl:visible">
+      <div className="invisible absolute top-0 bottom-0 -left-6 grid place-items-center xl:visible">
         <Link
           className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100"
           aria-label={String(children)}
@@ -87,7 +87,7 @@ const components: MDXComponents = {
   ),
   h4: ({ children, ...props }) => (
     <h4 className="group relative mt-6 mb-2 font-semibold" {...props}>
-      <div className="-left-6 invisible absolute top-0 bottom-0 grid place-items-center xl:visible">
+      <div className="invisible absolute top-0 bottom-0 -left-6 grid place-items-center xl:visible">
         <Link
           className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100"
           aria-label={String(children)}
@@ -98,7 +98,7 @@ const components: MDXComponents = {
   ),
   h5: ({ children, ...props }) => (
     <h5 className="group relative mt-6 mb-2 font-semibold" {...props}>
-      <div className="-left-6 invisible absolute top-0 bottom-0 grid place-items-center xl:visible">
+      <div className="invisible absolute top-0 bottom-0 -left-6 grid place-items-center xl:visible">
         <Link
           className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100"
           aria-label={String(children)}

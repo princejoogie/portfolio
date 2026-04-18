@@ -1,21 +1,12 @@
 import bundleAnalyzer from "@next/bundle-analyzer";
-import nextMDX from "@next/mdx";
 
 const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
 
-const withMDX = nextMDX({
-  extension: /\.mdx?$/,
-  options: {},
-});
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
-  eslint: { ignoreDuringBuilds: true },
-  experimental: { mdxRs: true },
   images: {
     remotePatterns: [
       {
@@ -27,4 +18,4 @@ const nextConfig = {
   },
 };
 
-export default withBundleAnalyzer(withMDX(nextConfig));
+export default withBundleAnalyzer(nextConfig);

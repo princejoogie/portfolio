@@ -8,8 +8,8 @@
     "strict": true,
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
-    "jsx": "preserve",
-    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "moduleResolution": "bundler",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -33,5 +33,11 @@
     ]
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "src/", ".eslintrc.js", ".next/types/**/*.ts"]
+  "include": [
+    "next-env.d.ts",
+    "src/",
+    ".eslintrc.js",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ]
 }

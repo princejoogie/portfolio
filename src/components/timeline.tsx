@@ -49,7 +49,7 @@ export const Timeline = () => {
       {experiences.map((exp) => (
         <div key={exp.id} className="relative mb-6 flex items-start last:mb-0">
           <div
-            className={`-left-[1.35rem] relative top-1.5 z-10 h-3 w-3 rounded-full ${
+            className={`relative top-1.5 -left-[1.35rem] z-10 h-3 w-3 rounded-full ${
               exp.current ? "bg-blue-500" : "bg-gray-800"
             }`}
           ></div>
