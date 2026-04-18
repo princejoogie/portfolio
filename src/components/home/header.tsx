@@ -15,6 +15,15 @@ export const Header = () => {
       <h2 className="mt-2 text-2xl">Prince Carlo Juguilon</h2>
       <p className="text-gray-400">Senior Software Engineer</p>
 
+      <Link
+        href={constants.socials.resume}
+        target="_blank"
+        rel="noreferrer noopener"
+        className="mt-3 inline-flex items-center rounded-md border border-border px-3 py-1.5 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+      >
+        Resume
+      </Link>
+
       <div className="mt-8 flex flex-row items-center gap-4">
         <Link
           href={constants.socials.github}

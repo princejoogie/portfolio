@@ -31,6 +31,7 @@ export const constants = {
     instagram: "https://www.instagram.com/princecaarlo",
     twitter: "https://twitter.com/princecaarlo",
     blog: "https://blog.princecaarlo.tech",
+    resume: "/assets/JUGUILON_PRINCE_CARLO_RESUME.pdf",
   },
 
   defaultSeo: {

@@ -5,7 +5,7 @@ export const Timeline = () => {
     {
       id: "1",
       title: "AI Engineer",
-      date: "2025-Present",
+      date: "Sep 2025 - Present",
       company: "Vervio Digital",
       companyLink: "https://www.vervio.com.au",
       current: true,
@@ -13,7 +13,7 @@ export const Timeline = () => {
     {
       id: "2",
       title: "Senior Software Engineer",
-      date: "2023-2025",
+      date: "May 2023 - 2025",
       company: "Focus Global Inc.",
       companyLink: "https://focusglobalinc.com",
       current: false,
@@ -21,24 +21,32 @@ export const Timeline = () => {
     {
       id: "3",
       title: "Software Engineer",
-      date: "2022-2022",
+      date: "Oct 2022 - Dec 2022",
       company: "Whispir",
       companyLink: "https://whispir.com",
       current: false,
     },
     {
       id: "4",
-      title: "Frontend Software Engineer",
-      date: "2021-2022",
+      title: "Front End Developer",
+      date: "Jul 2021 - Aug 2022",
       company: "Etica Digital",
       companyLink: "https://www.ideascience.com",
       current: false,
     },
     {
       id: "5",
-      title: "Software Engineer",
-      date: "2018-2021",
+      title: "Full Stack Developer",
+      date: "Jan 2018 - May 2021",
       company: "Freelance",
+      current: false,
+    },
+    {
+      id: "6",
+      title: "Full Stack Developer",
+      date: "Oct 2018 - Oct 2019",
+      company: "Chamaeleon",
+      companyLink: "https://chamaeleon.io",
       current: false,
     },
   ];
@@ -61,6 +69,7 @@ export const Timeline = () => {
                   href={exp.companyLink}
                   className="hover:underline"
                   target="_blank"
+                  rel="noreferrer noopener"
                 >
                   <p>{exp.company}</p>
                 </Link>

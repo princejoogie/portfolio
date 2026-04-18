@@ -5,7 +5,7 @@ import {
   MotionConfig,
   motion,
   type Variants,
-} from "framer-motion";
+} from "motion/react";
 import { type ReactNode, useState } from "react";
 import { useQueryParams } from "@/hooks/use-query-params";
 

@@ -49,24 +49,6 @@ export const Setup = () => {
             {" - Containerization for development and deployment"}
           </span>
         </li>
-        <li className="my-2">
-          Arc
-          <span className="text-gray-400">
-            {" - Profiles are cool, keyboard shortcuts, UI looks great"}
-          </span>
-        </li>
-        <li className="my-2">
-          Raycast
-          <span className="text-gray-400">
-            {" - I use a lot of bash scripts that I hook up with this tool"}
-          </span>
-        </li>
-        <li className="my-2">
-          <span className="line-through">Bit</span>Vaultwarden
-          <span className="text-gray-400">
-            {" - I use vaultwarden (self hosted)"}
-          </span>
-        </li>
       </ul>
 
       <h3 className="mt-8 text-xl">Desk</h3>

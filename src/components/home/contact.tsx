@@ -26,6 +26,7 @@ export const Contact = () => {
         <Link
           className="underline"
           href={constants.socials.twitter}
+          target="_blank"
           rel="noopener noreferrer"
         >
           twitter

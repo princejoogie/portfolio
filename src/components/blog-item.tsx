@@ -1,5 +1,5 @@
 "use client";
-import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
+import { motion, useMotionTemplate, useMotionValue } from "motion/react";
 import type { Route } from "next";
 import Link from "next/link";
 import type { MouseEvent } from "react";

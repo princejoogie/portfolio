@@ -12,14 +12,13 @@ export default async function Home() {
   return (
     <Suspense fallback={null}>
       <Tabs
-        tabs={["About", "Blogs", "Setup", "Contact", "Newsletter"] as const}
+        tabs={["About", "Blogs", "Setup", "Contact"] as const}
         defaultTab="About"
         tabContent={{
-          About: <About blogs={blogs.slice(0, 2)} />,
+          About: <About />,
           Blogs: <Blogs blogs={blogs} />,
           Setup: <Setup />,
           Contact: <Contact />,
-          Newsletter: <div>Working on it, stay tuned!</div>,
         }}
       />
     </Suspense>
