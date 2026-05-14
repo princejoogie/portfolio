@@ -45,7 +45,7 @@ export const BlogCodeBlock = ({
     <div className="not-prose overflow-hidden rounded-md border border-border bg-background">
       <div className="flex items-center justify-between border-border border-b bg-muted/30 px-3 py-1.5">
         <div className="flex items-center gap-2 text-muted-foreground text-xs uppercase tracking-[0.14em]">
-          <Icon className="h-4 w-4" />
+          <Icon className="size-4" />
           <span className="text-xs">{language}</span>
         </div>
 
@@ -57,9 +57,9 @@ export const BlogCodeBlock = ({
           onClick={handleCopy}
         >
           {copied ? (
-            <Check className="h-3.5 w-3.5" />
+            <Check className="size-3.5" />
           ) : (
-            <Copy className="h-3.5 w-3.5" />
+            <Copy className="size-3.5" />
           )}
           <span>{copied ? "Copied" : "Copy"}</span>
         </Button>

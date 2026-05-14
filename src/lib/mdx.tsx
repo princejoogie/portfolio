@@ -2,8 +2,9 @@ import fs from "node:fs";
 import path from "node:path";
 import { ExternalLink, Link } from "lucide-react";
 import type { MDXComponents } from "mdx/types";
+import Image from "next/image";
 import { compileMDX } from "next-mdx-remote/rsc";
-import { isValidElement, type ReactNode } from "react";
+import { type ComponentProps, isValidElement, type ReactNode } from "react";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode, { type Options } from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
@@ -106,7 +107,7 @@ const components: MDXComponents = {
     if (props["data-language"]) {
       return <code {...props} />;
     }
-    return <code className="rounded bg-gray-700 p-1" {...props} />;
+    return <code className="rounded bg-neutral-700 p-1" {...props} />;
   },
   pre: ({ children, className, ...props }) => {
     const language = getCodeLanguage(children);
@@ -130,7 +131,7 @@ const components: MDXComponents = {
     const isExternal = Boolean(href?.startsWith("http"));
     return (
       <a
-        className={`m-0 inline-flex items-center space-x-1 ${
+        className={`m-0 inline-flex items-center gap-x-1 ${
           isExternal ? "text-blue-400" : "text-white"
         }`}
         target={isExternal ? "_blank" : undefined}
@@ -140,19 +141,38 @@ const components: MDXComponents = {
         {...props}
       >
         <span>{children}</span>
-        {isExternal && <ExternalLink className="h-3 w-3" />}
+        {isExternal && <ExternalLink className="size-3" />}
       </a>
     );
   },
-  // biome-ignore lint/performance/noImgElement: okay
-  // biome-ignore lint/a11y/useAltText: okay
-  img: (props) => <img className="m-0 mt-1 inline" {...props} />,
-  p: (props) => <p className="my-2 text-base text-gray-300" {...props} />,
+  img: ({ alt = "", className, height, src, width, ...props }) => {
+    if (typeof src !== "string") {
+      return null;
+    }
+
+    const imageProps = props as Omit<
+      ComponentProps<typeof Image>,
+      "alt" | "className" | "height" | "src" | "width"
+    >;
+
+    return (
+      <Image
+        alt={String(alt)}
+        className={cn("m-0 mt-1 inline h-auto max-w-full", className)}
+        height={Number(height) || 450}
+        src={src}
+        unoptimized
+        width={Number(width) || 800}
+        {...imageProps}
+      />
+    );
+  },
+  p: (props) => <p className="my-2 text-base text-neutral-300" {...props} />,
   h1: ({ children, ...props }) => (
     <h1 className="group relative my-4 font-semibold" {...props}>
       <div className="invisible absolute top-0 bottom-0 -left-6 grid place-items-center xl:visible">
         <Link
-          className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100"
+          className="size-4 opacity-0 transition-opacity group-hover:opacity-100"
           aria-label={String(children)}
         />
       </div>
@@ -163,7 +183,7 @@ const components: MDXComponents = {
     <h2 className="group relative mt-6 mb-2 font-semibold" {...props}>
       <div className="invisible absolute top-0 bottom-0 -left-6 grid place-items-center xl:visible">
         <Link
-          className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100"
+          className="size-4 opacity-0 transition-opacity group-hover:opacity-100"
           aria-label={String(children)}
         />
       </div>
@@ -174,7 +194,7 @@ const components: MDXComponents = {
     <h3 className="group relative mt-6 mb-2 font-semibold" {...props}>
       <div className="invisible absolute top-0 bottom-0 -left-6 grid place-items-center xl:visible">
         <Link
-          className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100"
+          className="size-4 opacity-0 transition-opacity group-hover:opacity-100"
           aria-label={String(children)}
         />
       </div>
@@ -185,7 +205,7 @@ const components: MDXComponents = {
     <h4 className="group relative mt-6 mb-2 font-semibold" {...props}>
       <div className="invisible absolute top-0 bottom-0 -left-6 grid place-items-center xl:visible">
         <Link
-          className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100"
+          className="size-4 opacity-0 transition-opacity group-hover:opacity-100"
           aria-label={String(children)}
         />
       </div>
@@ -196,7 +216,7 @@ const components: MDXComponents = {
     <h5 className="group relative mt-6 mb-2 font-semibold" {...props}>
       <div className="invisible absolute top-0 bottom-0 -left-6 grid place-items-center xl:visible">
         <Link
-          className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100"
+          className="size-4 opacity-0 transition-opacity group-hover:opacity-100"
           aria-label={String(children)}
         />
       </div>
@@ -219,10 +239,10 @@ const prettyCodeOptions: Partial<Options> = {
     }
   },
   onVisitHighlightedLine(node) {
-    node.properties.className?.push("bg-gray-700");
+    node.properties.className?.push("bg-neutral-700");
   },
   onVisitHighlightedChars(node) {
-    node.properties.className = ["bg-gray-700"];
+    node.properties.className = ["bg-neutral-700"];
   },
 };
 
@@ -252,11 +272,12 @@ export type BlogItem = Awaited<ReturnType<typeof getBlogBySlug>>;
 
 export const getAllBlogsMeta = async () => {
   const files = fs.readdirSync(rootDirectory);
-  const posts = [];
-  for (const file of files) {
-    const { meta } = await getBlogBySlug(file);
-    posts.push(meta);
-  }
+  const posts = await Promise.all(
+    files.map(async (file) => {
+      const { meta } = await getBlogBySlug(file);
+      return meta;
+    }),
+  );
   const sorted = posts.sort((a, b) => {
     if (new Date(a.date ?? "") < new Date(b.date ?? "")) return 1;
     else return -1;

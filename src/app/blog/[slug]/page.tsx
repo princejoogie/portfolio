@@ -43,14 +43,14 @@ const BlogItemPage = async (props: PageProps) => {
   return (
     <div className="flex flex-col gap-4 xl:flex-row">
       <div className="w-full">
-        <div className="flex items-center justify-between text-gray-500 text-sm">
+        <div className="flex items-center justify-between text-neutral-500 text-sm">
           <Link
             href="/blog"
             replace
-            className="flex items-center space-x-1 transition-colors hover:text-blue-600 active:opacity-60"
+            className="flex items-center gap-x-1 transition-colors hover:text-blue-600 active:opacity-60"
             aria-label="Blogs page"
           >
-            <ArrowLeft className="h-4 w-4" />
+            <ArrowLeft className="size-4" />
             <p>Back</p>
           </Link>
 

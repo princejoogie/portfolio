@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, type Variants } from "motion/react";
+import { m, type Variants } from "motion/react";
 import { type ReactNode, useMemo } from "react";
 
 type FadeTextProps = {
@@ -47,13 +47,9 @@ export function FadeText({
   }, [directionOffset, axis, framerProps]);
 
   return (
-    <motion.div
-      initial="hidden"
-      animate="show"
-      variants={FADE_ANIMATION_VARIANTS}
-    >
-      <motion.span className={className}>{text}</motion.span>
-    </motion.div>
+    <m.div initial="hidden" animate="show" variants={FADE_ANIMATION_VARIANTS}>
+      <m.span className={className}>{text}</m.span>
+    </m.div>
   );
 }
 
@@ -100,12 +96,8 @@ export function FadeComponent({
   }, [directionOffset, axis, framerProps]);
 
   return (
-    <motion.div
-      initial="hidden"
-      animate="show"
-      variants={FADE_ANIMATION_VARIANTS}
-    >
+    <m.div initial="hidden" animate="show" variants={FADE_ANIMATION_VARIANTS}>
       {children}
-    </motion.div>
+    </m.div>
   );
 }

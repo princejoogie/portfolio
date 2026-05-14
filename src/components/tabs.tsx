@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  AnimatePresence,
-  MotionConfig,
-  motion,
-  type Variants,
-} from "motion/react";
+import { AnimatePresence, MotionConfig, m, type Variants } from "motion/react";
 import { type ReactNode, useState } from "react";
 import { useQueryParams } from "@/hooks/use-query-params";
 
@@ -28,22 +23,22 @@ const TabItem = <T extends string>({
       className={`${
         selected
           ? "text-white"
-          : "text-gray-500 hover:text-gray-900 dark:hover:text-gray-100"
+          : "text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100"
       } relative rounded-md px-2 py-1 text-sm transition-colors`}
     >
       <span className="relative z-10">{text}</span>
       {selected && (
-        <motion.span
+        <m.span
           layoutId="tab"
           transition={{ type: "spring", duration: 0.25, bounce: 0.12 }}
           className="absolute inset-0 z-0 rounded-md bg-secondary"
-        ></motion.span>
+        ></m.span>
       )}
     </button>
   );
 };
 
-type TabsProps<T extends string[]> = {
+type TabsProps<T extends readonly string[]> = {
   tabs: T;
   tabContent: Record<T[number], ReactNode>;
   defaultTab: T[number];
@@ -74,7 +69,7 @@ const variants: Variants = {
   }),
 };
 
-export const Tabs = <T extends string[]>({
+export const Tabs = <T extends readonly string[]>({
   tabs,
   defaultTab,
   tabContent,
@@ -84,7 +79,10 @@ export const Tabs = <T extends string[]>({
   });
   const [direction, setDirection] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const tabIndex = tabs.indexOf(currentTab as string);
+  const activeTab = tabs.includes(currentTab as T[number])
+    ? (currentTab as T[number])
+    : defaultTab;
+  const tabIndex = tabs.indexOf(activeTab);
 
   return (
     <MotionConfig transition={{ duration: 0.2, ease: "easeInOut" }}>
@@ -92,7 +90,7 @@ export const Tabs = <T extends string[]>({
         {tabs.map((tab) => (
           <TabItem
             text={tab}
-            selected={currentTab === tab}
+            selected={activeTab === tab}
             onSelect={(tab) => {
               if (isAnimating) return;
               const newTabIndex = tabs.indexOf(tab);
@@ -110,9 +108,9 @@ export const Tabs = <T extends string[]>({
           initial={false}
           onExitComplete={() => setIsAnimating(false)}
         >
-          <motion.div
+          <m.div
             custom={direction}
-            key={currentTab}
+            key={activeTab}
             variants={variants}
             initial="initial"
             animate="active"
@@ -121,8 +119,8 @@ export const Tabs = <T extends string[]>({
             onAnimationStart={() => setIsAnimating(true)}
             onAnimationComplete={() => setIsAnimating(false)}
           >
-            {tabContent[currentTab]}
-          </motion.div>
+            {tabContent[activeTab]}
+          </m.div>
         </AnimatePresence>
       </div>
     </MotionConfig>

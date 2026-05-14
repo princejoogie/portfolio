@@ -3,7 +3,7 @@
 import {
   AnimatePresence,
   type HTMLMotionProps,
-  motion,
+  m,
   useAnimationControls,
 } from "motion/react";
 import type { ReactNode } from "react";
@@ -62,7 +62,7 @@ export default function WordRotate({
   return (
     <div className="inline-flex min-h-[1lh] items-center gap-2 overflow-hidden">
       {leading ? (
-        <motion.span
+        <m.span
           aria-hidden="true"
           className="inline-flex"
           animate={waveControls}
@@ -70,17 +70,17 @@ export default function WordRotate({
           style={{ originX: 0.7, originY: 0.7 }}
         >
           {leading}
-        </motion.span>
+        </m.span>
       ) : null}
       <AnimatePresence initial={false} mode="wait">
-        <motion.span
+        <m.span
           key={currentWord}
           className={cn("inline-block leading-none", className)}
           initial={false}
           {...framerProps}
         >
           {currentWord}
-        </motion.span>
+        </m.span>
       </AnimatePresence>
     </div>
   );

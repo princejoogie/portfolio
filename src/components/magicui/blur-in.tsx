@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { m } from "motion/react";
 
 import { cn } from "@/lib/utils";
 
@@ -28,7 +28,7 @@ const BlurIn = ({
   const combinedVariants = variant || defaultVariants;
 
   return (
-    <motion.h1
+    <m.h1
       initial="hidden"
       animate="visible"
       transition={{ duration, delay, ease: "easeOut" }}
@@ -39,7 +39,7 @@ const BlurIn = ({
       )}
     >
       {word}
-    </motion.h1>
+    </m.h1>
   );
 };
 

@@ -14,7 +14,7 @@ export const Blogs = ({ blogs }: AboutProps) => {
           href={`/blog/${blog.slug}`}
           key={blog.slug}
         >
-          <span className="w-20 flex-shrink-0 text-gray-500 text-xs leading-7">
+          <span className="w-20 flex-shrink-0 text-neutral-500 text-xs leading-7">
             {formatBlogDate(blog.date ?? "")}
           </span>
           <span className="text-lg group-hover:underline">{blog.title}</span>

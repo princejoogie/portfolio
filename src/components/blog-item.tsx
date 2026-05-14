@@ -1,5 +1,5 @@
 "use client";
-import { motion, useMotionTemplate, useMotionValue } from "motion/react";
+import { m, useMotionTemplate, useMotionValue } from "motion/react";
 import type { Route } from "next";
 import Link from "next/link";
 import type { MouseEvent } from "react";
@@ -33,7 +33,7 @@ export const BlogItem = <T extends string>({
         className="group relative h-full rounded-xl border-2 border-border bg-background p-4 transition-opacity active:opacity-60 md:p-10"
         onMouseMove={handleMouseMove}
       >
-        <motion.div
+        <m.div
           className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition-opacity duration-200 group-hover:opacity-100"
           style={{
             background: useMotionTemplate`
@@ -47,11 +47,11 @@ export const BlogItem = <T extends string>({
         />
 
         <div>
-          <span className="text-gray-400 text-xs">{date}</span>
+          <span className="text-neutral-400 text-xs">{date}</span>
           <p className="my-2 line-clamp-2 font-bold text-xl md:text-2xl">
             {title}
           </p>
-          <p className="line-clamp-2 text-gray-300 text-sm">{description}</p>
+          <p className="line-clamp-2 text-neutral-300 text-sm">{description}</p>
         </div>
       </div>
     </Link>

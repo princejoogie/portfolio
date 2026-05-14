@@ -14,6 +14,26 @@ const nextConfig = {
         hostname: "github.com",
         port: "",
       },
+      {
+        protocol: "https",
+        hostname: "img.shields.io",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "nodei.co",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "www.buymeacoffee.com",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "contrib.rocks",
+        port: "",
+      },
     ],
   },
 };

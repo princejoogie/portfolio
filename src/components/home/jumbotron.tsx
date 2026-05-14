@@ -34,27 +34,27 @@ export const Jumbotron = ({ blogs }: JumbotronProps) => {
         <div className="mt-1 mb-6 ml-2 flex items-center gap-2">
           <BlurIn
             word="Senior"
-            className="!font-mono !text-xl !font-normal text-gray-300"
+            className="!font-mono !text-xl !font-normal text-neutral-300"
             delay={0.6}
           />
           <BlurIn
             word="Software"
-            className="!font-mono !text-xl !font-normal text-gray-300"
+            className="!font-mono !text-xl !font-normal text-neutral-300"
             delay={0.7}
           />
           <BlurIn
             word="Engineer."
-            className="!font-mono !text-xl !font-normal text-gray-300"
+            className="!font-mono !text-xl !font-normal text-neutral-300"
             delay={0.8}
           />
           <BlurIn
             word="neovim"
-            className="!font-mono !text-xl !font-normal text-gray-300"
+            className="!font-mono !text-xl !font-normal text-neutral-300"
             delay={3}
           />
           <BlurIn
             word="btw"
-            className="!font-mono !text-xl !font-normal text-gray-300"
+            className="!font-mono !text-xl !font-normal text-neutral-300"
             delay={4.5}
           />
         </div>
@@ -65,7 +65,7 @@ export const Jumbotron = ({ blogs }: JumbotronProps) => {
       <div className="mt-12 flex w-full items-center justify-between">
         <BlurIn
           word="Blogs."
-          className="font-bold text-3xl text-gray-500 tracking-tight lg:text-6xl"
+          className="font-bold text-3xl text-neutral-500 tracking-tight lg:text-6xl"
         />
 
         <FadeComponent direction="right">
