@@ -1,12 +1,19 @@
 "use client";
 
-import { AnimatePresence, MotionConfig, m, type Variants } from "motion/react";
+import {
+  AnimatePresence,
+  MotionConfig,
+  m,
+  useReducedMotion,
+  type Variants,
+} from "motion/react";
 import { type ReactNode, useState } from "react";
 import { useQueryParams } from "@/hooks/use-query-params";
 
 type TabItemProps<T extends string> = {
   text: T;
   selected: boolean;
+  reducedMotion: boolean;
   // eslint-disable-next-line no-unused-vars
   onSelect: (tab: T) => void;
 };
@@ -14,6 +21,7 @@ type TabItemProps<T extends string> = {
 const TabItem = <T extends string>({
   text,
   selected,
+  reducedMotion,
   onSelect,
 }: TabItemProps<T>) => {
   return (
@@ -29,8 +37,12 @@ const TabItem = <T extends string>({
       <span className="relative z-10">{text}</span>
       {selected && (
         <m.span
-          layoutId="tab"
-          transition={{ type: "spring", duration: 0.25, bounce: 0.12 }}
+          layoutId={reducedMotion ? undefined : "tab"}
+          transition={
+            reducedMotion
+              ? { duration: 0 }
+              : { type: "spring", duration: 0.25, bounce: 0.12 }
+          }
           className="absolute inset-0 z-0 rounded-md bg-secondary"
         ></m.span>
       )}
@@ -77,6 +89,7 @@ export const Tabs = <T extends readonly string[]>({
   const [currentTab, setCurrentTab] = useQueryParams("tab", defaultTab, {
     scroll: false,
   });
+  const shouldReduceMotion = useReducedMotion() ?? false;
   const [direction, setDirection] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const activeTab = tabs.includes(currentTab as T[number])
@@ -91,8 +104,9 @@ export const Tabs = <T extends readonly string[]>({
           <TabItem
             text={tab}
             selected={activeTab === tab}
+            reducedMotion={shouldReduceMotion}
             onSelect={(tab) => {
-              if (isAnimating) return;
+              if (!shouldReduceMotion && isAnimating) return;
               const newTabIndex = tabs.indexOf(tab);
               setDirection(newTabIndex > tabIndex ? 1 : -1);
               setCurrentTab(tab);
@@ -103,25 +117,29 @@ export const Tabs = <T extends readonly string[]>({
       </div>
 
       <div className="relative overflow-x-clip">
-        <AnimatePresence
-          custom={direction}
-          initial={false}
-          onExitComplete={() => setIsAnimating(false)}
-        >
-          <m.div
+        {shouldReduceMotion ? (
+          <div className="w-full rounded-lg">{tabContent[activeTab]}</div>
+        ) : (
+          <AnimatePresence
             custom={direction}
-            key={activeTab}
-            variants={variants}
-            initial="initial"
-            animate="active"
-            exit="exit"
-            className="w-full rounded-lg"
-            onAnimationStart={() => setIsAnimating(true)}
-            onAnimationComplete={() => setIsAnimating(false)}
+            initial={false}
+            onExitComplete={() => setIsAnimating(false)}
           >
-            {tabContent[activeTab]}
-          </m.div>
-        </AnimatePresence>
+            <m.div
+              custom={direction}
+              key={activeTab}
+              variants={variants}
+              initial="initial"
+              animate="active"
+              exit="exit"
+              className="w-full rounded-lg"
+              onAnimationStart={() => setIsAnimating(true)}
+              onAnimationComplete={() => setIsAnimating(false)}
+            >
+              {tabContent[activeTab]}
+            </m.div>
+          </AnimatePresence>
+        )}
       </div>
     </MotionConfig>
   );

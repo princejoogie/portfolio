@@ -5,6 +5,7 @@ import {
   type HTMLMotionProps,
   m,
   useAnimationControls,
+  useReducedMotion,
 } from "motion/react";
 import type { ReactNode } from "react";
 import { useEffect, useEffectEvent, useState } from "react";
@@ -32,10 +33,11 @@ export default function WordRotate({
   leading,
 }: WordRotateProps) {
   const [index, setIndex] = useState(0);
+  const shouldReduceMotion = useReducedMotion() ?? false;
   const waveControls = useAnimationControls();
   const currentWord = words[index];
   const animateWave = useEffectEvent(() => {
-    if (!leading) return;
+    if (!leading || shouldReduceMotion) return;
 
     waveControls.start({
       rotate: [0, 18, -10, 18, -6, 10, 0],
@@ -48,6 +50,8 @@ export default function WordRotate({
   });
 
   useEffect(() => {
+    if (shouldReduceMotion) return;
+
     animateWave();
 
     const interval = setInterval(() => {
@@ -57,7 +61,22 @@ export default function WordRotate({
 
     // Clean up interval on unmount
     return () => clearInterval(interval);
-  }, [words, duration]);
+  }, [words, duration, shouldReduceMotion]);
+
+  if (shouldReduceMotion) {
+    return (
+      <div className="inline-flex min-h-[1lh] items-center gap-2 overflow-hidden">
+        {leading ? (
+          <span aria-hidden="true" className="inline-flex">
+            {leading}
+          </span>
+        ) : null}
+        <span className={cn("inline-block leading-none", className)}>
+          {currentWord}
+        </span>
+      </div>
+    );
+  }
 
   return (
     <div className="inline-flex min-h-[1lh] items-center gap-2 overflow-hidden">

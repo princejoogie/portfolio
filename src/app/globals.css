@@ -71,9 +71,11 @@
   *,
   *::before,
   *::after {
+    animation-delay: 0.01ms;
     animation-duration: 0.01ms;
     animation-iteration-count: 1;
     scroll-behavior: auto;
+    transition-delay: 0.01ms;
     transition-duration: 0.01ms;
   }
 }
