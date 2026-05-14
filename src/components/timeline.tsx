@@ -84,5 +84,3 @@ export const Timeline = () => {
     </div>
   );
 };
-
-export default Timeline;

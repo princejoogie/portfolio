@@ -268,8 +268,6 @@ export const getBlogBySlug = async (slug: string) => {
   return { meta: { ...frontmatter, slug: realSlug }, content };
 };
 
-export type BlogItem = Awaited<ReturnType<typeof getBlogBySlug>>;
-
 export const getAllBlogsMeta = async () => {
   const files = fs.readdirSync(rootDirectory);
   const posts = await Promise.all(

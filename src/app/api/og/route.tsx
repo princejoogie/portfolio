@@ -1,7 +1,55 @@
 import { ImageResponse } from "@vercel/og";
+import type { CSSProperties } from "react";
 import { constants } from "@/lib/utils";
 
 const { defaultSeo } = constants;
+
+const rootStyle = {
+  paddingRight: 30,
+  paddingLeft: 30,
+  color: "white",
+  background: "#18181b",
+  width: "100%",
+  height: "100%",
+  flexDirection: "column",
+  justifyContent: "center",
+  display: "flex",
+} satisfies CSSProperties;
+
+const contentStyle = {
+  width: "70%",
+  flex: 1,
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+} satisfies CSSProperties;
+
+const rowStyle = {
+  display: "flex",
+  alignItems: "center",
+} satisfies CSSProperties;
+
+const headingWrapperStyle = {
+  ...rowStyle,
+  justifyContent: "space-between",
+} satisfies CSSProperties;
+
+const headingStyle = {
+  fontSize: 50,
+  fontWeight: "bold",
+} satisfies CSSProperties;
+
+const descriptionStyle = { fontSize: 20 } satisfies CSSProperties;
+
+const footerStyle = {
+  ...headingWrapperStyle,
+  paddingBottom: 30,
+  fontSize: 20,
+  color: "#a1a1aa",
+} satisfies CSSProperties;
+
+const avatarStyle = { borderRadius: 48 } satisfies CSSProperties;
+const authorTextStyle = { marginLeft: 10 } satisfies CSSProperties;
 
 export const GET = async (req: Request) => {
   const { searchParams } = new URL(req.url);
@@ -9,24 +57,24 @@ export const GET = async (req: Request) => {
   const description = searchParams.get("description") ?? defaultSeo.description;
 
   return new ImageResponse(
-    <div tw="flex h-full w-full flex-col justify-center bg-neutral-900 px-[30px] text-white">
-      <div tw="flex w-[70%] flex-1 flex-col justify-center">
-        <div tw="flex items-center justify-between">
-          <h1 tw="text-[50px] font-bold">{title}</h1>
+    <div style={rootStyle}>
+      <div style={contentStyle}>
+        <div style={headingWrapperStyle}>
+          <h1 style={headingStyle}>{title}</h1>
         </div>
-        <p tw="text-xl">{description}</p>
+        <p style={descriptionStyle}>{description}</p>
       </div>
 
-      <div tw="flex items-center justify-between pb-[30px] text-xl text-neutral-400">
-        <div tw="flex items-center">
+      <div style={footerStyle}>
+        <div style={rowStyle}>
           {/* biome-ignore lint/performance/noImgElement: okay */}
           <img
             alt="avatar"
             width="48"
             src="https://github.com/princejoogie.png"
-            tw="rounded-full"
+            style={avatarStyle}
           />
-          <p tw="ml-2.5">github.com/princejoogie</p>
+          <p style={authorTextStyle}>github.com/princejoogie</p>
         </div>
 
         <p>Last updated: 2026</p>

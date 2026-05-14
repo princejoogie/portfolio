@@ -14,7 +14,7 @@ type DotPatternProps = {
   [key: string]: unknown;
 };
 
-export function DotPattern({
+function DotPattern({
   width = 16,
   height = 16,
   x = 0,
