@@ -53,21 +53,25 @@ export const Timeline = () => {
 
   return (
     <div className="relative mt-4 flex flex-col pl-6">
-      <div className="absolute top-0 left-2 h-full w-px bg-neutral-800"></div>{" "}
+      <div className="absolute top-0 left-2 h-full w-px bg-slate-200 dark:bg-slate-800"></div>{" "}
       {experiences.map((exp) => (
         <div key={exp.id} className="relative mb-6 flex items-start last:mb-0">
           <div
-            className={`relative top-1.5 -left-[1.35rem] z-10 size-3 rounded-full ${
-              exp.current ? "bg-blue-500" : "bg-neutral-800"
+            className={`relative top-1.5 -left-[1.35rem] z-10 size-3 rounded-full ring-4 ring-background ${
+              exp.current
+                ? "bg-sky-600 dark:bg-sky-400"
+                : "bg-slate-300 dark:bg-slate-700"
             }`}
           ></div>
           <div className="content -ml-2">
-            <h3 className="title flex items-center">{exp.title} </h3>
-            <div className="flex items-center text-neutral-500 text-sm">
+            <h3 className="title flex items-center text-foreground">
+              {exp.title}{" "}
+            </h3>
+            <div className="flex items-center text-slate-500 text-sm dark:text-slate-400">
               {exp.companyLink ? (
                 <Link
                   href={exp.companyLink}
-                  className="hover:underline"
+                  className="transition-colors hover:text-foreground hover:underline"
                   target="_blank"
                   rel="noreferrer noopener"
                 >

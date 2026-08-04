@@ -107,7 +107,7 @@ const components: MDXComponents = {
     if (props["data-language"]) {
       return <code {...props} />;
     }
-    return <code className="rounded bg-neutral-700 p-1" {...props} />;
+    return <code className="rounded bg-muted p-1 text-foreground" {...props} />;
   },
   pre: ({ children, className, ...props }) => {
     const language = getCodeLanguage(children);
@@ -131,8 +131,8 @@ const components: MDXComponents = {
     const isExternal = Boolean(href?.startsWith("http"));
     return (
       <a
-        className={`m-0 inline-flex items-center gap-x-1 ${
-          isExternal ? "text-blue-400" : "text-white"
+        className={`m-0 inline-flex items-center gap-x-1 underline decoration-current/40 underline-offset-2 hover:decoration-current ${
+          isExternal ? "text-blue-700 dark:text-blue-300" : "text-foreground"
         }`}
         target={isExternal ? "_blank" : undefined}
         rel={isExternal ? "noopener noreferrer" : undefined}
@@ -167,7 +167,7 @@ const components: MDXComponents = {
       />
     );
   },
-  p: (props) => <p className="my-2 text-base text-neutral-300" {...props} />,
+  p: (props) => <p className="my-2 text-base text-foreground" {...props} />,
   h1: ({ children, ...props }) => (
     <h1 className="group relative my-4 font-semibold" {...props}>
       <div className="invisible absolute top-0 bottom-0 -left-6 grid place-items-center xl:visible">

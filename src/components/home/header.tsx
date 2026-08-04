@@ -1,19 +1,17 @@
-import Image from "next/image";
 import Link from "next/link";
+import { ThemeSwitcher } from "@/components/theme-switcher";
 import { constants } from "@/lib/utils";
+import { CursorPortrait } from "./cursor-portrait";
 
 export const Header = () => {
   return (
     <div>
-      <Image
-        alt="princejoogie"
-        width={64}
-        height={64}
-        src={`${constants.socials.github}.png`}
-        className="size-16 rounded-full bg-neutral-700"
-      />
-      <h2 className="mt-2 text-2xl">Prince Carlo Juguilon</h2>
-      <p className="text-neutral-400">Senior Software Engineer</p>
+      <div className="flex items-start justify-between gap-4">
+        <CursorPortrait />
+        <ThemeSwitcher />
+      </div>
+      <h1 className="mt-2 text-2xl">Prince Carlo Juguilon</h1>
+      <p className="text-muted-foreground">Senior Software Engineer</p>
 
       <Link
         href={constants.socials.resume}
