@@ -37,7 +37,7 @@ export const About = () => {
         .
       </p>
       <div className="mt-12">
-        <h3 className="text-lg">Experience</h3>
+        <h2 className="text-lg">Experience</h2>
         <Timeline />
       </div>
     </div>

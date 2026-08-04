@@ -42,9 +42,9 @@ export const BlogCodeBlock = ({
   };
 
   return (
-    <div className="not-prose overflow-hidden rounded-md border border-border bg-background">
-      <div className="flex items-center justify-between border-border border-b bg-muted/30 px-3 py-1.5">
-        <div className="flex items-center gap-2 text-muted-foreground text-xs uppercase tracking-[0.14em]">
+    <div className="not-prose overflow-hidden rounded-md border border-white/10 bg-[#292d3e] text-[#babed8]">
+      <div className="flex items-center justify-between border-white/10 border-b bg-[#252837] px-3 py-1.5">
+        <div className="flex items-center gap-2 text-slate-300 text-xs uppercase tracking-[0.14em]">
           <Icon className="size-4" />
           <span className="text-xs">{language}</span>
         </div>
@@ -53,7 +53,7 @@ export const BlogCodeBlock = ({
           type="button"
           variant="ghost"
           size="sm"
-          className="h-6 gap-1.5 px-2 text-muted-foreground text-xs"
+          className="h-6 gap-1.5 px-2 text-slate-300 text-xs hover:bg-white/10 hover:text-white"
           onClick={handleCopy}
         >
           {copied ? (

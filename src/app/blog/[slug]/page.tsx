@@ -43,7 +43,7 @@ const BlogItemPage = async (props: PageProps) => {
   return (
     <div className="flex flex-col gap-4 xl:flex-row">
       <div className="w-full">
-        <div className="flex items-center justify-between text-neutral-500 text-sm">
+        <div className="flex items-center justify-between text-muted-foreground text-sm">
           <Link
             href="/blog"
             replace
@@ -58,7 +58,9 @@ const BlogItemPage = async (props: PageProps) => {
             <p>{meta.date}</p>
           </div>
         </div>
-        <article className="prose-sm prose-invert">{content}</article>
+        <article className="prose-sm dark:prose-invert max-w-none">
+          {content}
+        </article>
       </div>
 
       <hr className="my-2 border-border" />

@@ -30,8 +30,8 @@ const TabItem = <T extends string>({
       onClick={() => onSelect(text)}
       className={`${
         selected
-          ? "text-white"
-          : "text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100"
+          ? "text-secondary-foreground"
+          : "text-muted-foreground hover:text-foreground"
       } relative rounded-md px-2 py-1 text-sm transition-colors`}
     >
       <span className="relative z-10">{text}</span>
