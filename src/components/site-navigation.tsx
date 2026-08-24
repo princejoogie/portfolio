@@ -1,5 +1,6 @@
 "use client";
 
+import { m, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -14,6 +15,7 @@ const navigationItems = [
 
 export const SiteNavigation = () => {
   const pathname = usePathname();
+  const shouldReduceMotion = useReducedMotion() ?? false;
 
   return (
     <nav aria-label="Portfolio sections" className="mb-8 flex flex-wrap gap-2">
@@ -35,8 +37,16 @@ export const SiteNavigation = () => {
             )}
           >
             {isActive ? (
-              <span
+              <m.span
                 aria-hidden="true"
+                layoutId={
+                  shouldReduceMotion ? undefined : "site-navigation-active"
+                }
+                transition={
+                  shouldReduceMotion
+                    ? { duration: 0 }
+                    : { type: "spring", duration: 0.25, bounce: 0.12 }
+                }
                 className="absolute inset-0 rounded-md bg-secondary"
               />
             ) : null}

@@ -24,16 +24,37 @@ const directionFrames = [
 ] as const;
 
 type Frame = "center" | (typeof directionFrames)[number];
+type PortraitTheme = "light" | "dark";
 
 const canvasSize = 192;
 const segmentSize = (Math.PI * 2) / directionFrames.length;
+const allFrames: Frame[] = ["center", ...directionFrames];
+const frameCache = new Map<
+  PortraitTheme,
+  Promise<ReadonlyMap<Frame, HTMLImageElement>>
+>();
 
-const loadFrame = async (frame: Frame, theme: "light" | "dark") => {
+const loadFrame = async (frame: Frame, theme: PortraitTheme) => {
   const image = new window.Image();
   const themeDirectory = theme === "dark" ? "dark/" : "";
   image.src = `/portraits/${themeDirectory}prince-${frame}.webp`;
   await image.decode();
   return [frame, image] as const;
+};
+
+const loadFrames = (theme: PortraitTheme) => {
+  const cachedFrames = frameCache.get(theme);
+  if (cachedFrames) return cachedFrames;
+
+  const frames = Promise.all(allFrames.map((frame) => loadFrame(frame, theme)))
+    .then((loadedFrames) => new Map(loadedFrames))
+    .catch((error: unknown) => {
+      frameCache.delete(theme);
+      throw error;
+    });
+
+  frameCache.set(theme, frames);
+  return frames;
 };
 
 export const CursorPortrait = () => {
@@ -66,7 +87,7 @@ export const CursorPortrait = () => {
     let targetX = 0;
     let targetY = 0;
     let bounds = canvas.getBoundingClientRect();
-    let frameImages = new Map<Frame, HTMLImageElement>();
+    let frameImages: ReadonlyMap<Frame, HTMLImageElement> = new Map();
     let currentFrame: Frame | null = null;
 
     context.imageSmoothingEnabled = true;
@@ -146,14 +167,11 @@ export const CursorPortrait = () => {
     const resizeObserver = new ResizeObserver(updateBounds);
 
     const initialize = async () => {
-      const frames: Frame[] = ["center", ...directionFrames];
-      const loadedFrames = await Promise.all(
-        frames.map((frame) => loadFrame(frame, portraitTheme)),
-      );
+      const loadedFrames = await loadFrames(portraitTheme);
 
       if (!isActive) return;
 
-      frameImages = new Map(loadedFrames);
+      frameImages = loadedFrames;
       drawFrame("center");
       canvas.style.opacity = "1";
 
