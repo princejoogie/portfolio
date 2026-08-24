@@ -4,19 +4,22 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "build:resume": "typst compile --root . resume/main.typ public/assets/JUGUILON_PRINCE_CARLO_RESUME.pdf",
+    "prebuild": "pnpm build:resume",
     "build": "next build",
     "start": "next start",
     "check": "biome check"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
+    "@modelcontextprotocol/server": "^2.0.0",
     "@next/bundle-analyzer": "^16.2.4",
-    "@next/mdx": "^16.2.4",
     "@radix-ui/react-slot": "^1.2.4",
     "@vercel/og": "^0.11.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.8.0",
+    "mcp-handler": "^2.1.1",
     "motion": "^12.23.24",
     "next": "^16.2.4",
     "next-mdx-remote": "^6.0.0",
@@ -31,16 +34,16 @@
     "shiki": "^4.0.2",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.2",
-    "tailwindcss-animate": "^1.0.7"
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@biomejs/biome": "2.4.12",
+    "@flukxr/typst-cli": "0.15.1-npm.0",
     "@tailwindcss/postcss": "^4.2.2",
     "@tailwindcss/typography": "^0.5.19",
     "@types/mdx": "^2.0.13",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
-    "autoprefixer": "^10.5.0",
     "postcss": "^8.5.10",
     "typescript": "^6.0.3"
   },

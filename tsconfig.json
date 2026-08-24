@@ -37,7 +37,6 @@
   "include": [
     "next-env.d.ts",
     "src/",
-    ".eslintrc.js",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ]

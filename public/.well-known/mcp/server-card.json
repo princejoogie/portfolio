@@ -1,0 +1,33 @@
+{
+  "name": "Prince Juguilon Portfolio MCP",
+  "description": "Public read-only access to Prince Carlo Juguilon's professional profile, resume, portfolio projects, and engineering articles.",
+  "version": "1.0.0",
+  "serverUrl": "https://prince.juguilon.com/api/mcp",
+  "transport": "streamable-http",
+  "authentication": {
+    "required": false
+  },
+  "documentationUrl": "https://prince.juguilon.com/developers",
+  "tools": [
+    {
+      "name": "get_profile",
+      "description": "Get Prince Carlo Juguilon's professional profile and public links.",
+      "readOnly": true
+    },
+    {
+      "name": "get_resume",
+      "description": "Get Prince Carlo Juguilon's structured resume and current PDF URL.",
+      "readOnly": true
+    },
+    {
+      "name": "list_projects",
+      "description": "List active or archived portfolio projects.",
+      "readOnly": true
+    },
+    {
+      "name": "list_blog_posts",
+      "description": "List published engineering articles with dates and URLs.",
+      "readOnly": true
+    }
+  ]
+}

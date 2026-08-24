@@ -1,0 +1,505 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Prince Juguilon Portfolio API",
+    "version": "1.0.0",
+    "description": "Public, read-only access to Prince Carlo Juguilon's professional profile, resume, portfolio projects, and engineering articles. No authentication is required.",
+    "contact": {
+      "name": "Prince Carlo Juguilon",
+      "url": "https://prince.juguilon.com/?tab=Contact"
+    },
+    "license": {
+      "name": "Public portfolio data; attribution appreciated",
+      "identifier": "LicenseRef-Public-Portfolio-Data"
+    }
+  },
+  "externalDocs": {
+    "description": "Prince Juguilon Developer Resources",
+    "url": "https://prince.juguilon.com/developers"
+  },
+  "servers": [
+    {
+      "url": "https://prince.juguilon.com",
+      "description": "Production (safe for testing; all operations are read-only)"
+    }
+  ],
+  "security": [],
+  "tags": [
+    {
+      "name": "Discovery",
+      "description": "API metadata and resource links."
+    },
+    {
+      "name": "Portfolio",
+      "description": "Prince Juguilon's public portfolio data."
+    }
+  ],
+  "paths": {
+    "/api/v1": {
+      "get": {
+        "operationId": "getApiIndex",
+        "summary": "Get the API index",
+        "description": "Returns the API version, authentication policy, documentation links, and canonical resource URLs.",
+        "tags": ["Discovery"],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "API metadata and resource links.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndex"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/profile": {
+      "get": {
+        "operationId": "getProfile",
+        "summary": "Get Prince Juguilon's profile",
+        "description": "Returns Prince Carlo Juguilon's role, professional summary, and public links.",
+        "tags": ["Portfolio"],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Prince Juguilon's public professional profile.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Profile"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/resume": {
+      "get": {
+        "operationId": "getResume",
+        "summary": "Get Prince Juguilon's resume",
+        "description": "Returns Prince Carlo Juguilon's current resume as structured JSON with a link to the generated PDF.",
+        "tags": ["Portfolio"],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "Prince Juguilon's current resume and PDF URL.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resume"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/projects": {
+      "get": {
+        "operationId": "listProjects",
+        "summary": "List portfolio projects",
+        "description": "Returns active portfolio projects by default, or the complete project history when status is all.",
+        "tags": ["Portfolio"],
+        "security": [],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "Select active projects or include the complete archived history.",
+            "schema": {
+              "type": "string",
+              "enum": ["active", "all"],
+              "default": "active"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of portfolio projects.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Project"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The status query parameter is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/blogs": {
+      "get": {
+        "operationId": "listBlogPosts",
+        "summary": "List engineering articles",
+        "description": "Returns Prince Carlo Juguilon's published engineering articles in reverse chronological order.",
+        "tags": ["Portfolio"],
+        "security": [],
+        "responses": {
+          "200": {
+            "description": "A list of published article summaries.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BlogPost"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApiIndex": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "version",
+          "authentication",
+          "documentation",
+          "openapi",
+          "resources"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Prince Juguilon Portfolio API"
+          },
+          "version": {
+            "type": "string",
+            "example": "1.0.0"
+          },
+          "authentication": {
+            "type": "string",
+            "const": "none",
+            "description": "All resources are public and read-only."
+          },
+          "documentation": {
+            "type": "string",
+            "format": "uri"
+          },
+          "openapi": {
+            "type": "string",
+            "format": "uri"
+          },
+          "resources": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["blogs", "profile", "projects", "resume"],
+            "properties": {
+              "blogs": {
+                "type": "string",
+                "format": "uri"
+              },
+              "profile": {
+                "type": "string",
+                "format": "uri"
+              },
+              "projects": {
+                "type": "string",
+                "format": "uri"
+              },
+              "resume": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        }
+      },
+      "Profile": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "role", "description", "links"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Prince Carlo Juguilon"
+          },
+          "role": {
+            "type": "string",
+            "example": "Senior Software Engineer"
+          },
+          "description": {
+            "type": "string"
+          },
+          "links": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["github", "linkedin", "resume", "x"],
+            "properties": {
+              "github": {
+                "type": "string",
+                "format": "uri"
+              },
+              "linkedin": {
+                "type": "string",
+                "format": "uri"
+              },
+              "resume": {
+                "type": "string",
+                "format": "uri"
+              },
+              "x": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          }
+        }
+      },
+      "Resume": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "location",
+          "contact",
+          "skills",
+          "experience",
+          "education",
+          "pdfUrl"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "contact": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "phone",
+              "email",
+              "linkedin",
+              "linkedinLabel",
+              "portfolio",
+              "portfolioLabel",
+              "github",
+              "githubLabel"
+            ],
+            "properties": {
+              "phone": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string",
+                "format": "email"
+              },
+              "linkedin": {
+                "type": "string",
+                "format": "uri"
+              },
+              "linkedinLabel": {
+                "type": "string"
+              },
+              "portfolio": {
+                "type": "string",
+                "format": "uri"
+              },
+              "portfolioLabel": {
+                "type": "string"
+              },
+              "github": {
+                "type": "string",
+                "format": "uri"
+              },
+              "githubLabel": {
+                "type": "string"
+              }
+            }
+          },
+          "skills": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["languages", "technologies"],
+            "properties": {
+              "languages": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "technologies": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "experience": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["company", "title", "location", "dates", "bullets"],
+              "properties": {
+                "company": {
+                  "type": "string"
+                },
+                "title": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                },
+                "dates": {
+                  "type": "string"
+                },
+                "bullets": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "education": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["degree", "school", "dates"],
+            "properties": {
+              "degree": {
+                "type": "string"
+              },
+              "school": {
+                "type": "string"
+              },
+              "dates": {
+                "type": "string"
+              }
+            }
+          },
+          "pdfUrl": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "Project": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "type",
+          "description",
+          "period",
+          "status",
+          "icon",
+          "image"
+        ],
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "description": "The project medium, such as Web Application."
+          },
+          "description": {
+            "type": "string"
+          },
+          "period": {
+            "type": "string",
+            "description": "The human-readable project date range."
+          },
+          "status": {
+            "type": "string",
+            "enum": ["active", "archived"]
+          },
+          "url": {
+            "type": ["string", "null"],
+            "format": "uri"
+          },
+          "repository": {
+            "type": ["string", "null"],
+            "format": "uri"
+          },
+          "icon": {
+            "type": "string",
+            "format": "uri"
+          },
+          "image": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "BlogPost": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["slug", "title", "description", "date", "url"],
+        "properties": {
+          "slug": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["error"],
+        "properties": {
+          "error": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["code", "message", "resolution"],
+            "properties": {
+              "code": {
+                "type": "string",
+                "example": "INVALID_STATUS"
+              },
+              "message": {
+                "type": "string"
+              },
+              "resolution": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

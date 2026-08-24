@@ -1,0 +1,23 @@
+# Prince Carlo Juguilon Portfolio
+
+> Prince Juguilon's portfolio presents his software engineering profile, projects, experience, and technical writing. Public developer resources are available for agents and integrations.
+
+## Developer resources
+
+- [Prince Juguilon Developer Portal](https://prince.juguilon.com/developers): API documentation, quickstarts, MCP setup, authentication policy, sandbox guidance, and versioning policy.
+- [OpenAPI specification](https://prince.juguilon.com/openapi.json): OpenAPI 3.1 description of the public read-only portfolio API.
+- [REST API index](https://prince.juguilon.com/api/v1): Links to all version 1 JSON resources.
+- [Resume API](https://prince.juguilon.com/api/v1/resume): Structured resume data and the current PDF URL.
+- [MCP server](https://prince.juguilon.com/api/mcp): Streamable HTTP Model Context Protocol endpoint with read-only profile, project, and blog tools.
+- [MCP server card](https://prince.juguilon.com/.well-known/mcp/server-card.json): Machine-readable MCP server metadata and tool list.
+- [Authentication policy](https://prince.juguilon.com/auth.md): The API and MCP server are public and require no credentials.
+
+## Content
+
+- [Home](https://prince.juguilon.com/): Profile, experience, projects, setup, and contact details.
+- [Blog listing](https://prince.juguilon.com/?tab=Blogs): Published engineering articles.
+- [Sitemap](https://prince.juguilon.com/sitemap.xml): Index of public pages.
+
+## Usage
+
+All documented API operations and MCP tools are public, read-only, and non-destructive. API keys and OAuth are not required. Use https://prince.juguilon.com/api/v1 as the REST base URL and https://prince.juguilon.com/api/mcp for MCP Streamable HTTP.

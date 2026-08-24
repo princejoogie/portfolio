@@ -2,9 +2,10 @@ import Link from "next/link";
 import { constants } from "@/lib/utils";
 
 const footerLinks = [
-  { label: "GitHub", href: constants.socials.github },
-  { label: "LinkedIn", href: constants.socials.linkedin },
-  { label: "X", href: constants.socials.twitter },
+  { label: "Developers", href: "/developers", external: false },
+  { label: "GitHub", href: constants.socials.github, external: true },
+  { label: "LinkedIn", href: constants.socials.linkedin, external: true },
+  { label: "X", href: constants.socials.twitter, external: true },
 ] as const;
 
 export const Footer = () => {
@@ -17,8 +18,8 @@ export const Footer = () => {
             <Link
               key={link.label}
               href={link.href}
-              target="_blank"
-              rel="noreferrer noopener"
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noreferrer noopener" : undefined}
               className="transition-colors hover:text-foreground"
             >
               {link.label}

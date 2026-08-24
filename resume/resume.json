@@ -1,0 +1,107 @@
+{
+  "name": "Prince Carlo Juguilon",
+  "location": "Taguig City, Philippines",
+  "contact": {
+    "phone": "+63 945 798 5711",
+    "email": "princejoogie@gmail.com",
+    "linkedin": "https://linkedin.com/in/princejoogie",
+    "linkedinLabel": "linkedin.com/in/princejoogie",
+    "portfolio": "https://prince.juguilon.com",
+    "portfolioLabel": "prince.juguilon.com",
+    "github": "https://github.com/princejoogie",
+    "githubLabel": "github.com/princejoogie"
+  },
+  "skills": {
+    "languages": ["TypeScript", "Rust", "Swift", "Lua", "SQL"],
+    "technologies": [
+      "Next.js",
+      "React",
+      "Node.js",
+      "Vercel AI SDK",
+      "Mastra",
+      "Langfuse",
+      "OpenTelemetry",
+      "MCP",
+      "tRPC",
+      "OpenAPI",
+      "Prisma",
+      "PostgreSQL",
+      "Typesense",
+      "Shopify APIs"
+    ]
+  },
+  "experience": [
+    {
+      "company": "Vervio",
+      "title": "AI Engineer",
+      "location": "Taguig City, Philippines",
+      "dates": "Sep 2025 - Present",
+      "bullets": [
+        "Built and launched an AI shopping assistant for a live retailer, covering product discovery, comparison, recommendations, and cart and checkout flows in an embedded storefront chat.",
+        "Raised correct product-widget responses from 15% to 100% in a key evaluation while reducing catalog prompt usage by about 83%.",
+        "Cut repeat AI image generation time by about 95% and paid generation requests by 67% with reusable outputs and caching."
+      ]
+    },
+    {
+      "company": "Focus Global Inc.",
+      "title": "Senior Software Engineer",
+      "location": "Taguig City, Philippines",
+      "dates": "May 2023 - 2025",
+      "bullets": [
+        "Designed and developed OMNI, a custom e-commerce platform inspired by Shopify, built from the ground up to seamlessly integrate with existing ERP systems like Microsoft Dynamics AX.",
+        "Migrated multiple WordPress-based e-commerce websites to NextJS, utilizing OMNI as the backend and administrative platform.",
+        "Led the development of CHAI, a centralized platform powered by large language models (LLMs) to help businesses manage and respond to customer support queries across various social media and e-commerce platforms, including Facebook, Instagram, Shopee, Lazada, and Gmail.",
+        "Played a key leadership role in driving architectural decisions, setting technical direction, and standardizing workflows for the team.",
+        "Mentored and collaborated directly with a team of four or more developers, providing guidance on best practices and ensuring quality deliverables."
+      ]
+    },
+    {
+      "company": "Whispir",
+      "title": "Software Engineer",
+      "location": "Taguig City, Philippines",
+      "dates": "Oct 2022 - Dec 2022",
+      "bullets": [
+        "Help customers communicate better with each other and automate messages between different social media platforms.",
+        "Create and managed buildkite pipelines for Continuous Integration.",
+        "Updated onboarding documents and setting up the local environments"
+      ]
+    },
+    {
+      "company": "Etica Digital",
+      "title": "Front End Developer",
+      "location": "Taguig City, Philippines",
+      "dates": "Jul 2021 - Aug 2022",
+      "bullets": [
+        "Worked on an all-in-one home services marketplace allowing you to connect everything you need for your home.",
+        "Migrated and optimized existing class based React components to functional React with hooks.",
+        "Contributed to the technical and architectural decisions like workflows, libraries used, and release dates."
+      ]
+    },
+    {
+      "company": "Freelance",
+      "title": "Full Stack Developer",
+      "location": "Taguig City, Philippines",
+      "dates": "Jan 2018 - May 2021",
+      "bullets": [
+        "Provided development and consulting services on Web, Mobile, and Desktop applications.",
+        "Create custom machine learning models used for various projects like object detection and image recognition.",
+        "Managed and overlooked two (2) developers while working on an e-commerce platform."
+      ]
+    },
+    {
+      "company": "Chamaeleon",
+      "title": "Full Stack Developer",
+      "location": "Taguig City, Philippines",
+      "dates": "Oct 2018 - Oct 2019",
+      "bullets": [
+        "Worked on a Farm-to-table platform that bridges farmers to consumers directly.",
+        "Developed and maintained a React-Native application for online bartering of goods and services."
+      ]
+    }
+  ],
+  "education": {
+    "degree": "Bachelor of Science in Computer Engineering",
+    "school": "Asia Pacific College",
+    "dates": "2018 - 2022"
+  }
+}

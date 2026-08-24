@@ -6,9 +6,21 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export const getBaseUrl = () => {
-  if (process.env.NEXT_PUBLIC_VERCEL_URL) {
-    return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+  const deploymentUrl =
+    process.env.NEXT_PUBLIC_VERCEL_URL ??
+    process.env.VERCEL_PROJECT_PRODUCTION_URL ??
+    process.env.VERCEL_URL;
+
+  if (deploymentUrl) {
+    return deploymentUrl.startsWith("http")
+      ? deploymentUrl
+      : `https://${deploymentUrl}`;
   }
+
+  if (process.env.NODE_ENV === "production") {
+    return "https://prince.juguilon.com";
+  }
+
   return "http://localhost:3000";
 };
 
@@ -28,9 +40,7 @@ export const constants = {
   socials: {
     github: "https://github.com/princejoogie",
     linkedin: "https://www.linkedin.com/in/princejoogie",
-    instagram: "https://www.instagram.com/princecaarlo",
     twitter: "https://twitter.com/princecaarlo",
-    blog: "https://blog.princecaarlo.tech",
     resume: "/assets/JUGUILON_PRINCE_CARLO_RESUME.pdf",
   },
 

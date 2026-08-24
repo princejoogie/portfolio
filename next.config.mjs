@@ -11,11 +11,6 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "github.com",
-        port: "",
-      },
-      {
-        protocol: "https",
         hostname: "img.shields.io",
         port: "",
       },
