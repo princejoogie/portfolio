@@ -8,6 +8,7 @@ import { GoogleAnalytics } from "@/components/gtag";
 import { Header } from "@/components/home/header";
 import DotPattern from "@/components/magicui/dot-pattern";
 import { MotionProvider } from "@/components/motion-provider";
+import { SiteNavigation } from "@/components/site-navigation";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn, constants, getBaseUrl } from "@/lib/utils";
 
@@ -15,8 +16,25 @@ const instrumentSans = Instrument_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   ...constants.defaultSeo,
+  alternates: {
+    canonical: "/",
+    types: {
+      "text/markdown": "/index.md",
+    },
+  },
   openGraph: {
+    type: "website",
+    title: constants.defaultSeo.title,
+    description: constants.defaultSeo.description,
+    siteName: "Prince Juguilon Portfolio",
+    url: "/",
     images: [{ url: "/api/og", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: constants.defaultSeo.title,
+    description: constants.defaultSeo.description,
+    images: ["/api/og"],
   },
   metadataBase: new URL(getBaseUrl()),
 };
@@ -46,6 +64,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
               <main className="flex-1 pt-8">
                 <Header />
                 <hr className="my-8" />
+                <SiteNavigation />
                 {children}
               </main>
               <Footer />

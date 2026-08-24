@@ -8,6 +8,12 @@ import { constants } from "@/lib/utils";
 
 import { Button } from "../ui/button";
 
+const webMcpAttributes = {
+  toolname: "book_call_with_prince_juguilon",
+  tooldescription:
+    "Open Prince Juguilon's public Cal.com page to choose a time for a 30-minute introductory call.",
+};
+
 export const Contact = () => {
   useEffect(() => {
     void (async () => {
@@ -34,14 +40,22 @@ export const Contact = () => {
           twitter
         </Link>
       </p>
-      <Button
+      <form
+        action="https://cal.com/joogie/30min"
+        method="get"
+        target="_blank"
         className="mt-4"
-        data-cal-namespace="30min"
-        data-cal-link="joogie/30min"
-        data-cal-config='{"layout":"month_view"}'
+        {...webMcpAttributes}
       >
-        Book a call
-      </Button>
+        <Button
+          type="submit"
+          data-cal-namespace="30min"
+          data-cal-link="joogie/30min"
+          data-cal-config='{"layout":"month_view"}'
+        >
+          Book a call
+        </Button>
+      </form>
     </div>
   );
 };

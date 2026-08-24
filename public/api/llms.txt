@@ -1,0 +1,13 @@
+# Prince Juguilon Portfolio API
+
+Use this scoped index when calling the versioned REST resources.
+
+- API guide: https://prince.juguilon.com/api.md
+- OpenAPI: https://prince.juguilon.com/openapi.json
+- Index: https://prince.juguilon.com/api/v1
+- Profile: https://prince.juguilon.com/api/v1/profile
+- Resume: https://prince.juguilon.com/api/v1/resume
+- Projects: https://prince.juguilon.com/api/v1/projects
+- Blogs: https://prince.juguilon.com/api/v1/blogs
+
+No credentials are required. Errors are JSON objects with code, message, and resolution fields.

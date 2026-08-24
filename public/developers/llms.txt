@@ -1,0 +1,12 @@
+# Prince Juguilon Developer Resources
+
+Use this scoped index for integration questions about the Prince Juguilon Portfolio API.
+
+- OpenAPI: https://prince.juguilon.com/openapi.json
+- REST index: https://prince.juguilon.com/api/v1
+- Portfolio MCP: https://prince.juguilon.com/api/mcp
+- Documentation MCP: https://prince.juguilon.com/api/mcp/docs
+- Authentication: https://prince.juguilon.com/auth.md
+- API catalog: https://prince.juguilon.com/.well-known/api-catalog
+
+All operations are public, anonymous, GET-only or read-only, idempotent, and non-destructive.

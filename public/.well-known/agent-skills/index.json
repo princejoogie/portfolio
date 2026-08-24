@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "name": "Prince Juguilon Portfolio Capabilities",
+  "description": "Machine-readable ways to retrieve Prince Carlo Juguilon's public professional information and developer documentation.",
+  "skills": [
+    {
+      "name": "Retrieve professional profile",
+      "description": "Get Prince Juguilon's role, professional summary, resume, and verified public profile links.",
+      "endpoint": "https://prince.juguilon.com/api/v1/profile"
+    },
+    {
+      "name": "Retrieve structured resume",
+      "description": "Get current skills, experience, education, contact details, and the canonical resume PDF URL.",
+      "endpoint": "https://prince.juguilon.com/api/v1/resume"
+    },
+    {
+      "name": "Explore portfolio projects",
+      "description": "List active projects or include archived work using the documented status query parameter.",
+      "endpoint": "https://prince.juguilon.com/api/v1/projects"
+    },
+    {
+      "name": "Read engineering articles",
+      "description": "List published technical articles with summaries, dates, and canonical URLs.",
+      "endpoint": "https://prince.juguilon.com/api/v1/blogs"
+    },
+    {
+      "name": "Call portfolio MCP tools",
+      "description": "Use Streamable HTTP MCP tools for profile, resume, project, and article retrieval.",
+      "endpoint": "https://prince.juguilon.com/api/mcp"
+    },
+    {
+      "name": "Read developer documentation through MCP",
+      "description": "Use a separate Streamable HTTP MCP server for API guidance, authentication policy, and the OpenAPI contract.",
+      "endpoint": "https://prince.juguilon.com/api/mcp/docs"
+    }
+  ]
+}

@@ -6,9 +6,12 @@ Personal portfolio site for [prince.juguilon.com](https://prince.juguilon.com), 
 
 This project is a single-app Next.js portfolio with:
 
-- a tabbed homepage for About, Blogs, Setup, and Contact
+- dedicated About, Blogs, Setup, and Contact routes with prefetched client-side navigation
 - statically generated MDX blog posts from local content
 - dynamic Open Graph image generation via `@vercel/og`
+- a public OpenAPI-described REST API plus portfolio and documentation MCP servers
+- agent discovery through `llms.txt`, markdown fallbacks, an Agent Skills index, an RFC 9727 API catalog, and NLWeb Schema Feeds
+- server-rendered Person, ProfilePage, Article, and breadcrumb structured data
 - animated UI built with Motion, Magic UI components, and shadcn-style primitives
 - a contact section wired to Cal.com embeds
 
@@ -66,14 +69,26 @@ Notes:
 src/
   app/
     layout.tsx          # global shell, metadata, analytics, background
-    page.tsx            # tabbed homepage entrypoint
+    page.tsx            # redirects browser traffic to /about
+    about/              # profile and experience
+    blog/               # article listing and static post pages
+    setup/              # development environment and desk setup
+    contact/            # contact and booking actions
     blog/[slug]/page.tsx# statically generated blog post pages
+    api/v1/             # public read-only portfolio REST API
+    api/mcp/            # portfolio and developer-documentation MCP servers
     api/og/route.tsx    # Open Graph image generation
+  proxy.ts              # agent mode and markdown content negotiation
   blogs/                # local MDX blog content
   components/           # homepage sections, UI primitives, Magic UI pieces
   lib/
     mdx.tsx             # MDX loading and rendering pipeline
+    structured-data.ts  # JSON-LD and schema-feed records
     utils.ts            # shared constants and helpers
+public/
+  llms.txt              # canonical agent index
+  openapi.json          # OpenAPI 3.1 contract
+  .well-known/          # API, MCP, and Agent Skills discovery
 ```
 
 ## Content Authoring
@@ -94,7 +109,7 @@ Important details:
 
 - blog ordering is based on the `date` field in frontmatter
 - post pages are generated from the file slug
-- `/blog` redirects to `/?tab=Blogs`
+- `/blog` renders the dedicated article listing
 - the homepage blog tab is populated from `getAllBlogsMeta()` in `src/lib/mdx.tsx`
 
 ## Styling And Conventions

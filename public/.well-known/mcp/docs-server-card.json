@@ -1,0 +1,28 @@
+{
+  "name": "Prince Juguilon Developer Documentation MCP",
+  "description": "Public read-only access to the portfolio API guide, authentication policy, and OpenAPI contract.",
+  "version": "1.0.0",
+  "serverUrl": "https://prince.juguilon.com/api/mcp/docs",
+  "transport": "streamable-http",
+  "authentication": {
+    "required": false
+  },
+  "documentationUrl": "https://prince.juguilon.com/developers",
+  "tools": [
+    {
+      "name": "get_api_overview",
+      "description": "Get API endpoints, protocol scope, quickstart instructions, and versioning guidance.",
+      "readOnly": true
+    },
+    {
+      "name": "get_authentication_guide",
+      "description": "Get the anonymous access policy and safe credential handling guidance.",
+      "readOnly": true
+    },
+    {
+      "name": "get_openapi_spec",
+      "description": "Get the complete OpenAPI 3.1 contract as JSON.",
+      "readOnly": true
+    }
+  ]
+}

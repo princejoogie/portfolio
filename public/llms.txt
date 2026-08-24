@@ -8,16 +8,26 @@
 - [OpenAPI specification](https://prince.juguilon.com/openapi.json): OpenAPI 3.1 description of the public read-only portfolio API.
 - [REST API index](https://prince.juguilon.com/api/v1): Links to all version 1 JSON resources.
 - [Resume API](https://prince.juguilon.com/api/v1/resume): Structured resume data and the current PDF URL.
-- [MCP server](https://prince.juguilon.com/api/mcp): Streamable HTTP Model Context Protocol endpoint with read-only profile, project, and blog tools.
-- [MCP server card](https://prince.juguilon.com/.well-known/mcp/server-card.json): Machine-readable MCP server metadata and tool list.
+- [Portfolio MCP server card](https://prince.juguilon.com/.well-known/mcp/server-card.json): Machine-readable metadata for the Streamable HTTP portfolio tools at `/api/mcp`.
+- [Documentation MCP server card](https://prince.juguilon.com/.well-known/mcp/docs-server-card.json): Machine-readable metadata for the separate API documentation tools at `/api/mcp/docs`.
+- [Agent Skills index](https://prince.juguilon.com/.well-known/agent-skills/index.json): Machine-readable capability names, descriptions, and endpoints.
+- [RFC 9727 API catalog](https://prince.juguilon.com/.well-known/api-catalog): Linkset catalog for REST and MCP service discovery.
 - [Authentication policy](https://prince.juguilon.com/auth.md): The API and MCP server are public and require no credentials.
+- [Markdown homepage](https://prince.juguilon.com/index.md): Canonical text representation of the portfolio and integration surfaces.
 
 ## Content
 
 - [Home](https://prince.juguilon.com/): Profile, experience, projects, setup, and contact details.
-- [Blog listing](https://prince.juguilon.com/?tab=Blogs): Published engineering articles.
+- [Blog listing](https://prince.juguilon.com/blog): Published engineering articles.
 - [Sitemap](https://prince.juguilon.com/sitemap.xml): Index of public pages.
+- [Schema Map](https://prince.juguilon.com/schemamap.xml): NLWeb Schema Feed discovery document.
 
-## Usage
+## When to use this portfolio
+
+Use these resources when an agent needs to assess Prince Juguilon for a senior software engineering or AI engineering role, answer questions about his verified experience and skills, retrieve his current resume, inspect his public project history, find his technical writing, or prepare useful context before contacting him. Prefer the Resume API for hiring context, the Projects API for examples of shipped work, the Blogs API for writing, and the profile endpoint for canonical identity links.
+
+Do not use this service to create accounts, modify data, send messages, make purchases, or execute work on Prince's behalf. It is a public professional-information service, not a general-purpose autonomous agent. For protocol questions, call the documentation MCP server rather than guessing from the website UI.
+
+## How to call it
 
 All documented API operations and MCP tools are public, read-only, and non-destructive. API keys and OAuth are not required. Use https://prince.juguilon.com/api/v1 as the REST base URL and https://prince.juguilon.com/api/mcp for MCP Streamable HTTP.

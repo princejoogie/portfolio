@@ -14,10 +14,12 @@
 
 - This is a single Next.js 16 app-router project, not a monorepo.
 - `src/app/layout.tsx` owns the global shell, default SEO metadata, hardcoded Google Analytics injection, and the background pattern.
-- `src/app/page.tsx` is the real home entrypoint. It is a server component that loads blog metadata and renders the tabbed homepage.
-- `src/app/blog/page.tsx` does not render its own page; it redirects to `/?tab=Blogs`.
+- `src/app/page.tsx` redirects human visitors to `/about`; `src/proxy.ts` still intercepts root agent-mode and markdown requests.
+- `/about`, `/blog`, `/setup`, and `/contact` are dedicated App Router pages linked by the persistent site navigation.
 - `src/app/blog/[slug]/page.tsx` statically builds blog post pages from local MDX content and also generates per-post OG image metadata.
 - `src/app/api/og/route.tsx` generates OG images with `@vercel/og`.
+- `src/app/api/v1` exposes public read-only portfolio JSON, while `/api/mcp` and `/api/mcp/docs` expose separate portfolio and documentation MCP servers.
+- `src/proxy.ts` handles the homepage's `?mode=agent` representation and `Accept: text/markdown` negotiation.
 
 ## Content And Data
 
@@ -25,6 +27,8 @@
 - `src/lib/mdx.tsx` is the content pipeline: it reads files directly from `src/blogs`, parses frontmatter with `compileMDX`, and wires custom MDX components plus rehype/remark plugins.
 - New blog posts need frontmatter that matches the current usage: `title`, `description`, and `date`.
 - Blog ordering comes from `getAllBlogsMeta()` sorting by `date`; broken or missing dates will affect listing order.
+- Agent discovery files, markdown fallbacks, MCP cards, and the OpenAPI contract live in `public/`; keep every URL declared in `public/llms.txt` resolvable.
+- `src/lib/structured-data.ts` is shared by in-page JSON-LD and the NLWeb schema feed.
 
 ## Conventions That Matter
 

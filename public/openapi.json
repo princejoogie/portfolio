@@ -6,7 +6,7 @@
     "description": "Public, read-only access to Prince Carlo Juguilon's professional profile, resume, portfolio projects, and engineering articles. No authentication is required.",
     "contact": {
       "name": "Prince Carlo Juguilon",
-      "url": "https://prince.juguilon.com/?tab=Contact"
+      "url": "https://prince.juguilon.com/contact"
     },
     "license": {
       "name": "Public portfolio data; attribution appreciated",
@@ -179,8 +179,11 @@
           "name",
           "version",
           "authentication",
+          "capabilities",
           "documentation",
           "openapi",
+          "mcp",
+          "discovery",
           "resources"
         ],
         "properties": {
@@ -197,6 +200,14 @@
             "const": "none",
             "description": "All resources are public and read-only."
           },
+          "capabilities": {
+            "type": "array",
+            "description": "The public portfolio data areas available through REST and MCP.",
+            "items": {
+              "type": "string",
+              "enum": ["profile", "resume", "projects", "articles"]
+            }
+          },
           "documentation": {
             "type": "string",
             "format": "uri"
@@ -204,6 +215,44 @@
           "openapi": {
             "type": "string",
             "format": "uri"
+          },
+          "mcp": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["portfolio", "documentation"],
+            "properties": {
+              "portfolio": {
+                "type": "string",
+                "format": "uri"
+              },
+              "documentation": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "discovery": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["agentSkills", "apiCatalog", "llms", "markdown"],
+            "properties": {
+              "agentSkills": {
+                "type": "string",
+                "format": "uri"
+              },
+              "apiCatalog": {
+                "type": "string",
+                "format": "uri"
+              },
+              "llms": {
+                "type": "string",
+                "format": "uri"
+              },
+              "markdown": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
           },
           "resources": {
             "type": "object",

@@ -1,13 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { JsonLd } from "@/components/json-ld";
 import { Button } from "@/components/ui/button";
+import { getBreadcrumbSchema } from "@/lib/structured-data";
 import { getBaseUrl } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Prince Juguilon Developer Resources",
   description:
     "API documentation, OpenAPI specification, and MCP server for Prince Juguilon's public portfolio data.",
+  alternates: {
+    canonical: "/developers",
+    types: { "text/markdown": "/developers.md" },
+  },
+  openGraph: {
+    type: "website",
+    title: "Prince Juguilon Developer Resources",
+    description:
+      "API documentation, OpenAPI specification, and MCP servers for Prince Juguilon's public portfolio data.",
+    url: "/developers",
+  },
 };
 
 const endpoints = [
@@ -36,6 +49,12 @@ export default function DevelopersPage() {
 
   return (
     <article>
+      <JsonLd
+        data={getBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Developers", path: "/developers" },
+        ])}
+      />
       <h2 className="text-2xl">Prince Juguilon Developer Resources</h2>
       <p className="mt-2">
         Public, read-only access to this portfolio&apos;s profile, resume,
@@ -48,7 +67,10 @@ export default function DevelopersPage() {
           <Link href="/openapi.json">OpenAPI specification</Link>
         </Button>
         <Button asChild variant="outline">
-          <Link href="/api/mcp">MCP endpoint</Link>
+          <Link href="/.well-known/mcp/server-card.json">MCP server card</Link>
+        </Button>
+        <Button asChild variant="outline">
+          <Link href="/.well-known/api-catalog">API catalog</Link>
         </Button>
       </div>
 
@@ -100,6 +122,13 @@ export default function DevelopersPage() {
       <pre className="mt-3 overflow-x-auto rounded-md border border-border bg-muted p-3 text-sm">
         <code>{mcpConfig}</code>
       </pre>
+      <p className="mt-3 text-sm text-muted-foreground">
+        A separate documentation MCP server is available at{" "}
+        <code className="rounded bg-muted p-1 text-foreground">
+          /api/mcp/docs
+        </code>{" "}
+        for API guidance, authentication policy, and the OpenAPI contract.
+      </p>
 
       <h3 className="mt-10 text-xl">Authentication</h3>
       <p className="mt-2">
@@ -127,6 +156,15 @@ export default function DevelopersPage() {
         </code>
         . Breaking changes will use a new path prefix. The OpenAPI document and
         MCP connection URL remain stable discovery endpoints.
+      </p>
+
+      <h3 className="mt-10 text-xl">Protocol scope</h3>
+      <p className="mt-2">
+        This portfolio exposes REST and MCP interfaces only. It has no GraphQL
+        endpoint, write operations, webhooks, payments, user accounts, or API
+        key registration flow. Idempotency keys, OAuth metadata, GraphQL
+        pagination, and mutation error models therefore do not apply to this
+        API.
       </p>
     </article>
   );
