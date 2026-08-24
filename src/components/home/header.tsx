@@ -11,40 +11,17 @@ export const Header = () => {
       <div className="order-2">
         <h1 className="mt-2 text-2xl">Prince Carlo Juguilon</h1>
         <p className="text-muted-foreground">Senior Software Engineer</p>
-        <p className="mt-3 max-w-2xl">
-          I build production AI assistants, internal tools, automation systems,
-          and commerce platforms for teams shipping real customer experiences.
-        </p>
-        <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-          Currently an AI Engineer at Vervio Digital. For employment,
-          consulting, or product collaboration enquiries, use the contact page
-          below.
-        </p>
 
-        <div className="mt-4 flex flex-wrap gap-2">
-          <Link
-            href="/projects"
-            className="inline-flex items-center rounded-md bg-foreground px-3 py-1.5 text-sm text-background transition-opacity hover:opacity-85"
-          >
-            View projects
-          </Link>
-          <Link
-            href="/contact"
-            className="inline-flex items-center rounded-md border border-border px-3 py-1.5 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
-          >
-            Contact
-          </Link>
-          <Link
-            href={constants.socials.resume}
-            target="_blank"
-            rel="noreferrer noopener"
-            className="inline-flex items-center rounded-md border border-border px-3 py-1.5 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
-          >
-            Resume
-          </Link>
-        </div>
+        <Link
+          href={constants.socials.resume}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="mt-3 inline-flex items-center rounded-md border border-border px-3 py-1.5 text-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+        >
+          Resume
+        </Link>
 
-        <div className="mt-6 flex flex-row items-center gap-4">
+        <div className="mt-8 flex flex-row items-center gap-4">
           <Link
             href={constants.socials.github}
             target="_blank"
