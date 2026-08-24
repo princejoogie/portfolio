@@ -67,7 +67,7 @@ export const Timeline = () => {
             <h3 className="title flex items-center text-foreground">
               {exp.title}{" "}
             </h3>
-            <div className="flex items-center text-slate-500 text-sm dark:text-slate-400">
+            <div className="flex items-center text-sm text-slate-500 dark:text-slate-400">
               {exp.companyLink ? (
                 <Link
                   href={exp.companyLink}

@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Instrument_Sans } from "next/font/google";
 import type { ReactNode } from "react";
+
 import { Footer } from "@/components/footer";
 import { GoogleAnalytics } from "@/components/gtag";
 import { Header } from "@/components/home/header";
@@ -36,7 +37,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
           width={20}
           height={20}
           className={cn(
-            "fixed inset-0 z-[-1] opacity-30 [mask-image:radial-gradient(50vw_circle_at_center,red,transparent)]",
+            "fixed inset-0 z-[-1] [mask-image:radial-gradient(50vw_circle_at_center,red,transparent)] opacity-30",
           )}
         />
         <ThemeProvider>

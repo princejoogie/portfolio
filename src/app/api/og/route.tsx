@@ -1,5 +1,6 @@
 import { ImageResponse } from "@vercel/og";
 import type { CSSProperties } from "react";
+
 import { constants } from "@/lib/utils";
 
 const { defaultSeo } = constants;
@@ -67,7 +68,7 @@ export const GET = async (req: Request) => {
 
       <div style={footerStyle}>
         <div style={rowStyle}>
-          {/* biome-ignore lint/performance/noImgElement: okay */}
+          {/* oxlint-disable-next-line nextjs/no-img-element -- @vercel/og requires a plain image element. */}
           <img
             alt="avatar"
             width="48"

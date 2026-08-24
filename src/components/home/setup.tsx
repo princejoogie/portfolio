@@ -95,7 +95,7 @@ export const Setup = () => {
         </li>
       </ul>
 
-      <p className="mt-4 text-muted-foreground text-sm">
+      <p className="mt-4 text-sm text-muted-foreground">
         Full list of configs are in my{" "}
         <Link
           className="underline"

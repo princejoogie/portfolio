@@ -1,6 +1,7 @@
 import { ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
+
 import type { AllBlogsMeta } from "@/lib/mdx";
 import { getAllBlogsMeta, getBlogBySlug } from "@/lib/mdx";
 import { createSearchParams } from "@/lib/utils";
@@ -43,7 +44,7 @@ const BlogItemPage = async (props: PageProps) => {
   return (
     <div className="flex flex-col gap-4 xl:flex-row">
       <div className="w-full">
-        <div className="flex items-center justify-between text-muted-foreground text-sm">
+        <div className="flex items-center justify-between text-sm text-muted-foreground">
           <Link
             href="/blog"
             replace
@@ -58,7 +59,7 @@ const BlogItemPage = async (props: PageProps) => {
             <p>{meta.date}</p>
           </div>
         </div>
-        <article className="prose-sm dark:prose-invert max-w-none">
+        <article className="prose-sm max-w-none dark:prose-invert">
           {content}
         </article>
       </div>

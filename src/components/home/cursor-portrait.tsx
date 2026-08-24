@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useTheme } from "next-themes";
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 const directionFrames = [
@@ -49,13 +49,13 @@ export const CursorPortrait = () => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     if (!canvas || !context || !resolvedTheme) {
-      return;
+      return undefined;
     }
 
     canvas.style.opacity = "0";
     canvas.style.transform = "none";
 
-    if (!precisePointer.matches || reducedMotion.matches) return;
+    if (!precisePointer.matches || reducedMotion.matches) return undefined;
 
     const portraitTheme = resolvedTheme === "dark" ? "dark" : "light";
     let isActive = true;

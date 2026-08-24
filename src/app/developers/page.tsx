@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
 import { getBaseUrl } from "@/lib/utils";
 
@@ -52,7 +53,7 @@ export default function DevelopersPage() {
       </div>
 
       <h3 className="mt-10 text-xl">Quickstart</h3>
-      <p className="mt-2 text-muted-foreground text-sm">
+      <p className="mt-2 text-sm text-muted-foreground">
         No account, API key, or OAuth flow is required.
       </p>
       <pre className="mt-3 overflow-x-auto rounded-md border border-border bg-muted p-3 text-sm">
@@ -68,7 +69,7 @@ export default function DevelopersPage() {
           </li>
         ))}
       </ul>
-      <p className="mt-3 text-muted-foreground text-sm">
+      <p className="mt-3 text-sm text-muted-foreground">
         See the machine-readable{" "}
         <Link className="underline" href="/openapi.json">
           OpenAPI 3.1 specification

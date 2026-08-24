@@ -1,6 +1,8 @@
 import Link from "next/link";
+
 import { ThemeSwitcher } from "@/components/theme-switcher";
 import { constants } from "@/lib/utils";
+
 import { CursorPortrait } from "./cursor-portrait";
 
 export const Header = () => {

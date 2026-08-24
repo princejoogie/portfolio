@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+
 import { Contact } from "@/components/home";
 import { About } from "@/components/home/about";
 import { Blogs } from "@/components/home/blogs";

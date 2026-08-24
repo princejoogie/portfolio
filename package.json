@@ -8,7 +8,11 @@
     "prebuild": "pnpm build:resume",
     "build": "next build",
     "start": "next start",
-    "check": "biome check"
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
+    "lint": "oxlint .",
+    "lint:fix": "oxlint --fix .",
+    "check": "pnpm format:check && pnpm lint"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
@@ -37,13 +41,15 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.4.12",
     "@flukxr/typst-cli": "0.15.1-npm.0",
     "@tailwindcss/postcss": "^4.2.2",
     "@tailwindcss/typography": "^0.5.19",
     "@types/mdx": "^2.0.13",
     "@types/node": "^25.6.0",
     "@types/react": "^19.2.14",
+    "oxfmt": "0.64.0",
+    "oxlint": "1.79.0",
+    "oxlint-tsgolint": "^7.0.2001",
     "postcss": "^8.5.10",
     "typescript": "^6.0.3"
   },

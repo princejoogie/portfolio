@@ -39,7 +39,7 @@ export default function WordRotate({
   const animateWave = useEffectEvent(() => {
     if (!leading || shouldReduceMotion) return;
 
-    waveControls.start({
+    void waveControls.start({
       rotate: [0, 18, -10, 18, -6, 10, 0],
       transition: {
         duration: 0.7,
@@ -50,7 +50,7 @@ export default function WordRotate({
   });
 
   useEffect(() => {
-    if (shouldReduceMotion) return;
+    if (shouldReduceMotion) return undefined;
 
     animateWave();
 

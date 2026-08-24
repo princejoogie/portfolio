@@ -1,6 +1,8 @@
 import Link from "next/link";
+
 import { Timeline } from "@/components/timeline";
 import { constants } from "@/lib/utils";
+
 import WordRotate from "../magicui/word-rotate";
 
 export const About = () => {

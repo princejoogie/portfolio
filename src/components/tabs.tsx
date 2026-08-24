@@ -8,13 +8,13 @@ import {
   type Variants,
 } from "motion/react";
 import { type ReactNode, useState } from "react";
+
 import { useQueryParams } from "@/hooks/use-query-params";
 
 type TabItemProps<T extends string> = {
   text: T;
   selected: boolean;
   reducedMotion: boolean;
-  // eslint-disable-next-line no-unused-vars
   onSelect: (tab: T) => void;
 };
 
@@ -105,11 +105,11 @@ export const Tabs = <T extends readonly string[]>({
             text={tab}
             selected={activeTab === tab}
             reducedMotion={shouldReduceMotion}
-            onSelect={(tab) => {
+            onSelect={(selectedTab) => {
               if (!shouldReduceMotion && isAnimating) return;
-              const newTabIndex = tabs.indexOf(tab);
+              const newTabIndex = tabs.indexOf(selectedTab);
               setDirection(newTabIndex > tabIndex ? 1 : -1);
-              setCurrentTab(tab);
+              setCurrentTab(selectedTab);
             }}
             key={tab}
           />

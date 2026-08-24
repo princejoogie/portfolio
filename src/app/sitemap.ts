@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+
 import { getAllBlogsMeta } from "@/lib/mdx";
 import { getBaseUrl } from "@/lib/utils";
 

@@ -1,15 +1,17 @@
 import fs from "node:fs";
 import path from "node:path";
+
 import { ExternalLink, Link } from "lucide-react";
 import type { MDXComponents } from "mdx/types";
-import Image from "next/image";
 import { compileMDX } from "next-mdx-remote/rsc";
+import Image from "next/image";
 import { type ComponentProps, isValidElement, type ReactNode } from "react";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode, { type Options } from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 import type { BuiltinTheme } from "shiki";
+
 import { BlogCodeBlock } from "@/components/blog-code-block";
 import { cn } from "@/lib/utils";
 
@@ -117,7 +119,7 @@ const components: MDXComponents = {
       <BlogCodeBlock language={language} code={code}>
         <pre
           className={cn(
-            "overflow-x-auto whitespace-pre-wrap break-words bg-transparent p-2 text-sm shadow-none outline-none",
+            "overflow-x-auto bg-transparent p-2 text-sm break-words whitespace-pre-wrap shadow-none outline-none",
             className,
           )}
           {...props}
@@ -276,7 +278,7 @@ export const getAllBlogsMeta = async () => {
       return meta;
     }),
   );
-  const sorted = posts.sort((a, b) => {
+  const sorted = posts.toSorted((a, b) => {
     if (new Date(a.date ?? "") < new Date(b.date ?? "")) return 1;
     else return -1;
   });

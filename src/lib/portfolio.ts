@@ -1,5 +1,6 @@
 import { getAllBlogsMeta } from "@/lib/mdx";
 import { constants, getBaseUrl } from "@/lib/utils";
+
 import resume from "../../resume/resume.json";
 
 export const getProfile = () => ({

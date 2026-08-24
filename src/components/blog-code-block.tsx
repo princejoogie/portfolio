@@ -2,6 +2,7 @@
 
 import { Braces, Check, Copy, FileCode2, TerminalSquare } from "lucide-react";
 import { useState } from "react";
+
 import { Button } from "@/components/ui/button";
 
 type BlogCodeBlockProps = {
@@ -14,14 +15,14 @@ const getLanguageIcon = (language: string) => {
   const normalized = language.toLowerCase();
 
   if (["bash", "shell", "sh", "zsh", "console"].includes(normalized)) {
-    return TerminalSquare;
+    return <TerminalSquare className="size-4" />;
   }
 
   if (["json", "yaml", "yml", "toml"].includes(normalized)) {
-    return Braces;
+    return <Braces className="size-4" />;
   }
 
-  return FileCode2;
+  return <FileCode2 className="size-4" />;
 };
 
 export const BlogCodeBlock = ({
@@ -30,7 +31,6 @@ export const BlogCodeBlock = ({
   language,
 }: BlogCodeBlockProps) => {
   const [copied, setCopied] = useState(false);
-  const Icon = getLanguageIcon(language);
 
   const handleCopy = async () => {
     await navigator.clipboard.writeText(code);
@@ -43,9 +43,9 @@ export const BlogCodeBlock = ({
 
   return (
     <div className="not-prose overflow-hidden rounded-md border border-white/10 bg-[#292d3e] text-[#babed8]">
-      <div className="flex items-center justify-between border-white/10 border-b bg-[#252837] px-3 py-1.5">
-        <div className="flex items-center gap-2 text-slate-300 text-xs uppercase tracking-[0.14em]">
-          <Icon className="size-4" />
+      <div className="flex items-center justify-between border-b border-white/10 bg-[#252837] px-3 py-1.5">
+        <div className="flex items-center gap-2 text-xs tracking-[0.14em] text-slate-300 uppercase">
+          {getLanguageIcon(language)}
           <span className="text-xs">{language}</span>
         </div>
 
@@ -53,7 +53,7 @@ export const BlogCodeBlock = ({
           type="button"
           variant="ghost"
           size="sm"
-          className="h-6 gap-1.5 px-2 text-slate-300 text-xs hover:bg-white/10 hover:text-white"
+          className="h-6 gap-1.5 px-2 text-xs text-slate-300 hover:bg-white/10 hover:text-white"
           onClick={handleCopy}
         >
           {copied ? (

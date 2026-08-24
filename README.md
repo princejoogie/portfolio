@@ -18,7 +18,7 @@ This project is a single-app Next.js portfolio with:
 - React 19
 - TypeScript
 - Tailwind CSS v4
-- Biome for linting, formatting, and import organization
+- oxlint and oxfmt for linting, formatting, and import organization
 - `next-mdx-remote` for MDX content compilation
 - `rehype-pretty-code` + Shiki for code block rendering
 - Radix UI primitives
@@ -47,15 +47,17 @@ Open `http://localhost:3000`.
 ## Available Commands
 
 ```bash
-pnpm dev    # start the local development server
-pnpm check  # run Biome across the repo
-pnpm build  # production build
-pnpm start  # run the production server
+pnpm dev     # start the local development server
+pnpm format  # format files, imports, and Tailwind classes
+pnpm lint    # run type-aware lint checks
+pnpm check   # verify formatting and linting
+pnpm build   # production build
+pnpm start   # run the production server
 ```
 
 Notes:
 
-- `pnpm check` is the only dedicated lint/format command.
+- `pnpm check` runs `oxfmt --check` followed by oxlint.
 - There is no separate test runner or standalone typecheck script in this repo.
 
 ## Project Structure
@@ -99,12 +101,13 @@ Important details:
 
 - use the `@/*` import alias for `src/*`
 - use `cn()` from `src/lib/utils.ts` for class merging
-- Biome enforces double quotes, import organization, and sorted Tailwind classes
+- oxfmt enforces double quotes, import organization, and sorted Tailwind classes
+- oxlint checks TypeScript, React, accessibility, imports, and Next.js usage
 - shadcn-style aliases are configured for `@/components/ui` and `@/components/magicui`
 
 ## Environment Notes
 
-- `getBaseUrl()` only checks `NEXT_PUBLIC_VERCEL_URL` when building absolute metadata URLs
+- `getBaseUrl()` uses Vercel deployment URLs and the production domain for absolute metadata URLs
 - bundle analysis is only enabled when `ANALYZE=true`
 - Google Analytics is currently hardcoded in `src/components/gtag.tsx`
 
@@ -119,7 +122,7 @@ pnpm build
 pnpm start
 ```
 
-If deploying on Vercel, set `NEXT_PUBLIC_VERCEL_URL` so metadata and OG URLs resolve correctly.
+Vercel deployment URLs are detected automatically; production falls back to `prince.juguilon.com`.
 
 ## Contributing
 

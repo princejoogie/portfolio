@@ -36,7 +36,6 @@ export const useQueryParams = <T extends ValidValues>(
   name: string,
   defaultValue?: T,
   options?: { scroll?: boolean },
-  // eslint-disable-next-line no-unused-vars
 ): [T | null, (newValue: T | null) => void] => {
   const pathname = usePathname();
   const router = useRouter();
