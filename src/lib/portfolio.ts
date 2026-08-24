@@ -5,13 +5,20 @@ import resume from "../../resume/resume.json";
 
 export const getProfile = () => ({
   name: "Prince Carlo Juguilon",
-  role: "Senior Software Engineer",
+  role: "AI Engineer and Senior Software Engineer",
   description: constants.defaultSeo.description,
   links: {
+    contact: new URL("/contact", getBaseUrl()).toString(),
     github: constants.socials.github,
     linkedin: constants.socials.linkedin,
+    projects: new URL("/projects", getBaseUrl()).toString(),
     resume: new URL(constants.socials.resume, getBaseUrl()).toString(),
     x: constants.socials.twitter,
+  },
+  engagement: {
+    inquiryTypes: ["employment", "consulting", "product collaboration"],
+    availability: "Scope-dependent",
+    contact: new URL("/contact", getBaseUrl()).toString(),
   },
 });
 

@@ -7,7 +7,6 @@ import { Footer } from "@/components/footer";
 import { GoogleAnalytics } from "@/components/gtag";
 import { Header } from "@/components/home/header";
 import DotPattern from "@/components/magicui/dot-pattern";
-import { MotionProvider } from "@/components/motion-provider";
 import { SiteNavigation } from "@/components/site-navigation";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cn, constants, getBaseUrl } from "@/lib/utils";
@@ -59,17 +58,15 @@ const RootLayout = ({ children }: RootLayoutProps) => {
           )}
         />
         <ThemeProvider>
-          <MotionProvider>
-            <div className="container mx-auto flex min-h-screen w-full max-w-3xl flex-col px-4">
-              <main className="flex-1 pt-8">
-                <Header />
-                <hr className="my-8" />
-                <SiteNavigation />
-                {children}
-              </main>
-              <Footer />
-            </div>
-          </MotionProvider>
+          <div className="container mx-auto flex min-h-screen w-full max-w-3xl flex-col px-4">
+            <main className="flex-1 pt-8">
+              <Header />
+              <hr className="my-8" />
+              <SiteNavigation />
+              {children}
+            </main>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>

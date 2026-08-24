@@ -5,24 +5,10 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export const getBaseUrl = () => {
-  const deploymentUrl =
-    process.env.NEXT_PUBLIC_VERCEL_URL ??
-    process.env.VERCEL_PROJECT_PRODUCTION_URL ??
-    process.env.VERCEL_URL;
+export const siteUrl = "https://prince.juguilon.com";
 
-  if (deploymentUrl) {
-    return deploymentUrl.startsWith("http")
-      ? deploymentUrl
-      : `https://${deploymentUrl}`;
-  }
-
-  if (process.env.NODE_ENV === "production") {
-    return "https://prince.juguilon.com";
-  }
-
-  return "http://localhost:3000";
-};
+export const getBaseUrl = () =>
+  process.env.NODE_ENV === "development" ? "http://localhost:3000" : siteUrl;
 
 export const createSearchParams = (
   baseUrl: string,
@@ -47,7 +33,7 @@ export const constants = {
   defaultSeo: {
     title: "Prince Carlo Juguilon",
     description:
-      "A passionate Senior Software Engineer with a knack for crafting innovative solutions and a love for clean, efficient code. My journey in software development has been fueled by a curiosity for technology and a desire to create impactful applications that enhance user experiences.",
+      "Prince Carlo Juguilon is an AI Engineer and Senior Software Engineer in the Philippines who builds production AI assistants, internal tools, automation systems, and commerce platforms.",
   },
 
   projects: [
@@ -83,6 +69,7 @@ export const constants = {
       subtitle: "Mobile Application",
       description:
         "A cross-platform mobile app for all-in-one car service booking and management.",
+      href: null,
       github: "https://github.com/qwashie/quickie-washie-v2",
       date: "2022 - 2022",
     },

@@ -6,12 +6,15 @@ Prince Carlo Juguilon is a Senior Software Engineer based in Taguig City, Philip
 
 Prince builds customer-facing AI products, internal tools, and web platforms with TypeScript, React, Next.js, Node.js, PostgreSQL, OpenTelemetry, and Model Context Protocol integrations. He has led architecture and delivery decisions, mentored engineers, migrated commerce experiences, and developed products spanning retail, communications, customer support, mobile applications, and marketplaces.
 
+He currently works full-time at Vervio Digital and welcomes enquiries about senior AI or software engineering roles, consulting, and focused product collaborations. Availability depends on scope; use the [contact page](https://prince.juguilon.com/contact) to enquire.
+
 ## Verified resources
 
 - [Structured profile](https://prince.juguilon.com/api/v1/profile)
 - [Structured resume](https://prince.juguilon.com/api/v1/resume)
 - [Resume PDF](https://prince.juguilon.com/assets/JUGUILON_PRINCE_CARLO_RESUME.pdf)
 - [Portfolio projects](https://prince.juguilon.com/api/v1/projects)
+- [Selected project case studies](https://prince.juguilon.com/projects)
 - [Engineering articles](https://prince.juguilon.com/api/v1/blogs)
 - [About](https://prince.juguilon.com/about)
 - [Contact](https://prince.juguilon.com/contact)

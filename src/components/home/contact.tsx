@@ -29,16 +29,29 @@ export const Contact = () => {
   return (
     <div>
       <p>
-        Let&#39;s work on something together, you can book a meeting below or
-        drop a dm on{" "}
+        For employment, consulting, or product collaboration enquiries, email{" "}
+        <Link className="underline" href="mailto:princejoogie@gmail.com">
+          princejoogie@gmail.com
+        </Link>
+        , connect on{" "}
+        <Link
+          className="underline"
+          href={constants.socials.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn
+        </Link>
+        , send a message on{" "}
         <Link
           className="underline"
           href={constants.socials.twitter}
           target="_blank"
           rel="noopener noreferrer"
         >
-          twitter
+          X
         </Link>
+        , or book a 30-minute introduction below.
       </p>
       <form
         action="https://cal.com/joogie/30min"

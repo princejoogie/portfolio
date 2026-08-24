@@ -42,4 +42,4 @@
 
 - Tailwind v4 is enabled through `@tailwindcss/postcss` in `postcss.config.js`, but the repo still keeps `tailwind.config.js` for theme/plugins and shadcn config.
 - `next.config.mjs` enables bundle analysis only when `ANALYZE=true`.
-- `getBaseUrl()` checks Vercel deployment URLs and falls back to the production domain outside development.
+- `getBaseUrl()` uses localhost during development and always returns `https://prince.juguilon.com` for production and preview builds; canonical URLs must never use Vercel deployment domains.

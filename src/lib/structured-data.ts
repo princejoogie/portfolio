@@ -10,7 +10,7 @@ export const getPersonSchema = () => ({
   alternateName: "Prince Juguilon",
   url: getBaseUrl(),
   image: getUrl("/portraits/prince-center.webp"),
-  jobTitle: "Senior Software Engineer",
+  jobTitle: ["AI Engineer", "Senior Software Engineer"],
   description: constants.defaultSeo.description,
   email: "mailto:princejoogie@gmail.com",
   homeLocation: {

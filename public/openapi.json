@@ -282,7 +282,7 @@
       "Profile": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["name", "role", "description", "links"],
+        "required": ["name", "role", "description", "links", "engagement"],
         "properties": {
           "name": {
             "type": "string",
@@ -298,8 +298,19 @@
           "links": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["github", "linkedin", "resume", "x"],
+            "required": [
+              "contact",
+              "github",
+              "linkedin",
+              "projects",
+              "resume",
+              "x"
+            ],
             "properties": {
+              "contact": {
+                "type": "string",
+                "format": "uri"
+              },
               "github": {
                 "type": "string",
                 "format": "uri"
@@ -308,11 +319,37 @@
                 "type": "string",
                 "format": "uri"
               },
+              "projects": {
+                "type": "string",
+                "format": "uri"
+              },
               "resume": {
                 "type": "string",
                 "format": "uri"
               },
               "x": {
+                "type": "string",
+                "format": "uri"
+              }
+            }
+          },
+          "engagement": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["inquiryTypes", "availability", "contact"],
+            "properties": {
+              "inquiryTypes": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": ["employment", "consulting", "product collaboration"]
+                }
+              },
+              "availability": {
+                "type": "string",
+                "example": "Scope-dependent"
+              },
+              "contact": {
                 "type": "string",
                 "format": "uri"
               }

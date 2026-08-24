@@ -18,6 +18,7 @@
 ## Content
 
 - [Home](https://prince.juguilon.com/): Profile, experience, projects, setup, and contact details.
+- [Projects](https://prince.juguilon.com/projects): Human-readable project history with live and source links.
 - [Blog listing](https://prince.juguilon.com/blog): Published engineering articles.
 - [Sitemap](https://prince.juguilon.com/sitemap.xml): Index of public pages.
 - [Schema Map](https://prince.juguilon.com/schemamap.xml): NLWeb Schema Feed discovery document.

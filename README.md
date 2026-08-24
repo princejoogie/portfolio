@@ -122,7 +122,7 @@ Important details:
 
 ## Environment Notes
 
-- `getBaseUrl()` uses Vercel deployment URLs and the production domain for absolute metadata URLs
+- `getBaseUrl()` uses localhost in development and always uses `https://prince.juguilon.com` for production and preview builds
 - bundle analysis is only enabled when `ANALYZE=true`
 - Google Analytics is currently hardcoded in `src/components/gtag.tsx`
 
@@ -137,7 +137,7 @@ pnpm build
 pnpm start
 ```
 
-Vercel deployment URLs are detected automatically; production falls back to `prince.juguilon.com`.
+Production and preview deployments publish canonical URLs for `https://prince.juguilon.com`; Vercel deployment domains are never exposed as canonical API, metadata, or discovery URLs.
 
 ## Contributing
 

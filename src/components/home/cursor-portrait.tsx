@@ -213,7 +213,7 @@ export const CursorPortrait = () => {
         alt=""
         aria-hidden="true"
         fill
-        priority
+        unoptimized
         sizes="96px"
         src="/portraits/prince-center.webp"
         className="object-cover dark:hidden"
@@ -222,7 +222,7 @@ export const CursorPortrait = () => {
         alt=""
         aria-hidden="true"
         fill
-        priority
+        unoptimized
         sizes="96px"
         src="/portraits/dark/prince-center.webp"
         className="hidden object-cover dark:block"

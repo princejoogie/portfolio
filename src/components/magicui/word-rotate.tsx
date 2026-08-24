@@ -10,6 +10,7 @@ import {
 import type { ReactNode } from "react";
 import { useEffect, useEffectEvent, useState } from "react";
 
+import { MotionProvider } from "@/components/motion-provider";
 import { cn } from "@/lib/utils";
 
 type WordRotateProps = {
@@ -79,28 +80,30 @@ export default function WordRotate({
   }
 
   return (
-    <div className="inline-flex min-h-[1lh] items-center gap-2 overflow-hidden">
-      {leading ? (
-        <m.span
-          aria-hidden="true"
-          className="inline-flex"
-          animate={waveControls}
-          initial={{ rotate: 0 }}
-          style={{ originX: 0.7, originY: 0.7 }}
-        >
-          {leading}
-        </m.span>
-      ) : null}
-      <AnimatePresence initial={false} mode="wait">
-        <m.span
-          key={currentWord}
-          className={cn("inline-block leading-none", className)}
-          initial={false}
-          {...framerProps}
-        >
-          {currentWord}
-        </m.span>
-      </AnimatePresence>
-    </div>
+    <MotionProvider>
+      <div className="inline-flex min-h-[1lh] items-center gap-2 overflow-hidden">
+        {leading ? (
+          <m.span
+            aria-hidden="true"
+            className="inline-flex"
+            animate={waveControls}
+            initial={{ rotate: 0 }}
+            style={{ originX: 0.7, originY: 0.7 }}
+          >
+            {leading}
+          </m.span>
+        ) : null}
+        <AnimatePresence initial={false} mode="wait">
+          <m.span
+            key={currentWord}
+            className={cn("inline-block leading-none", className)}
+            initial={false}
+            {...framerProps}
+          >
+            {currentWord}
+          </m.span>
+        </AnimatePresence>
+      </div>
+    </MotionProvider>
   );
 }
